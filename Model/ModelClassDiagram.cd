@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Model.Bestelitem">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <AssociationLine Name="Bestelling" Type="Model.Bestelling">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.06" Y="0.1" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="Menuitem" Type="Model.Menuitem">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.05" Y="0.131" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAAAAAAAAAAAEAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>Bestelitem.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Bestelling" />
+      <Property Name="Menuitem" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Model.Bestelling">
+    <Position X="0.5" Y="1" Width="1.5" />
+    <AssociationLine Name="Bezoek" Type="Model.Bezoek">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.037" Y="0.07" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Bestelling.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Bezoek" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Model.Bezoek">
+    <Position X="3.75" Y="3.5" Width="1.5" />
+    <AssociationLine Name="Medewerker" Type="Model.Medewerker" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="4.438" Y="5.055" />
+        <Point X="4.438" Y="5.688" />
+        <Point X="5.5" Y="5.688" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.068" Y="-0.294" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="Tafel" Type="Model.Tafel" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="5.25" Y="4.312" />
+        <Point X="7.094" Y="4.312" />
+        <Point X="7.094" Y="2.747" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.627" Y="0.058" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAACAAAAABCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Bezoek.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Medewerker" />
+      <Property Name="Tafel" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Model.Categorie">
+    <Position X="3.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAABAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>Categorie.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.Medewerker">
+    <Position X="5.5" Y="4.75" Width="1.5" />
+    <AssociationLine Name="Type" Type="Model.MedewerkerType" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="7" Y="6.125" />
+        <Point X="8" Y="6.125" />
+        <Point X="8" Y="5.931" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.69" Y="0.089" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAABACAAAAAAAAAAQAABAAAAAA=</HashCode>
+      <FileName>Medewerker.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Type" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Model.Menuitem">
+    <Position X="0.5" Y="6.25" Width="1.5" />
+    <AssociationLine Name="Categorie" Type="Model.Categorie">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.12" Y="0.091" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAgAAAABAAAAAAAIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Menuitem.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Categorie" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Model.Rekening">
+    <Position X="3.75" Y="1" Width="1.5" />
+    <AssociationLine Name="Bezoek" Type="Model.Bezoek">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.755" Y="0.102" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Rekening.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Bezoek" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Model.Tafel">
+    <Position X="6.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Tafel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Model.MedewerkerType">
+    <Position X="7.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAAAAAAAAAAAAgAAAAAAAAQAAAAEA=</HashCode>
+      <FileName>Medewerker.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

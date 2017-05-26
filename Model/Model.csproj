@@ -41,7 +41,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bestelitem.cs" />
+    <Compile Include="Bestelling.cs" />
+    <Compile Include="Bezoek.cs" />
+    <Compile Include="Medewerker.cs" />
+    <Compile Include="Menuitem.cs" />
+    <Compile Include="Categorie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rekening.cs" />
+    <Compile Include="Tafel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ModelClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
