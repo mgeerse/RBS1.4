@@ -1,6 +1,6 @@
 ﻿namespace Model
 {
-    class Rekening
+    public class Rekening
     {
         public int Id { get; }
         public Bezoek Bezoek { get; set; }
