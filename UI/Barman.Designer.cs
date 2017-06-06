@@ -1,6 +1,6 @@
 ﻿namespace UI
 {
-    partial class MainForm
+    partial class Barman
     {
         /// <summary>
         /// Required designer variable.
@@ -30,19 +30,14 @@
         {
             this.SuspendLayout();
             // 
-            // MainForm
+            // Barman
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(688, 635);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "MainForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Chapoo Bestelsysteem";
-            this.TopMost = true;
-            this.Load += new System.EventHandler(this.MainForm_Load);
+            this.ClientSize = new System.Drawing.Size(681, 576);
+            this.Name = "Barman";
+            this.Text = "Barman";
+            this.Load += new System.EventHandler(this.Barman_Load);
             this.ResumeLayout(false);
 
         }
@@ -50,4 +45,3 @@
         #endregion
     }
 }
-
