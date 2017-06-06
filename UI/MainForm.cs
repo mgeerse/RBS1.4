@@ -29,6 +29,8 @@ namespace UI
             btn_Tafel4.Visible = true;
             btn_Bezet.Visible = true;
             btn_Bezet.Enabled = false;
+            button1.Visible = true;
+            button1.Enabled = false;
             btn_Tafel5.Visible = true;
             btn_Tafel6.Visible = true;
             btn_Tafel7.Visible = true;
