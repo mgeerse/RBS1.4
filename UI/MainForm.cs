@@ -27,6 +27,8 @@ namespace UI
             btn_Tafel2.Visible = true;
             btn_Tafel3.Visible = true;
             btn_Tafel4.Visible = true;
+            btn_Bezet.Visible = true;
+            btn_Bezet.Enabled = false;
             btn_Tafel5.Visible = true;
             btn_Tafel6.Visible = true;
             btn_Tafel7.Visible = true;
@@ -49,6 +51,11 @@ namespace UI
         }
 
         private void btn_Tafel1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void button2_Click(object sender, EventArgs e)
         {
             
         }

@@ -41,7 +41,7 @@
             this.btn_Tafel9 = new System.Windows.Forms.Button();
             this.btn_Tafel10 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btn_Bezet = new System.Windows.Forms.Button();
             this.btn_Uitloggen = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel1.SuspendLayout();
@@ -176,15 +176,16 @@
             this.button1.Text = "Vrije tafel";
             this.button1.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // btn_Bezet
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button2.Location = new System.Drawing.Point(112, 85);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(103, 25);
-            this.button2.TabIndex = 13;
-            this.button2.Text = "Bezette tafel";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btn_Bezet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btn_Bezet.Location = new System.Drawing.Point(112, 85);
+            this.btn_Bezet.Name = "btn_Bezet";
+            this.btn_Bezet.Size = new System.Drawing.Size(103, 25);
+            this.btn_Bezet.TabIndex = 13;
+            this.btn_Bezet.Text = "Bezette tafel";
+            this.btn_Bezet.UseVisualStyleBackColor = false;
+            this.btn_Bezet.Click += new System.EventHandler(this.button2_Click);
             // 
             // btn_Uitloggen
             // 
@@ -200,7 +201,7 @@
             this.flowLayoutPanel1.Controls.Add(this.btn_KeukenVoorraad);
             this.flowLayoutPanel1.Controls.Add(this.btn_BarVoorraad);
             this.flowLayoutPanel1.Controls.Add(this.button1);
-            this.flowLayoutPanel1.Controls.Add(this.button2);
+            this.flowLayoutPanel1.Controls.Add(this.btn_Bezet);
             this.flowLayoutPanel1.Controls.Add(this.Btn_Tafel1);
             this.flowLayoutPanel1.Controls.Add(this.btn_Tafel2);
             this.flowLayoutPanel1.Controls.Add(this.btn_Tafel3);
@@ -247,7 +248,7 @@
         private System.Windows.Forms.Button btn_Tafel9;
         private System.Windows.Forms.Button btn_Tafel10;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_Bezet;
         private System.Windows.Forms.Button btn_Uitloggen;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
