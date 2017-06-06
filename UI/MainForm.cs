@@ -33,6 +33,9 @@ namespace UI
             btn_Tafel8.Visible = true;
             btn_Tafel9.Visible = true;
             btn_Tafel10.Visible = true;
+            btn_BarVoorraad.Visible = true;
+            btn_KeukenVoorraad.Visible = true;
+            btn_Uitloggen.Visible = true;
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
