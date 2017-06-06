@@ -23,6 +23,30 @@ namespace UI
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            btn_Tafel1.Visible = true;
+            btn_Tafel2.Visible = true;
+            btn_Tafel3.Visible = true;
+            btn_Tafel4.Visible = true;
+            btn_Tafel5.Visible = true;
+            btn_Tafel6.Visible = true;
+            btn_Tafel7.Visible = true;
+            btn_Tafel8.Visible = true;
+            btn_Tafel9.Visible = true;
+            btn_Tafel10.Visible = true;
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Login_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btn_Tafel1_Click(object sender, EventArgs e)
+        {
 
         }
     }
