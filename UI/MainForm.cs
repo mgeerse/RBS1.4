@@ -23,7 +23,7 @@ namespace UI
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            btn_Tafel1.Visible = true;
+            Btn_Tafel1.Visible = true;
             btn_Tafel2.Visible = true;
             btn_Tafel3.Visible = true;
             btn_Tafel4.Visible = true;
@@ -38,7 +38,7 @@ namespace UI
             btn_Uitloggen.Visible = true;
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
@@ -47,7 +47,7 @@ namespace UI
         {
             
         }
-
+            
         private void btn_Tafel1_Click(object sender, EventArgs e)
         {
 
