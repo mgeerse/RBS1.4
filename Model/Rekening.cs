@@ -1,14 +1,20 @@
-﻿namespace Model
+﻿using System;
+
+namespace Model
 {
     public class Rekening
     {
         public int Id { get; }
-        public Bezoek Bezoek { get; set; }
+        public DateTime Tijdstip { get; set; }
+        public decimal TotaalExclusief { get; set; }
+        public decimal BtwBedrag { get; set; }
 
-        public Rekening(int id, Bezoek bezoek)
+        public Rekening(int id, DateTime Tijdstip, decimal TotaalExclusief, decimal BtwBedrag)
         {
             Id = id;
-            Bezoek = bezoek;
+            this.Tijdstip = Tijdstip;
+            this.TotaalExclusief = TotaalExclusief;
+            this.BtwBedrag = BtwBedrag;
         }
     }
 }

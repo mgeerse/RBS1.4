@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using Model;
 
-namespace DAL.DAO
+namespace DAL
 {
-    class BestellingDAO
+    public class BestellingDAO
     {
         private SqlConnection conn;
 

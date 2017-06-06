@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using Model;
 
-namespace DAL.DAO
+namespace DAL
 {
-    class BestelitemDAO
+    public class BestelitemDAO
     {
         private SqlConnection conn;
 

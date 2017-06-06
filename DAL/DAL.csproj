@@ -46,7 +46,6 @@
     <Compile Include="DAO\MenuitemDAO.cs" />
     <Compile Include="DAO\MedewerkerDAO.cs" />
     <Compile Include="DAO\CategorieDAO.cs" />
-    <Compile Include="DAO\BezoekDAO.cs" />
     <Compile Include="DAO\BestellingDAO.cs" />
     <Compile Include="DAO\BestelitemDAO.cs" />
     <Compile Include="DbConnection.cs" />
