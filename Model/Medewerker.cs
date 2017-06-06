@@ -4,7 +4,7 @@ namespace Model
 {
     public class Medewerker
     {
-        public int Id { get; }
+        public int Id { get; set; }
         public string Naam { get; set; }
         public MedewerkerType Type { get; set; }
 

@@ -13,7 +13,7 @@
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>ABAAAAAEAAAAAAAAAAAAAAAAEAAAIgAAAEAAAAAAAAA=</HashCode>
+      <HashCode>ABAAAAAEAAAAAAAAAAAAAAAAEAAAIgAAAAAEAAAAAAA=</HashCode>
       <FileName>Bestelitem.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -29,9 +29,9 @@
       <FileName>Bestelling.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
+      <Property Name="Rekening" />
       <Property Name="Medewerker" />
       <Property Name="Tafel" />
-      <Property Name="Rekening" />
     </ShowAsAssociation>
   </Class>
   <Class Name="Model.Categorie">

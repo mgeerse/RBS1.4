@@ -4,7 +4,7 @@ namespace Model
 {
     public class Rekening
     {
-        public int Id { get; }
+        public int Id { get; set; }
         public DateTime Tijdstip { get; set; }
         public decimal TotaalExclusief { get; set; }
         public decimal BtwBedrag { get; set; }
