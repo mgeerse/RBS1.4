@@ -38,6 +38,7 @@
             this.btn_Bekijk = new System.Windows.Forms.Button();
             this.btn_notificatie = new System.Windows.Forms.Button();
             this.tab_Lunch.SuspendLayout();
+            this.tabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
             // tab_Lunch
@@ -84,6 +85,8 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.btn_Verzend);
+            this.tabPage4.Controls.Add(this.btn_Bekijk);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
@@ -103,18 +106,18 @@
             // 
             // btn_Verzend
             // 
-            this.btn_Verzend.Location = new System.Drawing.Point(16, 463);
+            this.btn_Verzend.Location = new System.Drawing.Point(3, 320);
             this.btn_Verzend.Name = "btn_Verzend";
-            this.btn_Verzend.Size = new System.Drawing.Size(118, 47);
+            this.btn_Verzend.Size = new System.Drawing.Size(106, 47);
             this.btn_Verzend.TabIndex = 0;
             this.btn_Verzend.Text = "Verzend Bestelling";
             this.btn_Verzend.UseVisualStyleBackColor = true;
             // 
             // btn_Bekijk
             // 
-            this.btn_Bekijk.Location = new System.Drawing.Point(140, 463);
+            this.btn_Bekijk.Location = new System.Drawing.Point(127, 320);
             this.btn_Bekijk.Name = "btn_Bekijk";
-            this.btn_Bekijk.Size = new System.Drawing.Size(136, 47);
+            this.btn_Bekijk.Size = new System.Drawing.Size(130, 47);
             this.btn_Bekijk.TabIndex = 2;
             this.btn_Bekijk.Text = "Bekijk Bestelling";
             this.btn_Bekijk.UseVisualStyleBackColor = true;
@@ -134,14 +137,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(292, 565);
             this.Controls.Add(this.btn_notificatie);
-            this.Controls.Add(this.btn_Bekijk);
-            this.Controls.Add(this.btn_Verzend);
             this.Controls.Add(this.btn_Hoofdstuk);
             this.Controls.Add(this.tab_Lunch);
             this.Name = "Bediening";
             this.Text = "Bediening";
             this.Load += new System.EventHandler(this.Bediening_Load);
             this.tab_Lunch.ResumeLayout(false);
+            this.tabPage4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
