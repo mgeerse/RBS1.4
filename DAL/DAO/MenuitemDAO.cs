@@ -10,30 +10,45 @@ namespace DAL
 {
     public class MenuitemDAO
     {
-        private SqlConnection conn;
+        private SqlConnection conn = DbConnection.GetSqlConnection();
 
         public List<Menuitem> GetAll()
         {
+            conn.Open();
+
+            conn.Close();
             return null;
         }
 
         public Menuitem GetForId(int Id)
         {
+            conn.Open();
+
+            conn.Close();
             return null;
         }
 
         public bool Create(Menuitem Object)
         {
+            conn.Open();
+
+            conn.Close();
             return false;
         }
 
         public bool Update(Menuitem Object)
         {
+            conn.Open();
+
+            conn.Close();
             return false;
         }
 
         public bool Delete(Menuitem Object)
         {
+            conn.Open();
+
+            conn.Close();
             return false;
         }
 
