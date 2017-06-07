@@ -28,50 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button4 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.AdministratieButton = new System.Windows.Forms.Button();
+            this.BedieningButton = new System.Windows.Forms.Button();
+            this.KeukenButton = new System.Windows.Forms.Button();
+            this.BarButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.flowLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.AutoSize = true;
-            this.button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(53, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.AutoSize = true;
-            this.button2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button2.Location = new System.Drawing.Point(62, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(53, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.AutoSize = true;
-            this.button3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button3.Location = new System.Drawing.Point(121, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(53, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
             // 
             // pictureBox1
             // 
@@ -82,63 +48,107 @@
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
-            // button4
-            // 
-            this.button4.AutoSize = true;
-            this.button4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button4.Location = new System.Drawing.Point(180, 3);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(53, 23);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
             // label1
             // 
             this.label1.Location = new System.Drawing.Point(12, 286);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(494, 49);
+            this.label1.Size = new System.Drawing.Size(494, 31);
             this.label1.TabIndex = 5;
-            this.label1.Text = resources.GetString("label1.Text");
+            this.label1.Text = "Dit scherm dient als het beginscherm voor de applicatie. Normaal gesproken zou el" +
+    "k device een eigen scherm krijgen. In dit geval gebruiken wij pop-ups om dit te " +
+    "emuleren.";
             // 
-            // flowLayoutPanel1
+            // tableLayoutPanel1
             // 
-            this.flowLayoutPanel1.Controls.Add(this.button1);
-            this.flowLayoutPanel1.Controls.Add(this.button2);
-            this.flowLayoutPanel1.Controls.Add(this.button3);
-            this.flowLayoutPanel1.Controls.Add(this.button4);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(15, 338);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(491, 166);
-            this.flowLayoutPanel1.TabIndex = 6;
+            this.tableLayoutPanel1.ColumnCount = 4;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.Controls.Add(this.AdministratieButton, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.BedieningButton, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.BarButton, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.KeukenButton, 3, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 320);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(494, 184);
+            this.tableLayoutPanel1.TabIndex = 6;
+            // 
+            // AdministratieButton
+            // 
+            this.AdministratieButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.AdministratieButton.Location = new System.Drawing.Point(3, 3);
+            this.AdministratieButton.Name = "AdministratieButton";
+            this.AdministratieButton.Size = new System.Drawing.Size(117, 178);
+            this.AdministratieButton.TabIndex = 0;
+            this.AdministratieButton.Text = "Administratie Computerscherm";
+            this.AdministratieButton.UseVisualStyleBackColor = true;
+            // 
+            // BedieningButton
+            // 
+            this.BedieningButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.BedieningButton.Location = new System.Drawing.Point(126, 3);
+            this.BedieningButton.Name = "BedieningButton";
+            this.BedieningButton.Size = new System.Drawing.Size(117, 178);
+            this.BedieningButton.TabIndex = 1;
+            this.BedieningButton.Text = "Bediening\r\nMobiel scherm";
+            this.BedieningButton.UseVisualStyleBackColor = true;
+            // 
+            // KeukenButton
+            // 
+            this.KeukenButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.KeukenButton.Location = new System.Drawing.Point(372, 3);
+            this.KeukenButton.Name = "KeukenButton";
+            this.KeukenButton.Size = new System.Drawing.Size(119, 178);
+            this.KeukenButton.TabIndex = 3;
+            this.KeukenButton.Text = "Keuken";
+            this.KeukenButton.UseVisualStyleBackColor = true;
+            // 
+            // BarButton
+            // 
+            this.BarButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.BarButton.Location = new System.Drawing.Point(249, 3);
+            this.BarButton.Name = "BarButton";
+            this.BarButton.Size = new System.Drawing.Size(117, 178);
+            this.BarButton.TabIndex = 2;
+            this.BarButton.Text = "Bar";
+            this.BarButton.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(516, 516);
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Name = "MainForm";
             this.Text = "Chapoo Bestelsysteem";
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel1.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Button AdministratieButton;
+        private System.Windows.Forms.Button BedieningButton;
+        private System.Windows.Forms.Button BarButton;
+        private System.Windows.Forms.Button KeukenButton;
     }
 }
 
