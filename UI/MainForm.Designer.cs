@@ -33,8 +33,8 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.AdministratieButton = new System.Windows.Forms.Button();
             this.BedieningButton = new System.Windows.Forms.Button();
-            this.KeukenButton = new System.Windows.Forms.Button();
             this.BarButton = new System.Windows.Forms.Button();
+            this.KeukenButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -87,6 +87,7 @@
             this.AdministratieButton.TabIndex = 0;
             this.AdministratieButton.Text = "Administratie Computerscherm";
             this.AdministratieButton.UseVisualStyleBackColor = true;
+            this.AdministratieButton.Click += new System.EventHandler(this.AdministratieButton_Click);
             // 
             // BedieningButton
             // 
@@ -100,18 +101,6 @@
             this.BedieningButton.Text = "Bediening\r\nMobiel scherm";
             this.BedieningButton.UseVisualStyleBackColor = true;
             // 
-            // KeukenButton
-            // 
-            this.KeukenButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.KeukenButton.Location = new System.Drawing.Point(372, 3);
-            this.KeukenButton.Name = "KeukenButton";
-            this.KeukenButton.Size = new System.Drawing.Size(119, 178);
-            this.KeukenButton.TabIndex = 3;
-            this.KeukenButton.Text = "Keuken";
-            this.KeukenButton.UseVisualStyleBackColor = true;
-            // 
             // BarButton
             // 
             this.BarButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -123,6 +112,18 @@
             this.BarButton.TabIndex = 2;
             this.BarButton.Text = "Bar";
             this.BarButton.UseVisualStyleBackColor = true;
+            // 
+            // KeukenButton
+            // 
+            this.KeukenButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.KeukenButton.Location = new System.Drawing.Point(372, 3);
+            this.KeukenButton.Name = "KeukenButton";
+            this.KeukenButton.Size = new System.Drawing.Size(119, 178);
+            this.KeukenButton.TabIndex = 3;
+            this.KeukenButton.Text = "Keuken";
+            this.KeukenButton.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
