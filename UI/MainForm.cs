@@ -23,6 +23,7 @@ namespace UI
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+
             Btn_Tafel1.Visible = true;
             btn_Tafel2.Visible = true;
             btn_Tafel3.Visible = true;
