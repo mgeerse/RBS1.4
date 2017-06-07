@@ -41,6 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\TafelDAO.cs" />
+    <Compile Include="DAO\RekeningDAO.cs" />
+    <Compile Include="DAO\MenuitemDAO.cs" />
+    <Compile Include="DAO\MedewerkerDAO.cs" />
+    <Compile Include="DAO\CategorieDAO.cs" />
+    <Compile Include="DAO\BestellingDAO.cs" />
+    <Compile Include="DAO\BestelitemDAO.cs" />
     <Compile Include="DbConnection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -49,6 +56,9 @@
       <Project>{bfab5ca8-25a4-4197-b533-02f5a4502e81}</Project>
       <Name>Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DALClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
