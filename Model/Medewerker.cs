@@ -4,7 +4,7 @@ namespace Model
 {
     public class Medewerker
     {
-        public int Id { get; }
+        public int Id { get; set; }
         public string Naam { get; set; }
         public MedewerkerType Type { get; set; }
 
@@ -13,6 +13,7 @@ namespace Model
          * Daarom is ook een private field nodig. Als Logincode gewoon
          * Logincode terug zou geven, zouden we in een loop terecht komen.
          */
+
         private char[] _Logincode;
         public char[] Logincode
         {
