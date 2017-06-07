@@ -11,6 +11,7 @@ namespace DAL
     public class MedewerkerDAO
     {
         private SqlConnection conn;
+        Medewerker Medewerker;
 
         public List<Medewerker> GetAll()
         {
@@ -19,6 +20,22 @@ namespace DAL
 
         public Medewerker GetForId(int Id)
         {
+            conn = DbConnection.GetSqlConnection();
+            StringBuilder sb = new StringBuilder();
+            sb.Append("SELECT [Naam], [TypeMedewerker] FROM [dbo].[Medewerker] WHERE MedewerkerId = @Id");
+
+            SqlCommand cmd = new SqlCommand(sb.ToString(), conn);
+            cmd.Parameters.Add("@MedewerkerId", System.Data.SqlDbType.Int).Value = Id;
+            cmd.Prepare();
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                Medewerker.Naam = reader.GetString(1);
+                Medewerker.Type = (MedewerkerType)reader.GetInt32(2);
+
+                return Medewerker;
+            }
             return null;
         }
 

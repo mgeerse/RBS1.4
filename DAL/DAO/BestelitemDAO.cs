@@ -11,14 +11,58 @@ namespace DAL
     public class BestelitemDAO
     {
         private SqlConnection conn;
-
+        private Bestelitem Bestelitem;
         public List<Bestelitem> GetAll()
         {
-            return null;
+            conn = DbConnection.GetSqlConnection();
+            List<Bestelitem> BestelItemLijst = new List<Bestelitem>();
+            StringBuilder sb = new StringBuilder();
+            sb.Append("SELECT * FROM [dbo].[Bestelitem]");
+
+            SqlCommand cmd = new SqlCommand(sb.ToString(), conn);
+
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                Bestelitem.Aantal = reader.GetInt32(0);
+                Bestelitem.Opmerking = reader.GetString(1);
+                Bestelitem.Status = (Status)reader.GetInt32(2);
+                Bestelitem.Tijdingevoerd = reader.GetDateTime(3);
+
+                BestelItemLijst.Add(Bestelitem);
+            }
+
+            return BestelItemLijst;
         }
 
         public Bestelitem GetForId(int Id)
         {
+            conn = DbConnection.GetSqlConnection();
+
+
+            StringBuilder sb = new StringBuilder();
+            sb.Append("SELECT[Aantal], [Opmerking], [Status], [TijdIngevoerd] FROM[dbo].[Bestelitem] WHERE BestellingId = @Id");
+
+            SqlCommand cmd = new SqlCommand(sb.ToString(), conn);
+            cmd.Parameters.Add("@Id", System.Data.SqlDbType.Int).Value = Id;
+            cmd.Prepare();
+
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                
+            }
+            
+            return null;
+        }
+
+        public List<Bestelitem> GetBarBestelling()
+        {
+
+
+
             return null;
         }
 
