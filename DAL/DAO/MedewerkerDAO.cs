@@ -10,30 +10,45 @@ namespace DAL
 {
     public class MedewerkerDAO
     {
-        private SqlConnection conn;
+        private SqlConnection conn = DbConnection.GetSqlConnection();
 
         public List<Medewerker> GetAll()
         {
+            conn.Open();
+
+            conn.Close();
             return null;
         }
 
         public Medewerker GetForId(int Id)
         {
+            conn.Open();
+
+            conn.Close();
             return null;
         }
 
         public bool Create(Medewerker Object)
         {
+            conn.Open();
+
+            conn.Close();
             return false;
         }
 
         public bool Update(Medewerker Object)
         {
+            conn.Open();
+
+            conn.Close();
             return false;
         }
 
         public bool Delete(Medewerker Object)
         {
+            conn.Open();
+
+            conn.Close();
             return false;
         }
 

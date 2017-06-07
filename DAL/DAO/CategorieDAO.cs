@@ -10,30 +10,45 @@ namespace DAL
 {
     public class CategorieDAO
     {
-        private SqlConnection conn;
+        private SqlConnection conn = DbConnection.GetSqlConnection();
 
         public List<Categorie> GetAll()
         {
+            conn.Open();
+
+            conn.Close();
             return null;
         }
 
         public Categorie GetForId(int Id)
         {
+            conn.Open();
+
+            conn.Close();
             return null;
         }
 
         public bool Create(Categorie Object)
         {
+            conn.Open();
+
+            conn.Close();
             return false;
         }
 
         public bool Update(Categorie Object)
         {
+            conn.Open();
+
+            conn.Close();
             return false;
         }
 
         public bool Delete(Categorie Object)
         {
+            conn.Open();
+
+            conn.Close();
             return false;
         }
 

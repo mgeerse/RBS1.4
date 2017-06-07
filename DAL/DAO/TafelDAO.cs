@@ -10,30 +10,45 @@ namespace DAL
 {
     public class TafelDAO
     {
-        private SqlConnection conn;
+        private SqlConnection conn = DbConnection.GetSqlConnection();
 
         public List<Tafel> GetAll()
         {
+            conn.Open();
+
+            conn.Close();
             return null;
         }
 
         public Tafel GetForId(int Id)
         {
+            conn.Open();
+
+            conn.Close();
             return null;
         }
 
         public bool Create(Tafel Object)
         {
+            conn.Open();
+
+            conn.Close();
             return false;
         }
 
         public bool Update(Tafel Object)
         {
+            conn.Open();
+
+            conn.Close();
             return false;
         }
 
         public bool Delete(Tafel Object)
         {
+            conn.Open();
+
+            conn.Close();
             return false;
         }
 

@@ -14,7 +14,7 @@ namespace DAL
     /// </summary>
     static class DbConnection
     {
-        static SqlConnection GetSqlConnection()
+        public static SqlConnection GetSqlConnection()
         {
             string connectionString = ConfigurationManager.ConnectionStrings["Connector"].ConnectionString;
             return new SqlConnection(connectionString);
