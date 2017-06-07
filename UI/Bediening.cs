@@ -21,8 +21,13 @@ namespace UI
         {
             btn_Bekijk.Visible = true;
             btn_Hoofdstuk.Visible = true;
-            btn_notificatie.Visible = true;
-            btn_Verzend.Visible = true;
+            btn_Notif_Nondalcohol.Visible = true;
+            btn_VerzendNon_Aclohol.Visible = true;
+        }
+
+        private void btn_Bekijk_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
