@@ -10,7 +10,7 @@ namespace DAL.DAO
 {
     class BezoekDAO
     {
-        private SqlConnection conn;
+        private SqlConnection conn = DbConnection.GetSqlConnection();
 
         public List<Bezoek> GetAll()
         {

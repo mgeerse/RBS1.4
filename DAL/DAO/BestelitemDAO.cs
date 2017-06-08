@@ -10,7 +10,7 @@ namespace DAL.DAO
 {
     class BestelitemDAO
     {
-        private SqlConnection conn;
+        private SqlConnection conn = DbConnection.GetSqlConnection();
 
         public List<Bestelitem> GetAll()
         {

@@ -10,7 +10,7 @@ namespace DAL.DAO
 {
     class MedewerkerDAO
     {
-        private SqlConnection conn;
+        private SqlConnection conn = DbConnection.GetSqlConnection();
 
         public List<Medewerker> GetAll()
         {

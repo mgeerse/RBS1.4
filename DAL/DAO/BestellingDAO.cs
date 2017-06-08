@@ -10,7 +10,7 @@ namespace DAL.DAO
 {
     class BestellingDAO
     {
-        private SqlConnection conn;
+        private SqlConnection conn = DbConnection.GetSqlConnection();
 
         public List<Bestelling> GetAll()
         {

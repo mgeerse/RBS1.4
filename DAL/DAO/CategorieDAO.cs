@@ -10,7 +10,7 @@ namespace DAL.DAO
 {
     class CategorieDAO
     {
-        private SqlConnection conn;
+        private SqlConnection conn = DbConnection.GetSqlConnection();
 
         public List<Categorie> GetAll()
         {
