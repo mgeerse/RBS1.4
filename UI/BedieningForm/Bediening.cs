@@ -16,5 +16,10 @@ namespace UI
         {
             InitializeComponent();
         }
+
+        private void Bediening_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

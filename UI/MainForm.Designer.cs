@@ -51,26 +51,27 @@
             // 
             this.btn_KeukenVoorraad.Location = new System.Drawing.Point(3, 3);
             this.btn_KeukenVoorraad.Name = "btn_KeukenVoorraad";
-            this.btn_KeukenVoorraad.Size = new System.Drawing.Size(100, 55);
+            this.btn_KeukenVoorraad.Size = new System.Drawing.Size(120, 65);
             this.btn_KeukenVoorraad.TabIndex = 0;
             this.btn_KeukenVoorraad.Text = "KeukenVoorraad";
             this.btn_KeukenVoorraad.UseVisualStyleBackColor = true;
             // 
             // btn_BarVoorraad
             // 
-            this.btn_BarVoorraad.Location = new System.Drawing.Point(109, 3);
+            this.btn_BarVoorraad.Location = new System.Drawing.Point(129, 3);
             this.btn_BarVoorraad.Name = "btn_BarVoorraad";
-            this.btn_BarVoorraad.Size = new System.Drawing.Size(100, 55);
+            this.btn_BarVoorraad.Size = new System.Drawing.Size(120, 65);
             this.btn_BarVoorraad.TabIndex = 1;
             this.btn_BarVoorraad.Text = "BarVoorraad";
             this.btn_BarVoorraad.UseVisualStyleBackColor = true;
+            this.btn_BarVoorraad.Click += new System.EventHandler(this.btn_BarVoorraad_Click);
             // 
             // Btn_Tafel1
             // 
             this.Btn_Tafel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.Btn_Tafel1.Location = new System.Drawing.Point(3, 95);
+            this.Btn_Tafel1.Location = new System.Drawing.Point(3, 115);
             this.Btn_Tafel1.Name = "Btn_Tafel1";
-            this.Btn_Tafel1.Size = new System.Drawing.Size(100, 55);
+            this.Btn_Tafel1.Size = new System.Drawing.Size(120, 65);
             this.Btn_Tafel1.TabIndex = 2;
             this.Btn_Tafel1.Text = "1";
             this.Btn_Tafel1.UseVisualStyleBackColor = false;
@@ -79,9 +80,9 @@
             // btn_Tafel2
             // 
             this.btn_Tafel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btn_Tafel2.Location = new System.Drawing.Point(109, 95);
+            this.btn_Tafel2.Location = new System.Drawing.Point(129, 115);
             this.btn_Tafel2.Name = "btn_Tafel2";
-            this.btn_Tafel2.Size = new System.Drawing.Size(100, 55);
+            this.btn_Tafel2.Size = new System.Drawing.Size(120, 65);
             this.btn_Tafel2.TabIndex = 3;
             this.btn_Tafel2.Text = "2";
             this.btn_Tafel2.UseVisualStyleBackColor = false;
@@ -89,89 +90,97 @@
             // btn_Tafel3
             // 
             this.btn_Tafel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btn_Tafel3.Location = new System.Drawing.Point(3, 156);
+            this.btn_Tafel3.Location = new System.Drawing.Point(3, 186);
             this.btn_Tafel3.Name = "btn_Tafel3";
-            this.btn_Tafel3.Size = new System.Drawing.Size(100, 55);
+            this.btn_Tafel3.Size = new System.Drawing.Size(120, 65);
             this.btn_Tafel3.TabIndex = 4;
             this.btn_Tafel3.Text = "3";
             this.btn_Tafel3.UseVisualStyleBackColor = false;
+            this.btn_Tafel3.Click += new System.EventHandler(this.btn_Tafel3_Click);
             // 
             // btn_Tafel4
             // 
             this.btn_Tafel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btn_Tafel4.Location = new System.Drawing.Point(109, 156);
+            this.btn_Tafel4.Location = new System.Drawing.Point(129, 186);
             this.btn_Tafel4.Name = "btn_Tafel4";
-            this.btn_Tafel4.Size = new System.Drawing.Size(100, 55);
+            this.btn_Tafel4.Size = new System.Drawing.Size(120, 65);
             this.btn_Tafel4.TabIndex = 5;
             this.btn_Tafel4.Text = "4";
             this.btn_Tafel4.UseVisualStyleBackColor = false;
+            this.btn_Tafel4.Click += new System.EventHandler(this.btn_Tafel4_Click);
             // 
             // btn_Tafel5
             // 
             this.btn_Tafel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btn_Tafel5.Location = new System.Drawing.Point(3, 217);
+            this.btn_Tafel5.Location = new System.Drawing.Point(3, 257);
             this.btn_Tafel5.Name = "btn_Tafel5";
-            this.btn_Tafel5.Size = new System.Drawing.Size(100, 55);
+            this.btn_Tafel5.Size = new System.Drawing.Size(120, 65);
             this.btn_Tafel5.TabIndex = 6;
             this.btn_Tafel5.Text = "5";
             this.btn_Tafel5.UseVisualStyleBackColor = false;
+            this.btn_Tafel5.Click += new System.EventHandler(this.btn_Tafel5_Click);
             // 
             // btn_Tafel6
             // 
             this.btn_Tafel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btn_Tafel6.Location = new System.Drawing.Point(109, 217);
+            this.btn_Tafel6.Location = new System.Drawing.Point(129, 257);
             this.btn_Tafel6.Name = "btn_Tafel6";
-            this.btn_Tafel6.Size = new System.Drawing.Size(100, 55);
+            this.btn_Tafel6.Size = new System.Drawing.Size(120, 65);
             this.btn_Tafel6.TabIndex = 7;
             this.btn_Tafel6.Text = "6";
             this.btn_Tafel6.UseVisualStyleBackColor = false;
+            this.btn_Tafel6.Click += new System.EventHandler(this.btn_Tafel6_Click);
             // 
             // btn_Tafel7
             // 
             this.btn_Tafel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btn_Tafel7.Location = new System.Drawing.Point(3, 278);
+            this.btn_Tafel7.Location = new System.Drawing.Point(3, 328);
             this.btn_Tafel7.Name = "btn_Tafel7";
-            this.btn_Tafel7.Size = new System.Drawing.Size(100, 55);
+            this.btn_Tafel7.Size = new System.Drawing.Size(120, 65);
             this.btn_Tafel7.TabIndex = 8;
             this.btn_Tafel7.Text = "7";
             this.btn_Tafel7.UseVisualStyleBackColor = false;
+            this.btn_Tafel7.Click += new System.EventHandler(this.btn_Tafel7_Click);
             // 
             // btn_Tafel8
             // 
             this.btn_Tafel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btn_Tafel8.Location = new System.Drawing.Point(109, 278);
+            this.btn_Tafel8.Location = new System.Drawing.Point(129, 328);
             this.btn_Tafel8.Name = "btn_Tafel8";
-            this.btn_Tafel8.Size = new System.Drawing.Size(100, 55);
+            this.btn_Tafel8.Size = new System.Drawing.Size(120, 65);
             this.btn_Tafel8.TabIndex = 9;
             this.btn_Tafel8.Text = "8";
             this.btn_Tafel8.UseVisualStyleBackColor = false;
+            this.btn_Tafel8.Click += new System.EventHandler(this.btn_Tafel8_Click);
             // 
             // btn_Tafel9
             // 
             this.btn_Tafel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btn_Tafel9.Location = new System.Drawing.Point(3, 339);
+            this.btn_Tafel9.Location = new System.Drawing.Point(3, 399);
             this.btn_Tafel9.Name = "btn_Tafel9";
-            this.btn_Tafel9.Size = new System.Drawing.Size(100, 55);
+            this.btn_Tafel9.Size = new System.Drawing.Size(120, 65);
             this.btn_Tafel9.TabIndex = 10;
             this.btn_Tafel9.Text = "9";
             this.btn_Tafel9.UseVisualStyleBackColor = false;
+            this.btn_Tafel9.Click += new System.EventHandler(this.btn_Tafel9_Click);
             // 
             // btn_Tafel10
             // 
             this.btn_Tafel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btn_Tafel10.Location = new System.Drawing.Point(109, 339);
+            this.btn_Tafel10.Location = new System.Drawing.Point(129, 399);
             this.btn_Tafel10.Name = "btn_Tafel10";
-            this.btn_Tafel10.Size = new System.Drawing.Size(100, 55);
+            this.btn_Tafel10.Size = new System.Drawing.Size(120, 65);
             this.btn_Tafel10.TabIndex = 11;
             this.btn_Tafel10.Text = "10";
             this.btn_Tafel10.UseVisualStyleBackColor = false;
+            this.btn_Tafel10.Click += new System.EventHandler(this.btn_Tafel10_Click);
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.button1.Location = new System.Drawing.Point(3, 64);
+            this.button1.Location = new System.Drawing.Point(3, 74);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 25);
+            this.button1.Size = new System.Drawing.Size(120, 35);
             this.button1.TabIndex = 12;
             this.button1.Text = "Vrije tafel";
             this.button1.UseVisualStyleBackColor = false;
@@ -179,9 +188,9 @@
             // btn_Bezet
             // 
             this.btn_Bezet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btn_Bezet.Location = new System.Drawing.Point(109, 64);
+            this.btn_Bezet.Location = new System.Drawing.Point(129, 74);
             this.btn_Bezet.Name = "btn_Bezet";
-            this.btn_Bezet.Size = new System.Drawing.Size(100, 25);
+            this.btn_Bezet.Size = new System.Drawing.Size(120, 35);
             this.btn_Bezet.TabIndex = 13;
             this.btn_Bezet.Text = "Bezette tafel";
             this.btn_Bezet.UseVisualStyleBackColor = false;
@@ -189,7 +198,7 @@
             // 
             // btn_Uitloggen
             // 
-            this.btn_Uitloggen.Location = new System.Drawing.Point(188, 420);
+            this.btn_Uitloggen.Location = new System.Drawing.Point(216, 506);
             this.btn_Uitloggen.Name = "btn_Uitloggen";
             this.btn_Uitloggen.Size = new System.Drawing.Size(116, 23);
             this.btn_Uitloggen.TabIndex = 14;
@@ -213,9 +222,9 @@
             this.flowLayoutPanel1.Controls.Add(this.btn_Tafel8);
             this.flowLayoutPanel1.Controls.Add(this.btn_Tafel9);
             this.flowLayoutPanel1.Controls.Add(this.btn_Tafel10);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(46, 20);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(42, 31);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(213, 401);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(260, 469);
             this.flowLayoutPanel1.TabIndex = 15;
             // 
             // MainForm
@@ -223,7 +232,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(304, 441);
+            this.ClientSize = new System.Drawing.Size(344, 541);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.btn_Uitloggen);
             this.Name = "MainForm";
