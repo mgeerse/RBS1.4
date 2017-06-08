@@ -30,5 +30,10 @@ namespace UI
         {
             new AdministratieForm().Show();
         }
+
+        private void BedieningButton_Click(object sender, EventArgs e)
+        {
+            new BedieningForm().Show();
+        }
     }
 }
