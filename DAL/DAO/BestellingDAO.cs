@@ -19,26 +19,28 @@ namespace DAL
 
         public List<Bestelling> GetAll()
         {
-            
+
             return null;
         }
 
         public List<BarBestelling> GetBarBestellingen()
         {
+            List<BarBestelling> BarBestelList = new List<BarBestelling>();
+
             conn = DbConnection.GetSqlConnection();
             BarBestelling BarBestelling = new BarBestelling();
 
             StringBuilder sb = new StringBuilder();
-            sb.Append("SELECT [MenuItem].[Naam], [Aantal], [Opmerking], [TijdIngevoerd], [Medewerker.Naam]");
-            sb.Append("FROM MenuItem as M");
-            sb.Append("JOIN BestelItem as B ON M.MenuItemId = B.MenuItem");
-            sb.Append("JOIN Bestelling as C ON B.Bestelling = C.Bestelling");
-            sb.Append("JOIN Medewerker as D ON C.Medewerker = D.MedewerkerId");
-            sb.Append("WHERE M.Categorie BETWEEN 8 AND 12");
+            sb.Append("SELECT M.Naam, Aantal, B.Opmerking, TijdIngevoerd, D.Naam, M.Categorie ");
+            sb.Append("FROM MenuItem as M ");
+            sb.Append("JOIN BestelItem as B ON M.MenuItemId = B.MenuItem ");
+            sb.Append("JOIN Bestelling as C ON B.Bestelling = C.BestellingId ");
+            sb.Append("JOIN Medewerker as D ON C.Medewerker = D.MedewerkerId ");
+            sb.Append("WHERE M.Categorie BETWEEN 8 AND 12 ");
 
+            conn.Open();
             SqlCommand cmd = new SqlCommand(sb.ToString(), conn);
             SqlDataReader reader = cmd.ExecuteReader();
-
 
             while (reader.Read())
             {

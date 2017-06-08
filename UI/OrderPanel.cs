@@ -30,19 +30,22 @@ namespace UI
 
         public List<List<Control>> MaakPanelen(int[] idFrequentie)
         {
+            /**
             List<Control> LabelList = new List<Control>();
             List<Control> PanelList = new List<Control>();
             List<Control> ButtonList = new List<Control>();
             List<Control> TreeViewList = new List<Control>();
             List<Control> RichTextBoxList = new List<Control>();
+            **/
 
             List<Control> Controls = new List<Control>();
 
             List<List<Control>> AlleControls = new List<List<Control>>();
 
             Label Label = new Label();
+            TabControl TabControl = new TabControl();
             TreeView TreeView = new TreeView();
-            Panel Panel = new Panel();
+            //Panel Panel = new Panel();
             Button Button = new Button();
             RichTextBox RichTextBox = new RichTextBox();
 
@@ -51,6 +54,8 @@ namespace UI
 
             List<BarBestelling> BestelLijst = new List<BarBestelling>();
             BestelLijst = BestelObject.GetOrders();
+
+            //tc.ItemSize = System.Drawing.Size();
 
             for (int i = 0; i < BestelObject.GetOrders().Count; i++)
             //Itereer door aantal orders om de ID Frequentie te helpen
@@ -65,7 +70,10 @@ namespace UI
                     {
                         //Voor Controls die 1 keer moeten worden aangemaakt.
                         //this.label2.Location = new System.Drawing.Point(151, 120);
+                        //DateTime moet nog aangemaakt worden om op de tabcontrol te zetten.
 
+                        TabControl.TabPages.Add("Bestelling {0}", idFrequentie[j].ToString());   
+                        
                         Label.Text = "Bestelling ogenomen door: \r\n" + BestelLijst[i].MedewerkerNaam;
                         Label.ForeColor = System.Drawing.Color.Red;
                         //TODO: Posities Instellen
@@ -79,11 +87,12 @@ namespace UI
                     //Hierbinnen komen de verschillende controls terug
                     //Hier kunnen we de volgende dingen doen:
                     //Labels, Treeview
+                    TabControl.TabPages.Add("Bestelling {0}", i.ToString());
+
+
 
                     Panel.Height = HoogsteVerschilStandaard + 12;
                     Panel.AutoSize = true;
-
-
 
                     RichTextBox.Text += BestelLijst[i].Opmerking + "\n";
                     TreeView.Nodes[j].Nodes.Add(BestelLijst[i].ItemNaam.ToString());
@@ -113,7 +122,6 @@ namespace UI
                     //Einde eerste FOR
                 }
             }
-
             return AlleControls;
         }
 

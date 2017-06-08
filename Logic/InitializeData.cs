@@ -15,12 +15,12 @@ namespace Logic
 
         }
 
-        public bool Start()
+        public DAL.BestellingDAO GetData()
         {
             BDAO = new DAL.BestellingDAO();
             BDAO.GetBarBestellingen();
 
-            return true;
+            return null; 
         }
     }
 }

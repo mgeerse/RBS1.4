@@ -8,15 +8,12 @@ namespace Logic
 {
     public class BestellingObject
     {
-        public DAL.BestellingDAO BestellingDAO = new DAL.BestellingDAO();
-
         public BestellingObject() { }
-
-
         //Onderstaande opzich niet nodig.
         public int GetAantalOrders()
         {
-            List<Model.BarBestelling> BarBestelling = new List<Model.BarBestelling>(GetOrders());
+            DAL.BestellingDAO BestellingDAO = new DAL.BestellingDAO();
+            List<Model.BarBestelling> BarBestelling = new List<Model.BarBestelling>();
             BarBestelling = BestellingDAO.GetBarBestellingen();
 
             int aantal = 0;
@@ -35,9 +32,9 @@ namespace Logic
 
         public int[] GetIdFrequentie()
         {
-            List<Model.BarBestelling> BarBestelling = new List<Model.BarBestelling>(GetOrders());
+            DAL.BestellingDAO BestellingDAO = new DAL.BestellingDAO();
+            List<Model.BarBestelling> BarBestelling = new List<Model.BarBestelling>();
             BarBestelling = BestellingDAO.GetBarBestellingen();
-
 
             int[] frequentie = null;
 
@@ -51,8 +48,9 @@ namespace Logic
 
         public List<Model.BarBestelling> GetOrders()
         {
-            List<Model.BarBestelling> BarBestelling = new List<Model.BarBestelling>(GetOrders());
-            
+            DAL.BestellingDAO BestellingDAO = new DAL.BestellingDAO();
+            List<Model.BarBestelling> BarBestelling = new List<Model.BarBestelling>();
+            BarBestelling = BestellingDAO.GetBarBestellingen();
             return BestellingDAO.GetBarBestellingen();
         }
     }
