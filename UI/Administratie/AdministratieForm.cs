@@ -64,5 +64,13 @@ namespace UI
                 IngelogdeMedewerkerToolStripLabel.Text = "Ingelogd als: " + IngelogdeMedewerker.Naam;
             }
         }
+
+        public Panel _ContentPanel
+        {
+            get
+            {
+                return ContentPanel;
+            }
+        }
     }
 }

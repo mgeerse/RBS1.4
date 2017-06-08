@@ -8,13 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace UI.Administratie
+namespace UI
 {
     public partial class AdministratieHomeForm : Form
     {
         public AdministratieHomeForm()
         {
             InitializeComponent();
+            
         }
     }
 }

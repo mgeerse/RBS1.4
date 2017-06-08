@@ -45,6 +45,7 @@ namespace DAL
                 SqlDataReader reader = command.ExecuteReader();
                 if (!reader.Read())
                 {
+                    conn.Close();
                     return null;
                 }
 

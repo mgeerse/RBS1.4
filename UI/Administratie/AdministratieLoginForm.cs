@@ -27,6 +27,15 @@ namespace UI
             char[] logincode = LoginCodeTextBox.Text.ToCharArray();
             Medewerker medewerker = LoginHandler.GetForLoginCode(logincode);
             parent.SetIngelogdeMedewerker(medewerker);
+            if (medewerker != null)
+            {
+                parent.Controls["ContentPanel"].Controls.Clear();
+                AdministratieHomeForm form = new AdministratieHomeForm();
+                form.TopLevel = false;
+                parent.Controls["ContentPanel"].Controls.Add(form);
+                form.FormBorderStyle = FormBorderStyle.None;
+                form.Show();
+            }
         }
     }
 }
