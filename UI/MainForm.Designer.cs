@@ -189,7 +189,7 @@
             // 
             // btn_Uitloggen
             // 
-            this.btn_Uitloggen.Location = new System.Drawing.Point(187, 420);
+            this.btn_Uitloggen.Location = new System.Drawing.Point(188, 420);
             this.btn_Uitloggen.Name = "btn_Uitloggen";
             this.btn_Uitloggen.Size = new System.Drawing.Size(116, 23);
             this.btn_Uitloggen.TabIndex = 14;
