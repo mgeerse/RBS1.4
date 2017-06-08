@@ -30,7 +30,7 @@
         {
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.IngelogdeMedewerkerToolStripLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.LoguitButton = new System.Windows.Forms.Button();
             this.ContentPanel = new System.Windows.Forms.Panel();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -51,15 +51,15 @@
             this.IngelogdeMedewerkerToolStripLabel.Size = new System.Drawing.Size(149, 17);
             this.IngelogdeMedewerkerToolStripLabel.Text = "Ingelogd als: Niet ingelogd";
             // 
-            // button1
+            // LoguitButton
             // 
-            this.button1.Location = new System.Drawing.Point(664, 539);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(120, 22);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Uitloggen";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.LoguitButton.Location = new System.Drawing.Point(664, 539);
+            this.LoguitButton.Name = "LoguitButton";
+            this.LoguitButton.Size = new System.Drawing.Size(120, 22);
+            this.LoguitButton.TabIndex = 1;
+            this.LoguitButton.Text = "Uitloggen";
+            this.LoguitButton.UseVisualStyleBackColor = true;
+            this.LoguitButton.Click += new System.EventHandler(this.LoguitButton_Click);
             // 
             // ContentPanel
             // 
@@ -75,7 +75,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.ContentPanel);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.LoguitButton);
             this.Controls.Add(this.statusStrip1);
             this.Name = "AdministratieForm";
             this.Text = "AdministratieForm";
@@ -91,7 +91,7 @@
 
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel IngelogdeMedewerkerToolStripLabel;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button LoguitButton;
         private System.Windows.Forms.Panel ContentPanel;
     }
 }

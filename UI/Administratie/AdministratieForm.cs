@@ -30,21 +30,39 @@ namespace UI
             loginForm.Show();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void LoguitButton_Click(object sender, EventArgs e)
         {
-            if(IngelogdeMedewerker == null)
+            if (IngelogdeMedewerker == null)
             {
                 ErrAlUitgelogdForm form = new ErrAlUitgelogdForm();
                 form.StartPosition = FormStartPosition.CenterParent;
                 form.ShowDialog();
             }
-            //TODO: Uitlogfunctionaliteit
+            else
+            {
+                ConfirmLogUitForm form = new ConfirmLogUitForm();
+                form.StartPosition = FormStartPosition.CenterParent;
+                if (form.ShowDialog() == DialogResult.Yes)
+                {
+                    IngelogdeMedewerker = null;
+                    ContentPanel.Controls.Clear();
+                    AdministratieForm_Load(sender, e);
+                    SetIngelogdeMedewerker(IngelogdeMedewerker);
+                }
+            }
         }
 
         public void SetIngelogdeMedewerker(Medewerker medewerker)
         {
-            IngelogdeMedewerker = medewerker;
-            IngelogdeMedewerkerToolStripLabel.Text = "Ingelogd als: " + IngelogdeMedewerker.Naam;
+            if (medewerker == null)
+            {
+                IngelogdeMedewerkerToolStripLabel.Text = "Ingelogd als: Niet ingelogd";
+            }
+            else
+            {
+                IngelogdeMedewerker = medewerker;
+                IngelogdeMedewerkerToolStripLabel.Text = "Ingelogd als: " + IngelogdeMedewerker.Naam;
+            }
         }
     }
 }
