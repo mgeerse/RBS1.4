@@ -62,5 +62,10 @@ namespace UI
         {
             
         }
+
+        private void btn_Uitloggen_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
