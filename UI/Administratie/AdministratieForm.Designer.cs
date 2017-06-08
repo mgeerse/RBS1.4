@@ -32,7 +32,10 @@
             this.IngelogdeMedewerkerToolStripLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.LoguitButton = new System.Windows.Forms.Button();
             this.ContentPanel = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.statusStrip1.SuspendLayout();
+            this.ContentPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -63,11 +66,22 @@
             // 
             // ContentPanel
             // 
+            this.ContentPanel.Controls.Add(this.pictureBox1);
             this.ContentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ContentPanel.Location = new System.Drawing.Point(0, 0);
             this.ContentPanel.Name = "ContentPanel";
             this.ContentPanel.Size = new System.Drawing.Size(784, 539);
             this.ContentPanel.TabIndex = 2;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::UI.Properties.Resources.chrome_2017_06_06_13_52_20;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(609, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(163, 82);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // AdministratieForm
             // 
@@ -82,6 +96,8 @@
             this.Load += new System.EventHandler(this.AdministratieForm_Load);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            this.ContentPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -93,5 +109,6 @@
         private System.Windows.Forms.ToolStripStatusLabel IngelogdeMedewerkerToolStripLabel;
         private System.Windows.Forms.Button LoguitButton;
         private System.Windows.Forms.Panel ContentPanel;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
