@@ -25,7 +25,8 @@ namespace UI
         private void LoginButton_Click(object sender, EventArgs e)
         {
             char[] logincode = LoginCodeTextBox.Text.ToCharArray();
-            Medewerker medewerker = LoginHandler.GetForLoginCode(logincode);
+            LoginHandler handler = new LoginHandler();
+            Medewerker medewerker = handler.GetForLoginCode(logincode);
             parent.SetIngelogdeMedewerker(medewerker);
             if (medewerker != null)
             {

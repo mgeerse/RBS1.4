@@ -8,11 +8,11 @@ using DAL;
 
 namespace Logic
 {
-    public static class LoginHandler
+    public class LoginHandler
     {
-        static MedewerkerDAO medewerkerDAO = new MedewerkerDAO();
+        MedewerkerDAO medewerkerDAO = new MedewerkerDAO();
 
-        public static Medewerker GetForLoginCode(char[] code)
+        public Medewerker GetForLoginCode(char[] code)
         {
             return medewerkerDAO.GetForLoginCode(code);
         }
