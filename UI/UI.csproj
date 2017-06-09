@@ -94,6 +94,12 @@
     <Compile Include="Administratie\Popups\ErrAlUitgelogdForm.Designer.cs">
       <DependentUpon>ErrAlUitgelogdForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Bediening\BedieningBestellingOverzichtForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bediening\BedieningBestellingOverzichtForm.Designer.cs">
+      <DependentUpon>BedieningBestellingOverzichtForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Bediening\BedieningLoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,12 @@
     </Compile>
     <Compile Include="Bediening\BedieningMenuForm.Designer.cs">
       <DependentUpon>BedieningMenuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bediening\BestellingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bediening\BestellingForm.Designer.cs">
+      <DependentUpon>BestellingForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -135,6 +147,9 @@
     <EmbeddedResource Include="Administratie\Popups\ErrAlUitgelogdForm.resx">
       <DependentUpon>ErrAlUitgelogdForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Bediening\BedieningBestellingOverzichtForm.resx">
+      <DependentUpon>BedieningBestellingOverzichtForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Bediening\BedieningLoginForm.resx">
       <DependentUpon>BedieningLoginForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -143,6 +158,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Bediening\BedieningMenuForm.resx">
       <DependentUpon>BedieningMenuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bediening\BestellingForm.resx">
+      <DependentUpon>BestellingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
