@@ -19,14 +19,30 @@ namespace Logic
 
         public List<Bestelitem> GetGeredeBestelitems()
         {
-            // TODO
-            return null;
+            List<Bestelitem> bestelitems =  bestelitemDAO.GetAll();
+            List<Bestelitem> geredeBestelitems = new List<Bestelitem>();
+            foreach (Bestelitem item in bestelitems)
+            {
+                if(item.Status == Status.Klaar)
+                {
+                    geredeBestelitems.Add(item);
+                }
+            }
+            return geredeBestelitems;
         }
 
         public List<Bestelitem> GetNietGeredeBestelitems()
         {
-            // TODO
-            return null;
+            List<Bestelitem> bestelitems = bestelitemDAO.GetAll();
+            List<Bestelitem> nietGeredeBestelItems = new List<Bestelitem>();
+            foreach (Bestelitem item in bestelitems)
+            {
+                if (item.Status != Status.Klaar && item.Status != Status.Teruggestuurd)
+                {
+                    nietGeredeBestelItems.Add(item);
+                }
+            }
+            return nietGeredeBestelItems;
         }
     }
 }
