@@ -30,7 +30,7 @@ namespace UI
             if (medewerker != null)
             {
                 parent.Controls["ContentPanel"].Controls.Clear();
-                AdministratieHomeForm form = new AdministratieHomeForm();
+                Bediening.BedieningMenuForm form = new Bediening.BedieningMenuForm();
                 form.TopLevel = false;
                 parent.Controls["ContentPanel"].Controls.Add(form);
                 form.FormBorderStyle = FormBorderStyle.None;

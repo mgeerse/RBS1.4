@@ -106,6 +106,12 @@
     <Compile Include="Bediening\BedieningForm.Designer.cs">
       <DependentUpon>BedieningForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Bediening\BedieningMenuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bediening\BedieningMenuForm.Designer.cs">
+      <DependentUpon>BedieningMenuForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +140,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Bediening\BedieningForm.resx">
       <DependentUpon>BedieningForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bediening\BedieningMenuForm.resx">
+      <DependentUpon>BedieningMenuForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

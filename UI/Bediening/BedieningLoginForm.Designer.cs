@@ -44,9 +44,9 @@
             this.pictureBox1.BackgroundImage = global::UI.Properties.Resources.chrome_2017_06_06_13_52_20;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox1.Location = new System.Drawing.Point(13, 13);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(270, 225);
+            this.pictureBox1.Size = new System.Drawing.Size(670, 225);
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
@@ -59,16 +59,16 @@
             this.panel1.Controls.Add(this.LoginButton);
             this.panel1.Controls.Add(this.LoginCodeTextBox);
             this.panel1.Location = new System.Drawing.Point(13, 246);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(270, 155);
+            this.panel1.Size = new System.Drawing.Size(670, 155);
             this.panel1.TabIndex = 5;
             // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(104, 17);
+            this.label1.Location = new System.Drawing.Point(304, 17);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(61, 17);
@@ -78,10 +78,10 @@
             // LoginButton
             // 
             this.LoginButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.LoginButton.Location = new System.Drawing.Point(69, 80);
-            this.LoginButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.LoginButton.Location = new System.Drawing.Point(269, 78);
+            this.LoginButton.Margin = new System.Windows.Forms.Padding(4);
             this.LoginButton.Name = "LoginButton";
-            this.LoginButton.Size = new System.Drawing.Size(133, 28);
+            this.LoginButton.Size = new System.Drawing.Size(132, 42);
             this.LoginButton.TabIndex = 2;
             this.LoginButton.Text = "Log in";
             this.LoginButton.UseVisualStyleBackColor = true;
@@ -90,8 +90,8 @@
             // LoginCodeTextBox
             // 
             this.LoginCodeTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.LoginCodeTextBox.Location = new System.Drawing.Point(69, 48);
-            this.LoginCodeTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.LoginCodeTextBox.Location = new System.Drawing.Point(269, 48);
+            this.LoginCodeTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.LoginCodeTextBox.Name = "LoginCodeTextBox";
             this.LoginCodeTextBox.Size = new System.Drawing.Size(132, 22);
             this.LoginCodeTextBox.TabIndex = 1;
@@ -100,10 +100,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(302, 433);
+            this.ClientSize = new System.Drawing.Size(702, 1045);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "BedieningLoginForm";
             this.Text = "BedieningLoginForm";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

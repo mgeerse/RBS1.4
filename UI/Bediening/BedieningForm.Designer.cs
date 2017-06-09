@@ -40,10 +40,10 @@
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.IngelogdeMedewerkerToolStripLabel});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 408);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 1020);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(302, 25);
+            this.statusStrip1.Size = new System.Drawing.Size(702, 25);
             this.statusStrip1.TabIndex = 0;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -55,10 +55,10 @@
             // 
             // LoguitButton
             // 
-            this.LoguitButton.Location = new System.Drawing.Point(197, 408);
+            this.LoguitButton.Location = new System.Drawing.Point(508, 1020);
             this.LoguitButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.LoguitButton.Name = "LoguitButton";
-            this.LoguitButton.Size = new System.Drawing.Size(105, 27);
+            this.LoguitButton.Size = new System.Drawing.Size(194, 27);
             this.LoguitButton.TabIndex = 1;
             this.LoguitButton.Text = "Uitloggen";
             this.LoguitButton.UseVisualStyleBackColor = true;
@@ -70,14 +70,14 @@
             this.ContentPanel.Location = new System.Drawing.Point(0, 0);
             this.ContentPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ContentPanel.Name = "ContentPanel";
-            this.ContentPanel.Size = new System.Drawing.Size(302, 408);
+            this.ContentPanel.Size = new System.Drawing.Size(702, 1020);
             this.ContentPanel.TabIndex = 2;
             // 
             // BedieningForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(302, 433);
+            this.ClientSize = new System.Drawing.Size(702, 1045);
             this.Controls.Add(this.LoguitButton);
             this.Controls.Add(this.ContentPanel);
             this.Controls.Add(this.statusStrip1);
