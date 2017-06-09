@@ -61,8 +61,7 @@ namespace UI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Bediening tafel2 = new Bediening();
-            tafel2.Show();
+            
         }
 
         private void btn_Uitloggen_Click(object sender, EventArgs e)
@@ -121,6 +120,12 @@ namespace UI
         {
             Bediening tafel10 = new Bediening();
             tafel10.Show();
+        }
+
+        private void btn_Tafel2_Click(object sender, EventArgs e)
+        {
+            Bediening tafel2 = new Bediening();
+            tafel2.Show();
         }
     }
 }

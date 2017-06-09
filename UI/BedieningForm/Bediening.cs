@@ -19,7 +19,21 @@ namespace UI
 
         private void Bediening_Load(object sender, EventArgs e)
         {
+            Lijst_Lunch.Visible = false;
+        }
 
+        private void btn_BekijkOrder_Click(object sender, EventArgs e)
+        {
+            Lijst_Lunch.Visible = true;
+            Lijst_Lunch.Show();
+            btn_Verberg.Visible = true;
+        }
+
+        private void btn_Verberg_Click(object sender, EventArgs e)
+        {
+            Lijst_Lunch.Visible = false;
+            Lijst_Lunch.Hide();
+            btn_Verberg.Visible = false;
         }
     }
 }

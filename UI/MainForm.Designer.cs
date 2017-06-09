@@ -86,6 +86,7 @@
             this.btn_Tafel2.TabIndex = 3;
             this.btn_Tafel2.Text = "2";
             this.btn_Tafel2.UseVisualStyleBackColor = false;
+            this.btn_Tafel2.Click += new System.EventHandler(this.btn_Tafel2_Click);
             // 
             // btn_Tafel3
             // 

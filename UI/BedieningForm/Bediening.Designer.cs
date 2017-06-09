@@ -43,6 +43,8 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.btn_NotifNonAlcohol = new System.Windows.Forms.Button();
             this.btn_Verzend_nonAlcohol = new System.Windows.Forms.Button();
+            this.Lijst_Lunch = new System.Windows.Forms.ListBox();
+            this.btn_Verberg = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -76,6 +78,7 @@
             this.btn_BekijkOrder.TabIndex = 2;
             this.btn_BekijkOrder.Text = "Bekijk Order";
             this.btn_BekijkOrder.UseVisualStyleBackColor = true;
+            this.btn_BekijkOrder.Click += new System.EventHandler(this.btn_BekijkOrder_Click);
             // 
             // tabControl1
             // 
@@ -91,6 +94,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.Lijst_Lunch);
             this.tabPage1.Controls.Add(this.btn_NotifLunch);
             this.tabPage1.Controls.Add(this.btn_VerzendLunch);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
@@ -200,14 +204,33 @@
             this.btn_Verzend_nonAlcohol.Text = "Verzend Order";
             this.btn_Verzend_nonAlcohol.UseVisualStyleBackColor = true;
             // 
+            // Lijst_Lunch
+            // 
+            this.Lijst_Lunch.FormattingEnabled = true;
+            this.Lijst_Lunch.Location = new System.Drawing.Point(0, 154);
+            this.Lijst_Lunch.Name = "Lijst_Lunch";
+            this.Lijst_Lunch.Size = new System.Drawing.Size(312, 212);
+            this.Lijst_Lunch.TabIndex = 3;
+            // 
+            // btn_Verberg
+            // 
+            this.btn_Verberg.Location = new System.Drawing.Point(177, 482);
+            this.btn_Verberg.Name = "btn_Verberg";
+            this.btn_Verberg.Size = new System.Drawing.Size(155, 47);
+            this.btn_Verberg.TabIndex = 4;
+            this.btn_Verberg.Text = "Verberg Order";
+            this.btn_Verberg.UseVisualStyleBackColor = true;
+            this.btn_Verberg.Click += new System.EventHandler(this.btn_Verberg_Click);
+            // 
             // Bediening
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(344, 541);
             this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.btn_BekijkOrder);
             this.Controls.Add(this.btn_Hoofdmenu);
+            this.Controls.Add(this.btn_BekijkOrder);
+            this.Controls.Add(this.btn_Verberg);
             this.Name = "Bediening";
             this.Text = "Bediening";
             this.Load += new System.EventHandler(this.Bediening_Load);
@@ -237,5 +260,7 @@
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.Button btn_NotifNonAlcohol;
         private System.Windows.Forms.Button btn_Verzend_nonAlcohol;
+        private System.Windows.Forms.ListBox Lijst_Lunch;
+        private System.Windows.Forms.Button btn_Verberg;
     }
 }
