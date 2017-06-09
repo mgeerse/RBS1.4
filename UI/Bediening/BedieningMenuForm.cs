@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace UI.Bediening
+namespace UI
 {
     public partial class BedieningMenuForm : Form
     {

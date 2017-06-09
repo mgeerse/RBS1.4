@@ -1,4 +1,4 @@
-﻿namespace UI.Bediening
+﻿namespace UI
 {
     partial class BedieningMenuForm
     {
@@ -33,11 +33,7 @@
             this.tabDiner = new System.Windows.Forms.TabPage();
             this.tabDrank = new System.Windows.Forms.TabPage();
             this.tabNonAlcohol = new System.Windows.Forms.TabPage();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.IngelogdeMedewerkerToolStripLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.LoguitButton = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
-            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -94,49 +90,16 @@
             this.tabNonAlcohol.Text = "          Non-Alcohol          ";
             this.tabNonAlcohol.UseVisualStyleBackColor = true;
             // 
-            // statusStrip1
-            // 
-            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.IngelogdeMedewerkerToolStripLabel});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 1020);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(702, 25);
-            this.statusStrip1.TabIndex = 1;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // IngelogdeMedewerkerToolStripLabel
-            // 
-            this.IngelogdeMedewerkerToolStripLabel.Name = "IngelogdeMedewerkerToolStripLabel";
-            this.IngelogdeMedewerkerToolStripLabel.Size = new System.Drawing.Size(190, 20);
-            this.IngelogdeMedewerkerToolStripLabel.Text = "Ingelogd als: Niet ingelogd";
-            // 
-            // LoguitButton
-            // 
-            this.LoguitButton.Location = new System.Drawing.Point(508, 1020);
-            this.LoguitButton.Margin = new System.Windows.Forms.Padding(4);
-            this.LoguitButton.Name = "LoguitButton";
-            this.LoguitButton.Size = new System.Drawing.Size(194, 27);
-            this.LoguitButton.TabIndex = 2;
-            this.LoguitButton.Text = "Uitloggen";
-            this.LoguitButton.UseVisualStyleBackColor = true;
-            // 
             // BedieningMenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(702, 1045);
-            this.Controls.Add(this.LoguitButton);
-            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.tabControl1);
             this.Name = "BedieningMenuForm";
             this.Text = "BedieningMenuForm";
             this.tabControl1.ResumeLayout(false);
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -147,8 +110,5 @@
         private System.Windows.Forms.TabPage tabDiner;
         private System.Windows.Forms.TabPage tabDrank;
         private System.Windows.Forms.TabPage tabNonAlcohol;
-        private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.ToolStripStatusLabel IngelogdeMedewerkerToolStripLabel;
-        private System.Windows.Forms.Button LoguitButton;
     }
 }

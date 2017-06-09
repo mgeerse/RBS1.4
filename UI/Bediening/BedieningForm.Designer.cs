@@ -56,7 +56,7 @@
             // LoguitButton
             // 
             this.LoguitButton.Location = new System.Drawing.Point(508, 1020);
-            this.LoguitButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.LoguitButton.Margin = new System.Windows.Forms.Padding(4);
             this.LoguitButton.Name = "LoguitButton";
             this.LoguitButton.Size = new System.Drawing.Size(194, 27);
             this.LoguitButton.TabIndex = 1;
@@ -68,7 +68,7 @@
             // 
             this.ContentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ContentPanel.Location = new System.Drawing.Point(0, 0);
-            this.ContentPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ContentPanel.Margin = new System.Windows.Forms.Padding(4);
             this.ContentPanel.Name = "ContentPanel";
             this.ContentPanel.Size = new System.Drawing.Size(702, 1020);
             this.ContentPanel.TabIndex = 2;
@@ -81,7 +81,7 @@
             this.Controls.Add(this.LoguitButton);
             this.Controls.Add(this.ContentPanel);
             this.Controls.Add(this.statusStrip1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "BedieningForm";
             this.Text = "BedieningForm";
             this.Load += new System.EventHandler(this.BedieningForm_Load);

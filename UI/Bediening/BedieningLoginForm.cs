@@ -25,12 +25,12 @@ namespace UI
         private void LoginButton_Click(object sender, EventArgs e)
         {
             char[] logincode = LoginCodeTextBox.Text.ToCharArray();
-            Medewerker medewerker = LoginHandler.GetForLoginCode(logincode);
+            Medewerker medewerker = new LoginHandler().GetForLoginCode(logincode);
             parent.SetIngelogdeMedewerker(medewerker);
             if (medewerker != null)
             {
                 parent.Controls["ContentPanel"].Controls.Clear();
-                Bediening.BedieningMenuForm form = new Bediening.BedieningMenuForm();
+                BedieningMenuForm form = new BedieningMenuForm();
                 form.TopLevel = false;
                 parent.Controls["ContentPanel"].Controls.Add(form);
                 form.FormBorderStyle = FormBorderStyle.None;
