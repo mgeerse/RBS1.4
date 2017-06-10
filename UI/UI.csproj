@@ -118,10 +118,10 @@
     <Compile Include="Bediening\BedieningMenuForm.Designer.cs">
       <DependentUpon>BedieningMenuForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Bediening\BestellingForm.cs">
+    <Compile Include="Administratie\HelperForms\BestellingForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Bediening\BestellingForm.Designer.cs">
+    <Compile Include="Administratie\HelperForms\BestellingForm.Designer.cs">
       <DependentUpon>BestellingForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
@@ -159,7 +159,7 @@
     <EmbeddedResource Include="Bediening\BedieningMenuForm.resx">
       <DependentUpon>BedieningMenuForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Bediening\BestellingForm.resx">
+    <EmbeddedResource Include="Administratie\HelperForms\BestellingForm.resx">
       <DependentUpon>BestellingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
