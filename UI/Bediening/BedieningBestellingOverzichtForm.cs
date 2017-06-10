@@ -18,5 +18,10 @@ namespace UI
 
             //BestellingenPanel.Controls.Add(new BestellingForm())
         }
+
+        private void buttonAfrekenen_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -124,6 +124,12 @@
     <Compile Include="Bediening\BestellingForm.Designer.cs">
       <DependentUpon>BestellingForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Bediening\PopupsBediening\ConfirmAfrekenenForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bediening\PopupsBediening\ConfirmAfrekenenForm.Designer.cs">
+      <DependentUpon>ConfirmAfrekenenForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -161,6 +167,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Bediening\BestellingForm.resx">
       <DependentUpon>BestellingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bediening\PopupsBediening\ConfirmAfrekenenForm.resx">
+      <DependentUpon>ConfirmAfrekenenForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
