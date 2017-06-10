@@ -12,6 +12,7 @@ namespace UI
 {
     public partial class BedieningBestellingOverzichtForm : Form
     {
+        
         public BedieningBestellingOverzichtForm()
         {
             InitializeComponent();
@@ -21,7 +22,17 @@ namespace UI
 
         private void buttonAfrekenen_Click(object sender, EventArgs e)
         {
+            ConfirmAfrekenenForm form = new ConfirmAfrekenenForm();
+            form.StartPosition = FormStartPosition.CenterParent;
+            if (form.ShowDialog() == DialogResult.Yes)
+            {
+                // Neem de rekening form aan
+                ContentPanel.Controls.Add(new ());
+                ContentPanel.Controls.Clear();
 
+
+            }
+            
         }
     }
 }

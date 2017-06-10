@@ -94,6 +94,12 @@
     <Compile Include="Administratie\Popups\ErrAlUitgelogdForm.Designer.cs">
       <DependentUpon>ErrAlUitgelogdForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Bediening\AfrekenenForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bediening\AfrekenenForm.Designer.cs">
+      <DependentUpon>AfrekenenForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Bediening\BedieningBestellingOverzichtForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +158,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Administratie\Popups\ErrAlUitgelogdForm.resx">
       <DependentUpon>ErrAlUitgelogdForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bediening\AfrekenenForm.resx">
+      <DependentUpon>AfrekenenForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Bediening\BedieningBestellingOverzichtForm.resx">
       <DependentUpon>BedieningBestellingOverzichtForm.cs</DependentUpon>
