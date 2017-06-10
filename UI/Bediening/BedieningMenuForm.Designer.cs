@@ -56,7 +56,7 @@
             this.tabLunch.Padding = new System.Windows.Forms.Padding(3);
             this.tabLunch.Size = new System.Drawing.Size(669, 430);
             this.tabLunch.TabIndex = 0;
-            this.tabLunch.Text = "          Lunch          ";
+            this.tabLunch.Text = "                   Lunch                   ";
             this.tabLunch.UseVisualStyleBackColor = true;
             // 
             // tabDiner
@@ -66,7 +66,7 @@
             this.tabDiner.Padding = new System.Windows.Forms.Padding(3);
             this.tabDiner.Size = new System.Drawing.Size(669, 430);
             this.tabDiner.TabIndex = 1;
-            this.tabDiner.Text = "          Diner          ";
+            this.tabDiner.Text = "                    Diner                    ";
             this.tabDiner.UseVisualStyleBackColor = true;
             // 
             // tabDrank
@@ -76,7 +76,7 @@
             this.tabDrank.Padding = new System.Windows.Forms.Padding(3);
             this.tabDrank.Size = new System.Drawing.Size(669, 430);
             this.tabDrank.TabIndex = 2;
-            this.tabDrank.Text = "          Drank          ";
+            this.tabDrank.Text = "                    Drank                    ";
             this.tabDrank.UseVisualStyleBackColor = true;
             this.tabDrank.Click += new System.EventHandler(this.tabDrank_Click);
             // 
@@ -87,7 +87,7 @@
             this.tabNonAlcohol.Padding = new System.Windows.Forms.Padding(3);
             this.tabNonAlcohol.Size = new System.Drawing.Size(669, 430);
             this.tabNonAlcohol.TabIndex = 3;
-            this.tabNonAlcohol.Text = "          Non-Alcohol          ";
+            this.tabNonAlcohol.Text = "               Non-Alcohol               ";
             this.tabNonAlcohol.UseVisualStyleBackColor = true;
             // 
             // BedieningMenuForm

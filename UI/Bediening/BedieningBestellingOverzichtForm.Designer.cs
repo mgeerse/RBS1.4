@@ -60,6 +60,7 @@
             this.buttonAfrekenen.TabIndex = 2;
             this.buttonAfrekenen.Text = "Afrekenen";
             this.buttonAfrekenen.UseVisualStyleBackColor = true;
+            this.buttonAfrekenen.Click += new System.EventHandler(this.buttonAfrekenen_Click);
             // 
             // BedieningBestellingOverzichtForm
             // 
