@@ -2,6 +2,7 @@
 using Model;
 using System.Collections.Generic;
 using System.Windows.Forms;
+
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -62,7 +63,7 @@ namespace UI
 
             //TabControl properties
             TabControl.ItemSize = new System.Drawing.Size(150, 25);
-
+            TabControl.DefaultBackColor =  
 
             //TabPage Properties
             TabPage.Parent = TabControl;
