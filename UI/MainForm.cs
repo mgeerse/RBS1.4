@@ -58,6 +58,7 @@ namespace UI
             Bediening tafel1 = new Bediening();
             tafel1.Show();
             Tafel Isbezet = true;
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
