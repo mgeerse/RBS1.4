@@ -7,7 +7,7 @@ using DAL.DAO;
 
 namespace Logic
 {
-    class tafels  
+    class tafelkleur  
     {
         
     }
