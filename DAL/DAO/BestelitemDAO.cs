@@ -35,13 +35,11 @@ namespace DAL
                 Status Status = (Status) reader.GetInt32(4);
                 DateTime TijdIngevoerd = reader.GetDateTime(5);
 
-                // TODO result toevoegen
-                // result.Add(new Bestelitem());
+                result.Add(new Bestelitem(Bestelling, Menuitem, Aantal, Opmerking, Status, TijdIngevoerd));
             }
-
-
+            
             conn.Close();
-            return null;
+            return result;
         }
 
         public Bestelitem GetForId(int Id)

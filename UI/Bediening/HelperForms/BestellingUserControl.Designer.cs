@@ -34,13 +34,15 @@
             this.LabelAantal = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.LabelTijdIngevoerd = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // LabelStatus
             // 
             this.LabelStatus.AutoSize = true;
             this.LabelStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelStatus.Location = new System.Drawing.Point(77, 101);
+            this.LabelStatus.Location = new System.Drawing.Point(110, 81);
             this.LabelStatus.Name = "LabelStatus";
             this.LabelStatus.Size = new System.Drawing.Size(20, 20);
             this.LabelStatus.TabIndex = 11;
@@ -50,7 +52,7 @@
             // 
             this.label75.AutoSize = true;
             this.label75.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label75.Location = new System.Drawing.Point(16, 101);
+            this.label75.Location = new System.Drawing.Point(16, 81);
             this.label75.Name = "label75";
             this.label75.Size = new System.Drawing.Size(64, 20);
             this.label75.TabIndex = 10;
@@ -60,7 +62,7 @@
             // 
             this.LabelGerechtNaam.AutoSize = true;
             this.LabelGerechtNaam.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelGerechtNaam.Location = new System.Drawing.Point(77, 57);
+            this.LabelGerechtNaam.Location = new System.Drawing.Point(110, 45);
             this.LabelGerechtNaam.Name = "LabelGerechtNaam";
             this.LabelGerechtNaam.Size = new System.Drawing.Size(20, 20);
             this.LabelGerechtNaam.TabIndex = 9;
@@ -70,7 +72,7 @@
             // 
             this.LabelAantal.AutoSize = true;
             this.LabelAantal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelAantal.Location = new System.Drawing.Point(16, 57);
+            this.LabelAantal.Location = new System.Drawing.Point(16, 45);
             this.LabelAantal.Name = "LabelAantal";
             this.LabelAantal.Size = new System.Drawing.Size(18, 20);
             this.LabelAantal.TabIndex = 8;
@@ -80,7 +82,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(77, 16);
+            this.label2.Location = new System.Drawing.Point(110, 16);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 20);
             this.label2.TabIndex = 7;
@@ -96,10 +98,32 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "Aantal";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(16, 101);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(88, 20);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Ingevoerd: ";
+            // 
+            // LabelTijdIngevoerd
+            // 
+            this.LabelTijdIngevoerd.AutoSize = true;
+            this.LabelTijdIngevoerd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelTijdIngevoerd.Location = new System.Drawing.Point(110, 101);
+            this.LabelTijdIngevoerd.Name = "LabelTijdIngevoerd";
+            this.LabelTijdIngevoerd.Size = new System.Drawing.Size(20, 20);
+            this.LabelTijdIngevoerd.TabIndex = 13;
+            this.LabelTijdIngevoerd.Text = "X";
+            // 
             // BestellingUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.LabelTijdIngevoerd);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.LabelStatus);
             this.Controls.Add(this.label75);
             this.Controls.Add(this.LabelGerechtNaam);
@@ -107,7 +131,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "BestellingUserControl";
-            this.Size = new System.Drawing.Size(450, 150);
+            this.Size = new System.Drawing.Size(450, 136);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -121,5 +145,7 @@
         private System.Windows.Forms.Label LabelAantal;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label LabelTijdIngevoerd;
     }
 }
