@@ -54,6 +54,7 @@
             // 
             // LoguitButton
             // 
+            this.LoguitButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.LoguitButton.Location = new System.Drawing.Point(380, 827);
             this.LoguitButton.Name = "LoguitButton";
             this.LoguitButton.Size = new System.Drawing.Size(146, 22);
