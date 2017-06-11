@@ -27,16 +27,20 @@ namespace DAL
             SqlCommand cmd = new SqlCommand(sb.ToString(), conn);
             cmd.Parameters.Add("@MedewerkerId", System.Data.SqlDbType.Int).Value = Id;
             cmd.Prepare();
+            conn.Open();
             SqlDataReader reader = cmd.ExecuteReader();
 
             while (reader.Read())
             {
-                Medewerker.Naam = reader.GetString(1);
-                Medewerker.Type = (MedewerkerType)reader.GetInt32(2);
-
-                return Medewerker;
+                Medewerker.Naam = reader.GetString(0);
+                Medewerker.Type = (MedewerkerType)reader.GetInt32(1);
             }
-            return null;
+
+            conn.Close();
+            conn.Dispose();
+            cmd.Dispose();
+            
+            return Medewerker;
         }
 
         public bool Create(Medewerker Object)

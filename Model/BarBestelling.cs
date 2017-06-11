@@ -6,15 +6,17 @@ using System.Threading.Tasks;
 
 namespace Model
 {
+    //MG
     public class BarBestelling
     {
-        public int BestelId { get; set; }
-        public string ItemNaam { get; set; }
-        public int Aantal { get; set; }
-        public string Opmerking { get; set; }
-        public DateTime Invoertijd { get; set; }
-        public string MedewerkerNaam { get; set; }
-
+        public int BestelId;
+        public string ItemNaam;
+        public int Aantal;
+        public string Opmerking;
+        public DateTime Invoertijd;
+        public string MedewerkerNaam;
+        public int TafelNummer;
+        public int Menuitem;
 
         public BarBestelling()
         {

@@ -18,7 +18,7 @@ namespace Logic
         public DAL.BestellingDAO GetData()
         {
             BDAO = new DAL.BestellingDAO();
-            BDAO.GetBarBestellingen();
+            BDAO.GetAllNewBarBestelling();
 
             return null; 
         }

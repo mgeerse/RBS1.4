@@ -39,10 +39,19 @@
             // 
             // Barman
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1142, 673);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(1144, 681);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1160, 720);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(1160, 720);
             this.Name = "Barman";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Barman";
             this.Load += new System.EventHandler(this.Barman_Load);
             this.ResumeLayout(false);
