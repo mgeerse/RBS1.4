@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,17 +11,14 @@ using Model;
 
 namespace UI
 {
-    public partial class BestellingForm : Form
+    public partial class BestellingUserControl : UserControl
     {
-        public Bestelitem Bestelitem
-        {
-            get; set;
-        }
+        Bestelitem item;
 
-        public BestellingForm(Bestelitem Bestelitem)
+        public BestellingUserControl(Bestelitem item)
         {
-            this.Bestelitem = Bestelitem;
             InitializeComponent();
+            this.item = item;
         }
     }
 }

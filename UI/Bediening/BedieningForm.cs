@@ -22,7 +22,7 @@ namespace UI
 
         private void BedieningForm_Load(object sender, EventArgs e)
         {
-            BedieningLoginForm loginForm = new BedieningLoginForm(this);
+            BedieningBestellingOverzichtForm loginForm = new BedieningBestellingOverzichtForm(this);
             loginForm.TopLevel = false;
             ContentPanel.Controls.Add(loginForm);
             loginForm.FormBorderStyle = FormBorderStyle.None;

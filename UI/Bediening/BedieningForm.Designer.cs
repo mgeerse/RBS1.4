@@ -37,30 +37,27 @@
             // 
             // statusStrip1
             // 
+            this.statusStrip1.AutoSize = false;
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.IngelogdeMedewerkerToolStripLabel});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 1020);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 824);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(702, 25);
+            this.statusStrip1.Size = new System.Drawing.Size(526, 25);
             this.statusStrip1.TabIndex = 0;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // IngelogdeMedewerkerToolStripLabel
             // 
             this.IngelogdeMedewerkerToolStripLabel.Name = "IngelogdeMedewerkerToolStripLabel";
-            this.IngelogdeMedewerkerToolStripLabel.Size = new System.Drawing.Size(190, 20);
+            this.IngelogdeMedewerkerToolStripLabel.Size = new System.Drawing.Size(149, 20);
             this.IngelogdeMedewerkerToolStripLabel.Text = "Ingelogd als: Niet ingelogd";
             // 
             // LoguitButton
             // 
-            this.LoguitButton.Location = new System.Drawing.Point(507, 1018);
-            this.LoguitButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.LoguitButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.LoguitButton.Location = new System.Drawing.Point(380, 827);
             this.LoguitButton.Name = "LoguitButton";
-            this.LoguitButton.Size = new System.Drawing.Size(195, 27);
+            this.LoguitButton.Size = new System.Drawing.Size(146, 22);
             this.LoguitButton.TabIndex = 1;
             this.LoguitButton.Text = "Uitloggen";
             this.LoguitButton.UseVisualStyleBackColor = true;
@@ -70,27 +67,24 @@
             // 
             this.ContentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ContentPanel.Location = new System.Drawing.Point(0, 0);
-            this.ContentPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ContentPanel.Name = "ContentPanel";
-            this.ContentPanel.Size = new System.Drawing.Size(702, 1020);
+            this.ContentPanel.Size = new System.Drawing.Size(526, 824);
             this.ContentPanel.TabIndex = 2;
             // 
             // BedieningForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(702, 1045);
+            this.ClientSize = new System.Drawing.Size(526, 849);
             this.Controls.Add(this.LoguitButton);
             this.Controls.Add(this.ContentPanel);
             this.Controls.Add(this.statusStrip1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "BedieningForm";
             this.Text = "BedieningForm";
             this.Load += new System.EventHandler(this.BedieningForm_Load);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

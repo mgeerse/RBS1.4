@@ -14,9 +14,13 @@ namespace UI
 {
     public partial class BedieningBestellingOverzichtForm : Form
     {
-        
-        public BedieningBestellingOverzichtForm()
+        //Meenemen om ContentPanel aan te roepen
+        BedieningForm parent;
+
+        public BedieningBestellingOverzichtForm(BedieningForm parent)
         {
+            this.parent = parent;
+
             InitializeComponent();
 
             //BestellingenPanel.Controls.Add(new BestellingForm())
@@ -29,30 +33,33 @@ namespace UI
             if (form.ShowDialog() == DialogResult.Yes)
             {
                 // Neem de rekening form aan
-                ContentPanel.Controls.Add(new ());
-                ContentPanel.Controls.Clear();
+                //ContentPanel.Controls.Add(new ());
+                //ContentPanel.Controls.Clear();
+                
 
 
             }
-            
+            InitBestellingOverzicht();
         }
 
         private void InitBestellingOverzicht()
         {
             List<Bestelitem> bestelitems = new BestellingOverzicht().GetNietGeredeBestelitems();
-            // Test data 
+
+            #region Testdata: Verwijder dit wanneer we met de database werken
             bestelitems = new List<Bestelitem>()
             {
+
                 new Bestelitem(new GetBestelling().GetForId(1), new GetMenuitem().GetForId(1), 1, Status.Bezig, "Aap", new DateTime(2017, 6, 10, 19, 50, 50)),
                 new Bestelitem(new GetBestelling().GetForId(1), new GetMenuitem().GetForId(2), 3, Status.Bezig, "Aap", new DateTime(2017, 6, 10, 19, 50, 50)),
 
             };
+            #endregion
+
             foreach (Bestelitem item in bestelitems)
             {
-                BestellingForm form = new BestellingForm(item);
-                form.TopLevel = false;
+                BestellingUserControl form = new BestellingUserControl(item);
                 BestellingenPanel.Controls.Add(form);
-                form.Show();
             }
         }
 

@@ -28,23 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.BestellingenPanel = new System.Windows.Forms.Panel();
             this.buttonBestellingToevoegen = new System.Windows.Forms.Button();
             this.buttonAfrekenen = new System.Windows.Forms.Button();
+            this.BestellingenPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
-            // 
-            // BestellingenPanel
-            // 
-            this.BestellingenPanel.Location = new System.Drawing.Point(9, 10);
-            this.BestellingenPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.BestellingenPanel.Name = "BestellingenPanel";
-            this.BestellingenPanel.Size = new System.Drawing.Size(508, 614);
-            this.BestellingenPanel.TabIndex = 0;
             // 
             // buttonBestellingToevoegen
             // 
             this.buttonBestellingToevoegen.Location = new System.Drawing.Point(52, 686);
-            this.buttonBestellingToevoegen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonBestellingToevoegen.Margin = new System.Windows.Forms.Padding(2);
             this.buttonBestellingToevoegen.Name = "buttonBestellingToevoegen";
             this.buttonBestellingToevoegen.Size = new System.Drawing.Size(152, 77);
             this.buttonBestellingToevoegen.TabIndex = 1;
@@ -54,22 +46,29 @@
             // buttonAfrekenen
             // 
             this.buttonAfrekenen.Location = new System.Drawing.Point(317, 686);
-            this.buttonAfrekenen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonAfrekenen.Margin = new System.Windows.Forms.Padding(2);
             this.buttonAfrekenen.Name = "buttonAfrekenen";
             this.buttonAfrekenen.Size = new System.Drawing.Size(152, 77);
             this.buttonAfrekenen.TabIndex = 2;
             this.buttonAfrekenen.Text = "Afrekenen";
             this.buttonAfrekenen.UseVisualStyleBackColor = true;
             // 
+            // BestellingenPanel
+            // 
+            this.BestellingenPanel.Location = new System.Drawing.Point(12, 12);
+            this.BestellingenPanel.Name = "BestellingenPanel";
+            this.BestellingenPanel.Size = new System.Drawing.Size(502, 603);
+            this.BestellingenPanel.TabIndex = 3;
+            // 
             // BedieningBestellingOverzichtForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(526, 849);
+            this.Controls.Add(this.BestellingenPanel);
             this.Controls.Add(this.buttonAfrekenen);
             this.Controls.Add(this.buttonBestellingToevoegen);
-            this.Controls.Add(this.BestellingenPanel);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "BedieningBestellingOverzichtForm";
             this.Text = "BedieningBestellingOverzichtForm";
             this.Load += new System.EventHandler(this.BedieningBestellingOverzichtForm_Load);
@@ -78,9 +77,8 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel BestellingenPanel;
         private System.Windows.Forms.Button buttonBestellingToevoegen;
         private System.Windows.Forms.Button buttonAfrekenen;
+        private System.Windows.Forms.FlowLayoutPanel BestellingenPanel;
     }
 }

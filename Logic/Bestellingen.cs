@@ -35,6 +35,7 @@ namespace Logic
         {
             List<Bestelitem> bestelitems = bestelitemDAO.GetAll();
             List<Bestelitem> nietGeredeBestelItems = new List<Bestelitem>();
+            
             foreach (Bestelitem item in bestelitems)
             {
                 if (item.Status != Status.Klaar && item.Status != Status.Teruggestuurd)

@@ -124,11 +124,11 @@
     <Compile Include="Bediening\BedieningMenuForm.Designer.cs">
       <DependentUpon>BedieningMenuForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Administratie\HelperForms\BestellingForm.cs">
-      <SubType>Form</SubType>
+    <Compile Include="Bediening\HelperForms\BestellingUserControl.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Administratie\HelperForms\BestellingForm.Designer.cs">
-      <DependentUpon>BestellingForm.cs</DependentUpon>
+    <Compile Include="Bediening\HelperForms\BestellingUserControl.Designer.cs">
+      <DependentUpon>BestellingUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Bediening\PopupsBediening\ConfirmAfrekenenForm.cs">
       <SubType>Form</SubType>
@@ -174,8 +174,8 @@
     <EmbeddedResource Include="Bediening\BedieningMenuForm.resx">
       <DependentUpon>BedieningMenuForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Administratie\HelperForms\BestellingForm.resx">
-      <DependentUpon>BestellingForm.cs</DependentUpon>
+    <EmbeddedResource Include="Bediening\HelperForms\BestellingUserControl.resx">
+      <DependentUpon>BestellingUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Bediening\PopupsBediening\ConfirmAfrekenenForm.resx">
       <DependentUpon>ConfirmAfrekenenForm.cs</DependentUpon>
@@ -218,6 +218,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\3d6cfa225d1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Administratie\HelperForms\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
