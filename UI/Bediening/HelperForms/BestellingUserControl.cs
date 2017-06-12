@@ -49,6 +49,14 @@ namespace UI
             string resultaat = "";
             if (WachtUur > 1)
             {
+                // Nodig, als een bestelling om 9:55 wordt gedaan en het nu 10:05 is, dan zou het verschil in minuten -50
+                // zijn, en het verschil in uren 1. Dus, als het verschil in minuten negatief is, dan trekken we een uur
+                // eraf om dit te voorkomen.
+                if (WachtMinuten < 0)
+                {
+                    WachtUur -= 1;
+                    WachtMinuten += 60;
+                }
                 LabelTijdIngevoerd.ForeColor = Color.Red;
                 resultaat += WachtUur + " Uur ";
             }

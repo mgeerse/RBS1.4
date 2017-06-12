@@ -64,7 +64,7 @@
             // 
             this.LabelGerechtNaam.AutoSize = true;
             this.LabelGerechtNaam.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelGerechtNaam.Location = new System.Drawing.Point(110, 45);
+            this.LabelGerechtNaam.Location = new System.Drawing.Point(110, 38);
             this.LabelGerechtNaam.Name = "LabelGerechtNaam";
             this.LabelGerechtNaam.Size = new System.Drawing.Size(20, 20);
             this.LabelGerechtNaam.TabIndex = 9;
@@ -74,7 +74,7 @@
             // 
             this.LabelAantal.AutoSize = true;
             this.LabelAantal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelAantal.Location = new System.Drawing.Point(16, 45);
+            this.LabelAantal.Location = new System.Drawing.Point(16, 38);
             this.LabelAantal.Name = "LabelAantal";
             this.LabelAantal.Size = new System.Drawing.Size(18, 20);
             this.LabelAantal.TabIndex = 8;

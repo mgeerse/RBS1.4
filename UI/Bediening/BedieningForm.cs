@@ -42,12 +42,16 @@ namespace UI
             {
                 ConfirmLogUitForm form = new ConfirmLogUitForm();
                 form.StartPosition = FormStartPosition.CenterParent;
-                if (form.ShowDialog() == DialogResult.Yes)
+                DialogResult result = form.ShowDialog();
+                if (result == DialogResult.Yes)
                 {
                     IngelogdeMedewerker = null;
                     ContentPanel.Controls.Clear();
                     BedieningForm_Load(sender, e);
                     SetIngelogdeMedewerker(IngelogdeMedewerker);
+                } else if (result == DialogResult.OK)
+                {
+
                 }
             }
         }
