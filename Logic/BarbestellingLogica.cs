@@ -173,7 +173,7 @@ namespace Logic
             {
                 BDAO.orderGereed(Object);
             }
-            catch(Exception e)
+            catch(Exception)
             {
                 return false;
             }

@@ -46,6 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administratie.cs" />
+    <Compile Include="Administratie.Designer.cs">
+      <DependentUpon>Administratie.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administratie\AdministratieForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,11 +98,16 @@
     <Compile Include="Administratie\Popups\ErrAlUitgelogdForm.Designer.cs">
       <DependentUpon>ErrAlUitgelogdForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Barman\ToolStripOnder.cs" />
     <Compile Include="Bediening\AfrekenenForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Bediening\AfrekenenForm.Designer.cs">
       <DependentUpon>AfrekenenForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bediening\Bediening.cs" />
+    <Compile Include="Bediening\Bediening.Designer.cs">
+      <DependentUpon>Bediening.cs</DependentUpon>
     </Compile>
     <Compile Include="Bediening\BedieningBestellingOverzichtForm.cs">
       <SubType>Form</SubType>
@@ -155,6 +164,7 @@
       <DependentUpon>Barman.cs</DependentUpon>
     </Compile>
     <Compile Include="App.cs" />
+    <Compile Include="BestelGeschiedenis.cs" />
     <Compile Include="OrderPanel.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -176,6 +186,10 @@
     </Compile>
     <Compile Include="App.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ToolStripOnder.cs" />
+    <EmbeddedResource Include="Administratie.resx">
+      <DependentUpon>Administratie.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Administratie\AdministratieForm.resx">
       <DependentUpon>AdministratieForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -193,6 +207,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Bediening\AfrekenenForm.resx">
       <DependentUpon>AfrekenenForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bediening\Bediening.resx">
+      <DependentUpon>Bediening.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Bediening\BedieningBestellingOverzichtForm.resx">
       <DependentUpon>BedieningBestellingOverzichtForm.cs</DependentUpon>
@@ -218,7 +235,6 @@
     <EmbeddedResource Include="Bediening\PopupsBediening\ConfirmCashBetaaldForm.resx">
       <DependentUpon>ConfirmCashBetaaldForm.cs</DependentUpon>
     </EmbeddedResource>
-    <Compile Include="ToolStripOnder.cs" />
     <EmbeddedResource Include="Barman.resx">
       <DependentUpon>Barman.cs</DependentUpon>
     </EmbeddedResource>
@@ -264,107 +280,9 @@
   <ItemGroup>
     <Folder Include="Administratie\HelperForms\" />
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
-  <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A1C7EDD2-838A-44D4-B752-EC9BEC99B8FF}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
-    <RootNamespace>UI</RootNamespace>
-    <AssemblyName>UI</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.configuration" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Deployment" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Barman.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Barman.Designer.cs">
-      <DependentUpon>Barman.cs</DependentUpon>
-    </Compile>
-    <Compile Include="App.cs" />
-    <Compile Include="OrderPanel.cs" />
-    <Compile Include="MainForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Barman.resx">
-      <DependentUpon>Barman.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Logic\Logic.csproj">
-      <Project>{8b7cc26c-4f5e-441c-8c21-dd35ccb9d7a5}</Project>
-      <Name>Logic</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Model\Model.csproj">
-      <Project>{bfab5ca8-25a4-4197-b533-02f5a4502e81}</Project>
-      <Name>Model</Name>
-    </ProjectReference>
+    <Content Include="Resources\chapoo_logo.png" />
+    <Content Include="Resources\chrome_2017-06-06_13-52-20.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
