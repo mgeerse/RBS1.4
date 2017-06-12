@@ -41,7 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MenuLijst.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TafelLogicas.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">
