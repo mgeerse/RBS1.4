@@ -167,10 +167,17 @@ namespace Logic
         {
             //DAO update/gereed.
             //Huidige status wordt meegegeven voor extra zekerheid binnen het systeem. 
+            DAL.BestellingDAO BDAO = new DAL.BestellingDAO();
 
-
-
-            return false;
+            try
+            {
+                BDAO.orderGereed(Object);
+            }
+            catch(Exception e)
+            {
+                return false;
+            }
+            return true;
         }
     }
 }
