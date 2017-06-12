@@ -12,10 +12,18 @@ namespace UI
 {
     public partial class Barman : Form
     {
-        public Barman()
+        Model.Medewerker Medewerker;
+
+        public Barman(Model.Medewerker Medewerker)
         {
+            this.Medewerker = Medewerker;
+
             InitializeComponent();
+
             OrderPanel OP = new OrderPanel();
+            ToolStripOnder ToolSripOnder = new ToolStripOnder(this);
+
+            Controls.Add(ToolSripOnder.maakToolStrip(Medewerker));
 
             foreach (var item in OP.MaakTabControl())
             {
