@@ -16,7 +16,10 @@ namespace UI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Barman());
+            Application.Run(new MainForm()
+            {
+                TopMost = false
+            });
         }
     }
 }
