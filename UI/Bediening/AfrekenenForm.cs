@@ -39,7 +39,8 @@ namespace UI
             }
             else if(result == DialogResult.OK)
             {
-
+                TipForm TipForm = new TipForm();
+                TipForm.ShowDialog();
             }
         }
     }

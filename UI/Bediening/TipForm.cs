@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace UI
 {
-    public partial class ConfirmCashBetaaldForm : Form
+    public partial class TipForm : Form
     {
-        public ConfirmCashBetaaldForm()
+        public TipForm()
         {
             InitializeComponent();
-        }
-
-        private void OKButton_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

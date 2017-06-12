@@ -40,22 +40,22 @@
             this.OKButton.TabIndex = 0;
             this.OKButton.Text = "OK";
             this.OKButton.UseVisualStyleBackColor = true;
-            this.OKButton.Click += new System.EventHandler(this.button1_Click);
+            this.OKButton.Click += new System.EventHandler(this.OKButton_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 58);
+            this.label1.Location = new System.Drawing.Point(43, 49);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(308, 17);
+            this.label1.Size = new System.Drawing.Size(252, 17);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Klik op \'OK\' om  verder te gaan als er is betaald";
+            this.label1.Text = "Klik op \'OK\' om bestelling af te ronden.";
             // 
             // ConfirmCashBetaaldForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(332, 253);
+            this.ClientSize = new System.Drawing.Size(332, 233);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.OKButton);
             this.Name = "ConfirmCashBetaaldForm";
