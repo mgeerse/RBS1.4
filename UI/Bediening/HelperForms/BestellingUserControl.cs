@@ -19,15 +19,18 @@ namespace UI
         {
             InitializeComponent();
             this.item = item;
+            BorderStyle = BorderStyle.Fixed3D;
             UpdateLabels();
         }
 
         public void UpdateLabels()
         {
             LabelAantal.Text = item.Aantal.ToString();
-            UpdateTijdLabel();
-            LabelStatus.Text = item.Status.ToString();
             LabelGerechtNaam.Text = item.Menuitem.Naam;
+
+            LabelStatus.Text = item.Status.ToString();
+            LabelTafelNummer.Text = item.Bestelling.Tafel.Id.ToString();
+            UpdateTijdLabel();
 
         }
 
@@ -35,9 +38,9 @@ namespace UI
         {
             LabelTijdIngevoerd.ForeColor = Color.Black;
 
-            int WachtUur = item.Tijdingevoerd.Hour - DateTime.Now.Hour;
-            int WachtMinuten = item.Tijdingevoerd.Minute - DateTime.Now.Minute;
-            
+            int WachtUur = DateTime.Now.Hour - item.Tijdingevoerd.Hour;
+            int WachtMinuten = DateTime.Now.Minute - item.Tijdingevoerd.Minute;
+
             if (WachtMinuten > 30)
             {
                 LabelTijdIngevoerd.ForeColor = Color.Red;
@@ -49,12 +52,17 @@ namespace UI
                 LabelTijdIngevoerd.ForeColor = Color.Red;
                 resultaat += WachtUur + " Uur ";
             }
-            if(WachtMinuten > 1)
+            if (WachtMinuten > 1 || WachtUur > 1)
             {
-                resultaat += WachtMinuten + "Minuten";
+                resultaat += WachtMinuten + " Minuten";
             }
 
             LabelTijdIngevoerd.Text = resultaat;
+        }
+
+        private void LabelTijdIngevoerd_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

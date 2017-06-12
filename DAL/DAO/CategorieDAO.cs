@@ -11,6 +11,7 @@ namespace DAL
     public class CategorieDAO
     {
         private SqlConnection conn = DbConnection.GetSqlConnection();
+        private MenukaartDAO MenukaartDAO = new MenukaartDAO();
 
         public List<Categorie> GetAll()
         {
@@ -23,7 +24,21 @@ namespace DAL
         public Categorie GetForId(int Id)
         {
             conn.Open();
+            string query = "SELECT CategorieId, Naam, BtwPercentage, Menukaart" +
+                " FROM Categorie" +
+                " WHERE CategorieId = " + Id;
 
+            SqlCommand command = new SqlCommand(query, conn);
+            SqlDataReader reader = command.ExecuteReader();
+            if (reader.Read())
+            {
+                string Naam = reader.GetString(1);
+                int BtwPercentage = reader.GetInt32(2);
+                Menukaart Menukaart = MenukaartDAO.GetForId(reader.GetInt32(3));
+
+                conn.Close();
+                return new Categorie(Id, Naam, BtwPercentage, Menukaart);
+            }
             conn.Close();
             return null;
         }

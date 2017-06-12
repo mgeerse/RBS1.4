@@ -23,7 +23,17 @@ namespace DAL
         public Tafel GetForId(int Id)
         {
             conn.Open();
+            string query = "SELECT TafelId, IsBezet" +
+                " FROM Tafel";
 
+            SqlCommand command = new SqlCommand(query, conn);
+            SqlDataReader reader = command.ExecuteReader();
+            if (reader.Read())
+            {
+                //Id is bekend
+                bool IsBezet = reader.GetBoolean(1);
+                return new Tafel(Id, IsBezet);
+            }
             conn.Close();
             return null;
         }

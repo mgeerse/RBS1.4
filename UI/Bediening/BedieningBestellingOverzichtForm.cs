@@ -47,11 +47,13 @@ namespace UI
             List<Bestelitem> bestelitems = new BestellingOverzicht().GetNietGeredeBestelitems();
 
             #region Testdata: Verwijder dit wanneer we met de database werken
+
+            DateTime minuten = DateTime.Now.AddMinutes(-25);
+            DateTime uur = DateTime.Now.AddHours(-2);
             bestelitems = new List<Bestelitem>()
             {
-
-                new Bestelitem(new GetBestelling().GetForId(1), new GetMenuitem().GetForId(1), 1, "Aap", Status.Bezig, new DateTime(2017, 6, 10, 19, 50, 50)),
-                new Bestelitem(new GetBestelling().GetForId(1), new GetMenuitem().GetForId(2), 3, "Aap", Status.Bezig, new DateTime(2017, 6, 10, 19, 50, 50)),
+                new Bestelitem(new GetBestelling().GetForId(8), new GetMenuitem().GetForId(1), 1, "Aap", Status.Bezig, minuten),
+                new Bestelitem(new GetBestelling().GetForId(8), new GetMenuitem().GetForId(2), 3, "Aap", Status.Bezig, uur),
 
             };
             #endregion
