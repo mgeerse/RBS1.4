@@ -8,12 +8,11 @@ using Model;
 
 namespace DAL
 {
-    public class MenuitemDAO
+    public class MenukaartDAO
     {
         private SqlConnection conn = DbConnection.GetSqlConnection();
-        private CategorieDAO CategorieDAO = new CategorieDAO();
 
-        public List<Menuitem> GetAll()
+        public List<Menukaart> GetAll()
         {
             conn.Open();
 
@@ -21,30 +20,25 @@ namespace DAL
             return null;
         }
 
-        public Menuitem GetForId(int Id)
+        public Menukaart GetForId(int Id)
         {
             conn.Open();
-            string query = "SELECT MenuitemId, Naam, Prijs, Voorraad, Categorie" +
-                " FROM Menuitem" +
-                " WHERE MenuitemId = " + Id;
+            string query = "SELECT MenukaartId, Naam" +
+                " FROM Menukaart" +
+                " WHERE MenukaartId = " + Id;
 
             SqlCommand command = new SqlCommand(query, conn);
             SqlDataReader reader = command.ExecuteReader();
             if (reader.Read())
             {
                 string Naam = reader.GetString(1);
-                decimal Prijs = reader.GetDecimal(2);
-                int Voorraad = reader.GetInt32(3);
-                Categorie Categorie = CategorieDAO.GetForId(reader.GetInt32(4));
-
-                conn.Close();
-                return new Menuitem(Id, Naam, Prijs, Categorie, Voorraad);
+                return new Menukaart(Naam, Id);
             }
             conn.Close();
             return null;
         }
 
-        public bool Create(Menuitem Object)
+        public bool Create(Menukaart Object)
         {
             conn.Open();
 
@@ -52,7 +46,7 @@ namespace DAL
             return false;
         }
 
-        public bool Update(Menuitem Object)
+        public bool Update(Menukaart Object)
         {
             conn.Open();
 
@@ -60,7 +54,7 @@ namespace DAL
             return false;
         }
 
-        public bool Delete(Menuitem Object)
+        public bool Delete(Menukaart Object)
         {
             conn.Open();
 

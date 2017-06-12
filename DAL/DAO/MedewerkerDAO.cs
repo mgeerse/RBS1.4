@@ -23,9 +23,26 @@ namespace DAL
         public Medewerker GetForId(int Id)
         {
             conn.Open();
+            string query = "SELECT MedewerkerId, Naam, TypeMedewerker, Logincode" +
+                " FROM Medewerker" +
+                " WHERE MedewerkerId = " + Id;
+
+            SqlCommand command = new SqlCommand(query, conn);
+            SqlDataReader reader = command.ExecuteReader();
+
+            if (!reader.Read())
+            {
+                conn.Close();
+                return null;
+            }
+
+            int id = reader.GetInt32(0);
+            string naam = reader.GetString(1);
+            MedewerkerType type = (MedewerkerType)reader.GetInt32(2);
+            char[] logincode = reader.GetString(3).ToCharArray();
 
             conn.Close();
-            return null;
+            return new Medewerker(id, naam, type, logincode);
         }
 
         public Medewerker GetForLoginCode(char[] code)
