@@ -21,6 +21,7 @@ namespace UI
             x[3] = Convert.ToChar(7);
 
 
+
             Model.Medewerker Medewerker = new Model.Medewerker(0100, "Maarten Geerse", (Model.MedewerkerType)2, x);
 
             Application.EnableVisualStyles();
