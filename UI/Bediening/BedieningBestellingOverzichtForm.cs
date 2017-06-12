@@ -28,18 +28,7 @@ namespace UI
 
         private void BedieningBestellingOverzichtForm_Load(object sender, EventArgs e)
         {
-            ConfirmAfrekenenForm form = new ConfirmAfrekenenForm();
-            form.StartPosition = FormStartPosition.CenterParent;
-            if (form.ShowDialog() == DialogResult.Yes)
-            {
-                // Neem de rekening form aan
-                //ContentPanel.Controls.Add(new ());
-                //ContentPanel.Controls.Clear();
-                
-
-
-            }
-            InitBestellingOverzicht();
+            
         }
 
         private void InitBestellingOverzicht()
@@ -67,6 +56,21 @@ namespace UI
         {
             BestellingenPanel.Controls.Clear();
             InitBestellingOverzicht();
+        }
+
+        private void buttonAfrekenen_Click(object sender, EventArgs e)
+        {
+            ConfirmAfrekenenForm form = new ConfirmAfrekenenForm();
+            form.StartPosition = FormStartPosition.CenterParent;
+            if (form.ShowDialog() == DialogResult.Yes)
+            {
+                parent.Controls["ContentPanel"].Controls.Clear();
+                AfrekenenForm form1 = new AfrekenenForm(parent);
+                form1.TopLevel = false;
+                parent.Controls["ContentPanel"].Controls.Add(form1);
+                form1.FormBorderStyle = FormBorderStyle.None;
+                form1.Show();
+            }
         }
     }
 }

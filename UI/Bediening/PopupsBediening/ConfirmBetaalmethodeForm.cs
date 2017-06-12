@@ -10,24 +10,28 @@ using System.Windows.Forms;
 
 namespace UI
 {
-    public partial class ConfirmAfrekenenForm : Form
+    public partial class ConfirmBetaalmethodeForm : Form
     {
-
-
-        public ConfirmAfrekenenForm()
+        public ConfirmBetaalmethodeForm()
         {
             InitializeComponent();
         }
 
-        private void AfrekenenButton_Click(object sender, EventArgs e)
+        private void PinButton_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.OK;
+            Close();
+        }
+
+        private void CashButton_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Yes;
             Close();
         }
 
-        private void CancelAfrekenenButton_Click(object sender, EventArgs e)
+        private void CreditcardButton_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.No;
+            DialogResult = DialogResult.OK;
             Close();
         }
     }

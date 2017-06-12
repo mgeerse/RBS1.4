@@ -136,6 +136,18 @@
     <Compile Include="Bediening\PopupsBediening\ConfirmAfrekenenForm.Designer.cs">
       <DependentUpon>ConfirmAfrekenenForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Bediening\PopupsBediening\ConfirmBetaalmethodeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bediening\PopupsBediening\ConfirmBetaalmethodeForm.Designer.cs">
+      <DependentUpon>ConfirmBetaalmethodeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bediening\PopupsBediening\ConfirmCashBetaaldForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bediening\PopupsBediening\ConfirmCashBetaaldForm.Designer.cs">
+      <DependentUpon>ConfirmCashBetaaldForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -179,6 +191,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Bediening\PopupsBediening\ConfirmAfrekenenForm.resx">
       <DependentUpon>ConfirmAfrekenenForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bediening\PopupsBediening\ConfirmBetaalmethodeForm.resx">
+      <DependentUpon>ConfirmBetaalmethodeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bediening\PopupsBediening\ConfirmCashBetaaldForm.resx">
+      <DependentUpon>ConfirmCashBetaaldForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
