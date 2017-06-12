@@ -14,6 +14,12 @@ namespace DAL.DAO
 
         public List<Medewerker> GetAll()
         {
+            string SQL = "SELECT *" +
+                        "FROM dbo.Medewerker";
+
+            SqlCommand command = new SqlCommand(SQL, conn);
+            command.Prepare();
+            SqlDataReader Reader = command.ExecuteReader();
             return null;
         }
 

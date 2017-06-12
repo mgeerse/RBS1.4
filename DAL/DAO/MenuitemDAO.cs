@@ -8,44 +8,48 @@ using Model;
 
 namespace DAL.DAO
 {
-    class MenuitemDAO
+    public class MenuitemDAO
     {
         private SqlConnection conn;
 
         public List<Menuitem> GetAll()
         {
-            conn.Open();
+            conn = DbConnection.GetSqlConnection();
 
-            string SQL = "SELECT *" +
-                         "FROM dbo.Menuitem";
+            string SQL = "SELECT Naam" + 
+                         "FROM dbo.Menuitem" +
+                         "WHERE Categorie <= 3";
 
             SqlCommand command = new SqlCommand(SQL, conn);
             command.Prepare();
             SqlDataReader Reader = command.ExecuteReader();
+
+            conn.Close();
+            
             return null;
         }
 
         public Menuitem GetForId(int Id)
         {
-            conn.Open();
+            conn = DbConnection.GetSqlConnection();
             return null;
         }
 
         public bool Create(Menuitem Object)
         {
-            conn.Open();
+            conn = DbConnection.GetSqlConnection();
             return false;
         }
 
         public bool Update(Menuitem Object)
         {
-            conn.Open();
+            conn = DbConnection.GetSqlConnection();
             return false;
         }
 
         public bool Delete(Menuitem Object)
         {
-            conn.Open();
+            conn = DbConnection.GetSqlConnection();
             return false;
         }
 
