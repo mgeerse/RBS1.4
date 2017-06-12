@@ -63,6 +63,16 @@ namespace UI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _3d6cfa225d1 {
+            get {
+                object obj = ResourceManager.GetObject("3d6cfa225d1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap chrome_2017_06_06_13_52_20 {
             get {
                 object obj = ResourceManager.GetObject("chrome_2017-06-06_13-52-20", resourceCulture);

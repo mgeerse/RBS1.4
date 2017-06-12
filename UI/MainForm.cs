@@ -25,5 +25,15 @@ namespace UI
         {
             //Hier roep je de logica laag aan.
         }
+
+        private void AdministratieButton_Click(object sender, EventArgs e)
+        {
+            new AdministratieForm().Show();
+        }
+
+        private void BedieningButton_Click(object sender, EventArgs e)
+        {
+            new BedieningForm().Show();
+        }
     }
 }

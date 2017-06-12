@@ -22,16 +22,18 @@ namespace DAL
 
         public Tafel GetForId(int Id)
         {
-            conn = DbConnection.GetSqlConnection();
+            conn.Open();
+            string query = "SELECT TafelId, IsBezet" +
+                " FROM Tafel";
 
-            StringBuilder sb = new StringBuilder();
-            sb.Append("SELECT isbezet FROM dbo.Tafel WHERE TafelId = @id");
-
-            SqlCommand command = new SqlCommand(sb.ToString(), conn);
-            command.Parameters.Add("@id", System.Data.SqlDbType.Int);
-
-            SqlDataReader Reader = (SqlDataReader)command.ExecuteScalar();
-            Id = Reader.GetInt32(0);
+            SqlCommand command = new SqlCommand(query, conn);
+            SqlDataReader reader = command.ExecuteReader();
+            if (reader.Read())
+            {
+                //Id is bekend
+                bool IsBezet = reader.GetBoolean(1);
+                return new Tafel(Id, IsBezet);
+            }
             conn.Close();
             return null;
         }

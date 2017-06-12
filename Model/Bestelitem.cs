@@ -7,17 +7,17 @@ namespace Model
         public Bestelling Bestelling { get; set; }
         public Menuitem Menuitem { get; set; }
         public int Aantal { get; set; }
-        public Status Status { get; set; }
         public string Opmerking { get; set; }
+        public Status Status { get; set; }
         public DateTime Tijdingevoerd { get; set; }
 
-        public Bestelitem(Bestelling bestelling, Menuitem menuitem, int aantal, Status Status, string Opmerking, DateTime Tijdingevoerd)
+        public Bestelitem(Bestelling bestelling, Menuitem menuitem, int aantal, string Opmerking, Status Status, DateTime Tijdingevoerd)
         {
             Bestelling = bestelling;
             Menuitem = menuitem;
             Aantal = aantal;
-            this.Status = Status;
             this.Opmerking = Opmerking;
+            this.Status = Status;
             this.Tijdingevoerd = Tijdingevoerd;
         }
     }

@@ -41,6 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bestellingen.cs" />
+    <Compile Include="GetMenuitem.cs" />
+    <Compile Include="GetBestelling.cs" />
+    <Compile Include="LoginHandler.cs" />
     <Compile Include="MenuLijst.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TafelLogicas.cs" />

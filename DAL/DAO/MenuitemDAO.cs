@@ -11,6 +11,7 @@ namespace DAL
     public class MenuitemDAO
     {
         private SqlConnection conn = DbConnection.GetSqlConnection();
+        private CategorieDAO CategorieDAO = new CategorieDAO();
 
         public List<Menuitem> GetAll()
         {
@@ -32,7 +33,22 @@ namespace DAL
         public Menuitem GetForId(int Id)
         {
             conn.Open();
+            string query = "SELECT MenuitemId, Naam, Prijs, Voorraad, Categorie" +
+                " FROM Menuitem" +
+                " WHERE MenuitemId = " + Id;
 
+            SqlCommand command = new SqlCommand(query, conn);
+            SqlDataReader reader = command.ExecuteReader();
+            if (reader.Read())
+            {
+                string Naam = reader.GetString(1);
+                decimal Prijs = reader.GetDecimal(2);
+                int Voorraad = reader.GetInt32(3);
+                Categorie Categorie = CategorieDAO.GetForId(reader.GetInt32(4));
+
+                conn.Close();
+                return new Menuitem(Id, Naam, Prijs, Categorie, Voorraad);
+            }
             conn.Close();
             return null;
         }
