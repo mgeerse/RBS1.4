@@ -156,6 +156,12 @@
     </Compile>
     <Compile Include="App.cs" />
     <Compile Include="OrderPanel.cs" />
+    <Compile Include="Bediening\TipForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bediening\TipForm.Designer.cs">
+      <DependentUpon>TipForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -221,6 +227,9 @@
     <Compile Include="ToolStripOnder.cs" />
     <EmbeddedResource Include="Barman.resx">
       <DependentUpon>Barman.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bediening\TipForm.resx">
+      <DependentUpon>TipForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
