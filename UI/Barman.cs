@@ -7,23 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Model;
 
 namespace UI
 {
     public partial class Barman : Form
     {
-        Model.Medewerker Medewerker;
-
-        public Barman(Model.Medewerker Medewerker)
+        public Barman(Medewerker Medewerker)
         {
-            this.Medewerker = Medewerker;
-
             InitializeComponent();
-
             OrderPanel OP = new OrderPanel();
-            ToolStripOnder ToolSripOnder = new ToolStripOnder(this);
-
-            Controls.Add(ToolSripOnder.maakToolStrip(Medewerker));
+            ToolStripOnder TSO = new ToolStripOnder(this);
 
             foreach (var item in OP.MaakTabControl())
             {
