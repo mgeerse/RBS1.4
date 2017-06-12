@@ -61,7 +61,6 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ToolStripOnder.cs" />
     <EmbeddedResource Include="Barman.resx">
       <DependentUpon>Barman.cs</DependentUpon>
     </EmbeddedResource>
