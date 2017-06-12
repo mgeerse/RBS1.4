@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\MenukaartDAO.cs" />
     <Compile Include="DAO\TafelDAO.cs" />
     <Compile Include="DAO\RekeningDAO.cs" />
     <Compile Include="DAO\MenuitemDAO.cs" />

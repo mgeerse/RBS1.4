@@ -10,7 +10,7 @@ namespace DAL
 {
     public class TafelDAO
     {
-        private SqlConnection conn;
+        private SqlConnection conn = DbConnection.GetSqlConnection();
 
         public List<Tafel> GetAll()
         {
@@ -36,42 +36,43 @@ namespace DAL
 
         public Tafel GetForId(int Id)
         {
-            //Maarten Geerse
-            conn = DbConnection.GetSqlConnection();
+            conn.Open();
+            string query = "SELECT TafelId, IsBezet" +
+                " FROM Tafel";
 
-            StringBuilder sb = new StringBuilder();
-            sb.Append("SELECT [IsBezet] FROM [dbo].[Tafel] WHERE TafelId = @Id");
-
-            SqlCommand cmd = new SqlCommand(sb.ToString(), conn);
-            cmd.Parameters.Add("@Id", System.Data.SqlDbType.Int).Value = Id;
-            cmd.Prepare();
-
-            SqlDataReader reader = cmd.ExecuteReader();
-
-            while (reader.Read())
+            SqlCommand command = new SqlCommand(query, conn);
+            SqlDataReader reader = command.ExecuteReader();
+            if (reader.Read())
             {
-                Tafel Tafel = new Tafel(Id, reader.GetBoolean(0));
-
-                conn.Close();
-                conn.Dispose();
-                cmd.Dispose();
-                return Tafel;
+                //Id is bekend
+                bool IsBezet = reader.GetBoolean(1);
+                return new Tafel(Id, IsBezet);
             }
+            conn.Close();
             return null;
         }
 
         public bool Create(Tafel Object)
         {
+            conn.Open();
+
+            conn.Close();
             return false;
         }
 
         public bool Update(Tafel Object)
         {
+            conn.Open();
+
+            conn.Close();
             return false;
         }
 
         public bool Delete(Tafel Object)
         {
+            conn.Open();
+
+            conn.Close();
             return false;
         }
 

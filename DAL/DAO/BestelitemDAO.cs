@@ -10,36 +10,36 @@ namespace DAL
 {
     public class BestelitemDAO
     {
-        private Menuitem mi;
-        private BestellingDAO BestellingDAO;
-        private MenuitemDAO MenuitemDAO;
-        private SqlConnection conn;
+        private SqlConnection conn = DbConnection.GetSqlConnection();
+        private BestellingDAO BestellingDAO = new BestellingDAO();
+        private MenuitemDAO MenuitemDAO = new MenuitemDAO();
 
         public List<Bestelitem> GetAll()
         {
-            conn = DbConnection.GetSqlConnection();
-            List<Bestelitem> BestelItemLijst = new List<Bestelitem>();
-            StringBuilder sb = new StringBuilder();
-            sb.Append("SELECT * FROM [dbo].[Bestelitem]");
+            List<Bestelitem> result = new List<Bestelitem>();
 
-            SqlCommand cmd = new SqlCommand(sb.ToString(), conn);
+            conn.Open();
 
-            SqlDataReader reader = cmd.ExecuteReader();
+            string query = "SELECT Bestelling, Menuitem, Aantal, Opmerking, Status, TijdIngevoerd" +
+                " FROM Bestelitem";
 
+            SqlCommand command = new SqlCommand(query, conn);
+
+            SqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
-                Bestelitem Bestelitem = new Bestelitem(BestellingDAO.GetForId(reader.GetInt32(0)),
-                    MenuitemDAO.GetForId(reader.GetInt32(1)), reader.GetInt32(2), (Status)reader.GetInt32(4), reader.GetString(3),
-                    reader.GetDateTime(5));
+                Bestelling Bestelling = BestellingDAO.GetForId(reader.GetInt32(0));
+                Menuitem Menuitem = MenuitemDAO.GetForId(reader.GetInt32(1));
+                int Aantal = reader.GetInt32(2);
+                string Opmerking = reader.GetString(3);
+                Status Status = (Status) reader.GetInt32(4);
+                DateTime TijdIngevoerd = reader.GetDateTime(5);
 
-                BestelItemLijst.Add(Bestelitem);
+                result.Add(new Bestelitem(Bestelling, Menuitem, Aantal, Opmerking, Status, TijdIngevoerd));
             }
-
+            
             conn.Close();
-            conn.Dispose();
-            cmd.Dispose();
-
-            return BestelItemLijst;
+            return result;
         }
 
         public Bestelitem GetForId(int Id)
@@ -75,46 +75,25 @@ namespace DAL
 
         public bool Create(Bestelitem Object)
         {
+            conn.Open();
+
+            conn.Close();
             return false;
         }
 
         public bool Update(Bestelitem Object)
         {
-            //Dit zet de status van een item.
-            //De status wordt meegegeven in het object.
+            conn.Open();
 
-            //Dit deel is incompleet en dus incorrect. 
-            conn = DbConnection.GetSqlConnection();
-
-            StringBuilder sb = new StringBuilder();
-            sb.Append("UPDATE [dbo].[Bestelitem] ");
-            sb.Append("SET [Status] = @Status ");
-            sb.Append("WHERE [BestellingId] = @BestellingId");
-
-            SqlCommand cmd = new SqlCommand(sb.ToString(), conn);
-
-            cmd.Parameters.Add("@BestellingId", System.Data.SqlDbType.Int).Value = Object.Bestelling.Id;
-            cmd.Parameters.Add("@Status", System.Data.SqlDbType.NVarChar).Value = Object.Status;
-            
-            try
-            {
-                cmd.Prepare();
-                conn.Open();
-                cmd.ExecuteNonQuery();
-
-                conn.Close();
-                conn.Dispose();
-                cmd.Dispose();
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
+            conn.Close();
+            return false;
         }
 
         public bool Delete(Bestelitem Object)
         {
+            conn.Open();
+
+            conn.Close();
             return false;
         }
 

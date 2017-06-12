@@ -10,19 +10,22 @@ namespace DAL
 {
     public class BestellingDAO
     {
-        private SqlConnection conn;
-        RekeningDAO Rekening;
-        TafelDAO Tafel;
-        MedewerkerDAO Medewerker;
+        private SqlConnection conn = DbConnection.GetSqlConnection();
+
+        private MedewerkerDAO MedewerkerDAO = new MedewerkerDAO();
+        private TafelDAO TafelDAO = new TafelDAO();
+        private RekeningDAO RekeningDAO = new RekeningDAO();
 
         public List<Bestelling> GetAll()
         {
+            conn.Open();
+
+            conn.Close();
             return null;
         }
 
         public Bestelling GetForId(int Id)
         {
-            conn = DbConnection.GetSqlConnection();
             conn.Open();
 
             StringBuilder sb = new StringBuilder();
@@ -174,12 +177,14 @@ namespace DAL
 
         public bool Create(Bestelling Object)
         {
+            conn.Open();
+
+            conn.Close();
             return false;
         }
 
         public bool Update(Bestelling Object)
         {
-            conn = DbConnection.GetSqlConnection();
 
             StringBuilder sb = new StringBuilder();
             sb.Append("UPDATE [dbo].[Bestelling] ");
@@ -246,6 +251,9 @@ namespace DAL
 
         public bool Delete(Bestelling Object)
         {
+            conn.Open();
+
+            conn.Close();
             return false;
         }
 
