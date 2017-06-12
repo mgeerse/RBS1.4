@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BarbestellingLogica.cs" />
+    <Compile Include="InitializeData.cs" />
     <Compile Include="Bestellingen.cs" />
     <Compile Include="GetMenuitem.cs" />
     <Compile Include="GetBestelling.cs" />

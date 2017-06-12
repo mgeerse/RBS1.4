@@ -44,9 +44,32 @@ namespace DAL
 
         public Bestelitem GetForId(int Id)
         {
-            conn.Open();
 
-            conn.Close();
+
+            conn = DbConnection.GetSqlConnection();
+
+            StringBuilder sb = new StringBuilder();
+            sb.Append("SELECT [Menuitem], [Aantal], [Opmerking], [Status], [TijdIngevoerd] FROM [dbo].[Bestelitem] WHERE BestellingId = @Id");
+
+            SqlCommand cmd = new SqlCommand(sb.ToString(), conn);
+            cmd.Parameters.Add("@Id", System.Data.SqlDbType.Int).Value = Id;
+            cmd.Prepare();
+            conn.Open();
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                Bestelitem Bestelitem = new Bestelitem(BestellingDAO.GetForId(Id), 
+                    MenuitemDAO.GetForId(reader.GetInt32(0)), 
+                    reader.GetInt32(1), (Status)reader.GetInt32(2), reader.GetString(3), 
+                    reader.GetDateTime(4));
+
+                conn.Close();
+                conn.Dispose();
+                cmd.Dispose();
+
+                return Bestelitem;
+            }
             return null;
         }
 

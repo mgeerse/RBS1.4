@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,10 +14,24 @@ namespace DAL
 
         public List<Tafel> GetAll()
         {
-            conn.Open();
+            conn = DbConnection.GetSqlConnection();
+            List<Tafel> TafelLijst = new List<Tafel>();
 
-            conn.Close();
-            return null;
+            StringBuilder sb = new StringBuilder();
+            sb.Append("SELECT * FROM [dbo].[Tafel]");
+
+            SqlCommand cmd = new SqlCommand(sb.ToString(), conn);
+
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                Tafel Tafel = new Tafel(reader.GetInt32(0), reader.GetBoolean(2));
+
+                TafelLijst.Add(Tafel);
+            }
+
+            return TafelLijst;
         }
 
         public Tafel GetForId(int Id)
