@@ -32,19 +32,19 @@ namespace DAL
                 Menuitem Menuitem = MenuitemDAO.GetForId(reader.GetInt32(1));
                 int Aantal = reader.GetInt32(2);
                 string Opmerking = reader.GetString(3);
-                Status Status = (Status) reader.GetInt32(4);
+                Status Status = (Status)reader.GetInt32(4);
                 DateTime TijdIngevoerd = reader.GetDateTime(5);
 
                 result.Add(new Bestelitem(Bestelling, Menuitem, Aantal, Opmerking, Status, TijdIngevoerd));
             }
-            
+
             conn.Close();
             return result;
         }
 
-        public Bestelitem GetForId(int Id)
+        public List<Bestelitem> GetForId(int Id)
         {
-
+            List<Bestelitem> result = new List<Bestelitem>();
 
             conn = DbConnection.GetSqlConnection();
 
@@ -59,18 +59,23 @@ namespace DAL
 
             while (reader.Read())
             {
-                Bestelitem Bestelitem = new Bestelitem(BestellingDAO.GetForId(Id), 
-                    MenuitemDAO.GetForId(reader.GetInt32(0)), 
-                    reader.GetInt32(1), (Status)reader.GetInt32(2), reader.GetString(3), 
-                    reader.GetDateTime(4));
+                Bestelitem Bestelitem = new Bestelitem(
+                    BestellingDAO.GetForId(Id),
+                    MenuitemDAO.GetForId(reader.GetInt32(0)),
+                    reader.GetInt32(1),
+                    reader.GetString(2),
+                    (Status)reader.GetInt32(3),
+                    reader.GetDateTime(4)
+                    );
 
-                conn.Close();
-                conn.Dispose();
-                cmd.Dispose();
-
-                return Bestelitem;
+                result.Add(Bestelitem);
             }
-            return null;
+
+            conn.Close();
+            conn.Dispose();
+            cmd.Dispose();
+            
+            return result;
         }
 
         public bool Create(Bestelitem Object)

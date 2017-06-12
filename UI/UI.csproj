@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administratie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administratie.Designer.cs">
+      <DependentUpon>Administratie.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administratie\AdministratieForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +105,12 @@
     </Compile>
     <Compile Include="Bediening\AfrekenenForm.Designer.cs">
       <DependentUpon>AfrekenenForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bediening\Bediening.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bediening\Bediening.Designer.cs">
+      <DependentUpon>Bediening.cs</DependentUpon>
     </Compile>
     <Compile Include="Bediening\BedieningBestellingOverzichtForm.cs">
       <SubType>Form</SubType>
@@ -154,7 +166,6 @@
     <Compile Include="Barman.Designer.cs">
       <DependentUpon>Barman.cs</DependentUpon>
     </Compile>
-    <Compile Include="App.cs" />
     <Compile Include="OrderPanel.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -176,6 +187,9 @@
     </Compile>
     <Compile Include="App.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Administratie.resx">
+      <DependentUpon>Administratie.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Administratie\AdministratieForm.resx">
       <DependentUpon>AdministratieForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -193,6 +207,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Bediening\AfrekenenForm.resx">
       <DependentUpon>AfrekenenForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bediening\Bediening.resx">
+      <DependentUpon>Bediening.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Bediening\BedieningBestellingOverzichtForm.resx">
       <DependentUpon>BedieningBestellingOverzichtForm.cs</DependentUpon>
@@ -263,6 +280,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Administratie\HelperForms\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\chapoo_logo.png" />
+    <Content Include="Resources\chrome_2017-06-06_13-52-20.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
