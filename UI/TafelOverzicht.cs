@@ -14,9 +14,9 @@ namespace UI
     /// Basisform voor het gebruik van de Chapoo-applicatie.
     /// Vanuit hier worden de applicaties voor mobiele en desktop devices geopend.
     /// </summary>
-    public partial class MainForm : Form
+    public partial class TafelOverzicht : Form
     {
-        public MainForm()
+        public TafelOverzicht()
         {
             InitializeComponent();
         }
@@ -57,7 +57,7 @@ namespace UI
         {
             Bediening tafel1 = new Bediening();
             tafel1.Show();
-            Tafel Isbezet = true;
+            Tafel Isbezet;
             
         }
 

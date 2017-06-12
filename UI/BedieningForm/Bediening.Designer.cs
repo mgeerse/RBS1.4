@@ -33,6 +33,7 @@
             this.btn_BekijkOrder = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.Lijst_Lunch = new System.Windows.Forms.ListBox();
             this.btn_NotifLunch = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btn_NotifDiner = new System.Windows.Forms.Button();
@@ -43,8 +44,10 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.btn_NotifNonAlcohol = new System.Windows.Forms.Button();
             this.btn_Verzend_nonAlcohol = new System.Windows.Forms.Button();
-            this.Lijst_Lunch = new System.Windows.Forms.ListBox();
             this.btn_Verberg = new System.Windows.Forms.Button();
+            this.Lijst_Diner = new System.Windows.Forms.ListBox();
+            this.Lijst_Drank = new System.Windows.Forms.ListBox();
+            this.Lijst_NonAlcholol = new System.Windows.Forms.ListBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -104,6 +107,16 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Lunch";
             this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
+            // 
+            // Lijst_Lunch
+            // 
+            this.Lijst_Lunch.FormattingEnabled = true;
+            this.Lijst_Lunch.Location = new System.Drawing.Point(6, 149);
+            this.Lijst_Lunch.Name = "Lijst_Lunch";
+            this.Lijst_Lunch.Size = new System.Drawing.Size(300, 225);
+            this.Lijst_Lunch.TabIndex = 3;
+            this.Lijst_Lunch.SelectedIndexChanged += new System.EventHandler(this.Lijst_Lunch_SelectedIndexChanged);
             // 
             // btn_NotifLunch
             // 
@@ -116,6 +129,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.Lijst_Diner);
             this.tabPage2.Controls.Add(this.btn_NotifDiner);
             this.tabPage2.Controls.Add(this.btn_VerzendDiner);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
@@ -146,6 +160,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.Lijst_Drank);
             this.tabPage3.Controls.Add(this.btn_NotifDrank);
             this.tabPage3.Controls.Add(this.btn_VerzendDrank);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
@@ -176,6 +191,7 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.Lijst_NonAlcholol);
             this.tabPage4.Controls.Add(this.btn_NotifNonAlcohol);
             this.tabPage4.Controls.Add(this.btn_Verzend_nonAlcohol);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
@@ -204,14 +220,6 @@
             this.btn_Verzend_nonAlcohol.Text = "Verzend Order";
             this.btn_Verzend_nonAlcohol.UseVisualStyleBackColor = true;
             // 
-            // Lijst_Lunch
-            // 
-            this.Lijst_Lunch.FormattingEnabled = true;
-            this.Lijst_Lunch.Location = new System.Drawing.Point(0, 154);
-            this.Lijst_Lunch.Name = "Lijst_Lunch";
-            this.Lijst_Lunch.Size = new System.Drawing.Size(312, 212);
-            this.Lijst_Lunch.TabIndex = 3;
-            // 
             // btn_Verberg
             // 
             this.btn_Verberg.Location = new System.Drawing.Point(177, 482);
@@ -221,6 +229,30 @@
             this.btn_Verberg.Text = "Verberg Order";
             this.btn_Verberg.UseVisualStyleBackColor = true;
             this.btn_Verberg.Click += new System.EventHandler(this.btn_Verberg_Click);
+            // 
+            // Lijst_Diner
+            // 
+            this.Lijst_Diner.FormattingEnabled = true;
+            this.Lijst_Diner.Location = new System.Drawing.Point(6, 149);
+            this.Lijst_Diner.Name = "Lijst_Diner";
+            this.Lijst_Diner.Size = new System.Drawing.Size(300, 225);
+            this.Lijst_Diner.TabIndex = 4;
+            // 
+            // Lijst_Drank
+            // 
+            this.Lijst_Drank.FormattingEnabled = true;
+            this.Lijst_Drank.Location = new System.Drawing.Point(6, 149);
+            this.Lijst_Drank.Name = "Lijst_Drank";
+            this.Lijst_Drank.Size = new System.Drawing.Size(300, 225);
+            this.Lijst_Drank.TabIndex = 4;
+            // 
+            // Lijst_NonAlcholol
+            // 
+            this.Lijst_NonAlcholol.FormattingEnabled = true;
+            this.Lijst_NonAlcholol.Location = new System.Drawing.Point(6, 149);
+            this.Lijst_NonAlcholol.Name = "Lijst_NonAlcholol";
+            this.Lijst_NonAlcholol.Size = new System.Drawing.Size(300, 225);
+            this.Lijst_NonAlcholol.TabIndex = 4;
             // 
             // Bediening
             // 
@@ -262,5 +294,8 @@
         private System.Windows.Forms.Button btn_Verzend_nonAlcohol;
         private System.Windows.Forms.ListBox Lijst_Lunch;
         private System.Windows.Forms.Button btn_Verberg;
+        private System.Windows.Forms.ListBox Lijst_Diner;
+        private System.Windows.Forms.ListBox Lijst_Drank;
+        private System.Windows.Forms.ListBox Lijst_NonAlcholol;
     }
 }
