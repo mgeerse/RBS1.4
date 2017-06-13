@@ -23,7 +23,7 @@ namespace UI
 
         private void AfrekenenForm_Load(object sender, EventArgs e)
         {
-
+            textBoxOpmerkingen.Visible = false;
         }
 
         private void BetalenButton_Click(object sender, EventArgs e)
@@ -42,6 +42,12 @@ namespace UI
                 TipForm TipForm = new TipForm();
                 TipForm.ShowDialog();
             }
+        }
+
+        private void ButtonOpmerkingen_Click(object sender, EventArgs e)
+        {
+            textBoxOpmerkingen.Visible = true;
+
         }
     }
 }

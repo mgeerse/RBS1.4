@@ -42,6 +42,32 @@ namespace DAL
             return result;
         }
 
+        public List<Bestelitem> GetForBestellingId(int BestellingId)
+        {
+            List<Bestelitem> result = new List<Bestelitem>();
+
+            conn.Open();
+            string query = "SELECT Bestelling, Menuitem, Aantal, Opmerking, Status, TijdIngevoerd" +
+                " FROM Bestelitem" +
+                " WHERE Bestelling = " + BestellingId;
+            SqlCommand command = new SqlCommand(query, conn);
+            SqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                int Menuitem = reader.GetInt32(1);
+                int Aantal = reader.GetInt32(2);
+                string Opmerking = reader.GetString(3);
+                Status Status = (Status)reader.GetInt32(4);
+                DateTime TijdIngevoerd = reader.GetDateTime(5);
+                Bestelitem Bestelitem = new Bestelitem(BestellingDAO.GetForId(BestellingId), MenuitemDAO.GetForId(Menuitem), Aantal, Opmerking, Status, TijdIngevoerd);
+
+                result.Add(Bestelitem);
+            }
+            conn.Close();
+            return result;
+        }
+
         public Bestelitem GetForId(int Id)
         {
             conn.Open();
