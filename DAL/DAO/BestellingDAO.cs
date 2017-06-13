@@ -150,7 +150,7 @@ namespace DAL
             sb.Append("JOIN Bestelling as C ON B.Bestelling = C.BestellingId ");
             sb.Append("JOIN Medewerker as D ON C.Medewerker = D.MedewerkerId ");
             sb.Append("JOIN Tafel as T ON C.Tafel = T.TafelId ");
-            sb.Append("WHERE (M.Categorie BETWEEN 8 AND 12) AND B.Status = 3 ");
+            sb.Append("WHERE (M.Categorie BETWEEN 8 AND 12) AND B.Status = 2 ");
 
             conn.Open();
 
@@ -229,14 +229,14 @@ namespace DAL
 
             SqlCommand cmd = new SqlCommand(sb.ToString(), conn);
 
-            cmd.Parameters.Add("@BestelId", System.Data.SqlDbType.Int).Value = Object.BestelId;
+            cmd.Parameters.Add("@BestellingId", System.Data.SqlDbType.Int).Value = Object.BestelId;
             cmd.Parameters.Add("@MenuId", System.Data.SqlDbType.Int).Value = Object.Menuitem;
-            cmd.Parameters.Add("@Status", System.Data.SqlDbType.Int).Value = 2;
+            cmd.Parameters.Add("@Status", System.Data.SqlDbType.Int).Value = Status.Klaar;
+            
             try
             {
-                cmd.Prepare();
                 conn.Open();
-
+                cmd.Prepare();
                 cmd.ExecuteScalar();
 
                 conn.Close();

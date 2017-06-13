@@ -13,19 +13,24 @@ namespace UI
 {
     public partial class Barman : Form
     {
+        OrderPanel OP = new OrderPanel();
+        Panel Panel;
+
         public Barman(Medewerker Medewerker)
         {
             InitializeComponent();
-            OrderPanel OP = new OrderPanel();
-            ToolStripOnder TSO = new ToolStripOnder(this);
+            
 
-            foreach (var item in OP.MaakTabControl())
-            {
-                foreach (var ControlItem in item)
-                {
-                    Controls.Add(ControlItem);
-                }
-            }
+            Panel = OP.MaakTabControl(new Panel());
+            Panel.Name = "BestelPanel";
+            ToolStripOnder TSO = new ToolStripOnder(this, Panel);
+
+            Controls.Add(TSO.maakToolStrip(Medewerker));
+            Controls.Add(Panel);
+
+            timer1.Interval = 10000;
+            timer1.Start();
+
         }
 
         private void Barman_Load(object sender, EventArgs e)
@@ -35,9 +40,9 @@ namespace UI
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            timer1.Interval = 10000;
-
-
+            //Hier de automatische updates uitvoeren.
+            //Deze gaat om de 10000 miliseconden (10 seconden)
+            OP.MaakTabControl(Panel);
         }
     }
 }

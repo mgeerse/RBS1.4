@@ -10,8 +10,7 @@ namespace Logic
     public class BarBestellingLogica
     {
         BarBestelling BarBestelling;
-        //DAL.BestellingDAO BestellingDAO;
-        DAL.BestelitemDAO BestelitemDAO;
+        DAL.BestellingDAO BestellingDAO;
         public BarBestellingLogica() { }
 
         // Maak een methode die een bestelling opvraagd, en hierna de bestelitems die daar in zitten.
@@ -37,12 +36,10 @@ namespace Logic
         // Herziening: één methode voor zowel nieuw, in de maak, en oud. Ook teruggestuurd.
         // Methode: BestelIdItemFrequenite
 
-        // Ik moet hier nog leesbare data geven voor de UI...
-        // Het makkelijkste is om 
-
+        
         public List<List<BarBestelling>> GetAllOldOrders()
         {
-            DAL.BestellingDAO BestellingDAO = new DAL.BestellingDAO();
+            BestellingDAO = new DAL.BestellingDAO();
             List<BarBestelling> BarBestelling = new List<BarBestelling>();
             BarBestelling = BestellingDAO.GetAllOldBarBestellingen();
 
@@ -51,20 +48,9 @@ namespace Logic
             return GesorteerdeLijst;
         }
 
-        public List<List<BarBestelling>> GetAllOrders()
-        {
-            DAL.BestellingDAO BestellingDAO = new DAL.BestellingDAO();
-            List<BarBestelling> BarBestelling = new List<BarBestelling>();
-            BarBestelling = BestellingDAO.GetAllBarBestellingen();
-
-            List<List<BarBestelling>> GesorteerdeLijst = SorteerBarItemsAanBestelling(BarBestelling);
-
-            return GesorteerdeLijst;
-        }
-
         public List<List<BarBestelling>> GetAllNewOrders()
         {
-            DAL.BestellingDAO BestellingDAO = new DAL.BestellingDAO();
+            BestellingDAO = new DAL.BestellingDAO();
             List<BarBestelling> BarBestelling = new List<BarBestelling>();
             BarBestelling = BestellingDAO.GetAllNewBarBestelling();
 
@@ -163,15 +149,15 @@ namespace Logic
             return AantalArray;
         }
 
-        public bool BestellingGereed(Model.BarBestelling Object)
+        public bool BestellingGereed(BarBestelling Object)
         {
             //DAO update/gereed.
             //Huidige status wordt meegegeven voor extra zekerheid binnen het systeem. 
-            DAL.BestellingDAO BDAO = new DAL.BestellingDAO();
+            BestellingDAO = new DAL.BestellingDAO();
 
             try
             {
-                BDAO.orderGereed(Object);
+                BestellingDAO.orderGereed(Object);
             }
             catch(Exception)
             {
