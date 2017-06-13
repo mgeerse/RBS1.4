@@ -36,16 +36,21 @@ namespace Logic
         // Herziening: één methode voor zowel nieuw, in de maak, en oud. Ook teruggestuurd.
         // Methode: BestelIdItemFrequenite
 
-        
+
         public List<List<BarBestelling>> GetAllOldOrders()
         {
             BestellingDAO = new DAL.BestellingDAO();
             List<BarBestelling> BarBestelling = new List<BarBestelling>();
             BarBestelling = BestellingDAO.GetAllOldBarBestellingen();
 
-            List<List<BarBestelling>> GesorteerdeLijst = SorteerBarItemsAanBestelling(BarBestelling);
+            List<List<BarBestelling>> BestelLijst = new List<List<Model.BarBestelling>>();
 
-            return GesorteerdeLijst;
+            foreach (var item in BarBestelling)
+            {
+                BestelLijst.Add(BarBestelling);
+            }
+
+            return BestelLijst;
         }
 
         public List<List<BarBestelling>> GetAllNewOrders()
@@ -54,100 +59,86 @@ namespace Logic
             List<BarBestelling> BarBestelling = new List<BarBestelling>();
             BarBestelling = BestellingDAO.GetAllNewBarBestelling();
 
-            List<List<BarBestelling>> GesorteerdeLijst = SorteerBarItemsAanBestelling(BarBestelling);
+            List<List<BarBestelling>> BestelLijst = new List<List<Model.BarBestelling>>();
 
-            return GesorteerdeLijst;
-        }
-
-        public List<List<BarBestelling>> SorteerBarItemsAanBestelling(List<BarBestelling> Object)
-        {
-            List<int> Frequentie = BestelIdItemFrequentie(Object);
-            List<List<BarBestelling>> TotaalBestellingen = new List<List<BarBestelling>>();
-
-            //Items omzetten naar een list, wat wordt gereturned. Wat ik return is een lijst met daarin lijsten van één bestelling. 
-            //De laatste staat gelijk aan één bestelling.
-
-            BarBestelling = new BarBestelling();
-
-            if (Frequentie == null)
+            foreach (var item in BarBestelling)
             {
-                //throw new NotImplementedException();
+                BestelLijst.Add(BarBestelling);
             }
 
-            for (int i = 0; i < Object.Count; i++)
-            {
-                List<BarBestelling> Bestellingen = new List<BarBestelling>();
-
-                foreach (int index in Frequentie)
-                {
-                    //Pak het aantal items in een bestelling via de index.
-
-                    for (int j = 0; j < index; j++)
-                    {
-
-                        //Nu we de index hebben kunnen we zeggen hoeveel items er in een bestelling zitten.
-                        BarBestelling.BestelId = Object[i].BestelId;
-                        BarBestelling.Aantal = Object[i].Aantal;
-                        BarBestelling.Invoertijd = Object[i].Invoertijd;
-                        BarBestelling.ItemNaam = Object[i].ItemNaam;
-                        BarBestelling.MedewerkerNaam = Object[i].MedewerkerNaam;
-                        BarBestelling.Opmerking = Object[i].Opmerking;
-                        BarBestelling.TafelNummer = Object[i].TafelNummer;
-                        BarBestelling.Menuitem = Object[i].Menuitem;
-
-                        Bestellingen.Add(BarBestelling);
-                    }
-                }
-                TotaalBestellingen.Add(Bestellingen);
-            }
-            return TotaalBestellingen;
+            return BestelLijst;
         }
 
-        public List<int> BestelIdItemFrequentie(List<BarBestelling> Object)
-        {
-            //Dit geeft de frequentie terug van alle bestelIds die in de 'BarBestelling' zitten
-            //int[] BestelIdItemFrequentie = null;
+        //public List<List<BarBestelling>> SorteerBarItemsAanBestelling(List<BarBestelling> Object)
+        //{
+        //    #region Poging 1
+        //    //List<int> Frequentie = BestelIdItemFrequentie(Object);
+        //    //List<List<BarBestelling>> TotaalBestellingen = new List<List<BarBestelling>>();
 
-            List<int> AantalArray = new List<int>();
-            int aantal = 0;
-            int CheckId = 0;
-            //We krijgen een bestellingId mee. Hiermee kunnen we zien bij welke bestelling deze hoort.
-            //Hier moeten we op sorteren.
-            //Beste in een lijst, of geef een int array mee per bestelling met daarin de indexes van de items per bestelling. 
-            //We willen iets terug waarmee we het aantal achtereenvolgende bestelitems kunnen sorteren op bestelling.
-            //Zeg dat bestelling 5 items heeft, moet de 'return' bij 0 op 5 staan. Als de volgende twee items heeft, moet 1 op 2 staan.
+        //    ////Items omzetten naar een list, wat wordt gereturned. Wat ik return is een lijst met daarin lijsten van één bestelling. 
+        //    ////De laatste staat gelijk aan één bestelling.
 
-            //Eerst kijken hoeveel bestellingen er zijn.
+        //    //BarBestelling = new BarBestelling();
 
+        //    //if (Frequentie == null)
+        //    //{
+        //    //    //throw new NotImplementedException();
+        //    //}
 
+        //    //for (int i = 0; i < Object.Count; i++)
+        //    //{
+        //    //    List<BarBestelling> Bestellingen = new List<BarBestelling>();
 
-            for (int i = 0; i < Object.Count; i++)
-            {
-  
+        //    //    foreach (int index in Frequentie)
+        //    //    {
+        //    //        //Pak het aantal items in een bestelling via de index.
 
-                //Eerst kijken of de bestelId bekend is.
-                //Checken of het BestelId bekend is:
+        //    //        for (int j = 0; j < index; j++)
+        //    //        {
+        //    //            //Nu we de index hebben kunnen we zeggen hoeveel items er in een bestelling zitten.
+        //    //            BarBestelling.BestelId = Object[i].BestelId;
+        //    //            BarBestelling.Aantal = Object[i].Aantal;
+        //    //            BarBestelling.Invoertijd = Object[i].Invoertijd;
+        //    //            BarBestelling.ItemNaam = Object[i].ItemNaam;
+        //    //            BarBestelling.MedewerkerNaam = Object[i].MedewerkerNaam;
+        //    //            BarBestelling.Opmerking = Object[i].Opmerking;
+        //    //            BarBestelling.TafelNummer = Object[i].TafelNummer;
+        //    //            BarBestelling.Menuitem = Object[i].Menuitem;
 
-                if (CheckId != Object[i].BestelId)
-                {
-                    //Het is niet bekend bij ons
-                    //Maak de nieuwe checkId de nieuwe bestelId
-                    CheckId = Object[i].BestelId;
+        //    //            Bestellingen.Add(BarBestelling);
+        //    //        }
+        //    //    }
+        //    //    TotaalBestellingen.Add(Bestellingen);
+        //    //}
+        //    #endregion
 
-                    aantal = 1;
-                    //Dit hoeft niet de eerste iteratie te gebeuren.
-                    AantalArray.Add(aantal);
+        //    List<List<BarBestelling>> BarBestelling = new List<List<Model.BarBestelling>>();
+        //    List<BarBestelling> BarObject = new List<BarBestelling>();
 
-                }
+        //    int CheckId = 0;
+        //    foreach (var item in Object)
+        //    {
+        //        if (CheckId != item.BestelId)
+        //        {
+        //            BarObject = new List<BarBestelling>();
 
-                else if (CheckId == Object[i].BestelId)
-                {
-                    //Het is bekend;
-                    aantal++;
-                }
-            }
-            return AantalArray;
-        }
+        //            CheckId = item.BestelId;
+        //            BarObject.Add(item);
+        //        }
+        //        else if (CheckId == item.BestelId)
+        //        {
+        //            BarObject.Add(item);
+        //        }
+        //        BarBestelling.Add(BarObject);
+        //    }
+        //    return BarBestelling;
+        //}
+
+        //public int[] BestelIdItemFrequentie(List<BarBestelling> Object)
+        //{
+        //    return new int[10];
+        //}
+
 
         public bool BestellingGereed(BarBestelling Object)
         {
@@ -159,7 +150,7 @@ namespace Logic
             {
                 BestellingDAO.orderGereed(Object);
             }
-            catch(Exception)
+            catch (Exception)
             {
                 return false;
             }

@@ -61,7 +61,7 @@ namespace DAL
             List<BarBestelling> BarBestelList = new List<BarBestelling>();
 
             conn = DbConnection.GetSqlConnection();
-            BarBestelling BarBestelling = new BarBestelling();
+            
 
             StringBuilder sb = new StringBuilder();
             sb.Append("SELECT M.Naam, B.Aantal, B.Opmerking, B.TijdIngevoerd, D.Naam, C.BestellingId, T.TafelId, B.Menuitem ");
@@ -71,7 +71,7 @@ namespace DAL
             sb.Append("JOIN Medewerker as D ON C.Medewerker = D.MedewerkerId ");
             sb.Append("JOIN Tafel as T ON C.Tafel = T.TafelId ");
             sb.Append("WHERE (M.Categorie BETWEEN 8 AND 12) AND B.Status = 1 ");
-
+            sb.Append("ORDER BY C.BestellingId");
             conn.Open();
 
             SqlCommand cmd = new SqlCommand(sb.ToString(), conn);
@@ -79,6 +79,8 @@ namespace DAL
 
             while (reader.Read())
             {
+                BarBestelling BarBestelling = new BarBestelling();
+
                 BarBestelling.ItemNaam = reader.GetString(0);
                 BarBestelling.Aantal = reader.GetInt32(1);
                 BarBestelling.Opmerking = reader.GetString(2);
@@ -111,6 +113,7 @@ namespace DAL
             sb.Append("JOIN Medewerker as D ON C.Medewerker = D.MedewerkerId ");
             sb.Append("JOIN Tafel as T ON C.Tafel = T.TafelId ");
             sb.Append("WHERE (M.Categorie BETWEEN 8 AND 12) ");
+            sb.Append("ORDER BY C.BestellingId");
 
             conn.Open();
 
@@ -151,6 +154,7 @@ namespace DAL
             sb.Append("JOIN Medewerker as D ON C.Medewerker = D.MedewerkerId ");
             sb.Append("JOIN Tafel as T ON C.Tafel = T.TafelId ");
             sb.Append("WHERE (M.Categorie BETWEEN 8 AND 12) AND B.Status = 2 ");
+            sb.Append("ORDER BY C.BestellingId");
 
             conn.Open();
 
@@ -159,6 +163,8 @@ namespace DAL
 
             while (reader.Read())
             {
+                BarBestelling = new BarBestelling();
+
                 BarBestelling.ItemNaam = reader.GetString(0);
                 BarBestelling.Aantal = reader.GetInt32(1);
                 BarBestelling.Opmerking = reader.GetString(2);

@@ -14,6 +14,8 @@ namespace UI
         public Logic.BarBestellingLogica Bestelling = new Logic.BarBestellingLogica();
         public BarBestelling BarBestelling;
         public List<BarBestelling> BarBestellingen;
+        public int GebruikteBestellingsId { get; set; }
+        public int GebruikteIndexes { get; set; }
 
         public OrderPanel()
         {
@@ -22,23 +24,12 @@ namespace UI
 
         public Panel MaakTabControl(Panel Panel)
         {
-            Panel.Controls.Clear();
-            foreach (Control item in Panel.Controls)
-            {
-                item.Dispose();
-            }
-
             List<List<BarBestelling>> AllNewOrders = Bestelling.GetAllNewOrders();
             List<List<BarBestelling>> AllOldOrders = Bestelling.GetAllOldOrders();
 
             //Begin het maken van de controls!
-            //Properties instellen van de panel
-
-            Panel.Size = new System.Drawing.Size(1160, 695);
-            Panel.Location = new System.Drawing.Point(0, 0);
-            Panel.BackColor = System.Drawing.Color.LightSteelBlue;
-
             //Bestelling.Count controleren om zo alleen de gewenste panelen te maken
+
             if (AllNewOrders.Count == 0)
             {
                 MaakLinkerTabControl(Panel, false);
@@ -61,7 +52,7 @@ namespace UI
             BarBestellingen = new List<BarBestelling>();
             Bestelling = new Logic.BarBestellingLogica();
             BarBestelling = new BarBestelling();
-            
+
             //Code voor de linker tabcontrol.
             //Het verschil is 'TabControlLinks' v.g.m. 'TabControlRechts'
             //En is de positie van de TabControl anders.
@@ -70,11 +61,13 @@ namespace UI
             TabControl.Size = new System.Drawing.Size(1160, 695);
             TabControl.Location = new System.Drawing.Point(12, 12);
             TabControl.Size = new System.Drawing.Size(556, 630);
-            TabControl.Name = "TabControlLinks";
+            //TabControl.Name = "TabControlLinks";
             TabControl.ItemSize = new System.Drawing.Size(150, 25);
 
             if (BestellingAanwezig)
             {
+                #region Properties & Controls deel 1
+
                 TabPage TabPage = new TabPage();
                 TreeView TreeView = new TreeView();
                 Button Button = new Button();
@@ -145,32 +138,53 @@ namespace UI
                 //Nu elke item doorlopen en toevoegen aan de TabControl.
                 string TabTafelNummer = "";
                 string TabBestellingId = "";
-                string BestelOpmerking = "Opmerking: \n";
+                string BestelOpmerking = "Opmerkingen: \n";
                 string Medewerker = "";
+                int BestelId = 0;
                 DateTime TijdIngevoerd = new DateTime();
 
-                for (int i = 0; i < 1; i++)
-                {
-                    foreach (var item in Bestelling.GetAllNewOrders()[i])
-                    {
-                        //Nodig voor de UI om de data te weergeven.
-                        if (i == 0)
-                        {
-                            TabTafelNummer = item.TafelNummer.ToString();
-                            TabBestellingId = item.BestelId.ToString();
-                            TijdIngevoerd = item.Invoertijd;
-                            Medewerker = item.MedewerkerNaam;
-                        }
-                        //Nodig voor de knop "gereed maken"
-                        BarBestellingen.Add(item);
+                #endregion
 
-                        if (item.Opmerking != "" || item.Opmerking != null)
-                        {
-                            BestelOpmerking += "- " + item.Opmerking + "\n";
-                        }
-                        TreeView.Nodes[0].Nodes.Add(new TreeNode(item.ItemNaam + "|Aantal: " + item.Aantal));
+
+                foreach (var Bestelling in Bestelling.GetAllNewOrders())
+                {
+                    GebruikteIndexes++;
+                    foreach (var BestelItem in Bestelling.Take(1))
+                    {
+                        //De eerste iteratie moet altijd hier komen.
+
+                        //Nodig voor de UI om de data te weergeven.
+                        BestelId = BestelItem.BestelId;
+                        TabTafelNummer = BestelItem.TafelNummer.ToString();
+                        TijdIngevoerd = BestelItem.Invoertijd;
+                        Medewerker = BestelItem.MedewerkerNaam;
+
+                        BestelOpmerking += BestelItem.ItemNaam + ":" + BestelItem.Opmerking + "\n\n";
+
+                        TreeView.Nodes[0].Nodes.Add(new TreeNode(BestelItem.ItemNaam + "|Aantal: " + BestelItem.Aantal));
+
+                        GebruikteBestellingsId = BestelItem.BestelId;
+
+                        //Nodig voor de knop "gereed maken"
+                        BarBestellingen.Add(BestelItem);
                     }
+
+                    foreach (var BestelItem in Bestelling.Skip(1))
+                    {
+                        if (BestelItem.BestelId == BestelId)
+                        {
+                            TreeView.Nodes[0].Nodes.Add(new TreeNode(BestelItem.ItemNaam + "|Aantal: " + BestelItem.Aantal));
+                            BestelOpmerking += BestelItem.ItemNaam + ":" + BestelItem.Opmerking + "\n\n";
+                            GebruikteBestellingsId = BestelItem.BestelId;
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+                    break;
                 }
+
 
                 //We willen wél graag het goede object (bestelitem) meegeven. 
                 //Hierdoor moeten we een eigen/aangepaste eventhandler maken
@@ -178,6 +192,8 @@ namespace UI
                 {
                     Button_Click(sender, e, BarBestellingen);
                 };
+
+                #region Properties deel 2
 
                 //Label1 Properties BestelTijd (BestelTijd)
                 Label1.Text = "Geplaatst op: " + TijdIngevoerd.Year + "-" + TijdIngevoerd.Month + "-" + TijdIngevoerd.Day + " om " + TijdIngevoerd.TimeOfDay;
@@ -211,9 +227,11 @@ namespace UI
                 TreeView.ExpandAll();
                 GroupBox.Refresh();
 
+                #endregion
+
                 TabPage.Text = "Eerstvolgende bestelling: Tafel #" + TabTafelNummer;
 
-                if (BestelOpmerking == "Opmerking: ")
+                if (BestelOpmerking == "Opmerkingen: ")
                 {
                     RichTextBox.Text = "Er zijn geen opmerkingen voor deze bestelling!";
                 }
@@ -228,7 +246,6 @@ namespace UI
                 Label Label = new Label();
                 TabPage TabPage = new TabPage();
 
-                
                 TabPage.BackColor = System.Drawing.Color.LightSlateGray;
 
                 Label.Parent = TabPage;
@@ -253,173 +270,192 @@ namespace UI
         public Control MaakRechterTabControl(Panel Panel, bool BestellingAanwezig)
         {
             TabControl TabControl = new TabControl();
-            Control returnControls = new Control();
-            returnControls.Controls.Add(TabControl);
 
             //TabControl Properties
             TabControl.Location = new System.Drawing.Point(580, 12);
             TabControl.Size = new System.Drawing.Size(556, 630);
             TabControl.Name = "TabControlRechts";
+            TabControl.ItemSize = new System.Drawing.Size(150, 25);
 
             //TabControlRechts Wordt hier gemaakt.
             if (BestellingAanwezig)
             {
-                //Deze forloop gaat langs elk item in de bestelling.
-                //Nu elke item doorlopen en toevoegen aan de TabControl.
-                string TabTafelNummer = "";
-                string TabBestellingId = "";
-                string BestelOpmerking = "Opmerking: \n";
-                string Medewerker = "";
-                DateTime TijdIngevoerd = new DateTime();
 
-                for (int i = 1; i < Bestelling.GetAllNewOrders()[i].Count; i++)
+
+                BarBestellingen = new List<BarBestelling>();
+                Bestelling = new Logic.BarBestellingLogica();
+                BarBestelling = new BarBestelling();
+
+                foreach (var HeleBesteling in Bestelling.GetAllNewOrders())
                 {
-                    BarBestellingen = new List<BarBestelling>();
-                    Bestelling = new Logic.BarBestellingLogica();
-                    BarBestelling = new BarBestelling();
+                    GebruikteIndexes++;
 
-                    //Code voor de linker tabcontrol.
-                    //Enige verschil is 'TabControlRechts' v.g.m. 'TabControlRechts'
-                    //Ook zijn natuurlijk de posities anders.
-                    TreeView TreeView = new TreeView();
-                    Button Button = new Button();
-                    Label Label1 = new Label();
-                    Label Label2 = new Label();
-                    Label Label3 = new Label();
-                    RichTextBox RichTextBox = new RichTextBox();
-                    TabPage TabPage = new TabPage();
-                    GroupBox GroupBox = new GroupBox();
-
-                    //TabControl properties
-                    TabControl.ItemSize = new System.Drawing.Size(150, 25);
-                    //TabPage Properties
-                    TabPage.Parent = TabControl;
-                    TabPage.BackColor = System.Drawing.Color.LightSlateGray;
-
-                    //Controls direct toevoegen aan TabPage
-                    TabPage.Controls.Add(GroupBox);
-                    TabPage.Controls.Add(TreeView);
-                    TabPage.Controls.Add(Label1);
-                    TabPage.Controls.Add(Label2);
-                    TabPage.Controls.Add(Label3);
-                    TabPage.Controls.Add(RichTextBox);
-                    TabPage.Controls.Add(Button);
-
-                    //GroupBox Properties
-                    GroupBox.Text = "Extra informatie:";
-                    GroupBox.Location = new System.Drawing.Point(6, 400);
-                    GroupBox.Size = new System.Drawing.Size(536, 181);
-                    GroupBox.BackColor = System.Drawing.Color.Transparent;
-                    GroupBox.FlatStyle = FlatStyle.Popup;
-                    GroupBox.Font = new System.Drawing.Font("Trebuchet MS", 10);
-                    GroupBox.ForeColor = System.Drawing.Color.Gold;
-
-                    //TreeView Properties
-                    TreeView.Name = "TreeViewLinks";
-                    //TreeView.Parent = TabPage;
-                    TreeView.ShowRootLines = false;
-                    TreeView.ShowLines = false;
-                    TreeView.CheckBoxes = false;
-                    TreeView.ShowPlusMinus = false;
-                    TreeView.HideSelection = false;
-                    TreeView.Scrollable = true;
-                    TreeView.ItemHeight = 35;
-                    TreeView.BorderStyle = BorderStyle.None;
-                    TreeView.Size = new System.Drawing.Size(315, 400);
-                    TreeView.Location = new System.Drawing.Point(0, 0);
-                    TreeView.Font = new System.Drawing.Font("Trebuchet MS", 20, System.Drawing.FontStyle.Bold);
-                    TreeView.Nodes.Add("Drankjes:");
-                    TreeView.BackColor = System.Drawing.Color.LightSlateGray;
-                    TreeView.ForeColor = System.Drawing.Color.White;
-                    TreeView.Nodes[0].NodeFont = new System.Drawing.Font("Trebuchet MS", 20, System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline);
-                    TreeView.Nodes[0].ForeColor = System.Drawing.Color.PaleGreen;
-
-                    //RichtextBox Properties
-                    RichTextBox.Name = "RichTextBoxLinks";
-                    RichTextBox.BorderStyle = BorderStyle.None;
-                    RichTextBox.Location = new System.Drawing.Point(316, 144);
-                    RichTextBox.Size = new System.Drawing.Size(226, 250);
-
-                    //Button properties
-                    Button.Name = "ButtonLinks";
-                    Button.Text = "Bestelling\nGereed Melden";
-                    Button.Location = new System.Drawing.Point(316, 6);
-                    Button.Size = new System.Drawing.Size(226, 130);
-                    Button.BackColor = System.Drawing.Color.LightGray;
-                    Button.Font = new System.Drawing.Font("Trebuchet MS", 16, System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline);
-                    Button.ForeColor = System.Drawing.Color.Green;
-
-                    foreach (var item in Bestelling.GetAllNewOrders()[i])
+                    foreach (var BestelItem in HeleBesteling.Skip(GebruikteIndexes))
                     {
+                        //Deze forloop gaat langs elk item in de bestelling.
+                        //Nu elke item doorlopen en toevoegen aan de TabControl.
+                        string TabTafelNummer = "";
+                        string TabBestellingId = "";
+                        string BestelOpmerking = "Opmerking: \n";
+                        string Medewerker = "";
+                        DateTime TijdIngevoerd = new DateTime();
+
+                        GebruikteIndexes++;
+
+                        TreeView TreeView = new TreeView();
+                        Button Button = new Button();
+                        Label Label1 = new Label();
+                        Label Label2 = new Label();
+                        Label Label3 = new Label();
+                        RichTextBox RichTextBox = new RichTextBox();
+                        TabPage TabPage = new TabPage();
+                        GroupBox GroupBox = new GroupBox();
+
+                        #region Properties deel 1
+
+                        //Code voor de linker tabcontrol.
+                        //Enige verschil is 'TabControlRechts' v.g.m. 'TabControlRechts'
+                        //Ook zijn natuurlijk de posities anders.
+
+                        //TabControl properties
+
+                        //TabPage Properties
+                        TabPage.Parent = TabControl;
+                        TabPage.BackColor = System.Drawing.Color.LightSlateGray;
+
+                        //Controls direct toevoegen aan TabPage
+                        TabPage.Controls.Add(GroupBox);
+                        TabPage.Controls.Add(TreeView);
+                        TabPage.Controls.Add(Label1);
+                        TabPage.Controls.Add(Label2);
+                        TabPage.Controls.Add(Label3);
+                        TabPage.Controls.Add(RichTextBox);
+                        TabPage.Controls.Add(Button);
+
+                        //GroupBox Properties
+                        GroupBox.Text = "Extra informatie:";
+                        GroupBox.Location = new System.Drawing.Point(6, 400);
+                        GroupBox.Size = new System.Drawing.Size(536, 181);
+                        GroupBox.BackColor = System.Drawing.Color.Transparent;
+                        GroupBox.FlatStyle = FlatStyle.Popup;
+                        GroupBox.Font = new System.Drawing.Font("Trebuchet MS", 10);
+                        GroupBox.ForeColor = System.Drawing.Color.Gold;
+
+                        //TreeView Properties
+                        //TreeView.Name = "TreeViewLinks";
+                        //TreeView.Parent = TabPage;
+                        TreeView.ShowRootLines = false;
+                        TreeView.ShowLines = false;
+                        TreeView.CheckBoxes = false;
+                        TreeView.ShowPlusMinus = false;
+                        TreeView.HideSelection = false;
+                        TreeView.Scrollable = true;
+                        TreeView.ItemHeight = 35;
+                        TreeView.BorderStyle = BorderStyle.None;
+                        TreeView.Size = new System.Drawing.Size(315, 400);
+                        TreeView.Location = new System.Drawing.Point(0, 0);
+                        TreeView.Font = new System.Drawing.Font("Trebuchet MS", 20, System.Drawing.FontStyle.Bold);
+                        TreeView.Nodes.Add("Drankjes:");
+                        TreeView.BackColor = System.Drawing.Color.LightSlateGray;
+                        TreeView.ForeColor = System.Drawing.Color.White;
+                        TreeView.Nodes[0].NodeFont = new System.Drawing.Font("Trebuchet MS", 20, System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline);
+                        TreeView.Nodes[0].ForeColor = System.Drawing.Color.PaleGreen;
+
+                        //RichtextBox Properties
+                        //RichTextBox.Name = "RichTextBoxLinks";
+                        RichTextBox.Text = "";
+                        RichTextBox.BorderStyle = BorderStyle.None;
+                        RichTextBox.Location = new System.Drawing.Point(316, 144);
+                        RichTextBox.Size = new System.Drawing.Size(226, 250);
+
+                        //Button properties
+                        //Button.Name = "ButtonLinks";
+                        Button.Text = "Bestelling\nGereed Melden";
+                        Button.Location = new System.Drawing.Point(316, 6);
+                        Button.Size = new System.Drawing.Size(226, 130);
+                        Button.BackColor = System.Drawing.Color.LightGray;
+                        Button.Font = new System.Drawing.Font("Trebuchet MS", 16, System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline);
+                        Button.ForeColor = System.Drawing.Color.Green;
+
+                        #endregion
+
                         //Nodig voor de UI om de data te weergeven.
-                        TabTafelNummer = item.TafelNummer.ToString();
-                        TabBestellingId = item.BestelId.ToString();
-                        TijdIngevoerd = item.Invoertijd;
-                        Medewerker = item.MedewerkerNaam;
+                        TabTafelNummer = BestelItem.TafelNummer.ToString();
+                        TabBestellingId = BestelItem.BestelId.ToString();
+                        TijdIngevoerd = BestelItem.Invoertijd;
+
+                        Medewerker = BestelItem.MedewerkerNaam;
+
+                        BestelOpmerking += BestelItem.ItemNaam + ": " + BestelItem.Opmerking + "\n\n";
+
+                        TreeView.Nodes[0].Nodes.Add(new TreeNode(BestelItem.ItemNaam + "|Aantal: " + BestelItem.Aantal));
+
+                        //We willen wél graag het goede object (bestelitem) meegeven. 
+                        //Hierdoor moeten we een eigen/aangepaste eventhandler maken
+                        Button.Click += delegate (object sender, EventArgs e)
+                        {
+                            Button_Click(sender, e, BarBestellingen);
+                        };
+
+                        BarBestellingen.Add(BestelItem);
+
+
+                        TabPage.Text = "Tafel #" + TabTafelNummer;
+
+                        if (BestelOpmerking == "Opmerking: ")
+                        {
+                            RichTextBox.Text = "Er zijn geen opmerkingen voor deze bestelling!";
+                        }
+                        else
+                        {
+                            RichTextBox.Text = BestelOpmerking;
+                        }
 
                         //Nodig voor de knop "gereed maken"
-                        BarBestellingen.Add(item);
 
-                        if (item.Opmerking != "" || item.Opmerking != null)
-                        {
-                            BestelOpmerking += "- " + item.Opmerking + "\n";
-                        }
-                        TreeView.Nodes[0].Nodes.Add(new TreeNode(item.ItemNaam + "|Aantal: " + item.Aantal));
+
+                        TreeView.ExpandAll();
+                        GroupBox.Refresh();
+
+                        #region Properties deel 2
+
+                        //Label1 Properties BestelTijd (BestelTijd)
+                        Label1.Text = "Geplaatst op: " + TijdIngevoerd.Year + "-" + TijdIngevoerd.Month + "-" + TijdIngevoerd.Day + " om " + TijdIngevoerd.TimeOfDay;
+                        Label1.Parent = GroupBox;
+                        Label1.Location = new System.Drawing.Point(12, 20);
+                        Label1.Size = new System.Drawing.Size(500, 30);
+                        Label1.Font = new System.Drawing.Font("Trebuchet MS", 16);
+                        Label1.ForeColor = System.Drawing.Color.White;
+                        //Label1.Name = "BesteltijdLinks";
+
+                        DateTime Verschil = (DateTime.Now - TijdIngevoerd.TimeOfDay);
+
+                        //Label2 Properties (tijdverschil met nu en besteltijd)
+                        Label2.Text = "(" + Verschil.Hour + "h " + Verschil.Minute + "m) geleden.";
+                        Label2.Parent = GroupBox;
+                        Label2.Location = new System.Drawing.Point(12, 50);
+                        Label2.Size = new System.Drawing.Size(500, 30);
+                        Label2.Font = new System.Drawing.Font("Trebuchet MS", 16);
+                        Label2.ForeColor = System.Drawing.Color.White;
+                        //Label2.Name = "VerschilLinks";
+
+                        //Label3 Properties (Naam medewerker)
+                        Label3.Text = "Bestelling opgenomen door: " + Medewerker;
+                        Label3.Parent = GroupBox;
+                        Label3.Location = new System.Drawing.Point(12, 80);
+                        Label3.Size = new System.Drawing.Size(500, 30);
+                        Label3.Font = new System.Drawing.Font("Trebuchet MS", 16);
+                        Label3.ForeColor = System.Drawing.Color.White;
+                        //Label3.Name = "NaamMedewerkerLinks";
+
+                        #endregion
                     }
-
-                    //We willen wél graag het goede object (bestelitem) meegeven. 
-                    //Hierdoor moeten we een eigen/aangepaste eventhandler maken
-                    Button.Click += delegate (object sender, EventArgs e)
-                    {
-                        Button_Click(sender, e, BarBestellingen);
-                    };
-
-                    //Label1 Properties BestelTijd (BestelTijd)
-                    Label1.Text = "Geplaatst op: " + TijdIngevoerd.Year + "-" + TijdIngevoerd.Month + "-" + TijdIngevoerd.Day + " om " + TijdIngevoerd.TimeOfDay;
-                    Label1.Parent = GroupBox;
-                    Label1.Location = new System.Drawing.Point(12, 20);
-                    Label1.Size = new System.Drawing.Size(500, 30);
-                    Label1.Font = new System.Drawing.Font("Trebuchet MS", 16);
-                    Label1.ForeColor = System.Drawing.Color.White;
-                    Label1.Name = "BesteltijdLinks";
-
-                    
-                    DateTime Verschil = (DateTime.Now - TijdIngevoerd.TimeOfDay);
-
-
-                    //Label2 Properties (tijdverschil met nu en besteltijd)
-                    Label2.Text = "(" + Verschil.Hour + "h " + Verschil.Minute + "m) geleden.";
-                    Label2.Parent = GroupBox;
-                    Label2.Location = new System.Drawing.Point(12, 50);
-                    Label2.Size = new System.Drawing.Size(500, 30);
-                    Label2.Font = new System.Drawing.Font("Trebuchet MS", 16);
-                    Label2.ForeColor = System.Drawing.Color.White;
-                    Label2.Name = "VerschilLinks";
-
-                    //Label3 Properties (Naam medewerker)
-                    Label3.Text = "Bestelling opgenomen door: " + Medewerker;
-                    Label3.Parent = GroupBox;
-                    Label3.Location = new System.Drawing.Point(12, 80);
-                    Label3.Size = new System.Drawing.Size(500, 30);
-                    Label3.Font = new System.Drawing.Font("Trebuchet MS", 16);
-                    Label3.ForeColor = System.Drawing.Color.White;
-                    Label3.Name = "NaamMedewerkerLinks";
-
-                    TreeView.ExpandAll();
-                    GroupBox.Refresh();
-
-                    TabPage.Text = "Eerstvolgende bestelling: Tafel #" + TabTafelNummer;
-
-                    if (BestelOpmerking == "Opmerking: ")
-                    {
-                        RichTextBox.Text = "Er zijn geen opmerkingen voor deze bestelling!";
-                    }
-                    else
-                    {
-                        RichTextBox.Text = BestelOpmerking;
-                    }
+                    Panel.Controls.Add(TabControl);
+                    return Panel;
                 }
             }
+
+
             else if (!BestellingAanwezig)
             {
                 Label Label = new Label();
@@ -448,166 +484,183 @@ namespace UI
 
         public Control MaakGeschiedenis(Panel Panel)
         {
-
-            BarBestellingen = new List<BarBestelling>();
-            Bestelling = new Logic.BarBestellingLogica();
-            BarBestelling = new BarBestelling();
-
             TabControl TabControl = new TabControl();
-            Control returnControls = new Control();
 
             //TabControl Properties
             TabControl.Location = new System.Drawing.Point(12, 12);
             TabControl.Size = new System.Drawing.Size(556, 630);
-            TabControl.Name = "TabControl";
+            TabControl.Name = "TabControlRechts";
+            TabControl.ItemSize = new System.Drawing.Size(150, 25);
 
             //TabControlRechts Wordt hier gemaakt.
-            //Deze forloop gaat langs elk item in de bestelling.
-            //Nu elke item doorlopen en toevoegen aan de TabControl.
-            string TabTafelNummer = "";
-            string TabBestellingId = "";
-            string BestelOpmerking = "Opmerking: \n";
-            string Medewerker = "";
-            DateTime TijdIngevoerd = new DateTime();
-
-            if (Bestelling.GetAllOldOrders().Count >= 1)
+            if (Bestelling.GetAllOldOrders().Count > 0)
             {
-                foreach (var HeleBestelling in Bestelling.GetAllOldOrders())
+                BarBestellingen = new List<BarBestelling>();
+                Bestelling = new Logic.BarBestellingLogica();
+                BarBestelling = new BarBestelling();
+
+                foreach (var HeleBesteling in Bestelling.GetAllOldOrders())
                 {
-                    BarBestellingen = new List<BarBestelling>();
-                    Bestelling = new Logic.BarBestellingLogica();
-                    BarBestelling = new BarBestelling();
-
-                    //Code voor de linker tabcontrol.
-                    //Enige verschil is 'TabControlLinks' v.g.m. 'TabControlRechts'
-                    //Ook zijn natuurlijk de posities anders.
-                    TreeView TreeView = new TreeView();
-                    Button Button = new Button();
-                    Label Label1 = new Label();
-                    Label Label2 = new Label();
-                    Label Label3 = new Label();
-                    RichTextBox RichTextBox = new RichTextBox();
-                    TabPage TabPage = new TabPage();
-                    GroupBox GroupBox = new GroupBox();
-
-                    //GroupBox Properties
-                    GroupBox.Text = "Extra informatie:";
-                    GroupBox.Location = new System.Drawing.Point(6, 400);
-                    GroupBox.Size = new System.Drawing.Size(536, 181);
-                    GroupBox.BackColor = System.Drawing.Color.Transparent;
-                    GroupBox.FlatStyle = FlatStyle.Popup;
-                    GroupBox.Font = new System.Drawing.Font("Trebuchet MS", 10);
-                    GroupBox.ForeColor = System.Drawing.Color.Gold;
-
-                    //TabControl Properties
-                    TabControl.Size = new System.Drawing.Size(556, 630);
-                    TabControl.Name = "TabControlLinks";
-                    TabControl.ItemSize = new System.Drawing.Size(150, 25);
-
-                    //TreeView Properties
-                    TreeView.Name = "TreeViewLinks";
-                    //TreeView.Parent = TabPage;
-                    TreeView.ShowRootLines = false;
-                    TreeView.ShowLines = false;
-                    TreeView.CheckBoxes = false;
-                    TreeView.ShowPlusMinus = false;
-                    TreeView.HideSelection = false;
-                    TreeView.Scrollable = true;
-                    TreeView.ItemHeight = 35;
-                    TreeView.BorderStyle = BorderStyle.None;
-                    TreeView.Size = new System.Drawing.Size(315, 400);
-                    TreeView.Location = new System.Drawing.Point(0, 0);
-                    TreeView.Font = new System.Drawing.Font("Trebuchet MS", 20, System.Drawing.FontStyle.Bold);
-                    TreeView.Nodes.Add("Drankjes:");
-                    TreeView.BackColor = System.Drawing.Color.LightSlateGray;
-                    TreeView.ForeColor = System.Drawing.Color.White;
-                    TreeView.Nodes[0].NodeFont = new System.Drawing.Font("Trebuchet MS", 20, System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline);
-                    TreeView.Nodes[0].ForeColor = System.Drawing.Color.PaleGreen;
-
-                    //RichtextBox Properties
-                    RichTextBox.Name = "RichTextBoxLinks";
-                    RichTextBox.BorderStyle = BorderStyle.None;
-                    RichTextBox.Location = new System.Drawing.Point(316, 144);
-                    RichTextBox.Size = new System.Drawing.Size(226, 250);
-
-                    //Button properties
-                    Button.Name = "ButtonLinks";
-                    Button.Text = "Bestelling\nGereed Melden";
-                    Button.Location = new System.Drawing.Point(316, 6);
-                    Button.Size = new System.Drawing.Size(226, 130);
-                    Button.BackColor = System.Drawing.Color.LightGray;
-                    Button.Font = new System.Drawing.Font("Trebuchet MS", 16, System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline);
-                    Button.ForeColor = System.Drawing.Color.Green;
-
-                    foreach (var BestellingItem in HeleBestelling)
+                    foreach (var BestelItem in HeleBesteling)
                     {
+                        //Deze forloop gaat langs elk item in de bestelling.
+                        //Nu elke item doorlopen en toevoegen aan de TabControl.
+                        string TabTafelNummer = "";
+                        string TabBestellingId = "";
+                        string BestelOpmerking = "Opmerking: \n";
+                        string Medewerker = "";
+                        DateTime TijdIngevoerd = new DateTime();
+
+                        TreeView TreeView = new TreeView();
+                        Button Button = new Button();
+                        Label Label1 = new Label();
+                        Label Label2 = new Label();
+                        Label Label3 = new Label();
+                        RichTextBox RichTextBox = new RichTextBox();
+                        TabPage TabPage = new TabPage();
+                        GroupBox GroupBox = new GroupBox();
+
+                        #region Properties deel 1
+
+                        //Code voor de linker tabcontrol.
+                        //Enige verschil is 'TabControlRechts' v.g.m. 'TabControlRechts'
+                        //Ook zijn natuurlijk de posities anders.
+
+                        //TabControl properties
+
+                        //TabPage Properties
+                        TabPage.Parent = TabControl;
+                        TabPage.BackColor = System.Drawing.Color.LightSlateGray;
+
+                        //Controls direct toevoegen aan TabPage
+                        TabPage.Controls.Add(GroupBox);
+                        TabPage.Controls.Add(TreeView);
+                        TabPage.Controls.Add(Label1);
+                        TabPage.Controls.Add(Label2);
+                        TabPage.Controls.Add(Label3);
+                        TabPage.Controls.Add(RichTextBox);
+                        TabPage.Controls.Add(Button);
+
+                        //GroupBox Properties
+                        GroupBox.Text = "Extra informatie:";
+                        GroupBox.Location = new System.Drawing.Point(6, 400);
+                        GroupBox.Size = new System.Drawing.Size(536, 181);
+                        GroupBox.BackColor = System.Drawing.Color.Transparent;
+                        GroupBox.FlatStyle = FlatStyle.Popup;
+                        GroupBox.Font = new System.Drawing.Font("Trebuchet MS", 10);
+                        GroupBox.ForeColor = System.Drawing.Color.Gold;
+
+                        //TreeView Properties
+                        //TreeView.Name = "TreeViewLinks";
+                        //TreeView.Parent = TabPage;
+                        TreeView.ShowRootLines = false;
+                        TreeView.ShowLines = false;
+                        TreeView.CheckBoxes = false;
+                        TreeView.ShowPlusMinus = false;
+                        TreeView.HideSelection = false;
+                        TreeView.Scrollable = true;
+                        TreeView.ItemHeight = 35;
+                        TreeView.BorderStyle = BorderStyle.None;
+                        TreeView.Size = new System.Drawing.Size(315, 400);
+                        TreeView.Location = new System.Drawing.Point(0, 0);
+                        TreeView.Font = new System.Drawing.Font("Trebuchet MS", 20, System.Drawing.FontStyle.Bold);
+                        TreeView.Nodes.Add("Drankjes:");
+                        TreeView.BackColor = System.Drawing.Color.LightSlateGray;
+                        TreeView.ForeColor = System.Drawing.Color.White;
+                        TreeView.Nodes[0].NodeFont = new System.Drawing.Font("Trebuchet MS", 20, System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline);
+                        TreeView.Nodes[0].ForeColor = System.Drawing.Color.PaleGreen;
+
+                        //RichtextBox Properties
+                        //RichTextBox.Name = "RichTextBoxLinks";
+                        RichTextBox.Text = "";
+                        RichTextBox.BorderStyle = BorderStyle.None;
+                        RichTextBox.Location = new System.Drawing.Point(316, 144);
+                        RichTextBox.Size = new System.Drawing.Size(226, 250);
+
+                        //Button properties
+                        //Button.Name = "ButtonLinks";
+                        Button.Text = "Bestelling\nGereed Melden";
+                        Button.Location = new System.Drawing.Point(316, 6);
+                        Button.Size = new System.Drawing.Size(226, 130);
+                        Button.BackColor = System.Drawing.Color.LightGray;
+                        Button.Font = new System.Drawing.Font("Trebuchet MS", 16, System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline);
+                        Button.ForeColor = System.Drawing.Color.Green;
+
+                        #endregion
+
                         //Nodig voor de UI om de data te weergeven.
-                        TabTafelNummer = BestellingItem.TafelNummer.ToString();
-                        TabBestellingId = BestellingItem.BestelId.ToString();
-                        TijdIngevoerd = BestellingItem.Invoertijd;
-                        Medewerker = BestellingItem.MedewerkerNaam;
+                        TabTafelNummer = BestelItem.TafelNummer.ToString();
+                        TabBestellingId = BestelItem.BestelId.ToString();
+                        TijdIngevoerd = BestelItem.Invoertijd;
+
+                        Medewerker = BestelItem.MedewerkerNaam;
+
+                        BestelOpmerking += BestelItem.ItemNaam + ": " + BestelItem.Opmerking + "\n\n";
+
+                        TreeView.Nodes[0].Nodes.Add(new TreeNode(BestelItem.ItemNaam + "|Aantal: " + BestelItem.Aantal));
+
+                        //We willen wél graag het goede object (bestelitem) meegeven. 
+                        //Hierdoor moeten we een eigen/aangepaste eventhandler maken
+                        Button.Click += delegate (object sender, EventArgs e)
+                        {
+                            Button_Click(sender, e, BarBestellingen);
+                        };
+
+                        BarBestellingen.Add(BestelItem);
+
+
+                        TabPage.Text = "Tafel #" + TabTafelNummer;
+
+                        if (BestelOpmerking == "Opmerking: ")
+                        {
+                            RichTextBox.Text = "Er zijn geen opmerkingen voor deze bestelling!";
+                        }
+                        else
+                        {
+                            RichTextBox.Text = BestelOpmerking;
+                        }
 
                         //Nodig voor de knop "gereed maken"
-                        BarBestellingen.Add(BestellingItem);
 
-                        if (BestellingItem.Opmerking != "" || BestellingItem.Opmerking != null)
-                        {
-                            BestelOpmerking += "- " + BestellingItem.Opmerking + "\n";
-                        }
-                        TreeView.Nodes[0].Nodes.Add(new TreeNode(BestellingItem.ItemNaam));
+
+                        TreeView.ExpandAll();
+                        GroupBox.Refresh();
+
+                        #region Properties deel 2
+
+                        //Label1 Properties BestelTijd (BestelTijd)
+                        Label1.Text = "Geplaatst op: " + TijdIngevoerd.Year + "-" + TijdIngevoerd.Month + "-" + TijdIngevoerd.Day + " om " + TijdIngevoerd.TimeOfDay;
+                        Label1.Parent = GroupBox;
+                        Label1.Location = new System.Drawing.Point(12, 20);
+                        Label1.Size = new System.Drawing.Size(500, 30);
+                        Label1.Font = new System.Drawing.Font("Trebuchet MS", 16);
+                        Label1.ForeColor = System.Drawing.Color.White;
+                        //Label1.Name = "BesteltijdLinks";
+
+                        DateTime Verschil = (DateTime.Now - TijdIngevoerd.TimeOfDay);
+
+                        //Label2 Properties (tijdverschil met nu en besteltijd)
+                        Label2.Text = "(" + Verschil.Hour + "h " + Verschil.Minute + "m) geleden.";
+                        Label2.Parent = GroupBox;
+                        Label2.Location = new System.Drawing.Point(12, 50);
+                        Label2.Size = new System.Drawing.Size(500, 30);
+                        Label2.Font = new System.Drawing.Font("Trebuchet MS", 16);
+                        Label2.ForeColor = System.Drawing.Color.White;
+                        //Label2.Name = "VerschilLinks";
+
+                        //Label3 Properties (Naam medewerker)
+                        Label3.Text = "Bestelling opgenomen door: " + Medewerker;
+                        Label3.Parent = GroupBox;
+                        Label3.Location = new System.Drawing.Point(12, 80);
+                        Label3.Size = new System.Drawing.Size(500, 30);
+                        Label3.Font = new System.Drawing.Font("Trebuchet MS", 16);
+                        Label3.ForeColor = System.Drawing.Color.White;
+                        //Label3.Name = "NaamMedewerkerLinks";
+
+                        #endregion
                     }
-
-                    TabPage.Text = "Tafel #" + TabTafelNummer + " | Besteld om: #" + TijdIngevoerd;
-                    TabControl.Controls.Add(TabPage);
-
-                    // We willen wél graag het goede object (bestelitem)meegeven.
-                    //Hierdoor moeten we een eigen/aangepaste eventhandler maken
-                    Button.Click += delegate (object sender, EventArgs e)
-                    {
-                        Button_Click(sender, e, BarBestellingen);
-                    };
-
-                    //Label1 Properties BestelTijd (BestelTijd)
-                    Label1.Text = "Geplaatst op: " + TijdIngevoerd.Year + "-" + TijdIngevoerd.Month + "-" + TijdIngevoerd.Day + " om " + TijdIngevoerd.TimeOfDay;
-                    Label1.Parent = GroupBox;
-                    Label1.Location = new System.Drawing.Point(12, 20);
-                    Label1.Size = new System.Drawing.Size(500, 30);
-                    Label1.Font = new System.Drawing.Font("Trebuchet MS", 16);
-                    Label1.ForeColor = System.Drawing.Color.White;
-                    Label1.Name = "BesteltijdLinks";
-
-                    //Label2 Properties (tijdverschil met nu en besteltijd)
-                    DateTime Verschil = (DateTime.Now - TijdIngevoerd.TimeOfDay);
-
-                    Label2.Text = "(" + Verschil.Hour + "h " + Verschil.Minute + "m) geleden.";
-                    Label2.Parent = GroupBox;
-                    Label2.Location = new System.Drawing.Point(12, 50);
-                    Label2.Size = new System.Drawing.Size(500, 30);
-                    Label2.Font = new System.Drawing.Font("Trebuchet MS", 16);
-                    Label2.ForeColor = System.Drawing.Color.White;
-                    Label2.Name = "VerschilLinks";
-
-                    //Label3 Properties (Naam medewerker)
-                    Label3.Text = "Bestelling opgenomen door: " + Medewerker;
-                    Label3.Parent = GroupBox;
-                    Label3.Location = new System.Drawing.Point(12, 80);
-                    Label3.Size = new System.Drawing.Size(500, 30);
-                    Label3.Font = new System.Drawing.Font("Trebuchet MS", 16);
-                    Label3.ForeColor = System.Drawing.Color.White;
-                    Label3.Name = "NaamMedewerkerLinks";
-
-                    TreeView.ExpandAll();
-
                     Panel.Controls.Add(TabControl);
-
-                    if (BestelOpmerking == "Opmerking: ")
-                    {
-                        RichTextBox.Text = "Er zijn geen opmerkingen voor deze bestelling!";
-                    }
-                    else
-                    {
-                        RichTextBox.Text = BestelOpmerking;
-                    }
+                    return Panel;
                 }
             }
             else if (Bestelling.GetAllOldOrders().Count == 0)
@@ -631,7 +684,7 @@ namespace UI
                 //returnControls.Controls.Add(TabControl);
                 return Panel;
             }
-            return Panel;
+            return new Panel();
         }
 
         private void Button_Click(object sender, EventArgs e, List<BarBestelling> Bestellingen)

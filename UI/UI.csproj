@@ -155,10 +155,10 @@
     <Compile Include="Bediening\PopupsBediening\ConfirmCashBetaaldForm.Designer.cs">
       <DependentUpon>ConfirmCashBetaaldForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Barman.cs">
+    <Compile Include="Barman\Barman.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Barman.Designer.cs">
+    <Compile Include="Barman\Barman.Designer.cs">
       <DependentUpon>Barman.cs</DependentUpon>
     </Compile>
     <Compile Include="Barman\BestelGeschiedenis.cs" />
@@ -222,7 +222,7 @@
     <EmbeddedResource Include="Bediening\PopupsBediening\ConfirmCashBetaaldForm.resx">
       <DependentUpon>ConfirmCashBetaaldForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Barman.resx">
+    <EmbeddedResource Include="Barman\Barman.resx">
       <DependentUpon>Barman.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
