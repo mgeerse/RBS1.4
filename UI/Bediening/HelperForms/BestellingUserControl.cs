@@ -21,6 +21,7 @@ namespace UI
             this.item = item;
             BorderStyle = BorderStyle.Fixed3D;
             UpdateLabels();
+            Dock = DockStyle.Fill;
         }
 
         public void UpdateLabels()

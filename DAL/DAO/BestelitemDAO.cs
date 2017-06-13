@@ -31,7 +31,7 @@ namespace DAL
                 Bestelling Bestelling = BestellingDAO.GetForId(reader.GetInt32(0));
                 Menuitem Menuitem = MenuitemDAO.GetForId(reader.GetInt32(1));
                 int Aantal = reader.GetInt32(2);
-                string Opmerking = reader.GetString(3);
+                string Opmerking = reader.IsDBNull(3) ? "" : reader.GetString(3);
                 Status Status = (Status)reader.GetInt32(4);
                 DateTime TijdIngevoerd = reader.GetDateTime(5);
 

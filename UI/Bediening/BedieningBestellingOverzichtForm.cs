@@ -22,18 +22,19 @@ namespace UI
             this.parent = parent;
 
             InitializeComponent();
-
             //BestellingenPanel.Controls.Add(new BestellingForm())
         }
 
         private void BedieningBestellingOverzichtForm_Load(object sender, EventArgs e)
         {
-            
+
+            InitBestellingOverzicht();
         }
 
         private void InitBestellingOverzicht()
         {
-            List<Bestelitem> bestelitems = new BestellingOverzicht().GetNietGeredeBestelitems();
+            List<Bestelitem> bestelitems = new BestellingOverzicht().GetBestelitems();
+            BestellingenPanel.RowCount = 0;
 
             //#region Testdata: Verwijder dit wanneer we met de database werken
 
@@ -50,7 +51,8 @@ namespace UI
             foreach (Bestelitem item in bestelitems)
             {
                 BestellingUserControl form = new BestellingUserControl(item);
-                BestellingenPanel.Controls.Add(form);
+                BestellingenPanel.RowCount = BestellingenPanel.RowCount + 1;
+                BestellingenPanel.Controls.Add(form, 0, BestellingenPanel.RowCount - 1);
             }
         }
 

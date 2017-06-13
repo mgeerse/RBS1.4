@@ -46,6 +46,7 @@ namespace DAL
             {
                 //Id is bekend
                 bool IsBezet = reader.GetBoolean(1);
+                conn.Close();
                 return new Tafel(Id, IsBezet);
             }
             conn.Close();

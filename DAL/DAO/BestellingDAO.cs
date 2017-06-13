@@ -28,31 +28,27 @@ namespace DAL
         {
             conn.Open();
 
-            StringBuilder sb = new StringBuilder();
-            sb.Append("SELECT [Opmerking], [Medewerker], [Tafelnummer], [Rekening] FROM [dbo].[Bestelling] WHERE BestellingsId = @BestelId");
+            string query = "SELECT BestellingId, Opmerking, Medewerker, Tafel, Rekening" +
+                " FROM Bestelling" +
+                " WHERE BestellingId = " + Id;
 
-            SqlCommand cmd = new SqlCommand(sb.ToString(), conn);
-            cmd.Parameters.Add("@BestelId", System.Data.SqlDbType.Int).Value = Id;
-            cmd.Prepare();
-            SqlDataReader reader = cmd.ExecuteReader();
+            SqlCommand command = new SqlCommand(query, conn);
+            SqlDataReader reader = command.ExecuteReader();
 
-            while (reader.Read())
+            if (reader.Read())
             {
                 Bestelling Bestelling = new Bestelling(
-                    Id, 
-                    reader.GetString(1), 
+                    Id,
+                    reader.IsDBNull(1) ? "" : reader.GetString(1),
                     MedewerkerDAO.GetForId(reader.GetInt32(2)),
                     TafelDAO.GetForId(reader.GetInt32(3)),
-                    RekeningDAO.GetForId(reader.GetInt32(4))
-                    );
-
+                    RekeningDAO.GetForId(reader.IsDBNull(4) ? 0 : reader.GetInt32(4))
+                );
+                conn.Close();
                 return Bestelling;
             }
 
             conn.Close();
-            conn.Dispose();
-            cmd.Dispose();
-
             return null;
         }
 

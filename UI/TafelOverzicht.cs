@@ -53,14 +53,6 @@ namespace UI
             
         }
 
-        private void btn_Tafel1_Click(object sender, EventArgs e)
-        {
-            Bediening tafel1 = new Bediening();
-            tafel1.Show();
-            Tafel Isbezet;
-            
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             
@@ -74,6 +66,18 @@ namespace UI
         private void btn_BarVoorraad_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_Tafel1_Click(object sender, EventArgs e)
+        {
+            Bediening tafel1 = new Bediening();
+            tafel1.Show();
+        }
+
+        private void btn_Tafel2_Click(object sender, EventArgs e)
+        {
+            Bediening tafel2 = new Bediening();
+            tafel2.Show();
         }
 
         private void btn_Tafel3_Click(object sender, EventArgs e)
@@ -122,12 +126,6 @@ namespace UI
         {
             Bediening tafel10 = new Bediening();
             tafel10.Show();
-        }
-
-        private void btn_Tafel2_Click(object sender, EventArgs e)
-        {
-            Bediening tafel2 = new Bediening();
-            tafel2.Show();
         }
     }
 }
