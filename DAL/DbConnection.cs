@@ -12,7 +12,7 @@ namespace DAL
     /// Deze klasse dient alleen voor het geven van een SqlConnection object 
     /// aan de klasse die het aanroept binnen de DAL-laag.
     /// </summary>
-    static class DbConnection
+    public static class DbConnection
     {
         public static SqlConnection GetSqlConnection()
         {

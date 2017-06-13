@@ -23,10 +23,11 @@ namespace Tester
         static void TestConnectionString()
         {
             Console.Write("Verbinding maken met DB... ");
+            
             SqlConnection conn = new SqlConnection();
             try
             {
-                conn.ConnectionString = ConfigurationManager.ConnectionStrings["Connector"].ConnectionString;
+                conn = DAL.DbConnection.GetSqlConnection();
 
                 conn.Open();
 

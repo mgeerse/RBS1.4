@@ -17,7 +17,16 @@ namespace DAL
         {
             conn.Open();
 
+            string SQL = "SELECT Naam" + 
+                         "FROM dbo.Menuitem" +
+                         "WHERE Categorie <= 3";
+
+            SqlCommand command = new SqlCommand(SQL, conn);
+            command.Prepare();
+            SqlDataReader Reader = command.ExecuteReader();
+
             conn.Close();
+            
             return null;
         }
 

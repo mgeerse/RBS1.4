@@ -14,10 +14,24 @@ namespace DAL
 
         public List<Medewerker> GetAll()
         {
+            List<Medewerker> result = new List<Medewerker>();
             conn.Open();
+            string query = "SELECT *" +
+                        "FROM dbo.Medewerker";
 
-            conn.Close();
-            return null;
+            SqlCommand command = new SqlCommand(query, conn);
+            command.Prepare();
+            SqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                int MedewerkerId = reader.GetInt32(0);
+                string Naam = reader.GetString(1);
+                MedewerkerType Type = (MedewerkerType)reader.GetInt32(2);
+                char[] Logincode = reader.GetString(2).ToCharArray();
+
+                result.Add(new Medewerker(MedewerkerId, Naam, Type, Logincode));
+            }
+            return result;
         }
 
         public Medewerker GetForId(int Id)
