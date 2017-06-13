@@ -16,16 +16,19 @@ namespace UI
         public Barman(Medewerker Medewerker)
         {
             InitializeComponent();
-            OrderPanel OP = new OrderPanel();
-            ToolStripOnder TSO = new ToolStripOnder(this);
 
-            foreach (var item in OP.MaakTabControl())
-            {
-                foreach (var ControlItem in item)
-                {
-                    Controls.Add(ControlItem);
-                }
-            }
+            OrderPanel OP = new OrderPanel();
+            Panel Panel = OP.MaakTabControl();
+            Panel.Name = "BestelPanel";
+            ToolStripOnder TSO = new ToolStripOnder(this, Panel);
+
+            
+
+            //Controls.Add(OP.MaakTabControl());
+
+            Controls.Add(TSO.maakToolStrip(Medewerker));
+
+            Controls.Add(Panel);
         }
 
         private void Barman_Load(object sender, EventArgs e)

@@ -10,8 +10,6 @@ namespace Logic
     public class BarBestellingLogica
     {
         BarBestelling BarBestelling;
-        //DAL.BestellingDAO BestellingDAO;
-        DAL.BestelitemDAO BestelitemDAO;
         public BarBestellingLogica() { }
 
         // Maak een methode die een bestelling opvraagd, en hierna de bestelitems die daar in zitten.

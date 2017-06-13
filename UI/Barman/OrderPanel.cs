@@ -14,33 +14,37 @@ namespace UI
         public Logic.BarBestellingLogica Bestelling;
         public BarBestelling BarBestelling;
         public List<BarBestelling> BarBestellingen;
+        Panel Panel;
 
-        protected int MenuId { get; set; }
-        protected int BestelId { get; set; }
+        public OrderPanel()
+        {
 
+        }
 
-        public OrderPanel() { }
-
-        public List<List<Control>> MaakTabControl()
+        public Panel MaakTabControl()
         {
             //Begin het maken van de controls!
-            List<List<Control>> ControlLijst = new List<List<Control>>();
-            ControlLijst.Add(MaakLinkerTabControl());
+            //Properties instellen van de panel
+            Panel = new Panel();
 
-            int testAantal = Bestelling.GetAllOrders().Count;
+            Panel.Size = new System.Drawing.Size(1160, 695);
+            Panel.Location = new System.Drawing.Point(0, 0);
+            Panel.Show();
 
-            if (Bestelling.GetAllOrders().Count == 1)
+           MaakLinkerTabControl(Panel);
+
+            if (Bestelling.GetAllNewOrders().Count == 1)
             {
-                ControlLijst.Add(MaakRechterTabControl(false));
+                MaakRechterTabControl(false, Panel);
             }
             else
             {
-                ControlLijst.Add(MaakRechterTabControl(true));
+                MaakRechterTabControl(true, Panel);
             }
-            return ControlLijst;
+            return Panel;
         }
 
-        public List<Control> MaakLinkerTabControl()
+        public Control MaakLinkerTabControl(Panel Panel)
         {
             BarBestellingen = new List<BarBestelling>();
             Bestelling = new Logic.BarBestellingLogica();
@@ -51,7 +55,6 @@ namespace UI
             //En is de positie van de TabControl anders.
 
             TabControl TabControl = new TabControl();
-            List<Control> allControls = new List<Control>();
             TreeView TreeView = new TreeView();
             Button Button = new Button();
             Label Label1 = new Label();
@@ -188,7 +191,6 @@ namespace UI
             GroupBox.Update();
             GroupBox.Refresh();
 
-
             TabPage.Text = "Tafel #" + TabTafelNummer + " | BestellingId #" + TabBestellingId;
 
             if (BestelOpmerking == "Opmerking: ")
@@ -200,17 +202,18 @@ namespace UI
                 RichTextBox.Text = BestelOpmerking;
             }
 
-            allControls.Add(TabControl);
-            return allControls;
+            Panel.Controls.Add(TabControl);
+
+            return Panel;
         }
 
 
-        public List<Control> MaakRechterTabControl(bool bestellingAanwezig)
+        public Control MaakRechterTabControl(bool bestellingAanwezig, Panel Panel)
         {
-            
+
             TabControl TabControl = new TabControl();
-            List<Control> allControls = new List<Control>();
-            allControls.Add(TabControl);
+            Control returnControls = new Control();
+            returnControls.Controls.Add(TabControl);
 
             //TabControl Properties
             TabControl.Location = new System.Drawing.Point(580, 12);
@@ -293,7 +296,7 @@ namespace UI
                         TreeView.Nodes[0].Nodes.Add(new TreeNode(item.ItemNaam));
                     }
                     //Maak hier nieuwe controls aan per bestelling.
-                    
+
                     TabPage.Text = "Tafel #" + TabTafelNummer + " | Besteld om: #" + TijdIngevoerd;
                     TabControl.Controls.Add(TabPage);
 
@@ -330,6 +333,7 @@ namespace UI
 
                     TreeView.ExpandAll();
 
+                    Panel.Controls.Add(TabControl);
 
                     if (BestelOpmerking == "Opmerking: ")
                     {
@@ -340,7 +344,7 @@ namespace UI
                         RichTextBox.Text = BestelOpmerking;
                     }
                 }
-                return allControls;
+                return Panel;
             }
             else if (!bestellingAanwezig)
             {
@@ -358,16 +362,12 @@ namespace UI
                 TabPage.Text = "Geen andere bestellingen.";
                 TabControl.Controls.Add(TabPage);
 
-                allControls.Add(TabControl);
-                return allControls;
+                Panel.Controls.Add(TabControl);
+
+                //returnControls.Controls.Add(TabControl);
+                return Panel;
             }
-            return new List<Control>();
-        }
-
-        public List<Control> NotMoreThanOneOrder()
-        {
-
-            return new List<Control>();
+            return returnControls;
         }
 
         private void Button_Click(object sender, EventArgs e, List<BarBestelling> Bestellingen)
