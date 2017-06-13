@@ -18,11 +18,9 @@ namespace UI
             InitializeComponent();
 
             OrderPanel OP = new OrderPanel();
-            Panel Panel = OP.MaakTabControl();
+            Panel Panel = OP.MaakTabControl(new Panel());
             Panel.Name = "BestelPanel";
             ToolStripOnder TSO = new ToolStripOnder(this, Panel);
-
-            
 
             //Controls.Add(OP.MaakTabControl());
 

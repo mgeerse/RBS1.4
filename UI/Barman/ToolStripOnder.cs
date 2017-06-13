@@ -12,6 +12,8 @@ namespace UI
         Barman Barman;
         Panel Panel;
         ToolStripButton TSB2;
+        OrderPanel OP = new OrderPanel();
+
         public ToolStripOnder(Barman Barman, Panel Panel)
         {
             this.Barman = Barman;
@@ -42,19 +44,17 @@ namespace UI
             ToolStripLabel TSL1 = new ToolStripLabel();
             TSL1.Text = "Ingelogd als: " + Object.Naam;
             TSL1.Alignment = ToolStripItemAlignment.Left;
-            
+
             //ToolStripSeperators
             ToolStripSeparator TSP = new ToolStripSeparator();
             ToolStripSeparator TSP2 = new ToolStripSeparator();
             TSP2.Alignment = ToolStripItemAlignment.Right;
-
 
             ToolStrip.Items.Add(TSL1);
             ToolStrip.Items.Add(TSP);
             ToolStrip.Items.Add(TSB1);
             ToolStrip.Items.Add(TSB2);
             ToolStrip.Items.Add(TSP2);
-            
 
             TSB1.Click += delegate (object sender, EventArgs e)
             {
@@ -67,21 +67,40 @@ namespace UI
 
         private void TSB2_Click(object sender, EventArgs e)
         {
-            OrderPanel OP = new OrderPanel();
+            OP = new OrderPanel();
 
             //Hier de code om de geschiedenis te weergeven.
 
             //Eerst de huidige control leegmaken.
+
             foreach (Control item in Panel.Controls)
             {
                 Panel.Controls.Remove(item);
+                Barman.Controls.Remove(Panel);
             }
 
             //Hierna zetten we TSB2 op zijn text "Terug naar bestellingen"
             TSB2.Text = "Terug naar bestellingen";
-
+            
             //De panel vullen met nieuwe bestellingen
-            //OP.Maak
+            Barman.Controls.Add(OP.MaakGeschiedenis(Panel));
+            TSB2.Click += TSB2_ClickTerug;
+        }
+
+        private void TSB2_ClickTerug(object sender, EventArgs e)
+        {
+            TSB2.Text = "Bestel geschiedenis";
+            OP = new OrderPanel();
+
+            foreach (Control item in Panel.Controls)
+            {
+                Panel.Controls.Remove(item);
+                Barman.Controls.Remove(Panel);
+            }
+
+            Barman.Controls.Add(OP.MaakTabControl(Panel));
+
+            TSB2.Click += TSB2_Click;
         }
 
         private void TSB1_Click(object sender, EventArgs e, Model.Medewerker Object)
