@@ -56,13 +56,14 @@
             // 
             // BestellingenPanel
             // 
-            this.BestellingenPanel.ColumnCount = 2;
+            this.BestellingenPanel.AutoScroll = true;
+            this.BestellingenPanel.ColumnCount = 1;
             this.BestellingenPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.BestellingenPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 1F));
             this.BestellingenPanel.Location = new System.Drawing.Point(12, 12);
+            this.BestellingenPanel.MaximumSize = new System.Drawing.Size(502, 644);
             this.BestellingenPanel.Name = "BestellingenPanel";
             this.BestellingenPanel.RowCount = 1;
-            this.BestellingenPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.BestellingenPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.BestellingenPanel.Size = new System.Drawing.Size(502, 644);
             this.BestellingenPanel.TabIndex = 3;
             // 
