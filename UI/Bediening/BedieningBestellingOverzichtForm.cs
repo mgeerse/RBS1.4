@@ -52,7 +52,9 @@ namespace UI
             {
                 BestellingUserControl form = new BestellingUserControl(item);
                 BestellingenPanel.RowCount = BestellingenPanel.RowCount + 1;
+                BestellingenPanel.RowStyles.Add(new RowStyle() { SizeType = SizeType.AutoSize });
                 BestellingenPanel.Controls.Add(form, 0, BestellingenPanel.RowCount - 1);
+                BestellingenPanel.Controls.Add(new Label() { Text = "" }, 1, BestellingenPanel.RowCount - 1);
             }
         }
 
