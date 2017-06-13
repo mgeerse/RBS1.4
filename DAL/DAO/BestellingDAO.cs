@@ -150,7 +150,7 @@ namespace DAL
             sb.Append("JOIN Bestelling as C ON B.Bestelling = C.BestellingId ");
             sb.Append("JOIN Medewerker as D ON C.Medewerker = D.MedewerkerId ");
             sb.Append("JOIN Tafel as T ON C.Tafel = T.TafelId ");
-            sb.Append("WHERE (M.Categorie BETWEEN 8 AND 12) AND B.Status = 3 ");
+            sb.Append("WHERE (M.Categorie BETWEEN 8 AND 12) AND B.Status = 2 ");
 
             conn.Open();
 

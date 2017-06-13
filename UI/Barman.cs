@@ -13,19 +13,17 @@ namespace UI
 {
     public partial class Barman : Form
     {
+        OrderPanel OP = new OrderPanel();
+
         public Barman(Medewerker Medewerker)
         {
             InitializeComponent();
 
-            OrderPanel OP = new OrderPanel();
             Panel Panel = OP.MaakTabControl(new Panel());
             Panel.Name = "BestelPanel";
             ToolStripOnder TSO = new ToolStripOnder(this, Panel);
 
-            //Controls.Add(OP.MaakTabControl());
-
             Controls.Add(TSO.maakToolStrip(Medewerker));
-
             Controls.Add(Panel);
         }
 

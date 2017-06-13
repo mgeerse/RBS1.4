@@ -37,11 +37,11 @@ namespace Logic
         // Methode: BestelIdItemFrequenite
 
         
-        public List<List<BarBestelling>> GetAllOrders()
+        public List<List<BarBestelling>> GetAllOldOrders()
         {
             BestellingDAO = new DAL.BestellingDAO();
             List<BarBestelling> BarBestelling = new List<BarBestelling>();
-            BarBestelling = BestellingDAO.GetAllBarBestellingen();
+            BarBestelling = BestellingDAO.GetAllOldBarBestellingen();
 
             List<List<BarBestelling>> GesorteerdeLijst = SorteerBarItemsAanBestelling(BarBestelling);
 
