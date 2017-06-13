@@ -94,6 +94,7 @@
     <Compile Include="Administratie\Popups\ErrAlUitgelogdForm.Designer.cs">
       <DependentUpon>ErrAlUitgelogdForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Barman\ToolStripOnder.cs" />
     <Compile Include="Bediening\AfrekenenForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,7 +161,8 @@
     <Compile Include="Barman.Designer.cs">
       <DependentUpon>Barman.cs</DependentUpon>
     </Compile>
-    <Compile Include="OrderPanel.cs" />
+    <Compile Include="Barman\BestelGeschiedenis.cs" />
+    <Compile Include="Barman\OrderPanel.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -220,7 +222,6 @@
     <EmbeddedResource Include="Bediening\PopupsBediening\ConfirmCashBetaaldForm.resx">
       <DependentUpon>ConfirmCashBetaaldForm.cs</DependentUpon>
     </EmbeddedResource>
-    <Compile Include="ToolStripOnder.cs" />
     <EmbeddedResource Include="Barman.resx">
       <DependentUpon>Barman.cs</DependentUpon>
     </EmbeddedResource>
