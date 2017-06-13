@@ -39,9 +39,11 @@ namespace DAL
             while (reader.Read())
             {
                 Bestelling Bestelling = new Bestelling(
-                    Id, Rekening.GetForId(reader.GetInt32(4)),
-                    reader.GetString(1), Medewerker.GetForId(reader.GetInt32(2)),
-                    Tafel.GetForId(reader.GetInt32(3))
+                    Id, 
+                    reader.GetString(1), 
+                    MedewerkerDAO.GetForId(reader.GetInt32(2)),
+                    TafelDAO.GetForId(reader.GetInt32(3)),
+                    RekeningDAO.GetForId(reader.GetInt32(4))
                     );
 
                 return Bestelling;

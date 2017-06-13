@@ -180,7 +180,6 @@
     <Compile Include="TafelOverzicht.Designer.cs">
       <DependentUpon>TafelOverzicht.cs</DependentUpon>
     </Compile>
-    <Compile Include="App.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Administratie\AdministratieForm.resx">
       <DependentUpon>AdministratieForm.cs</DependentUpon>
