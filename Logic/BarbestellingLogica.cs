@@ -37,36 +37,22 @@ namespace Logic
         // Methode: BestelIdItemFrequenite
 
 
-        public List<List<BarBestelling>> GetAllOldOrders()
+        public List<BarBestelling> GetAllOldOrders()
         {
             BestellingDAO = new DAL.BestellingDAO();
             List<BarBestelling> BarBestelling = new List<BarBestelling>();
             BarBestelling = BestellingDAO.GetAllOldBarBestellingen();
 
-            List<List<BarBestelling>> BestelLijst = new List<List<Model.BarBestelling>>();
-
-            foreach (var item in BarBestelling)
-            {
-                BestelLijst.Add(BarBestelling);
-            }
-
-            return BestelLijst;
+            return BarBestelling;
         }
 
-        public List<List<BarBestelling>> GetAllNewOrders()
+        public List<BarBestelling> GetAllNewOrders()
         {
             BestellingDAO = new DAL.BestellingDAO();
             List<BarBestelling> BarBestelling = new List<BarBestelling>();
             BarBestelling = BestellingDAO.GetAllNewBarBestelling();
 
-            List<List<BarBestelling>> BestelLijst = new List<List<Model.BarBestelling>>();
-
-            foreach (var item in BarBestelling)
-            {
-                BestelLijst.Add(BarBestelling);
-            }
-
-            return BestelLijst;
+            return BarBestelling;
         }
 
         //public List<List<BarBestelling>> SorteerBarItemsAanBestelling(List<BarBestelling> Object)

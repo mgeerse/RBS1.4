@@ -25,7 +25,7 @@ namespace UI
             Panel.Location = new Point(0, 0);
             Panel.BackColor = Color.LightSteelBlue;
 
-            Panel = OP.MaakTabControl(Panel);
+            Panel = OP.MaakControls(Panel);
             ToolStripOnder TSO = new ToolStripOnder(this, Panel, timer1);
 
             Controls.Add(TSO.maakToolStrip(Medewerker));
@@ -45,7 +45,7 @@ namespace UI
         {
             //Hier de automatische updates uitvoeren.
             //Deze gaat om de 10000 miliseconden (10 seconden)
-            OP.MaakTabControl(Panel);
+            OP.MaakControls(Panel);
         }
     }
 }

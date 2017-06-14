@@ -97,7 +97,7 @@ namespace UI
             }
             Panel.Controls.Clear();
 
-            Barman.Controls.Add(OP.MaakTabControl(Panel));
+            Barman.Controls.Add(OP.MaakControls(Panel));
             Timer1.Start();
 
             TSB3.Visible = false;
