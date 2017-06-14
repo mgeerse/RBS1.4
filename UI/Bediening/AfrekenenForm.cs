@@ -28,13 +28,13 @@ namespace UI
 
         private void BetalenButton_Click(object sender, EventArgs e)
         {
-            ConfirmBetaalmethodeForm form = new ConfirmBetaalmethodeForm();
+            ConfirmBetaalmethodeForm form = new ConfirmBetaalmethodeForm(parent);
             form.StartPosition = FormStartPosition.CenterParent;
             DialogResult result = form.ShowDialog();
 
             if(result == DialogResult.Yes)
             {
-                ConfirmCashBetaaldForm CashBetaaldForm = new ConfirmCashBetaaldForm();
+                ConfirmCashBetaaldForm CashBetaaldForm = new ConfirmCashBetaaldForm(parent);
                 CashBetaaldForm.ShowDialog();
             }
             else if(result == DialogResult.OK)

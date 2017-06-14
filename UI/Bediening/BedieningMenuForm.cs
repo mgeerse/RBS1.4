@@ -15,8 +15,11 @@ namespace UI
     {
         private Tafel tafel;
 
-        public BedieningMenuForm(Tafel tafel)
+        BedieningForm parent;
+
+        public BedieningMenuForm(Tafel tafel, BedieningForm parent)
         {
+            this.parent = parent;
             InitializeComponent();
             this.tafel = tafel;
         }
@@ -28,14 +31,14 @@ namespace UI
 
         private void VerzendenButton_Click(object sender, EventArgs e)
         {
-            ConfirmVerzendenForm form = new ConfirmVerzendenForm();
+            ConfirmVerzendenForm form = new ConfirmVerzendenForm(parent);
             form.StartPosition = FormStartPosition.CenterParent;
             DialogResult result = form.ShowDialog();
 
             if (result == DialogResult.Yes)
             {
 
-                ConfirmedVerzondenForm ConfirmedVerzondenForm = new ConfirmedVerzondenForm();
+                ConfirmedVerzondenForm ConfirmedVerzondenForm = new ConfirmedVerzondenForm(parent);
                 ConfirmedVerzondenForm.ShowDialog();
             }
         }

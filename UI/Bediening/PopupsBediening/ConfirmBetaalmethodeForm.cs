@@ -12,8 +12,11 @@ namespace UI
 {
     public partial class ConfirmBetaalmethodeForm : Form
     {
-        public ConfirmBetaalmethodeForm()
+        BedieningForm parent;
+
+        public ConfirmBetaalmethodeForm(BedieningForm parent)
         {
+            this.parent = parent;
             InitializeComponent();
         }
 
