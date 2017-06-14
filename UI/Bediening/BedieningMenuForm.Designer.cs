@@ -33,6 +33,7 @@
             this.tabDiner = new System.Windows.Forms.TabPage();
             this.tabDrank = new System.Windows.Forms.TabPage();
             this.tabNonAlcohol = new System.Windows.Forms.TabPage();
+            this.VerzendenButton = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,20 +63,20 @@
             // 
             // tabDiner
             // 
-            this.tabDiner.Location = new System.Drawing.Point(4, 44);
+            this.tabDiner.Location = new System.Drawing.Point(4, 52);
             this.tabDiner.Name = "tabDiner";
             this.tabDiner.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDiner.Size = new System.Drawing.Size(669, 430);
+            this.tabDiner.Size = new System.Drawing.Size(669, 422);
             this.tabDiner.TabIndex = 1;
             this.tabDiner.Text = "Diner";
             this.tabDiner.UseVisualStyleBackColor = true;
             // 
             // tabDrank
             // 
-            this.tabDrank.Location = new System.Drawing.Point(4, 44);
+            this.tabDrank.Location = new System.Drawing.Point(4, 52);
             this.tabDrank.Name = "tabDrank";
             this.tabDrank.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDrank.Size = new System.Drawing.Size(669, 430);
+            this.tabDrank.Size = new System.Drawing.Size(669, 422);
             this.tabDrank.TabIndex = 2;
             this.tabDrank.Text = "Drank";
             this.tabDrank.UseVisualStyleBackColor = true;
@@ -83,19 +84,30 @@
             // 
             // tabNonAlcohol
             // 
-            this.tabNonAlcohol.Location = new System.Drawing.Point(4, 44);
+            this.tabNonAlcohol.Location = new System.Drawing.Point(4, 52);
             this.tabNonAlcohol.Name = "tabNonAlcohol";
             this.tabNonAlcohol.Padding = new System.Windows.Forms.Padding(3);
-            this.tabNonAlcohol.Size = new System.Drawing.Size(669, 430);
+            this.tabNonAlcohol.Size = new System.Drawing.Size(669, 422);
             this.tabNonAlcohol.TabIndex = 3;
             this.tabNonAlcohol.Text = "Non-Alcohol";
             this.tabNonAlcohol.UseVisualStyleBackColor = true;
+            // 
+            // VerzendenButton
+            // 
+            this.VerzendenButton.Location = new System.Drawing.Point(423, 844);
+            this.VerzendenButton.Name = "VerzendenButton";
+            this.VerzendenButton.Size = new System.Drawing.Size(203, 95);
+            this.VerzendenButton.TabIndex = 1;
+            this.VerzendenButton.Text = "Verzenden";
+            this.VerzendenButton.UseVisualStyleBackColor = true;
+            this.VerzendenButton.Click += new System.EventHandler(this.VerzendenButton_Click);
             // 
             // BedieningMenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(702, 1045);
+            this.Controls.Add(this.VerzendenButton);
             this.Controls.Add(this.tabControl1);
             this.Name = "BedieningMenuForm";
             this.Text = "BedieningMenuForm";
@@ -111,5 +123,6 @@
         private System.Windows.Forms.TabPage tabDiner;
         private System.Windows.Forms.TabPage tabDrank;
         private System.Windows.Forms.TabPage tabNonAlcohol;
+        private System.Windows.Forms.Button VerzendenButton;
     }
 }

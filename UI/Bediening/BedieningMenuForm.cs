@@ -22,5 +22,19 @@ namespace UI
         {
 
         }
+
+        private void VerzendenButton_Click(object sender, EventArgs e)
+        {
+            ConfirmVerzendenForm form = new ConfirmVerzendenForm();
+            form.StartPosition = FormStartPosition.CenterParent;
+            DialogResult result = form.ShowDialog();
+
+            if (result == DialogResult.Yes)
+            {
+
+                ConfirmedVerzondenForm ConfirmedVerzondenForm = new ConfirmedVerzondenForm();
+                ConfirmedVerzondenForm.ShowDialog();
+            }
+        }
     }
 }
