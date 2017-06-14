@@ -9,14 +9,22 @@ namespace Model
     //MG
     public class BarBestelling
     {
-        public int BestelId;
-        public string ItemNaam;
-        public int Aantal;
-        public string Opmerking;
-        public DateTime Invoertijd;
-        public string MedewerkerNaam;
-        public int TafelNummer;
-        public int Menuitem;
+        // HACK Al deze items zijn te vinden als je een Bestelitem aanroept.
+        /*
+         * EG: Ik heb een Bestelitem met een Bestelling en een Menuitem.
+         * Als ik een Menuitem heb, heb ik ook een categorie, heb ik ook een menukaart.
+         * Als ik een bestelling heb, heb ik ook een tafel, een medewerker en een rekening.
+         * Dus door het aanropen van een bestelitem heb ik AL deze fields.
+         */
+
+        public int BestelId; // Bestelitem.Bestelling.Id
+        public string ItemNaam; // Bestelitem.Menuitem.Naam
+        public int Aantal; // Bestelitem.Aantal
+        public string Opmerking; // Bestelitem.Opmerking
+        public DateTime Invoertijd; // Bestelitem.TijdIngevoerd
+        public string MedewerkerNaam; // Bestelitem.Bestelling.Medewerker.Naam
+        public int TafelNummer; // Bestelitem.Bestelling.Tafel.Id
+        public int Menuitem; // Bestelitem.Menuitem.Id
 
         public BarBestelling()
         {

@@ -49,10 +49,7 @@ namespace UI
                     ContentPanel.Controls.Clear();
                     BedieningForm_Load(sender, e);
                     SetIngelogdeMedewerker(IngelogdeMedewerker);
-                } else if (result == DialogResult.OK)
-                {
-
-                }
+                } 
             }
         }
 

@@ -21,7 +21,6 @@ namespace UI
             this.item = item;
             BorderStyle = BorderStyle.Fixed3D;
             UpdateLabels();
-            Dock = DockStyle.Fill;
         }
 
         public void UpdateLabels()
@@ -72,6 +71,12 @@ namespace UI
         private void LabelTijdIngevoerd_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void BestellingUserControl_Load(object sender, EventArgs e)
+        {
+
+            Dock = DockStyle.Fill;
         }
     }
 }

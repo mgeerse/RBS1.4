@@ -155,6 +155,278 @@
       <DependentUpon>Barman.cs</DependentUpon>
     </Compile>
     <Compile Include="App.cs" />
+    <Compile Include="OrderPanel.cs" />
+    <Compile Include="Bediening\TipForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bediening\TipForm.Designer.cs">
+      <DependentUpon>TipForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bediening\BedieningTafelOverzichtForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bediening\BedieningTafelOverzichtForm.Designer.cs">
+      <DependentUpon>BedieningTafelOverzichtForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Administratie\AdministratieForm.resx">
+      <DependentUpon>AdministratieForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administratie\AdministratieHomeForm.resx">
+      <DependentUpon>AdministratieHomeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administratie\AdministratieLoginForm.resx">
+      <DependentUpon>AdministratieLoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administratie\Popups\ConfirmLogUitForm.resx">
+      <DependentUpon>ConfirmLogUitForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administratie\Popups\ErrAlUitgelogdForm.resx">
+      <DependentUpon>ErrAlUitgelogdForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bediening\AfrekenenForm.resx">
+      <DependentUpon>AfrekenenForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bediening\BedieningBestellingOverzichtForm.resx">
+      <DependentUpon>BedieningBestellingOverzichtForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bediening\BedieningLoginForm.resx">
+      <DependentUpon>BedieningLoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bediening\BedieningForm.resx">
+      <DependentUpon>BedieningForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bediening\BedieningMenuForm.resx">
+      <DependentUpon>BedieningMenuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bediening\BedieningTafelOverzichtForm.resx">
+      <DependentUpon>BedieningTafelOverzichtForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bediening\HelperForms\BestellingUserControl.resx">
+      <DependentUpon>BestellingUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bediening\PopupsBediening\ConfirmAfrekenenForm.resx">
+      <DependentUpon>ConfirmAfrekenenForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bediening\PopupsBediening\ConfirmBetaalmethodeForm.resx">
+      <DependentUpon>ConfirmBetaalmethodeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bediening\PopupsBediening\ConfirmCashBetaaldForm.resx">
+      <DependentUpon>ConfirmCashBetaaldForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="ToolStripOnder.cs" />
+    <EmbeddedResource Include="Barman.resx">
+      <DependentUpon>Barman.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bediening\TipForm.resx">
+      <DependentUpon>TipForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Logic\Logic.csproj">
+      <Project>{8b7cc26c-4f5e-441c-8c21-dd35ccb9d7a5}</Project>
+      <Name>Logic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{bfab5ca8-25a4-4197-b533-02f5a4502e81}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3d6cfa225d1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Administratie\HelperForms\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A1C7EDD2-838A-44D4-B752-EC9BEC99B8FF}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>UI</RootNamespace>
+    <AssemblyName>UI</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Administratie\AdministratieForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administratie\AdministratieForm.Designer.cs">
+      <DependentUpon>AdministratieForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administratie\AdministratieHomeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administratie\AdministratieHomeForm.Designer.cs">
+      <DependentUpon>AdministratieHomeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administratie\AdministratieLoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administratie\AdministratieLoginForm.Designer.cs">
+      <DependentUpon>AdministratieLoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administratie\Popups\ConfirmGerechtAanpassenForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administratie\Popups\ConfirmGerechtAanpassenForm.Designer.cs">
+      <DependentUpon>ConfirmGerechtAanpassenForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administratie\Popups\ConfirmGerechtVerwijderenForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administratie\Popups\ConfirmGerechtVerwijderenForm.Designer.cs">
+      <DependentUpon>ConfirmGerechtVerwijderenForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administratie\Popups\ConfirmLogUitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administratie\Popups\ConfirmLogUitForm.Designer.cs">
+      <DependentUpon>ConfirmLogUitForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administratie\Popups\ConfirmMedewerkerAanpassenForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administratie\Popups\ConfirmMedewerkerAanpassenForm.Designer.cs">
+      <DependentUpon>ConfirmMedewerkerAanpassenForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administratie\Popups\ErrAlUitgelogdForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administratie\Popups\ErrAlUitgelogdForm.Designer.cs">
+      <DependentUpon>ErrAlUitgelogdForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bediening\AfrekenenForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bediening\AfrekenenForm.Designer.cs">
+      <DependentUpon>AfrekenenForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bediening\BedieningBestellingOverzichtForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bediening\BedieningBestellingOverzichtForm.Designer.cs">
+      <DependentUpon>BedieningBestellingOverzichtForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bediening\BedieningLoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bediening\BedieningLoginForm.Designer.cs">
+      <DependentUpon>BedieningLoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bediening\BedieningForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bediening\BedieningForm.Designer.cs">
+      <DependentUpon>BedieningForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bediening\BedieningMenuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bediening\BedieningMenuForm.Designer.cs">
+      <DependentUpon>BedieningMenuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bediening\HelperForms\BestellingUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Bediening\HelperForms\BestellingUserControl.Designer.cs">
+      <DependentUpon>BestellingUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bediening\PopupsBediening\ConfirmAfrekenenForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bediening\PopupsBediening\ConfirmAfrekenenForm.Designer.cs">
+      <DependentUpon>ConfirmAfrekenenForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bediening\PopupsBediening\ConfirmBetaalmethodeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bediening\PopupsBediening\ConfirmBetaalmethodeForm.Designer.cs">
+      <DependentUpon>ConfirmBetaalmethodeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bediening\PopupsBediening\ConfirmCashBetaaldForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bediening\PopupsBediening\ConfirmCashBetaaldForm.Designer.cs">
+      <DependentUpon>ConfirmCashBetaaldForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Barman.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Barman.Designer.cs">
+      <DependentUpon>Barman.cs</DependentUpon>
+    </Compile>
+    <Compile Include="App.cs" />
     <Compile Include="Bediening\PopupsBediening\ConfirmedVerzondenForm.cs">
       <SubType>Form</SubType>
     </Compile>

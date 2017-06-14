@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Model;
 
 namespace UI
 {
@@ -34,6 +35,11 @@ namespace UI
         private void BedieningButton_Click(object sender, EventArgs e)
         {
             new BedieningForm().Show();
+        }
+
+        private void BarButton_Click(object sender, EventArgs e)
+        {
+            new Barman(new Medewerker(1, "Maarten", MedewerkerType.Bar, "0100".ToCharArray())).Show();
         }
     }
 }

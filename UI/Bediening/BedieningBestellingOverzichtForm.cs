@@ -16,24 +16,26 @@ namespace UI
     {
         //Meenemen om ContentPanel aan te roepen
         BedieningForm parent;
+        Tafel tafel;
+        
 
-        public BedieningBestellingOverzichtForm(BedieningForm parent)
+        public BedieningBestellingOverzichtForm(BedieningForm parent, int Tafelnummer)
         {
+            this.tafel = new TafelLogic().GetTafel(Tafelnummer);
             this.parent = parent;
 
             InitializeComponent();
-            //BestellingenPanel.Controls.Add(new BestellingForm())
         }
 
         private void BedieningBestellingOverzichtForm_Load(object sender, EventArgs e)
         {
-
+            BestellingenPanel.Padding = new Padding(0, 0, SystemInformation.VerticalScrollBarWidth, 0);
             InitBestellingOverzicht();
         }
 
         private void InitBestellingOverzicht()
         {
-            List<Bestelitem> bestelitems = new BestellingOverzicht().GetBestelitems();
+            List<Bestelitem> bestelitems = new BestellingOverzicht().GetNietGeredeBestelitems(tafel.Id);
             BestellingenPanel.RowCount = 0;
 
             //#region Testdata: Verwijder dit wanneer we met de database werken
@@ -47,6 +49,8 @@ namespace UI
 
             //};
             //#endregion
+
+            BestellingenPanel.RowStyles.Add(new RowStyle());
 
             foreach (Bestelitem item in bestelitems)
             {
@@ -75,6 +79,12 @@ namespace UI
                 form1.FormBorderStyle = FormBorderStyle.None;
                 form1.Show();
             }
+        }
+
+        private void buttonBestellingToevoegen_Click(object sender, EventArgs e)
+        {
+            BedieningMenuForm form = new BedieningMenuForm(tafel);
+            form.ShowDialog();
         }
     }
 }
