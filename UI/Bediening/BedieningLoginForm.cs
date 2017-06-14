@@ -27,13 +27,15 @@ namespace UI
             char[] logincode = LoginCodeTextBox.Text.ToCharArray();
             Medewerker medewerker = new LoginHandler().GetForLoginCode(logincode);
             parent.SetIngelogdeMedewerker(medewerker);
+
+            // Als de medewerker voorkomt in de database
             if (medewerker != null)
             {
                 parent.Controls["ContentPanel"].Controls.Clear();
-                BedieningMenuForm form = new BedieningMenuForm();
+                BedieningTafelOverzichtForm form = new BedieningTafelOverzichtForm(parent);
                 form.TopLevel = false;
-                parent.Controls["ContentPanel"].Controls.Add(form);
                 form.FormBorderStyle = FormBorderStyle.None;
+                parent.Controls["ContentPanel"].Controls.Add(form);
                 form.Show();
             }
         }

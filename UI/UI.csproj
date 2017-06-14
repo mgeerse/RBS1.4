@@ -165,20 +165,14 @@
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BedieningForm\Bediening.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BedieningForm\Bediening.Designer.cs">
-      <DependentUpon>Bediening.cs</DependentUpon>
-    </Compile>
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="TafelOverzicht.cs">
+    <Compile Include="Bediening\BedieningTafelOverzichtForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TafelOverzicht.Designer.cs">
-      <DependentUpon>TafelOverzicht.cs</DependentUpon>
+    <Compile Include="Bediening\BedieningTafelOverzichtForm.Designer.cs">
+      <DependentUpon>BedieningTafelOverzichtForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Administratie\AdministratieForm.resx">
@@ -210,6 +204,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Bediening\BedieningMenuForm.resx">
       <DependentUpon>BedieningMenuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bediening\BedieningTafelOverzichtForm.resx">
+      <DependentUpon>BedieningTafelOverzichtForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Bediening\HelperForms\BestellingUserControl.resx">
       <DependentUpon>BestellingUserControl.cs</DependentUpon>

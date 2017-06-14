@@ -1,6 +1,6 @@
 ﻿namespace UI
 {
-    partial class TafelOverzicht
+    partial class BedieningTafelOverzichtForm
     {
         /// <summary>
         /// Required designer variable.
@@ -42,7 +42,6 @@
             this.btn_Tafel10 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btn_Bezet = new System.Windows.Forms.Button();
-            this.btn_Uitloggen = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -197,16 +196,6 @@
             this.btn_Bezet.UseVisualStyleBackColor = false;
             this.btn_Bezet.Click += new System.EventHandler(this.button2_Click);
             // 
-            // btn_Uitloggen
-            // 
-            this.btn_Uitloggen.Location = new System.Drawing.Point(216, 506);
-            this.btn_Uitloggen.Name = "btn_Uitloggen";
-            this.btn_Uitloggen.Size = new System.Drawing.Size(116, 23);
-            this.btn_Uitloggen.TabIndex = 14;
-            this.btn_Uitloggen.Text = "Log Uit";
-            this.btn_Uitloggen.UseVisualStyleBackColor = true;
-            this.btn_Uitloggen.Click += new System.EventHandler(this.btn_Uitloggen_Click);
-            // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.btn_KeukenVoorraad);
@@ -223,20 +212,19 @@
             this.flowLayoutPanel1.Controls.Add(this.btn_Tafel8);
             this.flowLayoutPanel1.Controls.Add(this.btn_Tafel9);
             this.flowLayoutPanel1.Controls.Add(this.btn_Tafel10);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(42, 31);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 12);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(260, 469);
             this.flowLayoutPanel1.TabIndex = 15;
             // 
-            // MainForm
+            // BedieningTafelOverzichtForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(344, 541);
+            this.ClientSize = new System.Drawing.Size(704, 1121);
             this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.btn_Uitloggen);
-            this.Name = "MainForm";
+            this.Name = "BedieningTafelOverzichtForm";
             this.Text = "Chapoo Bestelsysteem";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
@@ -260,7 +248,6 @@
         private System.Windows.Forms.Button btn_Tafel10;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btn_Bezet;
-        private System.Windows.Forms.Button btn_Uitloggen;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }

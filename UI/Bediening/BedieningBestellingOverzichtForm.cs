@@ -16,17 +16,15 @@ namespace UI
     {
         //Meenemen om ContentPanel aan te roepen
         BedieningForm parent;
+        Tafel tafel;
+        
 
-        public BedieningBestellingOverzichtForm(BedieningForm parent)
+        public BedieningBestellingOverzichtForm(BedieningForm parent, int Tafelnummer)
         {
-            // TODO: Geef tafel mee aan dit form
-            /// Dit form wordt aangeroepen wanneer er op een bezette tafel is gedrukt vanuit het TafelOverzichtForm.
-            /// Door deze tafel mee te nemen kan gefilterd worden op alleen de tafel die bediend wordt.
-
+            this.tafel = new TafelLogic().GetTafel(Tafelnummer);
             this.parent = parent;
 
             InitializeComponent();
-            //BestellingenPanel.Controls.Add(new BestellingForm())
         }
 
         private void BedieningBestellingOverzichtForm_Load(object sender, EventArgs e)
@@ -37,7 +35,7 @@ namespace UI
 
         private void InitBestellingOverzicht()
         {
-            List<Bestelitem> bestelitems = new BestellingOverzicht().GetNietGeredeBestelitems();
+            List<Bestelitem> bestelitems = new BestellingOverzicht().GetNietGeredeBestelitems(tafel.Id);
             BestellingenPanel.RowCount = 0;
 
             //#region Testdata: Verwijder dit wanneer we met de database werken
@@ -81,6 +79,12 @@ namespace UI
                 form1.FormBorderStyle = FormBorderStyle.None;
                 form1.Show();
             }
+        }
+
+        private void buttonBestellingToevoegen_Click(object sender, EventArgs e)
+        {
+            BedieningMenuForm form = new BedieningMenuForm(tafel);
+            form.ShowDialog();
         }
     }
 }

@@ -117,7 +117,7 @@ namespace DAL
             {
                 BarBestelling.ItemNaam = reader.GetString(0);
                 BarBestelling.Aantal = reader.GetInt32(1);
-                BarBestelling.Opmerking = reader.GetString(2);
+                BarBestelling.Opmerking = reader.IsDBNull(2) ? "" : reader.GetString(2);
                 BarBestelling.Invoertijd = reader.GetDateTime(3);
                 BarBestelling.MedewerkerNaam = reader.GetString(4);
                 BarBestelling.BestelId = reader.GetInt32(5);

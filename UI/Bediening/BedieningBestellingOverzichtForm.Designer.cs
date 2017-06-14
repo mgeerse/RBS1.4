@@ -42,6 +42,7 @@
             this.buttonBestellingToevoegen.TabIndex = 1;
             this.buttonBestellingToevoegen.Text = "Bestelling toevoegen";
             this.buttonBestellingToevoegen.UseVisualStyleBackColor = true;
+            this.buttonBestellingToevoegen.Click += new System.EventHandler(this.buttonBestellingToevoegen_Click);
             // 
             // buttonAfrekenen
             // 

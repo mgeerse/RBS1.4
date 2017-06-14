@@ -14,10 +14,14 @@ namespace UI
     /// Basisform voor het gebruik van de Chapoo-applicatie.
     /// Vanuit hier worden de applicaties voor mobiele en desktop devices geopend.
     /// </summary>
-    public partial class TafelOverzicht : Form
+    public partial class BedieningTafelOverzichtForm : Form
     {
-        public TafelOverzicht()
+        BedieningForm parent;
+
+        public BedieningTafelOverzichtForm(BedieningForm parent)
         {
+            this.parent = parent;
+
             InitializeComponent();
         }
 
@@ -40,7 +44,6 @@ namespace UI
             btn_Tafel10.Visible = true;
             btn_BarVoorraad.Visible = true;
             btn_KeukenVoorraad.Visible = true;
-            btn_Uitloggen.Visible = true;
         }
 
         private void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -70,61 +73,61 @@ namespace UI
 
         private void btn_Tafel1_Click(object sender, EventArgs e)
         {
-            Bediening tafel1 = new Bediening();
+            BedieningBestellingOverzichtForm tafel1 = new BedieningBestellingOverzichtForm(parent, 1);
             tafel1.Show();
         }
 
         private void btn_Tafel2_Click(object sender, EventArgs e)
         {
-            Bediening tafel2 = new Bediening();
+            BedieningBestellingOverzichtForm tafel2 = new BedieningBestellingOverzichtForm(parent, 2);
             tafel2.Show();
         }
 
         private void btn_Tafel3_Click(object sender, EventArgs e)
         {
-            Bediening tafel3 = new Bediening();
+            BedieningBestellingOverzichtForm tafel3 = new BedieningBestellingOverzichtForm(parent, 3);
             tafel3.Show();
         }
 
         private void btn_Tafel4_Click(object sender, EventArgs e)
         {
-            Bediening tafel4 = new Bediening();
+            BedieningBestellingOverzichtForm tafel4 = new BedieningBestellingOverzichtForm(parent, 4);
             tafel4.Show();
         }
 
         private void btn_Tafel5_Click(object sender, EventArgs e)
         {
-            Bediening tafel5 = new Bediening();
+            BedieningBestellingOverzichtForm tafel5 = new BedieningBestellingOverzichtForm(parent, 5);
             tafel5.Show();
         }
 
         private void btn_Tafel6_Click(object sender, EventArgs e)
         {
-            Bediening tafel6 = new Bediening();
+            BedieningBestellingOverzichtForm tafel6 = new BedieningBestellingOverzichtForm(parent, 6);
             tafel6.Show();
         }
 
         private void btn_Tafel7_Click(object sender, EventArgs e)
         {
-            Bediening tafel7 = new Bediening();
+            BedieningBestellingOverzichtForm tafel7 = new BedieningBestellingOverzichtForm(parent, 7);
             tafel7.Show();
         }
 
         private void btn_Tafel8_Click(object sender, EventArgs e)
         {
-            Bediening tafel8 = new Bediening();
+            BedieningBestellingOverzichtForm tafel8 = new BedieningBestellingOverzichtForm(parent, 8);
             tafel8.Show();
         }
 
         private void btn_Tafel9_Click(object sender, EventArgs e)
         {
-            Bediening tafel9 = new Bediening();
+            BedieningBestellingOverzichtForm tafel9 = new BedieningBestellingOverzichtForm(parent, 9);
             tafel9.Show();
         }
 
         private void btn_Tafel10_Click(object sender, EventArgs e)
         {
-            Bediening tafel10 = new Bediening();
+            BedieningBestellingOverzichtForm tafel10 = new BedieningBestellingOverzichtForm(parent, 10);
             tafel10.Show();
         }
     }
