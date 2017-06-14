@@ -12,8 +12,6 @@ namespace UI
 {
     public partial class ConfirmAfrekenenForm : Form
     {
-
-
         public ConfirmAfrekenenForm()
         {
             InitializeComponent();
