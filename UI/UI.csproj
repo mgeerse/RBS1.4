@@ -52,54 +52,6 @@
     <Compile Include="Administratie.Designer.cs">
       <DependentUpon>Administratie.cs</DependentUpon>
     </Compile>
-    <Compile Include="Administratie\AdministratieForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Administratie\AdministratieForm.Designer.cs">
-      <DependentUpon>AdministratieForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Administratie\AdministratieHomeForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Administratie\AdministratieHomeForm.Designer.cs">
-      <DependentUpon>AdministratieHomeForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Administratie\AdministratieLoginForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Administratie\AdministratieLoginForm.Designer.cs">
-      <DependentUpon>AdministratieLoginForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Administratie\Popups\ConfirmGerechtAanpassenForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Administratie\Popups\ConfirmGerechtAanpassenForm.Designer.cs">
-      <DependentUpon>ConfirmGerechtAanpassenForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Administratie\Popups\ConfirmGerechtVerwijderenForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Administratie\Popups\ConfirmGerechtVerwijderenForm.Designer.cs">
-      <DependentUpon>ConfirmGerechtVerwijderenForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Administratie\Popups\ConfirmLogUitForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Administratie\Popups\ConfirmLogUitForm.Designer.cs">
-      <DependentUpon>ConfirmLogUitForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Administratie\Popups\ConfirmMedewerkerAanpassenForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Administratie\Popups\ConfirmMedewerkerAanpassenForm.Designer.cs">
-      <DependentUpon>ConfirmMedewerkerAanpassenForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Administratie\Popups\ErrAlUitgelogdForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Administratie\Popups\ErrAlUitgelogdForm.Designer.cs">
-      <DependentUpon>ErrAlUitgelogdForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Bediening\AfrekenenForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -202,21 +154,6 @@
     <EmbeddedResource Include="Administratie.resx">
       <DependentUpon>Administratie.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Administratie\AdministratieForm.resx">
-      <DependentUpon>AdministratieForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Administratie\AdministratieHomeForm.resx">
-      <DependentUpon>AdministratieHomeForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Administratie\AdministratieLoginForm.resx">
-      <DependentUpon>AdministratieLoginForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Administratie\Popups\ConfirmLogUitForm.resx">
-      <DependentUpon>ConfirmLogUitForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Administratie\Popups\ErrAlUitgelogdForm.resx">
-      <DependentUpon>ErrAlUitgelogdForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Bediening\AfrekenenForm.resx">
       <DependentUpon>AfrekenenForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -302,8 +239,6 @@
   <ItemGroup>
     <None Include="Resources\3d6cfa225d1.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Administratie\HelperForms\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

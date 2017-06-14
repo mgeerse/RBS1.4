@@ -12,8 +12,10 @@ namespace UI
 {
     public partial class TipForm : Form
     {
-        public TipForm()
+        BedieningForm parent;
+        public TipForm(BedieningForm parent)
         {
+            this.parent = parent;
             InitializeComponent();
         }
     }

@@ -68,7 +68,7 @@ namespace UI
 
         private void buttonAfrekenen_Click(object sender, EventArgs e)
         {
-            ConfirmAfrekenenForm form = new ConfirmAfrekenenForm();
+            ConfirmAfrekenenForm form = new ConfirmAfrekenenForm(parent);
             form.StartPosition = FormStartPosition.CenterParent;
             if (form.ShowDialog() == DialogResult.Yes)
             {
@@ -83,8 +83,9 @@ namespace UI
 
         private void buttonBestellingToevoegen_Click(object sender, EventArgs e)
         {
-            BedieningMenuForm form = new BedieningMenuForm(tafel);
+            BedieningMenuForm form = new BedieningMenuForm(tafel, parent);
             form.ShowDialog();
         }
     }
 }
+

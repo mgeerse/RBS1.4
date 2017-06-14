@@ -12,16 +12,17 @@ namespace UI
 {
     public partial class ConfirmedVerzondenForm : Form
     {
-        public ConfirmedVerzondenForm()
+        BedieningForm parent;
+
+        public ConfirmedVerzondenForm(BedieningForm parent)
         {
+            this.parent = parent;
             InitializeComponent();
         }
 
         private void OKButton_Click(object sender, EventArgs e)
         {
-
-            // form.StartPosition = FormStartPosition.CenterParent;
-            // tafeloverzicht.
+            BedieningTafelOverzichtForm form = new BedieningTafelOverzichtForm(parent);
         }
     }
 }

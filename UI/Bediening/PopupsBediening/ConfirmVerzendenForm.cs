@@ -12,8 +12,11 @@ namespace UI
 {
     public partial class ConfirmVerzendenForm : Form
     {
-        public ConfirmVerzendenForm()
+        BedieningForm parent;
+
+        public ConfirmVerzendenForm(BedieningForm parent)
         {
+            this.parent = parent;
             InitializeComponent();
         }
 
@@ -25,7 +28,7 @@ namespace UI
 
         private void ConfirmVerzendenButton_Click(object sender, EventArgs e)
         {
-            ConfirmedVerzondenForm form = new ConfirmedVerzondenForm();
+            ConfirmedVerzondenForm form = new ConfirmedVerzondenForm(parent);
             form.StartPosition = FormStartPosition.CenterParent;
             DialogResult = DialogResult.Yes;
             Close();
