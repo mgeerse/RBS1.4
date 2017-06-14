@@ -130,5 +130,16 @@ namespace UI
             BedieningBestellingOverzichtForm tafel10 = new BedieningBestellingOverzichtForm(parent, 10);
             tafel10.Show();
         }
+
+        public void ShowTafelBestellingOverzicht(int nummer)
+        {
+            BedieningBestellingOverzichtForm tafel = new BedieningBestellingOverzichtForm(parent, nummer);
+            tafel.TopLevel = false;
+            parent.Controls["ContentPanel"].Controls.Clear();
+            parent.Controls["ContentPanel"].Controls.Add(tafel);
+            tafel.Show();
+        }
+
+
     }
 }
