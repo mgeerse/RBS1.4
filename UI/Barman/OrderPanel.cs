@@ -47,41 +47,44 @@ namespace UI
             //TabControl.Name = "TabControlLinks";
             TabControl.ItemSize = new System.Drawing.Size(150, 25);
             TabPage TabPage = new TabPage();
+            TreeView TreeView = new TreeView();
+
             #endregion
+
+            #region Controls aanmaken:
+            //Oude treeview stond hier
+            Button Button = new Button();
+            Label Label1 = new Label();
+            Label Label2 = new Label();
+            Label Label3 = new Label();
+            RichTextBox RichTextBox = new RichTextBox();
+            GroupBox GroupBox = new GroupBox();
+
+            //Controls direct toevoegen aan TabPage
+            TabPage.Controls.Add(GroupBox);
+            TabPage.Controls.Add(TreeView);
+            TabPage.Controls.Add(Label1);
+            TabPage.Controls.Add(Label2);
+            TabPage.Controls.Add(Label3);
+            TabPage.Controls.Add(RichTextBox);
+            TabPage.Controls.Add(Button);
+
+            TreeView.Nodes.Add("Drankjes:");
+
+            string TabTafelNummer = "";
+            string TabBestellingId = "";
+            string BestelOpmerking = "Opmerkingen: \n\n";
+            string Medewerker = "";
+            DateTime TijdIngevoerd = new DateTime();
+
+            #endregion
+
             if (AllNewOrders.Count != 0)
             {
                 foreach (var BestelList in AllNewOrders)
                 {
                     //De gebruikte indexes mag gelijk op 1 staan (we zijn 1 keer door de List heen gelopen):
                     GebruikteIndexes = 1;
-
-                    #region Controls aanmaken:
-                    TreeView TreeView = new TreeView();
-                    Button Button = new Button();
-                    Label Label1 = new Label();
-                    Label Label2 = new Label();
-                    Label Label3 = new Label();
-                    RichTextBox RichTextBox = new RichTextBox();
-                    GroupBox GroupBox = new GroupBox();
-
-                    //Controls direct toevoegen aan TabPage
-                    TabPage.Controls.Add(GroupBox);
-                    TabPage.Controls.Add(TreeView);
-                    TabPage.Controls.Add(Label1);
-                    TabPage.Controls.Add(Label2);
-                    TabPage.Controls.Add(Label3);
-                    TabPage.Controls.Add(RichTextBox);
-                    TabPage.Controls.Add(Button);
-
-                    TreeView.Nodes.Add("Drankjes:");
-
-                    string TabTafelNummer = "";
-                    string TabBestellingId = "";
-                    string BestelOpmerking = "Opmerkingen: \n\n";
-                    string Medewerker = "";
-                    DateTime TijdIngevoerd = new DateTime();
-
-                    #endregion
 
                     if (BestelList.BestelId != GebruikteBestellingsId)
                     {
@@ -112,9 +115,8 @@ namespace UI
                         //De TabControl aan de panel toevoegen.
                         //Panel.Controls.Add(TabControl);
                     }
-
                     //Hier worden eventuele tweede dingen toegevoegd aan de eerste tabpage.
-                    if (BestelList.BestelId == EersteBestelId)
+                    else if (BestelList.BestelId == GebruikteBestellingsId)
                     {
                         //De gebruikte indexes moet omhoog gedaan worden:
                         GebruikteIndexes++;
@@ -241,9 +243,6 @@ namespace UI
             }
 
             Panel.Controls.Add(TabControl);
-        
-    
-
             return Panel;
         }
 
