@@ -14,11 +14,9 @@ namespace UI
     public partial class BedieningForm : Form
     {
         private Medewerker IngelogdeMedewerker = null;
-        BedieningForm parent;
 
-        public BedieningForm(BedieningForm parent)
+        public BedieningForm()
         {
-            this.parent = parent;
             InitializeComponent();
         }
 
@@ -36,13 +34,13 @@ namespace UI
         {
             if (IngelogdeMedewerker == null)
             {
-                ErrAlUitgelogdForm form = new ErrAlUitgelogdForm(parent);
+                ErrAlUitgelogdForm form = new ErrAlUitgelogdForm();
                 form.StartPosition = FormStartPosition.CenterParent;
                 form.ShowDialog();
             }
             else
             {
-                ConfirmLogUitForm form = new ConfirmLogUitForm(parent);
+                ConfirmLogUitForm form = new ConfirmLogUitForm();
                 form.StartPosition = FormStartPosition.CenterParent;
                 DialogResult result = form.ShowDialog();
                 if (result == DialogResult.Yes)

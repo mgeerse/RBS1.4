@@ -29,7 +29,8 @@ namespace UI
 
         private void AdministratieButton_Click(object sender, EventArgs e)
         {
-            new AdministratieForm().Show();
+            //TODO AdministratieForm terug stoppen
+            //new AdministratieForm().Show();
         }
 
         private void BedieningButton_Click(object sender, EventArgs e)

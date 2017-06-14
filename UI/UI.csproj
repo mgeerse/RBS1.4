@@ -52,6 +52,18 @@
     <Compile Include="Administratie.Designer.cs">
       <DependentUpon>Administratie.cs</DependentUpon>
     </Compile>
+    <Compile Include="Algemene Popups\ConfirmLogUitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Algemene Popups\ConfirmLogUitForm.designer.cs">
+      <DependentUpon>ConfirmLogUitForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Algemene Popups\ErrAlUitgelogdForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Algemene Popups\ErrAlUitgelogdForm.designer.cs">
+      <DependentUpon>ErrAlUitgelogdForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Bediening\AfrekenenForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +165,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Administratie.resx">
       <DependentUpon>Administratie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Algemene Popups\ConfirmLogUitForm.resx">
+      <DependentUpon>ConfirmLogUitForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Algemene Popups\ErrAlUitgelogdForm.resx">
+      <DependentUpon>ErrAlUitgelogdForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Bediening\AfrekenenForm.resx">
       <DependentUpon>AfrekenenForm.cs</DependentUpon>
