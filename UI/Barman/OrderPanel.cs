@@ -32,7 +32,7 @@ namespace UI
 
             //Begin het maken van de controls!
             MaakLinkerControl(Panel);
-            //MaakRechterControl(Panel);
+            MaakRechterControl(Panel);
 
             return Panel;
         }
@@ -255,6 +255,7 @@ namespace UI
             //TabControl.Name = "TabControlLinks";
             TabControl.ItemSize = new System.Drawing.Size(150, 25);
             #endregion
+
             #region Eerst de TabControl en TabPage aanmaken:
             TabPage TabPage = new TabPage();
             TreeView TreeView = new TreeView();
@@ -271,31 +272,16 @@ namespace UI
             string Medewerker = "";
             DateTime TijdIngevoerd = new DateTime();
             #endregion
+
             if (AllNewOrders.Count > GebruikteIndexes)
             {
-                foreach (var BestelList in AllNewOrders)
+                foreach (var BestelList in AllNewOrders.Skip(GebruikteIndexes))
                 {                     
                     //Eerst er voor zorgen dat alleen de bestellingen die we niet hebben gehad gedetecteerd worden
-                    if (BestelList.BestelId != EersteBestelId && BestelList.BestelId != GebruikteBestellingsId)
+                    if (BestelList.BestelId != GebruikteBestellingsId)
                     {
                         //Gelijk de GebruikteBestellingsId vast zetten
                         GebruikteBestellingsId = BestelList.BestelId;
-
-                        #region De labels de correcte text weergeven & de bestelId vastzetten & TreeView node toevoegen en één maal de tabpage text zetten: 
-                        //De BestelId gelijk vastzetten:
-                        EersteBestelId = BestelList.BestelId;
-
-                        //We moeten de Node gelijk toevoegen, anders mag er niet een child node worden toegevoegd
-                        TreeView.Nodes.Add("Drankjes:");
-                        TabTafelNummer = BestelList.TafelNummer.ToString();
-                        TabBestellingId = BestelList.BestelId.ToString();
-                        Medewerker = BestelList.MedewerkerNaam;
-                        TijdIngevoerd = BestelList.Invoertijd;
-
-                        TabPage.Text = "Tafel#" + TabTafelNummer + " | Besteld om " + TijdIngevoerd.ToString("HH:mm");
-
-                        #endregion
-
 
                         #region Controls aanmaken:
                         TreeView = new TreeView();
@@ -314,6 +300,21 @@ namespace UI
                         TabPage.Controls.Add(Label3);
                         TabPage.Controls.Add(RichTextBox);
                         TabPage.Controls.Add(Button);
+
+                        #endregion
+
+                        #region De labels de correcte text weergeven & de bestelId vastzetten & TreeView node toevoegen en één maal de tabpage text zetten: 
+                        //De BestelId gelijk vastzetten:
+                        EersteBestelId = BestelList.BestelId;
+
+                        //We moeten de Node gelijk toevoegen, anders mag er niet een child node worden toegevoegd
+                        TreeView.Nodes.Add("Drankjes:");
+                        TabTafelNummer = BestelList.TafelNummer.ToString();
+                        TabBestellingId = BestelList.BestelId.ToString();
+                        Medewerker = BestelList.MedewerkerNaam;
+                        TijdIngevoerd = BestelList.Invoertijd;
+
+                        TabPage.Text = "Tafel#" + TabTafelNummer + " | Besteld om " + TijdIngevoerd.ToString("HH:mm");
 
                         #endregion
 
@@ -351,7 +352,7 @@ namespace UI
                         GebruikteIndexes++;
 
                         #region Items toevoegen aan de treeview, en de opmerkingen hiervan meenemen:
-                        string TreeViewText = BestelList.ItemNaam + "|" + BestelList.Aantal;
+                        string TreeViewText = BestelList.ItemNaam + "| " + BestelList.Aantal;
                         TreeView.Nodes[0].Nodes.Add(TreeViewText);
 
                         if (BestelList.Opmerking != null)
@@ -400,6 +401,7 @@ namespace UI
                     RichTextBox.Location = new System.Drawing.Point(316, 144);
                     RichTextBox.Size = new System.Drawing.Size(226, 250);
                     RichTextBox.Text = BestelOpmerking;
+
                     //Button properties
                     Button.Name = "ButtonLinks";
                     Button.Text = "Bestelling\nGereed Melden";
@@ -445,8 +447,6 @@ namespace UI
                 }
                 Panel.Controls.Add(TabControl);
             }
-
-
             else if (AllNewOrders.Count == GebruikteIndexes)
             {
                 #region controls en properties:

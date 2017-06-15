@@ -33,7 +33,6 @@ namespace UI
 
             timer1.Interval = 10000;
             timer1.Start();
-
         }
 
         private void Barman_Load(object sender, EventArgs e)
@@ -45,6 +44,8 @@ namespace UI
         {
             //Hier de automatische updates uitvoeren.
             //Deze gaat om de 10000 miliseconden (10 seconden)
+
+            Panel.Controls.Clear();
             OP.MaakControls(Panel);
         }
     }
