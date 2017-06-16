@@ -66,18 +66,24 @@ namespace DAL
         {
             conn.Open();
             StringBuilder sb = new StringBuilder();
-            sb.Append("UPDATE dbo.Tafel ");
+            sb.Append("UPDATE dbo.Tafel");
             sb.Append("SET IsBezet = @IsBezet");
             sb.Append("WHERE TafelId = @TafelId");
 
             SqlCommand cmd = new SqlCommand(sb.ToString(), conn);
 
-            cmd.Parameters.Add("@BIsBezet", System.Data.SqlDbType.Bit).Value = 1;
-            
+            SqlParameter IsBezetParam = new SqlParameter("@IsBezet", System.Data.SqlDbType.Bit);
+            SqlParameter TafelIdParam = new SqlParameter("@TafelId", System.Data.SqlDbType.Int);
+
+            cmd.Parameters.Add(IsBezetParam);
+            cmd.Parameters.Add(TafelIdParam);
+
+            IsBezetParam.Value = 1;
+            TafelIdParam.Value = nummer;
+
             try
             {
                 cmd.Prepare();
-                conn.Open();
                 cmd.ExecuteNonQuery();
 
                 conn.Close();

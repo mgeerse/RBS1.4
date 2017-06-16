@@ -11,7 +11,7 @@ namespace Logic
     {
         TafelDAO tafel = new TafelDAO();
 
-        public bool GetTafel(int nummer)
+        public bool BezetTafel(int nummer)
         {
             TafelDAO tafel = new TafelDAO();
 

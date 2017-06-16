@@ -37,7 +37,7 @@ namespace UI
             BedieningForm tafel = new BedieningForm();
             tafel.Show();
             TafelLogic kleur = new TafelLogic();
-            if (kleur.GetTafel(nummer))
+            if (kleur.BezetTafel(nummer))
             {
                 Btn_Tafel1.BackColor = Color.Red;
             }
@@ -53,7 +53,7 @@ namespace UI
             BedieningForm tafel = new BedieningForm();
             tafel.Show();
             TafelLogic kleur = new TafelLogic();
-            if (kleur.GetTafel(nummer))
+            if (kleur.BezetTafel(nummer))
             {
                 btn_Tafel2.BackColor = Color.Red;
             }
@@ -69,7 +69,7 @@ namespace UI
             BedieningForm tafel = new BedieningForm();
             tafel.Show();
             TafelLogic kleur = new TafelLogic();
-            if (kleur.GetTafel(nummer))
+            if (kleur.BezetTafel(nummer))
             {
                 btn_Tafel3.BackColor = Color.Red;
             }
@@ -85,7 +85,7 @@ namespace UI
             BedieningForm tafel = new BedieningForm();
             tafel.Show();
             TafelLogic kleur = new TafelLogic();
-            if (kleur.GetTafel(nummer))
+            if (kleur.BezetTafel(nummer))
             {
                 btn_Tafel4.BackColor = Color.Red;
             }
@@ -101,7 +101,7 @@ namespace UI
             BedieningForm tafel = new BedieningForm();
             tafel.Show();
             TafelLogic kleur = new TafelLogic();
-            if (kleur.GetTafel(nummer))
+            if (kleur.BezetTafel(nummer))
             {
                 btn_Tafel5.BackColor = Color.Red;
             }
@@ -117,7 +117,7 @@ namespace UI
             BedieningForm tafel = new BedieningForm();
             tafel.Show();
             TafelLogic kleur = new TafelLogic();
-            if (kleur.GetTafel(nummer))
+            if (kleur.BezetTafel(nummer))
             {
                 btn_Tafel6.BackColor = Color.Red;
             }
@@ -133,7 +133,7 @@ namespace UI
             BedieningForm tafel = new BedieningForm();
             tafel.Show();
             TafelLogic kleur = new TafelLogic();
-            if (kleur.GetTafel(nummer))
+            if (kleur.BezetTafel(nummer))
             {
                 btn_Tafel7.BackColor = Color.Red;
             }
@@ -149,7 +149,7 @@ namespace UI
             BedieningForm tafel = new BedieningForm();
             tafel.Show();
             TafelLogic kleur = new TafelLogic();
-            if (kleur.GetTafel(nummer))
+            if (kleur.BezetTafel(nummer))
             {
                 btn_Tafel8.BackColor = Color.Red;
             }
@@ -165,7 +165,7 @@ namespace UI
             BedieningForm tafel = new BedieningForm();
             tafel.Show();
             TafelLogic kleur = new TafelLogic();
-            if (kleur.GetTafel(nummer))
+            if (kleur.BezetTafel(nummer))
             {
                 btn_Tafel9.BackColor = Color.Red;
             }
@@ -181,7 +181,7 @@ namespace UI
             BedieningForm tafel = new BedieningForm();
             tafel.Show();
             TafelLogic kleur = new TafelLogic();
-            if (kleur.GetTafel(nummer))
+            if (kleur.BezetTafel(nummer))
             {
                 btn_Tafel10.BackColor = Color.Red;
             }
