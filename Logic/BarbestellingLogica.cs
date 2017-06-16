@@ -45,7 +45,7 @@ namespace Logic
             return BestelItems;
         }
 
-        public bool BestellingGereed(List<Bestelitem> Object)
+        public bool BestellingGereed(List<Bestelitem> Object, int Id)
         {
             //DAO update/gereed.
             //Huidige status wordt meegegeven voor extra zekerheid binnen het systeem. 
@@ -55,7 +55,11 @@ namespace Logic
             {
                 foreach (var item in Object)
                 {
-                    BestelitemDAO.orderGereed(item);
+                    if (item.Bestelling.Id == Id)
+                    {
+
+                        BestelitemDAO.orderGereed(item);
+                    }
                 }
             }
             catch (Exception)

@@ -13,7 +13,7 @@ namespace UI
     {
         public Logic.BarBestellingLogica Bestelling = new Logic.BarBestellingLogica();
         public Bestelitem Bestelitem;
-        public List<Bestelitem> BestelItems;
+        public List<Bestelitem> BestelItems = new List<Bestelitem>();
         protected int LaatsGebruikteId;
         protected int GebruikteIndexes;
         protected int EersteBestelId;
@@ -109,7 +109,7 @@ namespace UI
                         TabBestellingId = BestelList.Bestelling.Id.ToString();
                         Medewerker = BestelList.Bestelling.Medewerker.Naam;
                         TijdIngevoerd = BestelList.Tijdingevoerd;
-
+                        
                         TabPage.Text = "Eerstvolgende bestelling: Tafel#" + TabTafelNummer + " | Besteld om " + TijdIngevoerd.ToString("HH:mm");
 
                         #endregion
@@ -131,8 +131,6 @@ namespace UI
                         }
 
                         #endregion
-
-                        BestelItems = new List<Bestelitem>();
                         BestelItems.Add(BestelList);
 
                         //De TabControl aan de panel toevoegen.
@@ -163,6 +161,7 @@ namespace UI
                         }
 
                         #endregion
+                        BestelItems.Add(BestelList);
                     }
 
                     #region Properties voor de controls:
@@ -249,7 +248,7 @@ namespace UI
 
                     Button.Click += delegate (object sender, EventArgs e)
                     {
-                        Button_Click(sender, e, BestelItems);
+                        Button_Click(sender, e, BestelItems, BestelList.Bestelling.Id);
                     };
                     //Panel.Controls.Add(TabControl);
                 }
@@ -308,17 +307,16 @@ namespace UI
 
             if (AllNewOrders.Count > GebruikteIndexes)
             {
-                foreach (var BestelItemList in AllNewOrders.Skip(GebruikteIndexes))
+                foreach (var BestelList in AllNewOrders.Skip(GebruikteIndexes))
                 {
                     //Eerst er voor zorgen dat alleen de bestellingen die we niet hebben gehad gedetecteerd worden
-                    if (BestelItemList.Bestelling.Id != LaatsGebruikteId)
+                    if (BestelList.Bestelling.Id != LaatsGebruikteId)
                     {
                         //Gelijk de GebruikteBestellingsId vast zetten
-                        LaatsGebruikteId = BestelItemList.Bestelling.Id;
+                        LaatsGebruikteId = BestelList.Bestelling.Id;
 
                         //Hetgeen hieronder moet aan de knop 'gereed melden' worden gegeven.
-                        BestelItems = new List<Bestelitem>();
-                        BestelItems.Add(BestelItemList);
+                        BestelItems.Add(BestelList);
 
                         #region Controls aanmaken:
                         TreeView = new TreeView();
@@ -346,10 +344,10 @@ namespace UI
                         //We moeten de Node gelijk toevoegen, anders mag er niet een child node worden toegevoegd
                         TreeView.Nodes.Add("Drankjes:");
 
-                        TabTafelNummer = BestelItemList.Bestelling.Tafel.Id.ToString();
-                        TabBestellingId = BestelItemList.Bestelling.Id.ToString();
-                        Medewerker = BestelItemList.Bestelling.Medewerker.Naam;
-                        TijdIngevoerd = BestelItemList.Tijdingevoerd;
+                        TabTafelNummer = BestelList.Bestelling.Tafel.Id.ToString();
+                        TabBestellingId = BestelList.Bestelling.Id.ToString();
+                        Medewerker = BestelList.Bestelling.Medewerker.Naam;
+                        TijdIngevoerd = BestelList.Tijdingevoerd;
 
                         TabPage.Text = "Tafel#" + TabTafelNummer + " | Besteld om " + TijdIngevoerd.ToString("HH:mm");
 
@@ -358,19 +356,19 @@ namespace UI
                         //BestelItemNaam toevoegen aan de TreeView
                         #region Items toevoegen aan de treeview, en de opmerkingen hiervan meenemen:
 
-                        if (BestelItemList.Aantal > 1)
+                        if (BestelList.Aantal > 1)
                         {
-                            TreeView.Nodes[0].Nodes.Add(BestelItemList.Menuitem.Naam + "| " + BestelItemList.Aantal + " stuks");
+                            TreeView.Nodes[0].Nodes.Add(BestelList.Menuitem.Naam + "| " + BestelList.Aantal + " stuks");
                         }
                         else
                         {
-                            TreeView.Nodes[0].Nodes.Add(BestelItemList.Menuitem.Naam + "| " + BestelItemList.Aantal + " stuk");
+                            TreeView.Nodes[0].Nodes.Add(BestelList.Menuitem.Naam + "| " + BestelList.Aantal + " stuk");
                         }
 
-                        if (BestelItemList.Bestelling.Opmerking != "")
+                        if (BestelList.Bestelling.Opmerking != "")
                         {
                             RichTextBox.Text = "Opmerkingen: ";
-                            RichTextBox.Text += "\n- " + BestelItemList.Menuitem.Naam + ": " + BestelItemList.Bestelling.Opmerking + "\n";
+                            RichTextBox.Text += "\n- " + BestelList.Menuitem.Naam + ": " + BestelList.Bestelling.Opmerking + "\n";
                         }
                         else
                         {
@@ -380,33 +378,40 @@ namespace UI
                         #endregion
 
                     }
-                    else if (BestelItemList.Bestelling.Id == LaatsGebruikteId)
+                    else if (BestelList.Bestelling.Id == LaatsGebruikteId)
                     {
                         #region Items toevoegen aan de treeview, en de opmerkingen hiervan meenemen:
 
-                        if (BestelItemList.Aantal > 1)
+                        if (BestelList.Aantal > 1)
                         {
-                            TreeView.Nodes[0].Nodes.Add(BestelItemList.Menuitem.Naam + "| " + BestelItemList.Aantal + " stuks");
+                            TreeView.Nodes[0].Nodes.Add(BestelList.Menuitem.Naam + "| " + BestelList.Aantal + " stuks");
                         }
                         else
                         {
-                            TreeView.Nodes[0].Nodes.Add(BestelItemList.Menuitem.Naam + "| " + BestelItemList.Aantal + " stuk");
+                            TreeView.Nodes[0].Nodes.Add(BestelList.Menuitem.Naam + "| " + BestelList.Aantal + " stuk");
                         }
                         
 
-                        if (BestelItemList.Bestelling.Opmerking != "")
+                        if (BestelList.Bestelling.Opmerking != "")
                         {
                             RichTextBox.Text = "Opmerkingen: ";
-                            RichTextBox.Text += "\n- " + BestelItemList.Menuitem.Naam + ": " + BestelItemList.Bestelling.Opmerking + "\n";
+                            RichTextBox.Text += "\n- " + BestelList.Menuitem.Naam + ": " + BestelList.Bestelling.Opmerking + "\n";
                         }
                         else
                         {
                             RichTextBox.Text = "Er zijn geen opmerkingen voor deze bestelling.";
                         }
 
+                        BestelItems.Add(BestelList);
                         TabControl.Controls.Add(TabPage);
                         #endregion
                     }
+
+                    Button.Click += delegate (object sender, EventArgs e)
+                    {
+                        Button_Click(sender, e, BestelItems, BestelList.Bestelling.Id);
+                    };
+
                     #region Properties voor de controls:
 
                     //TabPage Properties
@@ -594,15 +599,22 @@ namespace UI
                         Medewerker = BestelList.Bestelling.Medewerker.Naam;
                         TijdIngevoerd = BestelList.Tijdingevoerd;
                         BestelOpmerking = "Opmerkingen: \n\n";
-                        TabPage.Text = "Tafel#" + TabTafelNummer + " | Besteld om " + TijdIngevoerd.ToString("HH:mm");
+
+                        TabPage.Text = "Besteld op " + TijdIngevoerd.ToString("dd/MMM HH:mm");
 
                         #endregion
 
                         //BestelItemNaam toevoegen aan de TreeView
                         #region Items toevoegen aan de treeview, en de opmerkingen hiervan meenemen:
 
-                        string TreeViewText = BestelList.Menuitem.Naam + "|" + BestelList.Aantal + " stuks";
-                        TreeView.Nodes[0].Nodes.Add(TreeViewText);
+                        if (BestelList.Aantal > 1)
+                        {
+                            TreeView.Nodes[0].Nodes.Add(BestelList.Menuitem.Naam + "| " + BestelList.Aantal + " stuks");
+                        }
+                        else
+                        {
+                            TreeView.Nodes[0].Nodes.Add(BestelList.Menuitem.Naam + "| " + BestelList.Aantal + " stuk");
+                        }
 
                         if (BestelList.Bestelling.Opmerking != "")
                         {
@@ -625,8 +637,6 @@ namespace UI
                         Medewerker = BestelList.Bestelling.Medewerker.Naam;
                         TijdIngevoerd = BestelList.Tijdingevoerd;
 
-                        TabPage.Text = "Tafel#" + TabTafelNummer + " | Besteld om " + TijdIngevoerd.ToString("HH:mm");
-
                         #endregion
                     }
                     //Als het toch wel voor komt dat de bestellingsId zojuist is gebruikt dan willen we hier alleen de items van toevoegen aan de TreeView en RichTextBox
@@ -636,8 +646,14 @@ namespace UI
                         GebruikteIndexes++;
 
                         #region Items toevoegen aan de treeview, en de opmerkingen hiervan meenemen:
-                        string TreeViewText = BestelList.Menuitem.Naam + "| " + BestelList.Aantal + " stuks";
-                        TreeView.Nodes[0].Nodes.Add(TreeViewText);
+                        if (BestelList.Aantal > 1)
+                        {
+                            TreeView.Nodes[0].Nodes.Add(BestelList.Menuitem.Naam + "| " + BestelList.Aantal + " stuks");
+                        }
+                        else
+                        {
+                            TreeView.Nodes[0].Nodes.Add(BestelList.Menuitem.Naam + "| " + BestelList.Aantal + " stuk");
+                        }
 
                         if (BestelList.Bestelling.Opmerking != "")
                         {
@@ -752,14 +768,16 @@ namespace UI
             return Panel;
         }
 
-        private void Button_Click(object sender, EventArgs e, List<Bestelitem> BestelItems)
+        private void Button_Click(object sender, EventArgs e, List<Bestelitem> BestelItems, int Id)
         {
+            
+
             DialogResult DialogResult = MessageBox.Show("Weet u zeker dat de bestelling gereed is?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (DialogResult == DialogResult.Yes)
             {
                 try
                 {
-                    Bestelling.BestellingGereed(BestelItems);
+                    Bestelling.BestellingGereed(BestelItems, Id);
                 }
                 catch(Exception x)
                 {
