@@ -11,7 +11,7 @@ namespace UI
     {
         Barman Barman;
         Panel Panel;
-        OrderPanel OP = new OrderPanel();
+        BarmanOrderScherm OP = new BarmanOrderScherm();
         ToolStripButton TSB1 = new ToolStripButton();
         ToolStripButton TSB2 = new ToolStripButton();
         ToolStripButton TSB3 = new ToolStripButton();
