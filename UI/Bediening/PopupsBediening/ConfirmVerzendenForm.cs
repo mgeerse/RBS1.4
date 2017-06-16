@@ -10,32 +10,30 @@ using System.Windows.Forms;
 
 namespace UI
 {
-    public partial class ConfirmBetaalmethodeForm : Form
+    public partial class ConfirmVerzendenForm : Form
     {
         BedieningForm parent;
 
-        public ConfirmBetaalmethodeForm(BedieningForm parent)
+        public ConfirmVerzendenForm(BedieningForm parent)
         {
             this.parent = parent;
             InitializeComponent();
         }
 
-        private void PinButton_Click(object sender, EventArgs e)
+        private void CancelVerzendenButton_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.OK;
+            DialogResult = DialogResult.No;
             Close();
         }
 
-        private void CashButton_Click(object sender, EventArgs e)
+        private void ConfirmVerzendenButton_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Yes;
             Close();
-        }
 
-        private void CreditcardButton_Click(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.OK;
-            Close();
+            //ConfirmedVerzondenForm form = new ConfirmedVerzondenForm(parent);
+            //form.StartPosition = FormStartPosition.CenterParent;
+
         }
     }
 }

@@ -12,10 +12,11 @@ namespace UI
 {
     public partial class ConfirmAfrekenenForm : Form
     {
+        BedieningForm parent;
 
-
-        public ConfirmAfrekenenForm()
+        public ConfirmAfrekenenForm(BedieningForm parent)
         {
+            this.parent = parent;
             InitializeComponent();
         }
 

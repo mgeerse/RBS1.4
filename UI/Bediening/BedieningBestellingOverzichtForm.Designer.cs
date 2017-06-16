@@ -30,13 +30,13 @@
         {
             this.buttonBestellingToevoegen = new System.Windows.Forms.Button();
             this.buttonAfrekenen = new System.Windows.Forms.Button();
-            this.BestellingenPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.BestellingenPanel = new System.Windows.Forms.TableLayoutPanel();
             this.SuspendLayout();
             // 
             // buttonBestellingToevoegen
             // 
             this.buttonBestellingToevoegen.Location = new System.Drawing.Point(52, 686);
-            this.buttonBestellingToevoegen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonBestellingToevoegen.Margin = new System.Windows.Forms.Padding(2);
             this.buttonBestellingToevoegen.Name = "buttonBestellingToevoegen";
             this.buttonBestellingToevoegen.Size = new System.Drawing.Size(152, 77);
             this.buttonBestellingToevoegen.TabIndex = 1;
@@ -47,7 +47,7 @@
             // buttonAfrekenen
             // 
             this.buttonAfrekenen.Location = new System.Drawing.Point(317, 686);
-            this.buttonAfrekenen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonAfrekenen.Margin = new System.Windows.Forms.Padding(2);
             this.buttonAfrekenen.Name = "buttonAfrekenen";
             this.buttonAfrekenen.Size = new System.Drawing.Size(152, 77);
             this.buttonAfrekenen.TabIndex = 2;
@@ -57,9 +57,15 @@
             // 
             // BestellingenPanel
             // 
+            this.BestellingenPanel.AutoScroll = true;
+            this.BestellingenPanel.ColumnCount = 1;
+            this.BestellingenPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.BestellingenPanel.Location = new System.Drawing.Point(12, 12);
+            this.BestellingenPanel.MaximumSize = new System.Drawing.Size(502, 644);
             this.BestellingenPanel.Name = "BestellingenPanel";
-            this.BestellingenPanel.Size = new System.Drawing.Size(502, 603);
+            this.BestellingenPanel.RowCount = 1;
+            this.BestellingenPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.BestellingenPanel.Size = new System.Drawing.Size(502, 644);
             this.BestellingenPanel.TabIndex = 3;
             // 
             // BedieningBestellingOverzichtForm
@@ -70,7 +76,7 @@
             this.Controls.Add(this.BestellingenPanel);
             this.Controls.Add(this.buttonAfrekenen);
             this.Controls.Add(this.buttonBestellingToevoegen);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "BedieningBestellingOverzichtForm";
             this.Text = "BedieningBestellingOverzichtForm";
             this.Load += new System.EventHandler(this.BedieningBestellingOverzichtForm_Load);
@@ -81,6 +87,6 @@
         #endregion
         private System.Windows.Forms.Button buttonBestellingToevoegen;
         private System.Windows.Forms.Button buttonAfrekenen;
-        private System.Windows.Forms.FlowLayoutPanel BestellingenPanel;
+        private System.Windows.Forms.TableLayoutPanel BestellingenPanel;
     }
 }

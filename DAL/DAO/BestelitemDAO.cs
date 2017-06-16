@@ -31,8 +31,8 @@ namespace DAL
                 Bestelling Bestelling = BestellingDAO.GetForId(reader.GetInt32(0));
                 Menuitem Menuitem = MenuitemDAO.GetForId(reader.GetInt32(1));
                 int Aantal = reader.GetInt32(2);
-                string Opmerking = reader.GetString(3);
-                Status Status = (Status)reader.GetInt32(4);
+                string Opmerking = reader.IsDBNull(3) ? "" : reader.GetString(3);
+                Status Status = (Status) reader.GetInt32(4);
                 DateTime TijdIngevoerd = reader.GetDateTime(5);
 
                 result.Add(new Bestelitem(Bestelling, Menuitem, Aantal, Opmerking, Status, TijdIngevoerd));
@@ -55,7 +55,11 @@ namespace DAL
             cmd.Parameters.Add("@Id", System.Data.SqlDbType.Int).Value = Id;
             cmd.Prepare();
             conn.Open();
-            SqlDataReader reader = cmd.ExecuteReader();
+            string query = "SELECT Bestelling, Menuitem, Aantal, Opmerking, Status, TijdIngevoerd" +
+                " FROM Bestelitem" +
+                " WHERE Bestelling = " + Id;
+            SqlCommand command = new SqlCommand(query, conn);
+            SqlDataReader reader = command.ExecuteReader();
 
             while (reader.Read())
             {
@@ -155,6 +159,32 @@ namespace DAL
             {
                 return false;
             }
+        }
+
+        public List<Bestelitem> GetForBestellingId(int BestellingId)
+        {
+            List<Bestelitem> result = new List<Bestelitem>();
+
+            conn.Open();
+            string query = "SELECT Bestelling, Menuitem, Aantal, Opmerking, Status, TijdIngevoerd" +
+                " FROM Bestelitem" +
+                " WHERE Bestelling = " + BestellingId;
+            SqlCommand command = new SqlCommand(query, conn);
+            SqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                int Menuitem = reader.GetInt32(1);
+                int Aantal = reader.GetInt32(2);
+                string Opmerking = reader.GetString(3);
+                Status Status = (Status)reader.GetInt32(4);
+                DateTime TijdIngevoerd = reader.GetDateTime(5);
+                Bestelitem Bestelitem = new Bestelitem(BestellingDAO.GetForId(BestellingId), MenuitemDAO.GetForId(Menuitem), Aantal, Opmerking, Status, TijdIngevoerd);
+
+                result.Add(Bestelitem);
+            }
+            conn.Close();
+            return result;
         }
 
         public bool Create(Bestelitem Object)

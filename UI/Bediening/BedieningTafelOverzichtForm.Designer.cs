@@ -1,6 +1,6 @@
 ﻿namespace UI
 {
-    partial class TafelOverzicht
+    partial class BedieningTafelOverzichtForm
     {
         /// <summary>
         /// Required designer variable.

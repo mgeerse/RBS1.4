@@ -35,6 +35,7 @@
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,52 +47,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Administratie\AdministratieForm.cs">
+    <Compile Include="Algemene Popups\ConfirmLogUitForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Administratie\AdministratieForm.Designer.cs">
-      <DependentUpon>AdministratieForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Administratie\AdministratieHomeForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Administratie\AdministratieHomeForm.Designer.cs">
-      <DependentUpon>AdministratieHomeForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Administratie\AdministratieLoginForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Administratie\AdministratieLoginForm.Designer.cs">
-      <DependentUpon>AdministratieLoginForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Administratie\Popups\ConfirmGerechtAanpassenForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Administratie\Popups\ConfirmGerechtAanpassenForm.Designer.cs">
-      <DependentUpon>ConfirmGerechtAanpassenForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Administratie\Popups\ConfirmGerechtVerwijderenForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Administratie\Popups\ConfirmGerechtVerwijderenForm.Designer.cs">
-      <DependentUpon>ConfirmGerechtVerwijderenForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Administratie\Popups\ConfirmLogUitForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Administratie\Popups\ConfirmLogUitForm.Designer.cs">
+    <Compile Include="Algemene Popups\ConfirmLogUitForm.designer.cs">
       <DependentUpon>ConfirmLogUitForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Administratie\Popups\ConfirmMedewerkerAanpassenForm.cs">
+    <Compile Include="Algemene Popups\ErrAlUitgelogdForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Administratie\Popups\ConfirmMedewerkerAanpassenForm.Designer.cs">
-      <DependentUpon>ConfirmMedewerkerAanpassenForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Administratie\Popups\ErrAlUitgelogdForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Administratie\Popups\ErrAlUitgelogdForm.Designer.cs">
+    <Compile Include="Algemene Popups\ErrAlUitgelogdForm.designer.cs">
       <DependentUpon>ErrAlUitgelogdForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Barman\ToolStripOnder.cs" />
@@ -161,7 +126,26 @@
     <Compile Include="Barman\Barman.Designer.cs">
       <DependentUpon>Barman.cs</DependentUpon>
     </Compile>
-    <Compile Include="Barman\OrderPanel.cs" />
+    <Compile Include="App.cs" />
+    <Compile Include="Bediening\PopupsBediening\ConfirmedVerzondenForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bediening\PopupsBediening\ConfirmedVerzondenForm.Designer.cs">
+      <DependentUpon>ConfirmedVerzondenForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bediening\PopupsBediening\ConfirmVerzendenForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bediening\PopupsBediening\ConfirmVerzendenForm.Designer.cs">
+      <DependentUpon>ConfirmVerzendenForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bediening\TipForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Barman\BarmanOrderScherm.cs" />
+    <Compile Include="Bediening\TipForm.Designer.cs">
+      <DependentUpon>TipForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -174,22 +158,21 @@
     <Compile Include="Bediening\BedieningTafelOverzichtForm.Designer.cs">
       <DependentUpon>BedieningTafelOverzichtForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="App.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Administratie\AdministratieForm.resx">
-      <DependentUpon>AdministratieForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Administratie\AdministratieHomeForm.resx">
-      <DependentUpon>AdministratieHomeForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Administratie\AdministratieLoginForm.resx">
-      <DependentUpon>AdministratieLoginForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Administratie\Popups\ConfirmLogUitForm.resx">
+    <Compile Include="TotaalRekeningUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TotaalRekeningUserControl.Designer.cs">
+      <DependentUpon>TotaalRekeningUserControl.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Algemene Popups\ConfirmLogUitForm.resx">
       <DependentUpon>ConfirmLogUitForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Administratie\Popups\ErrAlUitgelogdForm.resx">
+    <EmbeddedResource Include="Algemene Popups\ErrAlUitgelogdForm.resx">
       <DependentUpon>ErrAlUitgelogdForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Barman\Barman.resx">
+      <DependentUpon>Barman.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Bediening\AfrekenenForm.resx">
       <DependentUpon>AfrekenenForm.cs</DependentUpon>
@@ -209,6 +192,9 @@
     <EmbeddedResource Include="Bediening\BedieningMenuForm.resx">
       <DependentUpon>BedieningMenuForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Bediening\BedieningTafelOverzichtForm.resx">
+      <DependentUpon>BedieningTafelOverzichtForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Bediening\HelperForms\BestellingUserControl.resx">
       <DependentUpon>BestellingUserControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -221,8 +207,20 @@
     <EmbeddedResource Include="Bediening\PopupsBediening\ConfirmCashBetaaldForm.resx">
       <DependentUpon>ConfirmCashBetaaldForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Barman\Barman.resx">
-      <DependentUpon>Barman.cs</DependentUpon>
+    <Compile Include="RekeningUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RekeningUserControl.Designer.cs">
+      <DependentUpon>RekeningUserControl.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Bediening\PopupsBediening\ConfirmedVerzondenForm.resx">
+      <DependentUpon>ConfirmedVerzondenForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bediening\PopupsBediening\ConfirmVerzendenForm.resx">
+      <DependentUpon>ConfirmVerzendenForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bediening\TipForm.resx">
+      <DependentUpon>TipForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -237,8 +235,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Bediening\BedieningTafelOverzichtForm.resx">
-      <DependentUpon>BedieningTafelOverzichtForm.cs</DependentUpon>
+    <EmbeddedResource Include="RekeningUserControl.resx">
+      <DependentUpon>RekeningUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TotaalRekeningUserControl.resx">
+      <DependentUpon>TotaalRekeningUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -266,9 +267,7 @@
   <ItemGroup>
     <None Include="Resources\3d6cfa225d1.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Administratie\HelperForms\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Resources\chapoo_logo.png" />
     <Content Include="Resources\chrome_2017-06-06_13-52-20.png" />

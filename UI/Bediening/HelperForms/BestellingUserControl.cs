@@ -72,5 +72,11 @@ namespace UI
         {
 
         }
+
+        private void BestellingUserControl_Load(object sender, EventArgs e)
+        {
+
+            Dock = DockStyle.Fill;
+        }
     }
 }

@@ -28,9 +28,10 @@ namespace DAL
             return null;
         }
 
-        public bool Create(Rekening Object)
+        public bool Create(ref Rekening Object)
         {
             conn.Open();
+
 
             conn.Close();
             return false;

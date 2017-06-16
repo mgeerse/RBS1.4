@@ -29,17 +29,18 @@ namespace UI
 
         private void AdministratieButton_Click(object sender, EventArgs e)
         {
-            new AdministratieForm().Show();
+            //TODO AdministratieForm terug stoppen
+            //new AdministratieForm().Show();
         }
 
         private void BedieningButton_Click(object sender, EventArgs e)
         {
-            new TafelOverzicht().Show();
+            new BedieningForm().Show();
         }
 
         private void BarButton_Click(object sender, EventArgs e)
         {
-            new Barman(new Medewerker(6, "Maarten", MedewerkerType.Bar, "0100".ToCharArray())).Show();
+            new Barman(new Medewerker(1, "Maarten", MedewerkerType.Bar, "0100".ToCharArray())).Show();
         }
     }
 }

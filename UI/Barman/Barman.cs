@@ -13,13 +13,12 @@ namespace UI
 {
     public partial class Barman : Form
     {
-        OrderPanel OP = new OrderPanel();
+        BarmanOrderScherm OP = new BarmanOrderScherm();
         Panel Panel = new Panel();
 
         public Barman(Medewerker Medewerker)
         {
             InitializeComponent();
-
 
             Panel.Size = new Size(1160, 695);
             Panel.Location = new Point(0, 0);

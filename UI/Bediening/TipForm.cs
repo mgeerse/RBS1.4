@@ -10,23 +10,20 @@ using System.Windows.Forms;
 
 namespace UI
 {
-    public partial class ConfirmCashBetaaldForm : Form
+    public partial class TipForm : Form
     {
         BedieningForm parent;
-
-        public ConfirmCashBetaaldForm(BedieningForm parent)
+        public TipForm(BedieningForm parent)
         {
             this.parent = parent;
-
             InitializeComponent();
         }
 
-        private void OKButton_Click(object sender, EventArgs e)
+        private void TipOKButton_Click(object sender, EventArgs e)
         {
+            BedieningTafelOverzichtForm form = new BedieningTafelOverzichtForm(parent);
+            form.StartPosition = FormStartPosition.CenterParent;
 
-
-            //BedieningTafelOverzichtForm form = new BedieningTafelOverzichtForm(parent);
-            //form.StartPosition = FormStartPosition.CenterParent;
         }
     }
 }

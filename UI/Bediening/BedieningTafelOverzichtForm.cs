@@ -8,30 +8,45 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Model;
-using Logic;
-
 namespace UI
 {
     /// <summary>
     /// Basisform voor het gebruik van de Chapoo-applicatie.
     /// Vanuit hier worden de applicaties voor mobiele en desktop devices geopend.
     /// </summary>
-    public partial class TafelOverzicht : Form
+    public partial class BedieningTafelOverzichtForm : Form
     {
         BedieningForm parent;
-        private Medewerker IngelogdeMedewerker = null;
-        public TafelOverzicht()
+
+        public BedieningTafelOverzichtForm(BedieningForm parent)
         {
+            this.parent = parent;
+
             InitializeComponent();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+
+            Btn_Tafel1.Visible = true;
+            btn_Tafel2.Visible = true;
+            btn_Tafel3.Visible = true;
+            btn_Tafel4.Visible = true;
+            btn_Bezet.Visible = true;
             btn_Bezet.Enabled = false;
+            button1.Visible = true;
             button1.Enabled = false;
+            btn_Tafel5.Visible = true;
+            btn_Tafel6.Visible = true;
+            btn_Tafel7.Visible = true;
+            btn_Tafel8.Visible = true;
+            btn_Tafel9.Visible = true;
+            btn_Tafel10.Visible = true;
+            btn_BarVoorraad.Visible = true;
+            btn_KeukenVoorraad.Visible = true;
         }
 
-        private void btn_Tafel1_Click(object sender, EventArgs e)
+        private void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             int nummer = 1;
             BedieningForm tafel = new BedieningForm();
@@ -47,7 +62,7 @@ namespace UI
             }
         }
 
-        private void btn_Tafel2_Click(object sender, EventArgs e)
+        private void btn_BarVoorraad_Click(object sender, EventArgs e)
         {
             int nummer = 2;
             BedieningForm tafel = new BedieningForm();
@@ -191,62 +206,17 @@ namespace UI
             }
         }
 
-        private void btn_Loguit_Click(object sender, EventArgs e)
-        {
+        void btn_Loguit_Click(object sender, EventArgs e) { }
 
-            if (IngelogdeMedewerker == null)
-            {
-                ErrAlUitgelogdForm form = new ErrAlUitgelogdForm();
-                form.StartPosition = FormStartPosition.CenterParent;
-                form.ShowDialog();
-            }
-            else
-            {
-                ConfirmLogUitForm form = new ConfirmLogUitForm();
-                form.StartPosition = FormStartPosition.CenterParent;
-                DialogResult result = form.ShowDialog();
-                if (result == DialogResult.Yes)
-                {
-                    IngelogdeMedewerker = null;
-                    SetIngelogdeMedewerker(IngelogdeMedewerker);
-                }
-                else if (result == DialogResult.OK)
-                {
-
-                }
-            }
-        }
-        public void SetIngelogdeMedewerker(Medewerker medewerker)
+        public void ShowTafelBestellingOverzicht(int nummer)
         {
-            if (medewerker == null)
-            {
-                IngelogdeMedewerkerToolStripLabel.Text = "Ingelogd als: Niet ingelogd";
-            }
-            else
-            {
-                IngelogdeMedewerker = medewerker;
-                IngelogdeMedewerkerToolStripLabel.Text = "Ingelogd als: " + IngelogdeMedewerker.Naam;
-            }
+            BedieningBestellingOverzichtForm tafel = new BedieningBestellingOverzichtForm(parent, nummer);
+            tafel.TopLevel = false;
+            parent.Controls["ContentPanel"].Controls.Clear();
+            parent.Controls["ContentPanel"].Controls.Add(tafel);
+            tafel.Show();
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_BarVoorraad_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Login_Click(object sender, EventArgs e)
-        {
-
-        }
 
     }
 }

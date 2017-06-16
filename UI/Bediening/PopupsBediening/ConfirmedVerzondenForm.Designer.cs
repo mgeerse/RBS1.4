@@ -1,6 +1,6 @@
 ﻿namespace UI
 {
-    partial class ConfirmCashBetaaldForm
+    partial class ConfirmedVerzondenForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,37 +29,49 @@
         private void InitializeComponent()
         {
             this.OKButton = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.LabelVerzonden = new System.Windows.Forms.Label();
+            this.LabelOk = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // OKButton
             // 
-            this.OKButton.Location = new System.Drawing.Point(70, 117);
+            this.OKButton.Location = new System.Drawing.Point(77, 71);
             this.OKButton.Name = "OKButton";
-            this.OKButton.Size = new System.Drawing.Size(188, 80);
+            this.OKButton.Size = new System.Drawing.Size(97, 40);
             this.OKButton.TabIndex = 0;
             this.OKButton.Text = "OK";
             this.OKButton.UseVisualStyleBackColor = true;
             this.OKButton.Click += new System.EventHandler(this.OKButton_Click);
             // 
-            // label1
+            // LabelVerzonden
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(43, 49);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(252, 17);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Klik op \'OK\' om bestelling af te ronden.";
+            this.LabelVerzonden.AutoSize = true;
+            this.LabelVerzonden.Location = new System.Drawing.Point(37, 9);
+            this.LabelVerzonden.Name = "LabelVerzonden";
+            this.LabelVerzonden.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.LabelVerzonden.Size = new System.Drawing.Size(179, 17);
+            this.LabelVerzonden.TabIndex = 1;
+            this.LabelVerzonden.Text = "De bestelling is verzonden.";
             // 
-            // ConfirmCashBetaaldForm
+            // LabelOk
+            // 
+            this.LabelOk.AutoSize = true;
+            this.LabelOk.Location = new System.Drawing.Point(12, 36);
+            this.LabelOk.Name = "LabelOk";
+            this.LabelOk.Size = new System.Drawing.Size(245, 17);
+            this.LabelOk.TabIndex = 2;
+            this.LabelOk.Text = "Klik op \'OK\' en ga naar tafeloverzicht.";
+            // 
+            // ConfirmedVerzondenForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(332, 233);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(255, 123);
+            this.Controls.Add(this.LabelOk);
+            this.Controls.Add(this.LabelVerzonden);
             this.Controls.Add(this.OKButton);
-            this.Name = "ConfirmCashBetaaldForm";
-            this.Text = "ConfirmCashBetaaldForm";
+            this.Name = "ConfirmedVerzondenForm";
+            this.Text = "ConfirmedVerzondenForm";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -68,6 +80,7 @@
         #endregion
 
         private System.Windows.Forms.Button OKButton;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label LabelVerzonden;
+        private System.Windows.Forms.Label LabelOk;
     }
 }
