@@ -10,8 +10,8 @@ namespace DAL
 {
     public class BestellingDAO
     {
+        //private SqlConnection conn = DbConnection.GetSqlConnection();
         private SqlConnection conn = DbConnection.GetSqlConnection();
-
         private MedewerkerDAO MedewerkerDAO = new MedewerkerDAO();
         private TafelDAO TafelDAO = new TafelDAO();
         private RekeningDAO RekeningDAO = new RekeningDAO();
@@ -26,6 +26,7 @@ namespace DAL
 
         public Bestelling GetForId(int Id)
         {
+            conn = DbConnection.GetSqlConnection();
             conn.Open();
 
             string query = "SELECT BestellingId, Opmerking, Medewerker, Tafel, Rekening" +
@@ -72,7 +73,7 @@ namespace DAL
 
             SqlCommand cmd = new SqlCommand(sb.ToString(), conn);
             SqlDataReader reader = cmd.ExecuteReader();
-
+            Bestelling Bestelling = null;
             while (reader.Read())
             {
                 BarBestelling.ItemNaam = reader.GetString(0);
@@ -132,45 +133,17 @@ namespace DAL
             return BarBestelList;
         }
 
-        public List<BarBestelling> GetAllOldBarBestellingen()
-        {
-            List<BarBestelling> BarBestelList = new List<BarBestelling>();
-
-            conn = DbConnection.GetSqlConnection();
-            BarBestelling BarBestelling = new BarBestelling();
-
-            StringBuilder sb = new StringBuilder();
-            sb.Append("SELECT M.Naam, B.Aantal, B.Opmerking, B.TijdIngevoerd, D.Naam, C.BestellingId, T.TafelId, B.Menuitem ");
-            sb.Append("FROM MenuItem as M ");
-            sb.Append("JOIN BestelItem as B ON M.MenuItemId = B.MenuItem ");
-            sb.Append("JOIN Bestelling as C ON B.Bestelling = C.BestellingId ");
-            sb.Append("JOIN Medewerker as D ON C.Medewerker = D.MedewerkerId ");
-            sb.Append("JOIN Tafel as T ON C.Tafel = T.TafelId ");
-            sb.Append("WHERE (M.Categorie BETWEEN 8 AND 12) AND B.Status = 3 ");
-
-            conn.Open();
-
-            SqlCommand cmd = new SqlCommand(sb.ToString(), conn);
-            SqlDataReader reader = cmd.ExecuteReader();
-
-            while (reader.Read())
-            {
-                BarBestelling.ItemNaam = reader.GetString(0);
-                BarBestelling.Aantal = reader.GetInt32(1);
-                BarBestelling.Opmerking = reader.GetString(2);
-                BarBestelling.Invoertijd = reader.GetDateTime(3);
-                BarBestelling.MedewerkerNaam = reader.GetString(4);
-                BarBestelling.BestelId = reader.GetInt32(5);
-                BarBestelling.TafelNummer = reader.GetInt32(6);
-                BarBestelling.Menuitem = reader.GetInt32(7);
-
-                BarBestelList.Add(BarBestelling);
+                Medewerker Medewerker = MedewerkerDAO.GetForId(reader.GetInt32(1));
+                Tafel Tafel = TafelDAO.GetForId(reader.GetInt32(2));
+                Rekening Rekening = RekeningDAO.GetForId(reader.GetInt32(3));
+                Bestelling = new Bestelling(Id, opmerking, Medewerker, Tafel, Rekening);
             }
 
             conn.Close();
             conn.Dispose();
             cmd.Dispose();
-            return BarBestelList;
+
+            return Bestelling;
         }
 
         public bool Create(Bestelling Object)
@@ -213,39 +186,6 @@ namespace DAL
                 return false;
             }
         }
-
-        public bool orderGereed(BarBestelling Object)
-        {
-            conn = DbConnection.GetSqlConnection();
-
-            StringBuilder sb = new StringBuilder();
-            sb.Append("UPDATE [dbo].[BestelItem] ");
-            sb.Append("SET [Status] = @Status ");
-            sb.Append("WHERE [Bestelling] = @BestellingId AND [Menuitem] = @MenuId");
-
-            SqlCommand cmd = new SqlCommand(sb.ToString(), conn);
-
-            cmd.Parameters.Add("@BestelId", System.Data.SqlDbType.Int).Value = Object.BestelId;
-            cmd.Parameters.Add("@MenuId", System.Data.SqlDbType.Int).Value = Object.Menuitem;
-            cmd.Parameters.Add("@Status", System.Data.SqlDbType.Int).Value = 2;
-            try
-            {
-                cmd.Prepare();
-                conn.Open();
-
-                cmd.ExecuteScalar();
-
-                conn.Close();
-                conn.Dispose();
-                cmd.Dispose();
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-        }
-
 
         public bool Delete(Bestelling Object)
         {

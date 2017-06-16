@@ -35,7 +35,12 @@ namespace UI
 
         private void BedieningButton_Click(object sender, EventArgs e)
         {
-            new BedieningForm().Show();
+            new TafelOverzicht().Show();
+        }
+
+        private void BarButton_Click(object sender, EventArgs e)
+        {
+            new Barman(new Medewerker(6, "Maarten", MedewerkerType.Bar, "0100".ToCharArray())).Show();
         }
 
         private void BarButton_Click(object sender, EventArgs e)

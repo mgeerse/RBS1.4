@@ -10,5 +10,16 @@
             Id = id;
             IsBezet = isBezet;
         }
+
+        public Tafel()
+        {
+
+        }
+
+        public Tafel(bool isBezet)
+        {
+            this.IsBezet = IsBezet;
+            
+        }
     }
 }

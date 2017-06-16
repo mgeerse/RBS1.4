@@ -64,6 +64,7 @@
     <Compile Include="Algemene Popups\ErrAlUitgelogdForm.designer.cs">
       <DependentUpon>ErrAlUitgelogdForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Barman\ToolStripOnder.cs" />
     <Compile Include="Bediening\AfrekenenForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,10 +125,10 @@
     <Compile Include="Bediening\PopupsBediening\ConfirmCashBetaaldForm.Designer.cs">
       <DependentUpon>ConfirmCashBetaaldForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Barman.cs">
+    <Compile Include="Barman\Barman.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Barman.Designer.cs">
+    <Compile Include="Barman\Barman.Designer.cs">
       <DependentUpon>Barman.cs</DependentUpon>
     </Compile>
     <Compile Include="App.cs" />
@@ -145,6 +146,10 @@
     </Compile>
     <Compile Include="OrderPanel.cs" />
     <Compile Include="Bediening\TipForm.cs">
+      <SubType>Form</SubType>
+	</Compile>
+    <Compile Include="Barman\BarmanOrderScherm.cs" />
+    <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Bediening\TipForm.Designer.cs">
@@ -205,8 +210,7 @@
     <EmbeddedResource Include="Bediening\PopupsBediening\ConfirmCashBetaaldForm.resx">
       <DependentUpon>ConfirmCashBetaaldForm.cs</DependentUpon>
     </EmbeddedResource>
-    <Compile Include="ToolStripOnder.cs" />
-    <EmbeddedResource Include="Barman.resx">
+    <EmbeddedResource Include="Barman\Barman.resx">
       <DependentUpon>Barman.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Bediening\PopupsBediening\ConfirmedVerzondenForm.resx">
@@ -231,6 +235,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Bediening\BedieningTafelOverzichtForm.resx">
+      <DependentUpon>BedieningTafelOverzichtForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -257,6 +264,12 @@
   <ItemGroup>
     <None Include="Resources\3d6cfa225d1.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Administratie\HelperForms\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\chapoo_logo.png" />
+    <Content Include="Resources\chrome_2017-06-06_13-52-20.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

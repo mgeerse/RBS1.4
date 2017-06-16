@@ -5,14 +5,44 @@ using System.Text;
 using System.Threading.Tasks;
 using DAL;
 using Model;
-
 namespace Logic
 {
     public class TafelLogic
     {
-        private TafelDAO TafelDAO = new TafelDAO();
+        TafelDAO tafel = new TafelDAO();
 
-        public Tafel GetTafel(int Tafelnummer)
+        public bool GetTafel(int nummer)
+        {
+            TafelDAO tafel = new TafelDAO();
+
+            try
+            {
+                tafel.Update(nummer);
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public bool TafelAfgerekend(int nummer)
+        {
+            TafelDAO tafel = new TafelDAO();
+            int Nummer = 20;
+            try
+            {
+                tafel.Update(Nummer);
+            }
+            catch (Exception e)
+            {
+                return true;
+            }
+            return false;
+        }
+        
+        // Blijf van mijn methodes af Bram. 
+        public Tafel GetTafelObject(int Tafelnummer)
         {
             return TafelDAO.GetForId(Tafelnummer);
         }

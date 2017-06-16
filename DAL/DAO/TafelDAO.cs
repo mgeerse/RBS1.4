@@ -36,7 +36,9 @@ namespace DAL
 
         public Tafel GetForId(int Id)
         {
+            conn = DbConnection.GetSqlConnection();
             conn.Open();
+
             string query = "SELECT TafelId, IsBezet" +
                 " FROM Tafel";
 
@@ -61,20 +63,62 @@ namespace DAL
             return false;
         }
 
-        public bool Update(Tafel Object)
+        public bool Update(int nummer)
         {
             conn.Open();
+            StringBuilder sb = new StringBuilder();
+            sb.Append("UPDATE dbo.Tafel ");
+            sb.Append("SET IsBezet = @IsBezet");
+            sb.Append("WHERE TafelId = @TafelId");
 
-            conn.Close();
-            return false;
+            SqlCommand cmd = new SqlCommand(sb.ToString(), conn);
+
+            cmd.Parameters.Add("@BIsBezet", System.Data.SqlDbType.Bit).Value = 1;
+            
+            try
+            {
+                cmd.Prepare();
+                conn.Open();
+                cmd.ExecuteNonQuery();
+
+                conn.Close();
+                conn.Dispose();
+                cmd.Dispose();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         public bool Delete(Tafel Object)
         {
             conn.Open();
+            StringBuilder sb = new StringBuilder();
+            sb.Append("DELETE");
+            sb.Append("FROM dbo.Tafel");
+            sb.Append("WHERE TafelId = @TafelId");
 
-            conn.Close();
-            return false;
+            SqlCommand cmd = new SqlCommand(sb.ToString(), conn);
+
+            cmd.Parameters.Add("@BIsBezet", System.Data.SqlDbType.Bit).Value = 1;
+
+            try
+            {
+                cmd.Prepare();
+                conn.Open();
+                cmd.ExecuteNonQuery();
+
+                conn.Close();
+                conn.Dispose();
+                cmd.Dispose();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
     }
