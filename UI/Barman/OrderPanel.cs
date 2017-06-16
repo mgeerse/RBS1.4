@@ -71,7 +71,6 @@ namespace UI
 
             string TabTafelNummer = "";
             string TabBestellingId = "";
-            string BestelOpmerking = "Opmerkingen: \n\n";
             string Medewerker = "";
             DateTime TijdIngevoerd = new DateTime();
             #endregion
@@ -88,14 +87,14 @@ namespace UI
             {
                 foreach (var BestelList in AllNewOrders)
                 {
+                    
+
                     if (BestelList.Bestelling.Id != EersteBestelId)
                     {
                         break;
                     }
                     else if (BestelList.Bestelling.Id == EersteBestelId)
                     {
-
-
                         //De gebruikte indexes mag gelijk op 1 komen te staan (we zijn 1 keer door de List heen gelopen):
                         GebruikteIndexes++;
                         #region De labels de correcte text weergeven & de bestelId vastzetten & TreeView node toevoegen en één maal de tabpage text zetten: 
@@ -111,18 +110,26 @@ namespace UI
                         Medewerker = BestelList.Bestelling.Medewerker.Naam;
                         TijdIngevoerd = BestelList.Tijdingevoerd;
 
-                        TabPage.Text = "Tafel#" + TabTafelNummer + " | Besteld om " + TijdIngevoerd.ToString("HH:mm");
+                        TabPage.Text = "Eerstvolgende bestelling: Tafel#" + TabTafelNummer + " | Besteld om " + TijdIngevoerd.ToString("HH:mm");
 
                         #endregion
 
                         #region Items toevoegen aan de treeview, en de opmerkingen hiervan meenemen:
-                        string TreeViewText = BestelList.Menuitem.Naam + "| " + BestelList.Aantal;
-                        TreeView.Nodes[0].Nodes.Add(TreeViewText);
-
-                        if (BestelList.Opmerking != "")
+                        if (BestelList.Aantal > 1)
                         {
-                            BestelOpmerking += " -" + BestelList.Menuitem.Naam + ": " + BestelList.Opmerking + "\n\n";
+                            TreeView.Nodes[0].Nodes.Add(BestelList.Menuitem.Naam + "| " + BestelList.Aantal + " stuks");
                         }
+                        else
+                        {
+                            TreeView.Nodes[0].Nodes.Add(BestelList.Menuitem.Naam + "| " + BestelList.Aantal + " stuk");
+                        }
+
+                        if (BestelList.Bestelling.Opmerking != "")
+                        {
+                            RichTextBox.Text = "Opmerkingen: ";
+                            RichTextBox.Text += "\n- " + BestelList.Menuitem.Naam + ": " + BestelList.Bestelling.Opmerking + "\n";
+                        }
+
                         #endregion
 
                         BestelItems = new List<Bestelitem>();
@@ -140,12 +147,21 @@ namespace UI
 
                         #region Items toevoegen aan de treeview, en de opmerkingen hiervan meenemen:
                         string TreeViewText = BestelList.Menuitem.Naam + "| " + BestelList.Aantal;
-                        TreeView.Nodes[0].Nodes.Add(TreeViewText);
 
-                        if (BestelList.Opmerking != "")
+                        if (BestelList.Aantal > 1)
                         {
-                            BestelOpmerking += " -" + BestelList.Menuitem.Naam + ": " + BestelList.Opmerking + "\n\n";
+                            TreeView.Nodes[0].Nodes.Add(BestelList.Menuitem.Naam + "| " + BestelList.Aantal + " stuks");
                         }
+                        else
+                        {
+                            TreeView.Nodes[0].Nodes.Add(BestelList.Menuitem.Naam + "| " + BestelList.Aantal + " stuk");
+                        }
+
+                        if (BestelList.Bestelling.Opmerking != "")
+                        {
+                            RichTextBox.Text += "\n- " + BestelList.Menuitem.Naam + ": " + BestelList.Bestelling.Opmerking + "\n";
+                        }
+
                         #endregion
                     }
 
@@ -188,7 +204,6 @@ namespace UI
                     RichTextBox.BorderStyle = BorderStyle.None;
                     RichTextBox.Location = new System.Drawing.Point(316, 144);
                     RichTextBox.Size = new System.Drawing.Size(226, 250);
-                    RichTextBox.Text = BestelOpmerking;
                     //Button properties
                     Button.Name = "ButtonLinks";
                     Button.Text = "Bestelling\nGereed Melden";
@@ -330,6 +345,7 @@ namespace UI
                         #region De labels de correcte text weergeven & de bestelId vastzetten & TreeView node toevoegen en één maal de tabpage text zetten: 
                         //We moeten de Node gelijk toevoegen, anders mag er niet een child node worden toegevoegd
                         TreeView.Nodes.Add("Drankjes:");
+
                         TabTafelNummer = BestelItemList.Bestelling.Tafel.Id.ToString();
                         TabBestellingId = BestelItemList.Bestelling.Id.ToString();
                         Medewerker = BestelItemList.Bestelling.Medewerker.Naam;
@@ -342,35 +358,54 @@ namespace UI
                         //BestelItemNaam toevoegen aan de TreeView
                         #region Items toevoegen aan de treeview, en de opmerkingen hiervan meenemen:
 
-                        string TreeViewText = BestelItemList.Menuitem.Naam + "|" + BestelItemList.Aantal;
-                        TreeView.Nodes[0].Nodes.Add(TreeViewText);
-
-                        if (BestelItemList.Opmerking != null)
+                        if (BestelItemList.Aantal > 1)
                         {
-                            BestelOpmerking += " -" + BestelItemList.Menuitem.Naam + ": " + BestelItemList.Opmerking + "\n\n";
+                            TreeView.Nodes[0].Nodes.Add(BestelItemList.Menuitem.Naam + "| " + BestelItemList.Aantal + " stuks");
                         }
+                        else
+                        {
+                            TreeView.Nodes[0].Nodes.Add(BestelItemList.Menuitem.Naam + "| " + BestelItemList.Aantal + " stuk");
+                        }
+
+                        if (BestelItemList.Bestelling.Opmerking != "")
+                        {
+                            RichTextBox.Text = "Opmerkingen: ";
+                            RichTextBox.Text += "\n- " + BestelItemList.Menuitem.Naam + ": " + BestelItemList.Bestelling.Opmerking + "\n";
+                        }
+                        else
+                        {
+                            RichTextBox.Text = "Er zijn is geen opmerkingen voor deze bestelling.";
+                        }
+                         
                         #endregion
 
+                    }
+                    else if (BestelItemList.Bestelling.Id == LaatsGebruikteId)
+                    {
+                        #region Items toevoegen aan de treeview, en de opmerkingen hiervan meenemen:
 
-                        else if (BestelItemList.Bestelling.Id != LaatsGebruikteId)
+                        if (BestelItemList.Aantal > 1)
                         {
-                            #region Items toevoegen aan de treeview, en de opmerkingen hiervan meenemen:
-                            TreeViewText = BestelItemList.Menuitem.Naam + "| " + BestelItemList.Aantal;
-                            TreeView.Nodes[0].Nodes.Add(TreeViewText);
+                            TreeView.Nodes[0].Nodes.Add(BestelItemList.Menuitem.Naam + "| " + BestelItemList.Aantal + " stuks");
+                        }
+                        else
+                        {
+                            TreeView.Nodes[0].Nodes.Add(BestelItemList.Menuitem.Naam + "| " + BestelItemList.Aantal + " stuk");
+                        }
+                        
 
-                            if (BestelItemList.Opmerking != "")
-                            {
-                                BestelOpmerking += " -" + BestelItemList.Menuitem.Naam + ": " + BestelItemList.Opmerking + "\n\n";
-                            }
-
-                            TabControl.Controls.Add(TabPage);
-                            #endregion
+                        if (BestelItemList.Bestelling.Opmerking != "")
+                        {
+                            RichTextBox.Text = "Opmerkingen: ";
+                            RichTextBox.Text += "\n- " + BestelItemList.Menuitem.Naam + ": " + BestelItemList.Bestelling.Opmerking + "\n";
+                        }
+                        else
+                        {
+                            RichTextBox.Text = "Er zijn geen opmerkingen voor deze bestelling.";
                         }
 
-                        if (RichTextBox.Text == "Opmerkingen:")
-                        {
-
-                        }
+                        TabControl.Controls.Add(TabPage);
+                        #endregion
                     }
                     #region Properties voor de controls:
 
@@ -411,7 +446,6 @@ namespace UI
                     RichTextBox.BorderStyle = BorderStyle.None;
                     RichTextBox.Location = new System.Drawing.Point(316, 144);
                     RichTextBox.Size = new System.Drawing.Size(226, 250);
-                    RichTextBox.Text = BestelOpmerking;
 
                     //Button properties
                     Button.Name = "ButtonLinks";
@@ -567,12 +601,17 @@ namespace UI
                         //BestelItemNaam toevoegen aan de TreeView
                         #region Items toevoegen aan de treeview, en de opmerkingen hiervan meenemen:
 
-                        string TreeViewText = BestelList.Menuitem.Naam + "|" + BestelList.Aantal;
+                        string TreeViewText = BestelList.Menuitem.Naam + "|" + BestelList.Aantal + " stuks";
                         TreeView.Nodes[0].Nodes.Add(TreeViewText);
 
-                        if (BestelList.Opmerking != null)
+                        if (BestelList.Bestelling.Opmerking != "")
                         {
-                            BestelOpmerking += " -" + BestelList.Menuitem.Naam + ": " + BestelList.Opmerking + "\n\n";
+                            RichTextBox.Text = "Opmerkingen: ";
+                            RichTextBox.Text += "\n- " + BestelList.Menuitem.Naam + ": " + BestelList.Opmerking + "\n\n";
+                        }
+                        else
+                        {
+                            RichTextBox.Text = "Er waren geen opmerkingen voor deze bestelling.";
                         }
                         #endregion
 
@@ -597,12 +636,12 @@ namespace UI
                         GebruikteIndexes++;
 
                         #region Items toevoegen aan de treeview, en de opmerkingen hiervan meenemen:
-                        string TreeViewText = BestelList.Menuitem.Naam + "| " + BestelList.Aantal;
+                        string TreeViewText = BestelList.Menuitem.Naam + "| " + BestelList.Aantal + " stuks";
                         TreeView.Nodes[0].Nodes.Add(TreeViewText);
 
-                        if (BestelList.Opmerking != null)
+                        if (BestelList.Bestelling.Opmerking != "")
                         {
-                            BestelOpmerking += " -" + BestelList.Menuitem.Naam + ": " + BestelList.Opmerking + "\n\n";
+                            BestelOpmerking += "\n- " + BestelList.Menuitem.Naam + ": " + BestelList.Opmerking + "\n\n";
                         }
                         #endregion
                     }
@@ -645,7 +684,6 @@ namespace UI
                     RichTextBox.BorderStyle = BorderStyle.None;
                     RichTextBox.Location = new System.Drawing.Point(316, 6);
                     RichTextBox.Size = new System.Drawing.Size(226, 400);
-                    RichTextBox.Text = BestelOpmerking;
 
                     //Label1 Properties BestelTijd (BestelTijd)
                     Label1.Text = "Geplaatst op: " + TijdIngevoerd.Year + "-" + TijdIngevoerd.Month + "-" + TijdIngevoerd.Day + " om " + TijdIngevoerd.TimeOfDay;
@@ -717,8 +755,21 @@ namespace UI
         private void Button_Click(object sender, EventArgs e, List<Bestelitem> BestelItems)
         {
             DialogResult DialogResult = MessageBox.Show("Weet u zeker dat de bestelling gereed is?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            Bestelling.BestellingGereed(BestelItems);
+            if (DialogResult == DialogResult.Yes)
+            {
+                try
+                {
+                    Bestelling.BestellingGereed(BestelItems);
+                }
+                catch(Exception x)
+                {
+                    MessageBox.Show("Er is iets misgegaan met het gereed maken van de bestelling! Excuses.", x.ToString());
+                }
+            }
+            else
+            {
+                MessageBox.Show("De bestelling is niet gereed gemeld!");
+            }
         }
     }
 }

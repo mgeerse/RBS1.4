@@ -136,13 +136,14 @@ namespace DAL
             SqlCommand cmd = new SqlCommand(sb.ToString(), conn);
 
             cmd.Parameters.Add("@BestellingId", System.Data.SqlDbType.Int).Value = Object.Bestelling.Id;
-            cmd.Parameters.Add("@MenuId", System.Data.SqlDbType.Int).Value = Object.Menuitem;
+            cmd.Parameters.Add("@MenuId", System.Data.SqlDbType.Int).Value = Object.Menuitem.Id;
             cmd.Parameters.Add("@Status", System.Data.SqlDbType.Int).Value = Status.Klaar;
 
             try
             {
                 conn.Open();
                 cmd.Prepare();
+
                 cmd.ExecuteScalar();
 
                 conn.Close();
