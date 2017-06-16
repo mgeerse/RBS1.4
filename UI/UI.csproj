@@ -165,14 +165,14 @@
     <Compile Include="TotaalRekeningUserControl.Designer.cs">
       <DependentUpon>TotaalRekeningUserControl.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Administratie.resx">
-      <DependentUpon>Administratie.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Algemene Popups\ConfirmLogUitForm.resx">
       <DependentUpon>ConfirmLogUitForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Algemene Popups\ErrAlUitgelogdForm.resx">
       <DependentUpon>ErrAlUitgelogdForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Barman\Barman.resx">
+      <DependentUpon>Barman.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Bediening\AfrekenenForm.resx">
       <DependentUpon>AfrekenenForm.cs</DependentUpon>
@@ -213,10 +213,6 @@
     <Compile Include="RekeningUserControl.Designer.cs">
       <DependentUpon>RekeningUserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="ToolStripOnder.cs" />
-    <EmbeddedResource Include="Barman.resx">
-      <DependentUpon>Barman.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Bediening\PopupsBediening\ConfirmedVerzondenForm.resx">
       <DependentUpon>ConfirmedVerzondenForm.cs</DependentUpon>
     </EmbeddedResource>
