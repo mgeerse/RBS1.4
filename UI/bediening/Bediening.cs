@@ -21,5 +21,10 @@ namespace UI
         {
             this.Close();
         }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+            MenuItem item = new MenuItem();
+        }
     }
 }

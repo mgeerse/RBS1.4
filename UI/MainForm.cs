@@ -34,7 +34,7 @@ namespace UI
 
         private void BedieningButton_Click(object sender, EventArgs e)
         {
-            new BedieningForm().Show();
+            new TafelOverzicht().Show();
         }
 
         private void BarButton_Click(object sender, EventArgs e)
