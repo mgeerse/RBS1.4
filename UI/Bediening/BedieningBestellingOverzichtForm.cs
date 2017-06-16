@@ -28,7 +28,7 @@ namespace UI
 
         private void BedieningBestellingOverzichtForm_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void InitBestellingOverzicht()
@@ -73,6 +73,11 @@ namespace UI
                 form1.FormBorderStyle = FormBorderStyle.None;
                 form1.Show();
             }
+        }
+
+        private void buttonBestellingToevoegen_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

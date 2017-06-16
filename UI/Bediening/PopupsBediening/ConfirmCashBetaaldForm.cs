@@ -19,7 +19,13 @@ namespace UI
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            int nummer = 20;
+            Logic.TafelLogic Tafel = new Logic.TafelLogic();
+            Tafel.TafelAfgerekend(nummer);
+            TafelOverzicht tafel = new TafelOverzicht();
+            tafel.Show();
+            this.Close();
+            
         }
     }
 }
