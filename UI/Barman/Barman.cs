@@ -46,6 +46,8 @@ namespace UI
             //Deze gaat om de 10000 miliseconden (10 seconden)
 
             Panel.Controls.Clear();
+
+
             OP.MaakControls(Panel);
         }
     }

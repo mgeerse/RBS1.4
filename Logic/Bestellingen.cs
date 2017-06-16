@@ -45,5 +45,12 @@ namespace Logic
             }
             return nietGeredeBestelItems;
         }
+
+        public List<Bestelitem> GetForStatus(int Status)
+        {
+
+
+            return new List<Bestelitem>();
+        }
     }
 }

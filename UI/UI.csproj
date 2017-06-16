@@ -161,7 +161,6 @@
     <Compile Include="Barman\Barman.Designer.cs">
       <DependentUpon>Barman.cs</DependentUpon>
     </Compile>
-    <Compile Include="Barman\BestelGeschiedenis.cs" />
     <Compile Include="Barman\OrderPanel.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>

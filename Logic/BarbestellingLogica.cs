@@ -9,8 +9,7 @@ namespace Logic
 {
     public class BarBestellingLogica
     {
-        BarBestelling BarBestelling;
-        DAL.BestellingDAO BestellingDAO;
+        DAL.BestelitemDAO BestelitemDAO;
         public BarBestellingLogica() { }
 
         // Maak een methode die een bestelling opvraagd, en hierna de bestelitems die daar in zitten.
@@ -37,104 +36,27 @@ namespace Logic
         // Methode: BestelIdItemFrequenite
 
 
-        public List<BarBestelling> GetAllOldOrders()
+        public List<Bestelitem> GetOrdersForStatus(int Status)
         {
-            BestellingDAO = new DAL.BestellingDAO();
-            List<BarBestelling> BarBestelling = new List<BarBestelling>();
-            BarBestelling = BestellingDAO.GetAllOldBarBestellingen();
+            BestelitemDAO = new DAL.BestelitemDAO();
+            List<Bestelitem> BestelItems = new List<Bestelitem>();
+            BestelItems = BestelitemDAO.GetBarBestellingenForStatus(Status);
 
-            return BarBestelling;
+            return BestelItems;
         }
 
-        public List<BarBestelling> GetAllNewOrders()
-        {
-            BestellingDAO = new DAL.BestellingDAO();
-            List<BarBestelling> BarBestelling = new List<BarBestelling>();
-            BarBestelling = BestellingDAO.GetAllNewBarBestelling();
-
-            return BarBestelling;
-        }
-
-        //public List<List<BarBestelling>> SorteerBarItemsAanBestelling(List<BarBestelling> Object)
-        //{
-        //    #region Poging 1
-        //    //List<int> Frequentie = BestelIdItemFrequentie(Object);
-        //    //List<List<BarBestelling>> TotaalBestellingen = new List<List<BarBestelling>>();
-
-        //    ////Items omzetten naar een list, wat wordt gereturned. Wat ik return is een lijst met daarin lijsten van één bestelling. 
-        //    ////De laatste staat gelijk aan één bestelling.
-
-        //    //BarBestelling = new BarBestelling();
-
-        //    //if (Frequentie == null)
-        //    //{
-        //    //    //throw new NotImplementedException();
-        //    //}
-
-        //    //for (int i = 0; i < Object.Count; i++)
-        //    //{
-        //    //    List<BarBestelling> Bestellingen = new List<BarBestelling>();
-
-        //    //    foreach (int index in Frequentie)
-        //    //    {
-        //    //        //Pak het aantal items in een bestelling via de index.
-
-        //    //        for (int j = 0; j < index; j++)
-        //    //        {
-        //    //            //Nu we de index hebben kunnen we zeggen hoeveel items er in een bestelling zitten.
-        //    //            BarBestelling.BestelId = Object[i].BestelId;
-        //    //            BarBestelling.Aantal = Object[i].Aantal;
-        //    //            BarBestelling.Invoertijd = Object[i].Invoertijd;
-        //    //            BarBestelling.ItemNaam = Object[i].ItemNaam;
-        //    //            BarBestelling.MedewerkerNaam = Object[i].MedewerkerNaam;
-        //    //            BarBestelling.Opmerking = Object[i].Opmerking;
-        //    //            BarBestelling.TafelNummer = Object[i].TafelNummer;
-        //    //            BarBestelling.Menuitem = Object[i].Menuitem;
-
-        //    //            Bestellingen.Add(BarBestelling);
-        //    //        }
-        //    //    }
-        //    //    TotaalBestellingen.Add(Bestellingen);
-        //    //}
-        //    #endregion
-
-        //    List<List<BarBestelling>> BarBestelling = new List<List<Model.BarBestelling>>();
-        //    List<BarBestelling> BarObject = new List<BarBestelling>();
-
-        //    int CheckId = 0;
-        //    foreach (var item in Object)
-        //    {
-        //        if (CheckId != item.BestelId)
-        //        {
-        //            BarObject = new List<BarBestelling>();
-
-        //            CheckId = item.BestelId;
-        //            BarObject.Add(item);
-        //        }
-        //        else if (CheckId == item.BestelId)
-        //        {
-        //            BarObject.Add(item);
-        //        }
-        //        BarBestelling.Add(BarObject);
-        //    }
-        //    return BarBestelling;
-        //}
-
-        //public int[] BestelIdItemFrequentie(List<BarBestelling> Object)
-        //{
-        //    return new int[10];
-        //}
-
-
-        public bool BestellingGereed(BarBestelling Object)
+        public bool BestellingGereed(List<Bestelitem> Object)
         {
             //DAO update/gereed.
             //Huidige status wordt meegegeven voor extra zekerheid binnen het systeem. 
-            BestellingDAO = new DAL.BestellingDAO();
+            BestelitemDAO = new DAL.BestelitemDAO();
 
             try
             {
-                BestellingDAO.orderGereed(Object);
+                foreach (var item in Object)
+                {
+                    BestelitemDAO.orderGereed(item);
+                }
             }
             catch (Exception)
             {
