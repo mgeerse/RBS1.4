@@ -36,63 +36,159 @@ namespace UI
             int nummer = 1;
             BedieningBestellingOverzichtForm tafel = new BedieningBestellingOverzichtForm(parent);
             tafel.Show();
-            tafelLogica kleur = new tafelLogica();
-            kleur.GetTafel(nummer);
-            
+            TafelLogic kleur = new TafelLogic();
+            if (kleur.GetTafel(nummer))
+            {
+                Btn_Tafel1.BackColor = Color.Red;
+            }
+            else
+            {
+                Btn_Tafel1.BackColor = Color.Lime;
+            }
         }
 
         private void btn_Tafel2_Click(object sender, EventArgs e)
         {
+            int nummer = 2;
             BedieningBestellingOverzichtForm tafel = new BedieningBestellingOverzichtForm(parent);
             tafel.Show();
+            TafelLogic kleur = new TafelLogic();
+            if (kleur.GetTafel(nummer))
+            {
+                Btn_Tafel1.BackColor = Color.Red;
+            }
+            else
+            {
+                Btn_Tafel1.BackColor = Color.Lime;
+            }
         }
 
         private void btn_Tafel3_Click(object sender, EventArgs e)
         {
+            int nummer = 3;
             BedieningBestellingOverzichtForm tafel = new BedieningBestellingOverzichtForm(parent);
             tafel.Show();
+            TafelLogic kleur = new TafelLogic();
+            if (kleur.GetTafel(nummer))
+            {
+                Btn_Tafel1.BackColor = Color.Red;
+            }
+            else
+            {
+                Btn_Tafel1.BackColor = Color.Lime;
+            }
         }
 
         private void btn_Tafel4_Click(object sender, EventArgs e)
         {
+            int nummer = 4;
             BedieningBestellingOverzichtForm tafel = new BedieningBestellingOverzichtForm(parent);
             tafel.Show();
+            TafelLogic kleur = new TafelLogic();
+            if (kleur.GetTafel(nummer))
+            {
+                Btn_Tafel1.BackColor = Color.Red;
+            }
+            else
+            {
+                Btn_Tafel1.BackColor = Color.Lime;
+            }
         }
 
         private void btn_Tafel5_Click(object sender, EventArgs e)
         {
+            int nummer = 5;
             BedieningBestellingOverzichtForm tafel = new BedieningBestellingOverzichtForm(parent);
             tafel.Show();
+            TafelLogic kleur = new TafelLogic();
+            if (kleur.GetTafel(nummer))
+            {
+                Btn_Tafel1.BackColor = Color.Red;
+            }
+            else
+            {
+                Btn_Tafel1.BackColor = Color.Lime;
+            }
         }
 
         private void btn_Tafel6_Click(object sender, EventArgs e)
         {
+            int nummer = 6;
             BedieningBestellingOverzichtForm tafel = new BedieningBestellingOverzichtForm(parent);
             tafel.Show();
+            TafelLogic kleur = new TafelLogic();
+            if (kleur.GetTafel(nummer))
+            {
+                Btn_Tafel1.BackColor = Color.Red;
+            }
+            else
+            {
+                Btn_Tafel1.BackColor = Color.Lime;
+            }
         }
 
         private void btn_Tafel7_Click(object sender, EventArgs e)
         {
+            int nummer = 7;
             BedieningBestellingOverzichtForm tafel = new BedieningBestellingOverzichtForm(parent);
             tafel.Show();
+            TafelLogic kleur = new TafelLogic();
+            if (kleur.GetTafel(nummer))
+            {
+                Btn_Tafel1.BackColor = Color.Red;
+            }
+            else
+            {
+                Btn_Tafel1.BackColor = Color.Lime;
+            }
         }
 
         private void btn_Tafel8_Click(object sender, EventArgs e)
         {
+            int nummer = 8;
             BedieningBestellingOverzichtForm tafel = new BedieningBestellingOverzichtForm(parent);
             tafel.Show();
+            TafelLogic kleur = new TafelLogic();
+            if (kleur.GetTafel(nummer))
+            {
+                Btn_Tafel1.BackColor = Color.Red;
+            }
+            else
+            {
+                Btn_Tafel1.BackColor = Color.Lime;
+            }
         }
 
         private void btn_Tafel9_Click(object sender, EventArgs e)
         {
+            int nummer = 9;
             BedieningBestellingOverzichtForm tafel = new BedieningBestellingOverzichtForm(parent);
             tafel.Show();
+            TafelLogic kleur = new TafelLogic();
+            if (kleur.GetTafel(nummer))
+            {
+                Btn_Tafel1.BackColor = Color.Red;
+            }
+            else
+            {
+                Btn_Tafel1.BackColor = Color.Lime;
+            }
         }
 
         private void btn_Tafel10_Click(object sender, EventArgs e)
         {
+            int nummer = 10;
             BedieningBestellingOverzichtForm tafel = new BedieningBestellingOverzichtForm(parent);
             tafel.Show();
+            TafelLogic kleur = new TafelLogic();
+            if (kleur.GetTafel(nummer))
+            {
+                Btn_Tafel1.BackColor = Color.Red;
+            }
+            else
+            {
+                Btn_Tafel1.BackColor = Color.Lime;
+            }
         }
 
         private void btn_Loguit_Click(object sender, EventArgs e)

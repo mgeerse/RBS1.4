@@ -3,20 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using DAL;
+using Model;
 namespace Logic
 {
-    class TafelLogic
+    public class TafelLogic
     {
         TafelDAO tafel = new TafelDAO();
 
-        public bool GetTafel(Tafel Object)
+        public bool GetTafel(int nummer)
         {
             TafelDAO tafel = new TafelDAO();
 
             try
             {
-                tafel.Update(Object);
+                tafel.Update(nummer);
             }
             catch (Exception e)
             {
