@@ -52,6 +52,7 @@
             // 
             // btn_KeukenVoorraad
             // 
+            this.btn_KeukenVoorraad.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_KeukenVoorraad.Location = new System.Drawing.Point(3, 3);
             this.btn_KeukenVoorraad.Name = "btn_KeukenVoorraad";
             this.btn_KeukenVoorraad.Size = new System.Drawing.Size(225, 100);
@@ -61,6 +62,7 @@
             // 
             // btn_BarVoorraad
             // 
+            this.btn_BarVoorraad.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_BarVoorraad.Location = new System.Drawing.Point(234, 3);
             this.btn_BarVoorraad.Name = "btn_BarVoorraad";
             this.btn_BarVoorraad.Size = new System.Drawing.Size(225, 100);
@@ -72,6 +74,7 @@
             // Btn_Tafel1
             // 
             this.Btn_Tafel1.BackColor = System.Drawing.Color.Lime;
+            this.Btn_Tafel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_Tafel1.Location = new System.Drawing.Point(3, 165);
             this.Btn_Tafel1.Name = "Btn_Tafel1";
             this.Btn_Tafel1.Size = new System.Drawing.Size(225, 115);
@@ -83,6 +86,7 @@
             // btn_Tafel2
             // 
             this.btn_Tafel2.BackColor = System.Drawing.Color.Lime;
+            this.btn_Tafel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F);
             this.btn_Tafel2.Location = new System.Drawing.Point(234, 165);
             this.btn_Tafel2.Name = "btn_Tafel2";
             this.btn_Tafel2.Size = new System.Drawing.Size(225, 115);
@@ -94,6 +98,7 @@
             // btn_Tafel3
             // 
             this.btn_Tafel3.BackColor = System.Drawing.Color.Lime;
+            this.btn_Tafel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F);
             this.btn_Tafel3.Location = new System.Drawing.Point(3, 286);
             this.btn_Tafel3.Name = "btn_Tafel3";
             this.btn_Tafel3.Size = new System.Drawing.Size(225, 115);
@@ -105,6 +110,7 @@
             // btn_Tafel4
             // 
             this.btn_Tafel4.BackColor = System.Drawing.Color.Lime;
+            this.btn_Tafel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F);
             this.btn_Tafel4.Location = new System.Drawing.Point(234, 286);
             this.btn_Tafel4.Name = "btn_Tafel4";
             this.btn_Tafel4.Size = new System.Drawing.Size(225, 115);
@@ -116,6 +122,7 @@
             // btn_Tafel5
             // 
             this.btn_Tafel5.BackColor = System.Drawing.Color.Lime;
+            this.btn_Tafel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F);
             this.btn_Tafel5.Location = new System.Drawing.Point(3, 407);
             this.btn_Tafel5.Name = "btn_Tafel5";
             this.btn_Tafel5.Size = new System.Drawing.Size(225, 115);
@@ -127,6 +134,7 @@
             // btn_Tafel6
             // 
             this.btn_Tafel6.BackColor = System.Drawing.Color.Lime;
+            this.btn_Tafel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F);
             this.btn_Tafel6.Location = new System.Drawing.Point(234, 407);
             this.btn_Tafel6.Name = "btn_Tafel6";
             this.btn_Tafel6.Size = new System.Drawing.Size(225, 115);
@@ -138,6 +146,7 @@
             // btn_Tafel7
             // 
             this.btn_Tafel7.BackColor = System.Drawing.Color.Lime;
+            this.btn_Tafel7.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F);
             this.btn_Tafel7.Location = new System.Drawing.Point(3, 528);
             this.btn_Tafel7.Name = "btn_Tafel7";
             this.btn_Tafel7.Size = new System.Drawing.Size(225, 115);
@@ -149,6 +158,7 @@
             // btn_Tafel8
             // 
             this.btn_Tafel8.BackColor = System.Drawing.Color.Lime;
+            this.btn_Tafel8.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F);
             this.btn_Tafel8.Location = new System.Drawing.Point(234, 528);
             this.btn_Tafel8.Name = "btn_Tafel8";
             this.btn_Tafel8.Size = new System.Drawing.Size(225, 115);
@@ -160,6 +170,7 @@
             // btn_Tafel9
             // 
             this.btn_Tafel9.BackColor = System.Drawing.Color.Lime;
+            this.btn_Tafel9.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F);
             this.btn_Tafel9.Location = new System.Drawing.Point(3, 649);
             this.btn_Tafel9.Name = "btn_Tafel9";
             this.btn_Tafel9.Size = new System.Drawing.Size(225, 115);
@@ -171,6 +182,7 @@
             // btn_Tafel10
             // 
             this.btn_Tafel10.BackColor = System.Drawing.Color.Lime;
+            this.btn_Tafel10.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F);
             this.btn_Tafel10.Location = new System.Drawing.Point(234, 649);
             this.btn_Tafel10.Name = "btn_Tafel10";
             this.btn_Tafel10.Size = new System.Drawing.Size(225, 115);
@@ -182,6 +194,7 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.Lime;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(3, 109);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(225, 50);
@@ -192,6 +205,7 @@
             // btn_Bezet
             // 
             this.btn_Bezet.BackColor = System.Drawing.Color.Red;
+            this.btn_Bezet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Bezet.Location = new System.Drawing.Point(234, 109);
             this.btn_Bezet.Name = "btn_Bezet";
             this.btn_Bezet.Size = new System.Drawing.Size(225, 50);

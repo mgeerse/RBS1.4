@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Model;
+using Logic;
 namespace UI
 {
     /// <summary>
@@ -29,16 +30,6 @@ namespace UI
             button1.Enabled = false;
         }
 
-        private void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Login_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btn_Tafel1_Click(object sender, EventArgs e)
         {
             BedieningBestellingOverzichtForm tafel = new BedieningBestellingOverzichtForm(parent);
@@ -49,7 +40,6 @@ namespace UI
         {
             BedieningBestellingOverzichtForm tafel = new BedieningBestellingOverzichtForm(parent);
             tafel.Show();
-            btn_Tafel2.BackColor = Color.Red;
         }
 
         private void btn_Tafel3_Click(object sender, EventArgs e)
@@ -147,5 +137,15 @@ namespace UI
         {
 
         }
+        private void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Login_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
