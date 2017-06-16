@@ -17,13 +17,14 @@ namespace UI
         //Meenemen om ContentPanel aan te roepen
         BedieningForm parent;
         Tafel tafel;
-        
+        AfrekenenForm form1;
+
 
         public BedieningBestellingOverzichtForm(BedieningForm parent, int Tafelnummer)
         {
             this.tafel = new TafelLogic().GetTafel(Tafelnummer);
             this.parent = parent;
-
+            form1 = new AfrekenenForm(parent);
             InitializeComponent();
         }
 
@@ -73,18 +74,19 @@ namespace UI
             if (form.ShowDialog() == DialogResult.Yes)
             {
                 parent.Controls["ContentPanel"].Controls.Clear();
-                AfrekenenForm form1 = new AfrekenenForm(parent);
                 form1.TopLevel = false;
                 parent.Controls["ContentPanel"].Controls.Add(form1);
-                form1.FormBorderStyle = FormBorderStyle.None;
                 form1.Show();
+                form1.FormBorderStyle = FormBorderStyle.None;
             }
+
         }
 
         private void buttonBestellingToevoegen_Click(object sender, EventArgs e)
         {
             BedieningMenuForm form = new BedieningMenuForm(tafel, parent);
             form.ShowDialog();
+            
         }
     }
 }

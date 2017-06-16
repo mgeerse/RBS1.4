@@ -182,7 +182,7 @@
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(336, 0);
+            this.panel1.Location = new System.Drawing.Point(350, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(114, 150);
             this.panel1.TabIndex = 20;
@@ -204,7 +204,7 @@
             this.Controls.Add(this.label1);
             this.MaximumSize = new System.Drawing.Size(0, 160);
             this.Name = "BestellingUserControl";
-            this.Size = new System.Drawing.Size(450, 150);
+            this.Size = new System.Drawing.Size(464, 150);
             this.Load += new System.EventHandler(this.BestellingUserControl_Load);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);

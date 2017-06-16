@@ -23,13 +23,10 @@ namespace UI
 
         private void OKButton_Click(object sender, EventArgs e)
         {
-            int nummer = 20;
-            Logic.TafelLogic Tafel = new Logic.TafelLogic();
-            Tafel.TafelAfgerekend(nummer);
-            BedieningTafelOverzichtForm tafel = new BedieningTafelOverzichtForm(parent);
-            tafel.Show();
-            this.Close();
-            
+
+
+            //BedieningTafelOverzichtForm form = new BedieningTafelOverzichtForm(parent);
+            //form.StartPosition = FormStartPosition.CenterParent;
         }
     }
 }

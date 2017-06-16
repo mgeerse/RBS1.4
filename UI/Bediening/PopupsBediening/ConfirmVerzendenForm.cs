@@ -28,10 +28,12 @@ namespace UI
 
         private void ConfirmVerzendenButton_Click(object sender, EventArgs e)
         {
-            ConfirmedVerzondenForm form = new ConfirmedVerzondenForm(parent);
-            form.StartPosition = FormStartPosition.CenterParent;
             DialogResult = DialogResult.Yes;
             Close();
+
+            //ConfirmedVerzondenForm form = new ConfirmedVerzondenForm(parent);
+            //form.StartPosition = FormStartPosition.CenterParent;
+
         }
     }
 }

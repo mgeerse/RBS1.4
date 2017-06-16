@@ -14,7 +14,7 @@ namespace Logic
         BestelitemDAO BestelitemDAO = new BestelitemDAO();
 
 
-        public Rekening Berekenen(ref Bestelling Bestelling)
+        public Rekening Berekenen(Bestelling Bestelling)
         {
             List<Bestelitem> BestelItems = BestelitemDAO.GetForBestellingId(Bestelling.Id);
 
@@ -25,17 +25,22 @@ namespace Logic
             {
                 totaalprijs += item.Aantal * item.Menuitem.Prijs;
                 BtwBetaald += item.Aantal * item.Menuitem.Prijs * (item.Menuitem.Categorie.BtwPercentage / 100);
-
             }
 
             decimal TotaalExclusief = 0;
+
             TotaalExclusief = totaalprijs - BtwBetaald;
             Rekening Result = new Rekening(0, DateTime.Now, TotaalExclusief, BtwBetaald);
 
-            RekeningDAO.Create(ref Result);
             Bestelling.Rekening = Result;
+            RekeningDAO.Create(ref Result);
 
             return Result;
+        }
+
+        public List<Bestelitem> GetForBestelling(int BestellingId)
+        {
+            return BestelitemDAO.GetForBestellingId(BestellingId);
         }
     }
 }

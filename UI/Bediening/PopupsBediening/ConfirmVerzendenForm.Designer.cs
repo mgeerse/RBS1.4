@@ -35,9 +35,10 @@
             // 
             // ConfirmVerzendenButton
             // 
-            this.ConfirmVerzendenButton.Location = new System.Drawing.Point(12, 71);
+            this.ConfirmVerzendenButton.Location = new System.Drawing.Point(9, 58);
+            this.ConfirmVerzendenButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ConfirmVerzendenButton.Name = "ConfirmVerzendenButton";
-            this.ConfirmVerzendenButton.Size = new System.Drawing.Size(97, 40);
+            this.ConfirmVerzendenButton.Size = new System.Drawing.Size(73, 32);
             this.ConfirmVerzendenButton.TabIndex = 0;
             this.ConfirmVerzendenButton.Text = "Ja";
             this.ConfirmVerzendenButton.UseVisualStyleBackColor = true;
@@ -45,9 +46,10 @@
             // 
             // CancelVerzendenButton
             // 
-            this.CancelVerzendenButton.Location = new System.Drawing.Point(146, 71);
+            this.CancelVerzendenButton.Location = new System.Drawing.Point(110, 58);
+            this.CancelVerzendenButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.CancelVerzendenButton.Name = "CancelVerzendenButton";
-            this.CancelVerzendenButton.Size = new System.Drawing.Size(97, 40);
+            this.CancelVerzendenButton.Size = new System.Drawing.Size(73, 32);
             this.CancelVerzendenButton.TabIndex = 1;
             this.CancelVerzendenButton.Text = "Nee";
             this.CancelVerzendenButton.UseVisualStyleBackColor = true;
@@ -56,20 +58,22 @@
             // LabelVerzenden
             // 
             this.LabelVerzenden.AutoSize = true;
-            this.LabelVerzenden.Location = new System.Drawing.Point(26, 34);
+            this.LabelVerzenden.Location = new System.Drawing.Point(20, 28);
+            this.LabelVerzenden.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LabelVerzenden.Name = "LabelVerzenden";
-            this.LabelVerzenden.Size = new System.Drawing.Size(206, 17);
+            this.LabelVerzenden.Size = new System.Drawing.Size(155, 13);
             this.LabelVerzenden.TabIndex = 2;
             this.LabelVerzenden.Text = "Wilt u de bestelling verzenden?";
             // 
             // ConfirmVerzendenForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(255, 123);
+            this.ClientSize = new System.Drawing.Size(191, 100);
             this.Controls.Add(this.LabelVerzenden);
             this.Controls.Add(this.CancelVerzendenButton);
             this.Controls.Add(this.ConfirmVerzendenButton);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ConfirmVerzendenForm";
             this.Text = "ConfirmVerzendenForm";
             this.ResumeLayout(false);

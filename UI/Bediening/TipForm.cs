@@ -18,5 +18,12 @@ namespace UI
             this.parent = parent;
             InitializeComponent();
         }
+
+        private void TipOKButton_Click(object sender, EventArgs e)
+        {
+            BedieningTafelOverzichtForm form = new BedieningTafelOverzichtForm(parent);
+            form.StartPosition = FormStartPosition.CenterParent;
+
+        }
     }
 }
