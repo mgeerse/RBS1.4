@@ -36,7 +36,9 @@ namespace DAL
 
         public Tafel GetForId(int Id)
         {
+            conn = DbConnection.GetSqlConnection();
             conn.Open();
+
             string query = "SELECT TafelId, IsBezet" +
                 " FROM Tafel";
 

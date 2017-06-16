@@ -32,6 +32,7 @@ namespace DAL
             if (reader.Read())
             {
                 string Naam = reader.GetString(1);
+                conn.Close();
                 return new Menukaart(Naam, Id);
             }
             conn.Close();

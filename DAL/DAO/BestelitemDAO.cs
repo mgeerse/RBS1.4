@@ -78,6 +78,85 @@ namespace DAL
             return result;
         }
 
+        public List<Bestelitem> GetBarBestellingenForStatus(int status)
+        {
+            List<Bestelitem> result = new List<Bestelitem>();
+
+            conn.Open();
+
+            string query = "SELECT Bestelling, Menuitem, Aantal, Opmerking, Status, TijdIngevoerd" +
+                " FROM Bestelitem" +
+                " JOIN MenuItem AS M on Bestelitem.Menuitem = M.MenuitemId" +
+                " WHERE (M.Categorie BETWEEN 8 AND 12) AND Status = @Status" +
+                " ORDER BY Bestelling";
+
+            SqlCommand command = new SqlCommand(query, conn);
+            command.Parameters.Add("@Status", System.Data.SqlDbType.Int).Value = status;
+            command.Prepare();
+
+            SqlDataReader reader = command.ExecuteReader();
+
+
+            while (reader.Read())
+            {
+                //Bestelling gaat bij de tweede keer fout?
+                Bestelling Bestelling = BestellingDAO.GetForId(reader.GetInt32(0));
+                Menuitem Menuitem = MenuitemDAO.GetForId(reader.GetInt32(1));
+                int Aantal = reader.GetInt32(2);
+
+                string Opmerking;
+                if (reader.IsDBNull(3))
+                {
+                     Opmerking = "";
+                }
+                else
+                {
+                    Opmerking = reader.GetString(3);
+                }
+                Status Status = (Status)reader.GetInt32(4);
+                DateTime TijdIngevoerd = reader.GetDateTime(5);
+
+                result.Add(new Bestelitem(Bestelling, Menuitem, Aantal, Opmerking, Status, TijdIngevoerd));
+            }
+
+            conn.Close();
+            return result;
+
+        }
+
+        public bool orderGereed(Bestelitem Object)
+        {
+            conn = DbConnection.GetSqlConnection();
+
+            StringBuilder sb = new StringBuilder();
+            sb.Append("UPDATE [dbo].[BestelItem] ");
+            sb.Append("SET [Status] = @Status ");
+            sb.Append("WHERE [Bestelling] = @BestellingId AND [Menuitem] = @MenuId");
+
+            SqlCommand cmd = new SqlCommand(sb.ToString(), conn);
+
+            cmd.Parameters.Add("@BestellingId", System.Data.SqlDbType.Int).Value = Object.Bestelling.Id;
+            cmd.Parameters.Add("@MenuId", System.Data.SqlDbType.Int).Value = Object.Menuitem.Id;
+            cmd.Parameters.Add("@Status", System.Data.SqlDbType.Int).Value = Status.Klaar;
+
+            try
+            {
+                conn.Open();
+                cmd.Prepare();
+
+                cmd.ExecuteScalar();
+
+                conn.Close();
+                conn.Dispose();
+                cmd.Dispose();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
         public bool Create(Bestelitem Object)
         {
             conn.Open();
