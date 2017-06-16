@@ -57,7 +57,7 @@ namespace DAL
             conn.Open();
             string query = "SELECT Bestelling, Menuitem, Aantal, Opmerking, Status, TijdIngevoerd" +
                 " FROM Bestelitem" +
-                " WHERE Bestelling = " + BestellingId;
+                " WHERE Bestelling = " + Id;
             SqlCommand command = new SqlCommand(query, conn);
             SqlDataReader reader = command.ExecuteReader();
 

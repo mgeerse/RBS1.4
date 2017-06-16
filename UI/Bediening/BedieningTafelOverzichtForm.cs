@@ -131,6 +131,8 @@ namespace UI
             tafel10.Show();
         }
 
+        void btn_Loguit_Click(object sender, EventArgs e) { }
+
         public void ShowTafelBestellingOverzicht(int nummer)
         {
             BedieningBestellingOverzichtForm tafel = new BedieningBestellingOverzichtForm(parent, nummer);

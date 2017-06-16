@@ -46,12 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Administratie.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Administratie.Designer.cs">
-      <DependentUpon>Administratie.cs</DependentUpon>
-    </Compile>
     <Compile Include="Algemene Popups\ConfirmLogUitForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,14 +138,10 @@
     <Compile Include="Bediening\PopupsBediening\ConfirmVerzendenForm.Designer.cs">
       <DependentUpon>ConfirmVerzendenForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="OrderPanel.cs" />
     <Compile Include="Bediening\TipForm.cs">
       <SubType>Form</SubType>
-	</Compile>
-    <Compile Include="Barman\BarmanOrderScherm.cs" />
-    <Compile Include="MainForm.cs">
-      <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Barman\BarmanOrderScherm.cs" />
     <Compile Include="Bediening\TipForm.Designer.cs">
       <DependentUpon>TipForm.cs</DependentUpon>
     </Compile>
@@ -168,9 +158,6 @@
       <DependentUpon>BedieningTafelOverzichtForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Administratie.resx">
-      <DependentUpon>Administratie.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Algemene Popups\ConfirmLogUitForm.resx">
       <DependentUpon>ConfirmLogUitForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -235,9 +222,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Bediening\BedieningTafelOverzichtForm.resx">
-      <DependentUpon>BedieningTafelOverzichtForm.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -264,9 +248,7 @@
   <ItemGroup>
     <None Include="Resources\3d6cfa225d1.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Administratie\HelperForms\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Resources\chapoo_logo.png" />
     <Content Include="Resources\chrome_2017-06-06_13-52-20.png" />

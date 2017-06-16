@@ -29,109 +29,26 @@ namespace DAL
             conn = DbConnection.GetSqlConnection();
             conn.Open();
 
-            string query = "SELECT BestellingId, Opmerking, Medewerker, Tafel, Rekening" +
-                " FROM Bestelling" +
-                " WHERE BestellingId = " + Id;
-
-            SqlCommand command = new SqlCommand(query, conn);
-            SqlDataReader reader = command.ExecuteReader();
-
-            if (reader.Read())
-            {
-                Bestelling Bestelling = new Bestelling(
-                    Id,
-                    reader.IsDBNull(1) ? "" : reader.GetString(1),
-                    MedewerkerDAO.GetForId(reader.GetInt32(2)),
-                    TafelDAO.GetForId(reader.GetInt32(3)),
-                    RekeningDAO.GetForId(reader.IsDBNull(4) ? 0 : reader.GetInt32(4))
-                );
-                conn.Close();
-                return Bestelling;
-            }
-
-            conn.Close();
-            return null;
-        }
-
-        public List<BarBestelling> GetAllNewBarBestelling()
-        {
-            List<BarBestelling> BarBestelList = new List<BarBestelling>();
-
-            conn = DbConnection.GetSqlConnection();
-            BarBestelling BarBestelling = new BarBestelling();
-
             StringBuilder sb = new StringBuilder();
-            sb.Append("SELECT M.Naam, B.Aantal, B.Opmerking, B.TijdIngevoerd, D.Naam, C.BestellingId, T.TafelId, B.Menuitem ");
-            sb.Append("FROM MenuItem as M ");
-            sb.Append("JOIN BestelItem as B ON M.MenuItemId = B.MenuItem ");
-            sb.Append("JOIN Bestelling as C ON B.Bestelling = C.BestellingId ");
-            sb.Append("JOIN Medewerker as D ON C.Medewerker = D.MedewerkerId ");
-            sb.Append("JOIN Tafel as T ON C.Tafel = T.TafelId ");
-            sb.Append("WHERE (M.Categorie BETWEEN 8 AND 12) AND B.Status = 1 ");
-
-            conn.Open();
+            sb.Append("SELECT [Opmerking], [Medewerker], [Tafel], [Rekening] FROM [dbo].[Bestelling] WHERE BestellingId = @BestelId");
 
             SqlCommand cmd = new SqlCommand(sb.ToString(), conn);
+            cmd.Parameters.Add("@BestelId", System.Data.SqlDbType.Int).Value = Id;
+            cmd.Prepare();
+
             SqlDataReader reader = cmd.ExecuteReader();
             Bestelling Bestelling = null;
             while (reader.Read())
             {
-                BarBestelling.ItemNaam = reader.GetString(0);
-                BarBestelling.Aantal = reader.GetInt32(1);
-                BarBestelling.Opmerking = reader.GetString(2);
-                BarBestelling.Invoertijd = reader.GetDateTime(3);
-                BarBestelling.MedewerkerNaam = reader.GetString(4);
-                BarBestelling.BestelId = reader.GetInt32(5);
-                BarBestelling.TafelNummer = reader.GetInt32(6);
-                BarBestelling.Menuitem = reader.GetInt32(7);
-
-                BarBestelList.Add(BarBestelling);
-            }
-            conn.Close();
-            conn.Dispose();
-            cmd.Dispose();
-            return BarBestelList;
-        }
-
-        public List<BarBestelling> GetAllBarBestellingen()
-        {
-            List<BarBestelling> BarBestelList = new List<BarBestelling>();
-
-            conn = DbConnection.GetSqlConnection();
-            BarBestelling BarBestelling = new BarBestelling();
-
-            StringBuilder sb = new StringBuilder();
-            sb.Append("SELECT M.Naam, B.Aantal, B.Opmerking, B.TijdIngevoerd, D.Naam, C.BestellingId, C.Tafel, B.Menuitem ");
-            sb.Append("FROM MenuItem as M ");
-            sb.Append("JOIN BestelItem as B ON M.MenuItemId = B.MenuItem ");
-            sb.Append("JOIN Bestelling as C ON B.Bestelling = C.BestellingId ");
-            sb.Append("JOIN Medewerker as D ON C.Medewerker = D.MedewerkerId ");
-            sb.Append("JOIN Tafel as T ON C.Tafel = T.TafelId ");
-            sb.Append("WHERE (M.Categorie BETWEEN 8 AND 12) ");
-
-            conn.Open();
-
-            SqlCommand cmd = new SqlCommand(sb.ToString(), conn);
-            SqlDataReader reader = cmd.ExecuteReader();
-
-            while (reader.Read())
-            {
-                BarBestelling.ItemNaam = reader.GetString(0);
-                BarBestelling.Aantal = reader.GetInt32(1);
-                BarBestelling.Opmerking = reader.IsDBNull(2) ? "" : reader.GetString(2);
-                BarBestelling.Invoertijd = reader.GetDateTime(3);
-                BarBestelling.MedewerkerNaam = reader.GetString(4);
-                BarBestelling.BestelId = reader.GetInt32(5);
-                BarBestelling.TafelNummer = reader.GetInt32(6);
-                BarBestelling.Menuitem = reader.GetInt32(7);
-
-                BarBestelList.Add(BarBestelling);
-            }
-            conn.Close();
-            conn.Dispose();
-            cmd.Dispose();
-            return BarBestelList;
-        }
+                string opmerking = "";
+                if (reader.IsDBNull(0))
+                {
+                    opmerking = "";
+                }
+                else
+                {
+                    opmerking = reader.GetString(0);
+                }
 
                 Medewerker Medewerker = MedewerkerDAO.GetForId(reader.GetInt32(1));
                 Tafel Tafel = TafelDAO.GetForId(reader.GetInt32(2));

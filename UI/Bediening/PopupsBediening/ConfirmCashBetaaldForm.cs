@@ -26,7 +26,7 @@ namespace UI
             int nummer = 20;
             Logic.TafelLogic Tafel = new Logic.TafelLogic();
             Tafel.TafelAfgerekend(nummer);
-            TafelOverzicht tafel = new TafelOverzicht();
+            BedieningTafelOverzichtForm tafel = new BedieningTafelOverzichtForm(parent);
             tafel.Show();
             this.Close();
             
