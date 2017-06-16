@@ -28,7 +28,17 @@ namespace Logic
 
         public bool TafelAfgerekend(int nummer)
         {
-            TafelDAO tafel
+            TafelDAO tafel = new TafelDAO();
+            int Nummer = 20;
+            try
+            {
+                tafel.Update(Nummer);
+            }
+            catch (Exception e)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }
