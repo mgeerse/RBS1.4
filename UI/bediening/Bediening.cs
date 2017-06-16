@@ -16,5 +16,10 @@ namespace UI
         {
             InitializeComponent();
         }
+
+        private void btn_Hoofdmenu_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

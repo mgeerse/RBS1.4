@@ -28,7 +28,7 @@ namespace UI
 
         private void BedieningBestellingOverzichtForm_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void InitBestellingOverzicht()

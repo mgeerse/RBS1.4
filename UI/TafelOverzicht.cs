@@ -23,24 +23,8 @@ namespace UI
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-
-            Btn_Tafel1.Visible = true;
-            btn_Tafel2.Visible = true;
-            btn_Tafel3.Visible = true;
-            btn_Tafel4.Visible = true;
-            btn_Bezet.Visible = true;
             btn_Bezet.Enabled = false;
-            button1.Visible = true;
             button1.Enabled = false;
-            btn_Tafel5.Visible = true;
-            btn_Tafel6.Visible = true;
-            btn_Tafel7.Visible = true;
-            btn_Tafel8.Visible = true;
-            btn_Tafel9.Visible = true;
-            btn_Tafel10.Visible = true;
-            btn_BarVoorraad.Visible = true;
-            btn_KeukenVoorraad.Visible = true;
-            btn_Uitloggen.Visible = true;
         }
 
         private void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -57,6 +41,7 @@ namespace UI
         {
             Bediening tafel1 = new Bediening();
             tafel1.Show();
+            
             Tafel Isbezet;
             
         }
