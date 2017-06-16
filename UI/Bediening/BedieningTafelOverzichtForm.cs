@@ -41,10 +41,7 @@ namespace UI
             {
                 Btn_Tafel1.BackColor = Color.Red;
             }
-            else
-            {
-                Btn_Tafel1.BackColor = Color.Lime;
-            }
+            
         }
 
         private void btn_Tafel2_Click(object sender, EventArgs e)
@@ -55,12 +52,9 @@ namespace UI
             TafelLogic kleur = new TafelLogic();
             if (kleur.GetTafel(nummer))
             {
-                Btn_Tafel1.BackColor = Color.Red;
+                btn_Tafel2.BackColor = Color.Red;
             }
-            else
-            {
-                Btn_Tafel1.BackColor = Color.Lime;
-            }
+
         }
 
         private void btn_Tafel3_Click(object sender, EventArgs e)
@@ -71,12 +65,9 @@ namespace UI
             TafelLogic kleur = new TafelLogic();
             if (kleur.GetTafel(nummer))
             {
-                Btn_Tafel1.BackColor = Color.Red;
+                btn_Tafel3.BackColor = Color.Red;
             }
-            else
-            {
-                Btn_Tafel1.BackColor = Color.Lime;
-            }
+
         }
 
         private void btn_Tafel4_Click(object sender, EventArgs e)
@@ -87,12 +78,9 @@ namespace UI
             TafelLogic kleur = new TafelLogic();
             if (kleur.GetTafel(nummer))
             {
-                Btn_Tafel1.BackColor = Color.Red;
+                btn_Tafel4.BackColor = Color.Red;
             }
-            else
-            {
-                Btn_Tafel1.BackColor = Color.Lime;
-            }
+
         }
 
         private void btn_Tafel5_Click(object sender, EventArgs e)
@@ -103,12 +91,9 @@ namespace UI
             TafelLogic kleur = new TafelLogic();
             if (kleur.GetTafel(nummer))
             {
-                Btn_Tafel1.BackColor = Color.Red;
+                btn_Tafel5.BackColor = Color.Red;
             }
-            else
-            {
-                Btn_Tafel1.BackColor = Color.Lime;
-            }
+
         }
 
         private void btn_Tafel6_Click(object sender, EventArgs e)
@@ -119,12 +104,9 @@ namespace UI
             TafelLogic kleur = new TafelLogic();
             if (kleur.GetTafel(nummer))
             {
-                Btn_Tafel1.BackColor = Color.Red;
+                btn_Tafel6.BackColor = Color.Red;
             }
-            else
-            {
-                Btn_Tafel1.BackColor = Color.Lime;
-            }
+
         }
 
         private void btn_Tafel7_Click(object sender, EventArgs e)
@@ -135,12 +117,9 @@ namespace UI
             TafelLogic kleur = new TafelLogic();
             if (kleur.GetTafel(nummer))
             {
-                Btn_Tafel1.BackColor = Color.Red;
+                btn_Tafel7.BackColor = Color.Red;
             }
-            else
-            {
-                Btn_Tafel1.BackColor = Color.Lime;
-            }
+
         }
 
         private void btn_Tafel8_Click(object sender, EventArgs e)
@@ -151,11 +130,7 @@ namespace UI
             TafelLogic kleur = new TafelLogic();
             if (kleur.GetTafel(nummer))
             {
-                Btn_Tafel1.BackColor = Color.Red;
-            }
-            else
-            {
-                Btn_Tafel1.BackColor = Color.Lime;
+                btn_Tafel8.BackColor = Color.Red;
             }
         }
 
@@ -167,12 +142,9 @@ namespace UI
             TafelLogic kleur = new TafelLogic();
             if (kleur.GetTafel(nummer))
             {
-                Btn_Tafel1.BackColor = Color.Red;
+                btn_Tafel9.BackColor = Color.Red;
             }
-            else
-            {
-                Btn_Tafel1.BackColor = Color.Lime;
-            }
+
         }
 
         private void btn_Tafel10_Click(object sender, EventArgs e)
@@ -183,12 +155,9 @@ namespace UI
             TafelLogic kleur = new TafelLogic();
             if (kleur.GetTafel(nummer))
             {
-                Btn_Tafel1.BackColor = Color.Red;
+                btn_Tafel10.BackColor = Color.Red;
             }
-            else
-            {
-                Btn_Tafel1.BackColor = Color.Lime;
-            }
+
         }
 
         private void btn_Loguit_Click(object sender, EventArgs e)

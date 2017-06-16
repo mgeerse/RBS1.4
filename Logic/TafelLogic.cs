@@ -26,6 +26,9 @@ namespace Logic
             return true;
         }
 
-
+        public bool TafelAfgerekend(int nummer)
+        {
+            TafelDAO tafel
+        }
     }
 }
