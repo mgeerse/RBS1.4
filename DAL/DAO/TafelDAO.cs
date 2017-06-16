@@ -63,9 +63,30 @@ namespace DAL
         public bool Update(Tafel Object)
         {
             conn.Open();
+            StringBuilder sb = new StringBuilder();
+            sb.Append("UPDATE dbo.Tafel ");
+            sb.Append("SET IsBezet = @IsBezet");
+            sb.Append("WHERE TafelId] = @TafelId");
 
-            conn.Close();
-            return false;
+            SqlCommand cmd = new SqlCommand(sb.ToString(), conn);
+
+            cmd.Parameters.Add("@BIsBezet", System.Data.SqlDbType.Bit).Value = 1;
+            cmd.Parameters.Add("@TafelId", System.Data.SqlDbType.Int).Value = Object.Id;
+            try
+            {
+                cmd.Prepare();
+                conn.Open();
+                cmd.ExecuteNonQuery();
+
+                conn.Close();
+                conn.Dispose();
+                cmd.Dispose();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         public bool Delete(Tafel Object)

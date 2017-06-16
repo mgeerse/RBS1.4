@@ -8,8 +8,9 @@ using Model;
 
 namespace Logic
 {
-    class tafelkleur  
+public class tafelkleur
     {
+        TafelDAO tafel = new TafelDAO();
         
     }
 }
