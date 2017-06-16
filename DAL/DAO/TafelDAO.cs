@@ -46,6 +46,10 @@ namespace DAL
             {
                 //Id is bekend
                 bool IsBezet = reader.GetBoolean(1);
+                if (IsBezet == true)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                }
                 return new Tafel(Id, IsBezet);
             }
             conn.Close();

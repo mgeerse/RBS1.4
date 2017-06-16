@@ -74,5 +74,11 @@ namespace UI
                 form1.Show();
             }
         }
+
+        private void buttonBestellingToevoegen_Click(object sender, EventArgs e)
+        {
+            BedieningMenuForm form = new BedieningMenuForm();
+            form.Show();
+        }
     }
 }
