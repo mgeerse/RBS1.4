@@ -60,7 +60,7 @@ namespace DAL
             return false;
         }
 
-        public bool Update(Tafel Object)
+        public bool Update(int nummer)
         {
             conn.Open();
             StringBuilder sb = new StringBuilder();
@@ -71,7 +71,7 @@ namespace DAL
             SqlCommand cmd = new SqlCommand(sb.ToString(), conn);
 
             cmd.Parameters.Add("@BIsBezet", System.Data.SqlDbType.Bit).Value = 1;
-            cmd.Parameters.Add("@TafelId", System.Data.SqlDbType.Int).Value = Object.Id;
+            
             try
             {
                 cmd.Prepare();

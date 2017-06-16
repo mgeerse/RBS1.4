@@ -8,9 +8,24 @@ using Model;
 
 namespace Logic
 {
-public class tafelkleur
+public class tafelLogica
     {
         TafelDAO tafel = new TafelDAO();
-        
+
+        public bool GetTafel(int nummer)
+        {
+            TafelDAO tafel = new TafelDAO();
+
+            try
+            {
+                tafel.Update(nummer);
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+            return true;
+        }
+
     }
 }

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Model;
 using Logic;
+
 namespace UI
 {
     /// <summary>
@@ -32,8 +33,11 @@ namespace UI
 
         private void btn_Tafel1_Click(object sender, EventArgs e)
         {
+            int nummer = 1;
             BedieningBestellingOverzichtForm tafel = new BedieningBestellingOverzichtForm(parent);
             tafel.Show();
+            tafelLogica kleur = new tafelLogica();
+            kleur.GetTafel(nummer);
             
         }
 
