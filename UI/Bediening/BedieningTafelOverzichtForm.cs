@@ -18,6 +18,7 @@ namespace UI
     public partial class TafelOverzicht : Form
     {
         BedieningForm parent;
+        bool IsBezet = false;
         private Medewerker IngelogdeMedewerker = null;
         public TafelOverzicht()
         {
@@ -34,6 +35,11 @@ namespace UI
         {
             BedieningBestellingOverzichtForm tafel = new BedieningBestellingOverzichtForm(parent);
             tafel.Show();
+            Tafel Tafel = new Tafel(IsBezet);
+            if (IsBezet == true)
+            {
+                Btn_Tafel1.BackColor = Color.Red;
+            }
         }
 
         private void btn_Tafel2_Click(object sender, EventArgs e)

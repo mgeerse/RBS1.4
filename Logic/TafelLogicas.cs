@@ -8,13 +8,8 @@ using Model;
 
 namespace Logic
 {
-    class tafelLogica  
+    class tafelkleur  
     {
-        TafelDAO TafelDAO = new TafelDAO();
-
-        public Tafel GetForTafelId(int Id,bool Isbezet)
-        {
-            return TafelDAO.GetForId(Id, Isbezet);
-        }
+        
     }
 }

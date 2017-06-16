@@ -230,7 +230,7 @@
             this.flowLayoutPanel1.Controls.Add(this.btn_Tafel8);
             this.flowLayoutPanel1.Controls.Add(this.btn_Tafel9);
             this.flowLayoutPanel1.Controls.Add(this.btn_Tafel10);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(42, 31);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(29, 31);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(468, 772);
             this.flowLayoutPanel1.TabIndex = 15;
