@@ -19,11 +19,13 @@ namespace UI
         ToolStripSeparator TSP = new ToolStripSeparator();
         ToolStripSeparator TSP2 = new ToolStripSeparator();
         ToolStrip ToolStrip = new ToolStrip();
+        Timer Timer1;
 
-        public ToolStripOnder(Barman Barman, Panel Panel)
+        public ToolStripOnder(Barman Barman, Panel Panel, Timer Timer1)
         {
             this.Barman = Barman;
             this.Panel = Panel;
+            this.Timer1 = Timer1;
         }
 
         public Control maakToolStrip(Model.Medewerker Object)
@@ -89,15 +91,14 @@ namespace UI
 
         private void TSB3_Click(object sender, EventArgs e)
         {
-            TSB2.Text = "Bestel geschiedenis";
-
-            foreach (Control item in Panel.Controls)
+              foreach (Control item in Panel.Controls)
             {
                 item.Dispose();
             }
             Panel.Controls.Clear();
 
-            Barman.Controls.Add(OP.MaakTabControl(Panel));
+            Barman.Controls.Add(OP.MaakControls(Panel));
+            Timer1.Start();
 
             TSB3.Visible = false;
             TSB3.Enabled = false;
@@ -123,6 +124,9 @@ namespace UI
             //Hierna zetten we TSB2 op zijn text "Terug naar bestellingen"
             //TSB2.Text = "Terug naar bestellingen";
 
+            //Stoppen met updaten
+            Timer1.Stop();
+
             //De panel vullen met nieuwe bestellingen
             Barman.Controls.Add(OP.MaakGeschiedenis(Panel));
 
@@ -133,21 +137,6 @@ namespace UI
 
             ToolStrip.Refresh();
             ToolStrip.Update();
-        }
-
-        void TSB2_ClickTerug(object sender, EventArgs e)
-        {
-            TSB2.Text = "Bestel geschiedenis";
-
-            foreach (Control item in Panel.Controls)
-            {
-                item.Dispose();
-            }
-            Panel.Controls.Clear();
-
-            Barman.Controls.Add(OP.MaakTabControl(Panel));
-            //Weer de juiste EventHandler aanroepen de volgende keer
-            TSB2.Click += TSB2_Click;
         }
 
         private void TSB1_Click(object sender, EventArgs e, Model.Medewerker Object)
