@@ -35,6 +35,7 @@
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -163,6 +164,12 @@
       <DependentUpon>BedieningTafelOverzichtForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TotaalRekeningUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TotaalRekeningUserControl.Designer.cs">
+      <DependentUpon>TotaalRekeningUserControl.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Administratie.resx">
       <DependentUpon>Administratie.cs</DependentUpon>
     </EmbeddedResource>
@@ -205,6 +212,12 @@
     <EmbeddedResource Include="Bediening\PopupsBediening\ConfirmCashBetaaldForm.resx">
       <DependentUpon>ConfirmCashBetaaldForm.cs</DependentUpon>
     </EmbeddedResource>
+    <Compile Include="RekeningUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RekeningUserControl.Designer.cs">
+      <DependentUpon>RekeningUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="ToolStripOnder.cs" />
     <EmbeddedResource Include="Barman.resx">
       <DependentUpon>Barman.cs</DependentUpon>
@@ -231,6 +244,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="RekeningUserControl.resx">
+      <DependentUpon>RekeningUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TotaalRekeningUserControl.resx">
+      <DependentUpon>TotaalRekeningUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

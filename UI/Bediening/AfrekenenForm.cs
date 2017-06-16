@@ -7,13 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Model;
 
 namespace UI
 {
     public partial class AfrekenenForm : Form
     {
         private BedieningForm parent;
-
+        
         public AfrekenenForm(BedieningForm parent)
         {
             InitializeComponent();
@@ -24,6 +25,8 @@ namespace UI
         private void AfrekenenForm_Load(object sender, EventArgs e)
         {
             textBoxOpmerkingen.Visible = false;
+
+            this.Close();
         }
 
         private void BetalenButton_Click(object sender, EventArgs e)
@@ -42,6 +45,8 @@ namespace UI
                 TipForm TipForm = new TipForm(parent);
                 TipForm.ShowDialog();
             }
+
+            this.Close();
         }
 
         private void ButtonOpmerkingen_Click(object sender, EventArgs e)

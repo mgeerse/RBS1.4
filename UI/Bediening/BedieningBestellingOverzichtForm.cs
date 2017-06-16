@@ -79,12 +79,16 @@ namespace UI
                 form1.FormBorderStyle = FormBorderStyle.None;
                 form1.Show();
             }
+
+            this.Close();
         }
 
         private void buttonBestellingToevoegen_Click(object sender, EventArgs e)
         {
             BedieningMenuForm form = new BedieningMenuForm(tafel, parent);
             form.ShowDialog();
+
+            this.Close();
         }
     }
 }
