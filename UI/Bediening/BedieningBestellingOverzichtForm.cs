@@ -17,41 +17,31 @@ namespace UI
         //Meenemen om ContentPanel aan te roepen
         BedieningForm parent;
         Tafel tafel;
-        AfrekenenForm form1;
 
 
         public BedieningBestellingOverzichtForm(BedieningForm parent, int Tafelnummer)
         {
             this.tafel = new TafelLogic().GetTafel(Tafelnummer);
             this.parent = parent;
-            form1 = new AfrekenenForm(parent);
+
+
             InitializeComponent();
         }
 
         private void BedieningBestellingOverzichtForm_Load(object sender, EventArgs e)
         {
             BestellingenPanel.Padding = new Padding(0, 0, SystemInformation.VerticalScrollBarWidth, 0);
+            BestellingenPanel.RowStyles.Add(new RowStyle());
+
             InitBestellingOverzicht();
         }
 
         private void InitBestellingOverzicht()
         {
+
             List<Bestelitem> bestelitems = new BestellingOverzicht().GetNietGeredeBestelitems(tafel.Id);
             BestellingenPanel.RowCount = 0;
 
-            //#region Testdata: Verwijder dit wanneer we met de database werken
-
-            //DateTime minuten = DateTime.Now.AddMinutes(-25);
-            //DateTime uur = DateTime.Now.AddHours(-2);
-            //bestelitems = new List<Bestelitem>()
-            //{
-            //    new Bestelitem(new GetBestelling().GetForId(8), new GetMenuitem().GetForId(1), 1, "Aap", Status.Bezig, minuten),
-            //    new Bestelitem(new GetBestelling().GetForId(8), new GetMenuitem().GetForId(2), 3, "Aap", Status.Bezig, uur),
-
-            //};
-            //#endregion
-
-            BestellingenPanel.RowStyles.Add(new RowStyle());
 
             foreach (Bestelitem item in bestelitems)
             {
@@ -73,11 +63,13 @@ namespace UI
             form.StartPosition = FormStartPosition.CenterParent;
             if (form.ShowDialog() == DialogResult.Yes)
             {
-                form1.TopLevel = false;
-                form1.FormBorderStyle = FormBorderStyle.None;
-                parent.Controls["ContentPanel"].Controls.Clear();
-                parent.Controls["ContentPanel"].Controls.Add(form1);
-                form1.Show();
+                //form1 = new AfrekenenForm(parent);
+                //form1.TopLevel = false;
+                //form1.FormBorderStyle = FormBorderStyle.None;
+                //parent.Controls["ContentPanel"].Controls.Clear();
+                //parent.Controls["ContentPanel"].Controls.Add(form1);
+                //form1.Show();
+                parent.ShowForm(new AfrekenenForm(parent));
             }
 
         }

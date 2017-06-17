@@ -23,7 +23,7 @@ namespace UI
 
         private void OKButton_Click(object sender, EventArgs e)
         {
-
+            DialogResult = DialogResult.OK;
 
             //BedieningTafelOverzichtForm form = new BedieningTafelOverzichtForm(parent);
             //form.StartPosition = FormStartPosition.CenterParent;

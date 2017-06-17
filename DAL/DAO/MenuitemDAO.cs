@@ -17,7 +17,7 @@ namespace DAL
         {
             conn.Open();
 
-            string SQL = "SELECT Naam" + 
+            string SQL = "SELECT Naam" +
                          "FROM dbo.Menuitem" +
                          "WHERE Categorie <= 3";
 
@@ -26,7 +26,7 @@ namespace DAL
             SqlDataReader Reader = command.ExecuteReader();
 
             conn.Close();
-            
+
             return null;
         }
 
@@ -51,6 +51,33 @@ namespace DAL
             }
             conn.Close();
             return null;
+        }
+
+        public List<Menuitem> GetForMenukaart(int Menukaart)
+        {
+            List<Menuitem> result = new List<Menuitem>();
+
+            conn.Open();
+
+            string query = "SELECT MenuitemId, Naam, Prijs, Voorraad, Categorie" +
+                " FROM Menuitem" +
+                " JOIN Categorie ON Menuitem.Categorie = Categorie.CategorieId" +
+                " JOIN Menukaart ON Categorie.Menukaart = Menukaart.MenukaartId" +
+                " WHERE MenukaartId = " + Menukaart;
+
+            SqlCommand command = new SqlCommand(query, conn);
+            SqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                int MenuitemId = reader.GetInt32(0);
+                string Naam = reader.GetString(1);
+                decimal Prijs = reader.GetDecimal(2);
+                int Voorraad = reader.GetInt32(3);
+                Categorie Categorie = CategorieDAO.GetForId(reader.GetInt32(4));
+            }
+            conn.Close();
+
+            return result;
         }
 
         public bool Create(Menuitem Object)
