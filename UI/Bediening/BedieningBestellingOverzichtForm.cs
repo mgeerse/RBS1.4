@@ -73,11 +73,11 @@ namespace UI
             form.StartPosition = FormStartPosition.CenterParent;
             if (form.ShowDialog() == DialogResult.Yes)
             {
-                parent.Controls["ContentPanel"].Controls.Clear();
                 form1.TopLevel = false;
+                form1.FormBorderStyle = FormBorderStyle.None;
+                parent.Controls["ContentPanel"].Controls.Clear();
                 parent.Controls["ContentPanel"].Controls.Add(form1);
                 form1.Show();
-                form1.FormBorderStyle = FormBorderStyle.None;
             }
 
         }
@@ -85,8 +85,11 @@ namespace UI
         private void buttonBestellingToevoegen_Click(object sender, EventArgs e)
         {
             BedieningMenuForm form = new BedieningMenuForm(tafel, parent);
-            form.ShowDialog();
-            
+            form.TopLevel = false;
+            form.FormBorderStyle = FormBorderStyle.None;
+            parent.Controls["ContentPanel"].Controls.Clear();
+            parent.Controls["ContentPanel"].Controls.Add(form);
+            form.Show();
         }
     }
 }

@@ -20,8 +20,8 @@ namespace UI
         public BedieningMenuForm(Tafel tafel, BedieningForm parent)
         {
             this.parent = parent;
-            InitializeComponent();
             this.tafel = tafel;
+            InitializeComponent();
         }
 
         private void tabDrank_Click(object sender, EventArgs e)
@@ -37,9 +37,14 @@ namespace UI
 
             if (result == DialogResult.Yes)
             {
-
                 ConfirmedVerzondenForm ConfirmedVerzondenForm = new ConfirmedVerzondenForm(parent);
                 ConfirmedVerzondenForm.ShowDialog();
+                BedieningTafelOverzichtForm tafelForm = new BedieningTafelOverzichtForm(parent);
+                tafelForm.TopLevel = false;
+                tafelForm.FormBorderStyle = FormBorderStyle.None;
+                parent.Controls["ContentPanel"].Controls.Clear();
+                parent.Controls["ContentPanel"].Controls.Add(tafelForm);
+                tafelForm.Show();
             }
 
 

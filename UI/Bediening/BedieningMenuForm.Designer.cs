@@ -44,19 +44,21 @@
             this.tabControl1.Controls.Add(this.tabDrank);
             this.tabControl1.Controls.Add(this.tabNonAlcohol);
             this.tabControl1.ItemSize = new System.Drawing.Size(126, 48);
-            this.tabControl1.Location = new System.Drawing.Point(13, 13);
+            this.tabControl1.Location = new System.Drawing.Point(10, 25);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(677, 478);
+            this.tabControl1.Size = new System.Drawing.Size(508, 388);
             this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl1.TabIndex = 0;
             // 
             // tabLunch
             // 
             this.tabLunch.Location = new System.Drawing.Point(4, 52);
+            this.tabLunch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabLunch.Name = "tabLunch";
-            this.tabLunch.Padding = new System.Windows.Forms.Padding(3);
-            this.tabLunch.Size = new System.Drawing.Size(669, 422);
+            this.tabLunch.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabLunch.Size = new System.Drawing.Size(500, 332);
             this.tabLunch.TabIndex = 0;
             this.tabLunch.Text = "Lunch";
             this.tabLunch.UseVisualStyleBackColor = true;
@@ -64,9 +66,10 @@
             // tabDiner
             // 
             this.tabDiner.Location = new System.Drawing.Point(4, 52);
+            this.tabDiner.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabDiner.Name = "tabDiner";
-            this.tabDiner.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDiner.Size = new System.Drawing.Size(669, 422);
+            this.tabDiner.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabDiner.Size = new System.Drawing.Size(500, 332);
             this.tabDiner.TabIndex = 1;
             this.tabDiner.Text = "Diner";
             this.tabDiner.UseVisualStyleBackColor = true;
@@ -74,9 +77,10 @@
             // tabDrank
             // 
             this.tabDrank.Location = new System.Drawing.Point(4, 52);
+            this.tabDrank.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabDrank.Name = "tabDrank";
-            this.tabDrank.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDrank.Size = new System.Drawing.Size(669, 422);
+            this.tabDrank.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabDrank.Size = new System.Drawing.Size(500, 332);
             this.tabDrank.TabIndex = 2;
             this.tabDrank.Text = "Drank";
             this.tabDrank.UseVisualStyleBackColor = true;
@@ -85,18 +89,20 @@
             // tabNonAlcohol
             // 
             this.tabNonAlcohol.Location = new System.Drawing.Point(4, 52);
+            this.tabNonAlcohol.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabNonAlcohol.Name = "tabNonAlcohol";
-            this.tabNonAlcohol.Padding = new System.Windows.Forms.Padding(3);
-            this.tabNonAlcohol.Size = new System.Drawing.Size(669, 422);
+            this.tabNonAlcohol.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabNonAlcohol.Size = new System.Drawing.Size(500, 332);
             this.tabNonAlcohol.TabIndex = 3;
             this.tabNonAlcohol.Text = "Non-Alcohol";
             this.tabNonAlcohol.UseVisualStyleBackColor = true;
             // 
             // VerzendenButton
             // 
-            this.VerzendenButton.Location = new System.Drawing.Point(423, 844);
+            this.VerzendenButton.Location = new System.Drawing.Point(317, 686);
+            this.VerzendenButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.VerzendenButton.Name = "VerzendenButton";
-            this.VerzendenButton.Size = new System.Drawing.Size(203, 95);
+            this.VerzendenButton.Size = new System.Drawing.Size(152, 77);
             this.VerzendenButton.TabIndex = 1;
             this.VerzendenButton.Text = "Verzenden";
             this.VerzendenButton.UseVisualStyleBackColor = true;
@@ -104,11 +110,12 @@
             // 
             // BedieningMenuForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(702, 1045);
+            this.ClientSize = new System.Drawing.Size(526, 849);
             this.Controls.Add(this.VerzendenButton);
             this.Controls.Add(this.tabControl1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "BedieningMenuForm";
             this.Text = "BedieningMenuForm";
             this.tabControl1.ResumeLayout(false);
