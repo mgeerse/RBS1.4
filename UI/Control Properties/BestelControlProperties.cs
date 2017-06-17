@@ -26,7 +26,6 @@ namespace UI
             public TreeViewBestelling(string NodeText)
             {
                 Nodes.Add(NodeText);
-
                 ShowRootLines = false;
                 ShowLines = false;
                 CheckBoxes = false;
@@ -85,7 +84,7 @@ namespace UI
         {
             public InfoLabelDatum(DateTime DatumTijd)
             {
-                Text = "Besteld om: " + DatumTijd.ToString("dd/MMM") + " om " + DatumTijd.ToString("HH:MM");
+                Text = "Besteld op: " + DatumTijd.ToString("dd/MMM") + " om " + DatumTijd.ToString("HH:MM");
                 Location = new Point(12, 20);
                 Size = new Size(500, 30);
                 Font = new Font("Trebuchet MS", 16);
@@ -124,16 +123,19 @@ namespace UI
                 ForeColor = Color.White;
 
                 TimeSpan Verschil = new TimeSpan();
+
                 Verschil = DateTime.Now - DatumTijd;
 
-                if (Verschil.TotalMinutes >= 45)
-                {
-                    ForeColor = Color.Orange;
-                }
-                else if (Verschil.TotalMinutes >= 60)
+
+                if (Verschil.TotalMinutes >= 60)
                 {
                     ForeColor = Color.Red;
                 }
+                else if (Verschil.TotalMinutes >= 45)
+                {
+                    ForeColor = Color.Orange;
+                }
+                
 
                 Location = new Point(12, 50);
                 Size = new Size(500, 30);

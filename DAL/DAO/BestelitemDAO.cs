@@ -91,7 +91,7 @@ namespace DAL
             string query = "SELECT Bestelling, Menuitem, Aantal, Opmerking, Status, TijdIngevoerd" +
                 " FROM Bestelitem" +
                 " JOIN MenuItem AS M on Bestelitem.Menuitem = M.MenuitemId" +
-                " WHERE (M.Categorie BETWEEN 8 AND 12) AND Status = @Status" +
+                " WHERE (M.Categorie BETWEEN 7 AND 12) AND Status = @Status" +
                 " ORDER BY Bestelling";
 
             SqlCommand command = new SqlCommand(query, conn);
@@ -112,6 +112,52 @@ namespace DAL
                 if (reader.IsDBNull(3))
                 {
                      Opmerking = "";
+                }
+                else
+                {
+                    Opmerking = reader.GetString(3);
+                }
+                Status Status = (Status)reader.GetInt32(4);
+                DateTime TijdIngevoerd = reader.GetDateTime(5);
+
+                result.Add(new Bestelitem(Bestelling, Menuitem, Aantal, Opmerking, Status, TijdIngevoerd));
+            }
+
+            conn.Close();
+            return result;
+
+        }
+
+        public List<Bestelitem> GetKokBestellingenForStatus(int status)
+        {
+            List<Bestelitem> result = new List<Bestelitem>();
+
+            conn.Open();
+
+            string query = "SELECT Bestelling, Menuitem, Aantal, Opmerking, Status, TijdIngevoerd" +
+                " FROM Bestelitem" +
+                " JOIN MenuItem AS M on Bestelitem.Menuitem = M.MenuitemId" +
+                " WHERE (M.Categorie BETWEEN 1 AND 6) AND Status = @Status" +
+                " ORDER BY Bestelling";
+
+            SqlCommand command = new SqlCommand(query, conn);
+            command.Parameters.Add("@Status", System.Data.SqlDbType.Int).Value = status;
+            command.Prepare();
+
+            SqlDataReader reader = command.ExecuteReader();
+
+
+            while (reader.Read())
+            {
+                //Bestelling gaat bij de tweede keer fout?
+                Bestelling Bestelling = BestellingDAO.GetForId(reader.GetInt32(0));
+                Menuitem Menuitem = MenuitemDAO.GetForId(reader.GetInt32(1));
+                int Aantal = reader.GetInt32(2);
+
+                string Opmerking;
+                if (reader.IsDBNull(3))
+                {
+                    Opmerking = "";
                 }
                 else
                 {

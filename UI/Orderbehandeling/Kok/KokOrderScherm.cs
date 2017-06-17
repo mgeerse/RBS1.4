@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace UI
 {
-    public class BarmanOrderScherm
+    public class KokOrderScherm
     {
-        public Logic.BarBestellingLogica Bestelling = new Logic.BarBestellingLogica();
+        public Logic.BestellingLogica Bestelling = new Logic.BestellingLogica();
         public Bestelitem Bestelitem;
         public List<Bestelitem> BestelItems = new List<Bestelitem>();
         protected int LaatsGebruikteId;
@@ -19,15 +19,14 @@ namespace UI
         protected List<Bestelitem> AllNewOrders;
         protected List<Bestelitem> AllOldOrders;
 
-        public BarmanOrderScherm()
+        public KokOrderScherm()
         {
 
         }
 
         public Panel MaakControls(Panel Panel)
         {
-            AllNewOrders = Bestelling.GetOrdersForStatus(0);
-
+            AllNewOrders = Bestelling.GetKokOrdersForStatus(0);
 
             //Begin het maken van de controls!
             MaakLinkerControl(Panel);
@@ -44,7 +43,7 @@ namespace UI
 
             #region Eerst de TabControl en TabPage aanmaken:
             TabPage TabPage;
-            TreeView TreeView = new BestelControlsProperties.TreeViewBestelling("Drankje:");
+            TreeView TreeView = new BestelControlsProperties.TreeViewBestelling("Gerecht:");
             RichTextBox RichTextBox = new BestelControlsProperties.OpmerkingTextBox();
             Button Button = new BestelControlsProperties.GereedButton();
             Label Label1;
@@ -130,7 +129,7 @@ namespace UI
 
                         #region Items toevoegen aan de treeview, en de opmerkingen hiervan meenemen:
 
-                        TreeView.Nodes[0].Text = "Drankjes:";
+                        TreeView.Nodes[0].Text = "Gerechten:";
 
                         if (BestelList.Aantal > 1)
                         {
@@ -182,7 +181,7 @@ namespace UI
 
             #region Eerst de TabControl en TabPage aanmaken:
             TabPage TabPage;
-            TreeView TreeView = new BestelControlsProperties.TreeViewBestelling("Drankje: ");
+            TreeView TreeView = new BestelControlsProperties.TreeViewBestelling("Gerecht: ");
             RichTextBox RichTextBox = new BestelControlsProperties.OpmerkingTextBox();
             Button Button = new BestelControlsProperties.GereedButton();
             Label Label1;
@@ -218,11 +217,12 @@ namespace UI
                         //Controls direct toevoegen aan TabPage
                         TabPage.Controls.Add(GroupBox);
                         TabPage.Controls.Add(TreeView);
-                        TabPage.Controls.Add(Label1);
-                        TabPage.Controls.Add(Label2);
-                        TabPage.Controls.Add(Label3);
                         TabPage.Controls.Add(RichTextBox);
                         TabPage.Controls.Add(Button);
+
+                        GroupBox.Controls.Add(Label1);
+                        GroupBox.Controls.Add(Label2);
+                        GroupBox.Controls.Add(Label3);
 
                         TabControl.Controls.Add(TabPage);
                         #endregion
@@ -256,7 +256,7 @@ namespace UI
                     {
                         #region Items toevoegen aan de treeview, en de opmerkingen hiervan meenemen:
 
-                        TreeView.Nodes[0].Text = "Drankjes:";
+                        TreeView.Nodes[0].Text = "Gerechten:";
 
                         if (BestelList.Aantal > 1)
                         {
@@ -322,7 +322,7 @@ namespace UI
             GebruikteIndexes = 0;
             LaatsGebruikteId = 0;
 
-            AllOldOrders = Bestelling.GetOrdersForStatus(2);
+            AllOldOrders = Bestelling.GetKokOrdersForStatus(2);
 
             #region TabControl aanmaken:
             TabControl TabControl = new BestelControlsProperties.LinkerTabControl();
@@ -330,7 +330,7 @@ namespace UI
 
             #region Eerst de TabControl en TabPage aanmaken:
             TabPage TabPage;
-            TreeView TreeView = new BestelControlsProperties.TreeViewBestelling("Drankjes:");
+            TreeView TreeView = new BestelControlsProperties.TreeViewBestelling("Gerecht:");
             RichTextBox RichTextBox = new BestelControlsProperties.OpmerkingTextBox();
             Label Label1;
             Label Label2;
@@ -410,7 +410,7 @@ namespace UI
                         //De gebruikte indexes moet omhoog gedaan worden:
                         GebruikteIndexes++;
 
-                        TreeView.Nodes[0].Text = "Drankjes:";
+                        TreeView.Nodes[0].Text = "Gerechten:";
                         #region Items toevoegen aan de treeview, en de opmerkingen hiervan meenemen:
                         if (BestelList.Aantal > 1)
                         {
