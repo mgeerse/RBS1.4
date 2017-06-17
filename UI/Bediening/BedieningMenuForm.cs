@@ -38,7 +38,9 @@ namespace UI
             if (result == DialogResult.Yes)
             {
                 ConfirmedVerzondenForm ConfirmedVerzondenForm = new ConfirmedVerzondenForm(parent);
+                ConfirmedVerzondenForm.StartPosition = FormStartPosition.CenterParent;
                 ConfirmedVerzondenForm.ShowDialog();
+
                 BedieningTafelOverzichtForm tafelForm = new BedieningTafelOverzichtForm(parent);
                 tafelForm.TopLevel = false;
                 tafelForm.FormBorderStyle = FormBorderStyle.None;
