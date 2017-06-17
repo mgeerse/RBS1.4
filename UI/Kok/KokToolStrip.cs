@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Model;
 
 namespace UI
 {
@@ -11,93 +8,66 @@ namespace UI
     {
         Kok Kok;
         Panel Panel;
-        BarmanOrderScherm OP = new BarmanOrderScherm();
-        ToolStripButton TSB1 = new ToolStripButton();
-        ToolStripButton TSB2 = new ToolStripButton();
-        ToolStripButton TSB3 = new ToolStripButton();
-        ToolStripLabel TSL1 = new ToolStripLabel();
-        ToolStripSeparator TSP = new ToolStripSeparator();
-        ToolStripSeparator TSP2 = new ToolStripSeparator();
-        ToolStrip ToolStrip = new ToolStrip();
         Timer Timer1;
+        Medewerker Medewerker = null;
+        ToolStrip ToolStrip = new ToolStripProperties.ToolStripItem();
 
-        public KokToolStrip(Kok Kok, Panel Panel, Timer Timer1)
+
+        public KokToolStrip(Kok Kok, Panel Panel, Timer Timer1, Medewerker Medewerker)
         {
             this.Kok = Kok;
             this.Panel = Panel;
             this.Timer1 = Timer1;
+            this.Medewerker = Medewerker;
         }
 
-        public Control maakToolStrip(Model.Medewerker Object)
+        public Control maakToolStrip()
         {
-            //Toolstrip
-            ToolStrip.Dock = DockStyle.Bottom;
-            ToolStrip.GripStyle = ToolStripGripStyle.Hidden;
-            ToolStrip.BackColor = System.Drawing.Color.LightSteelBlue;
-            ToolStrip.ShowItemToolTips = false;
-            
-            //ToolStripButton1
-            TSB1 = new ToolStripButton();
-            TSB1.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            TSB1.Text = "Uitloggen";
-            TSB1.Alignment = ToolStripItemAlignment.Left;
-            TSB1.BackColor = System.Drawing.Color.DodgerBlue;
-            TSB1.Font = new System.Drawing.Font("Trebuchet MS", 11);
-            TSB1.ForeColor = System.Drawing.Color.White;
 
-            //ToolStripButton2
-            TSB2.Text = "Bestel geschiedenis";
-            TSB2.Click += TSB2_Click;
-            TSB2.Alignment = ToolStripItemAlignment.Right;
-            TSB2.Width = 75;
-            TSB2.Font = new System.Drawing.Font("Trebuchet MS", 11);
-            TSB2.ForeColor = System.Drawing.Color.White;
-            TSB2.BackColor = System.Drawing.Color.DodgerBlue;
-            
-            //ToolStripButton3
-            TSB3.Text = "Terug naar bestellijst";
-            TSB3.Click += TSB3_Click;
-            TSB3.Alignment = ToolStripItemAlignment.Right;
+            ToolStripButton TSB1 = new ToolStripProperties.ToolStripStandaardButton("Uitloggen");
+            ToolStripButton TSB2 = new ToolStripProperties.ToolStripOverzichtKnop("Bestelgeschiedenis inzien");
+            ToolStripButton TSB3 = new ToolStripProperties.ToolStripOverzichtKnop("Terug naar orderoverzicht");
+            ToolStripLabel TSL1 = new ToolStripProperties.ToolStripStandaardLabel("Ingelogd als:", Medewerker);
+            ToolStripSeparator TSP = new ToolStripProperties.ToolStripStandaardSeperator();
+            ToolStripSeparator TSP2 = new ToolStripProperties.ToolStripStandaardSeperator();
+
             TSB3.Visible = false;
             TSB3.Enabled = false;
-            TSB3.Width = 75;
-            TSB3.BackColor = System.Drawing.Color.DodgerBlue;
-            TSB3.Font = new System.Drawing.Font("Trebuchet MS", 11);
-            TSB3.ForeColor = System.Drawing.Color.White;
-
-            //ToolStripLabel
-            TSL1.Text = "Ingelogd als: " + Object.Naam;
-            TSL1.Alignment = ToolStripItemAlignment.Left;
-            TSL1.Font = new System.Drawing.Font("Trebuchet MS", 12);
-
-            //ToolStripSeperator van de 
-            TSP2.Alignment = ToolStripItemAlignment.Right;
 
             ToolStrip.Items.Add(TSL1);
-            ToolStrip.Items.Add(TSP);
+            ToolStrip.Items.Add(TSP2);
             ToolStrip.Items.Add(TSB1);
+            ToolStrip.Items.Add(TSP2);
             ToolStrip.Items.Add(TSB2);
             ToolStrip.Items.Add(TSB3);
-            ToolStrip.Items.Add(TSP2);
 
-            TSB1.Click += delegate (object sender, EventArgs e)
-            {
-                TSB1_Click(sender, e, Object);
+            TSB1.Click += delegate (object s, EventArgs e) {
+                TSB1_Click(s, e);
             };
 
-            
+            TSB2.Click += delegate (object s, EventArgs e) {
+                TSB2_Click(s, e, TSB2, TSB3);
+            };
+
+            TSB3.Click += delegate (object s, EventArgs e) {
+                TSB3_Click(s, e, TSB2, TSB3);
+            };
+
             return ToolStrip;
         }
 
-        private void TSB3_Click(object sender, EventArgs e)
+        private void TSB3_Click(object sender, EventArgs e, ToolStripButton TSB2, ToolStripButton TSB3)
         {
-              foreach (Control item in Panel.Controls)
+            KokOrderScherm BOS = new KokOrderScherm();
+
+            foreach (Control item in Panel.Controls)
             {
                 item.Dispose();
             }
+
             Panel.Controls.Clear();
 
-            Kok.Controls.Add(OP.MaakControls(Panel));
+            Kok.Controls.Add(BOS.MaakControls(Panel));
             Timer1.Start();
 
             TSB3.Visible = false;
@@ -109,10 +79,12 @@ namespace UI
             ToolStrip.Update();
         }
 
-        void TSB2_Click(object sender, EventArgs e)
+        void TSB2_Click(object sender, EventArgs e, ToolStripButton TSB2, ToolStripButton TSB3)
         {
             //Hier de code om de geschiedenis te weergeven.
-            
+
+            KokOrderScherm BOS = new KokOrderScherm();
+
             foreach (Control item in Panel.Controls)
             {
                 item.Dispose();
@@ -121,14 +93,11 @@ namespace UI
             //Eerst de huidige control leegmaken.
             Panel.Controls.Clear();
 
-            //Hierna zetten we TSB2 op zijn text "Terug naar bestellingen"
-            //TSB2.Text = "Terug naar bestellingen";
-
             //Stoppen met updaten
             Timer1.Stop();
 
             //De panel vullen met nieuwe bestellingen
-            Kok.Controls.Add(OP.MaakGeschiedenis(Panel));
+            Kok.Controls.Add(BOS.MaakGeschiedenis(Panel));
 
             TSB2.Visible = false;
             TSB2.Enabled = false;
@@ -139,9 +108,8 @@ namespace UI
             ToolStrip.Update();
         }
 
-        private void TSB1_Click(object sender, EventArgs e, Model.Medewerker Object)
+        private void TSB1_Click(object sender, EventArgs e)
         {
-            Object = null;
             Kok.Close();
         }
     }

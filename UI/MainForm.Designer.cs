@@ -117,6 +117,7 @@
             this.KeukenButton.TabIndex = 3;
             this.KeukenButton.Text = "Keuken";
             this.KeukenButton.UseVisualStyleBackColor = true;
+            this.KeukenButton.Click += new System.EventHandler(this.KeukenButton_Click);
             // 
             // pictureBox1
             // 

@@ -235,6 +235,9 @@
     <EmbeddedResource Include="Kok\Kok.nl.resx">
       <DependentUpon>Kok.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Kok\Kok.resx">
+      <DependentUpon>Kok.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>

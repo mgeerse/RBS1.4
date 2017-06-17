@@ -10,7 +10,7 @@ namespace UI
 {
     public class BarmanOrderScherm
     {
-        public Logic.BarBestellingLogica Bestelling = new Logic.BarBestellingLogica();
+        public Logic.BestellingLogica Bestelling = new Logic.BestellingLogica();
         public Bestelitem Bestelitem;
         public List<Bestelitem> BestelItems = new List<Bestelitem>();
         protected int LaatsGebruikteId;
@@ -26,7 +26,7 @@ namespace UI
 
         public Panel MaakControls(Panel Panel)
         {
-            AllNewOrders = Bestelling.GetOrdersForStatus(0);
+            AllNewOrders = Bestelling.GetBarOrdersForStatus(0);
 
 
             //Begin het maken van de controls!
@@ -215,14 +215,15 @@ namespace UI
                         GroupBox = new BestelControlsProperties.GroupBoxInformation("Extra informatie: ");
                         TabPage = new BestelControlsProperties.OrderTabPage("Tafel#" + BestelList.Bestelling.Tafel.Id + " | Besteld om " + BestelList.Tijdingevoerd.ToString("HH:mm"));
 
-                        //Controls direct toevoegen aan TabPage
+                        //Controls de juiste parent geven
                         TabPage.Controls.Add(GroupBox);
                         TabPage.Controls.Add(TreeView);
-                        TabPage.Controls.Add(Label1);
-                        TabPage.Controls.Add(Label2);
-                        TabPage.Controls.Add(Label3);
                         TabPage.Controls.Add(RichTextBox);
                         TabPage.Controls.Add(Button);
+
+                        GroupBox.Controls.Add(Label1);
+                        GroupBox.Controls.Add(Label2);
+                        GroupBox.Controls.Add(Label3);
 
                         TabControl.Controls.Add(TabPage);
                         #endregion
@@ -322,7 +323,7 @@ namespace UI
             GebruikteIndexes = 0;
             LaatsGebruikteId = 0;
 
-            AllOldOrders = Bestelling.GetOrdersForStatus(2);
+            AllOldOrders = Bestelling.GetBarOrdersForStatus(2);
 
             #region TabControl aanmaken:
             TabControl TabControl = new BestelControlsProperties.LinkerTabControl();

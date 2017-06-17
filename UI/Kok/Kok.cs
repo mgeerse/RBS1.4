@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Model;
 
@@ -13,7 +7,7 @@ namespace UI
 {
     public partial class Kok : Form
     {
-        BarmanOrderScherm OP = new BarmanOrderScherm();
+        KokOrderScherm OP = new KokOrderScherm();
         Panel Panel = new Panel();
 
         public Kok(Medewerker Medewerker)
@@ -25,7 +19,7 @@ namespace UI
             Panel.BackColor = Color.LightSteelBlue;
 
             Panel = OP.MaakControls(Panel);
-            BarToolStrip KSO = new BarToolStrip(new Barman(Medewerker), Panel, timer1, Medewerker);
+            KokToolStrip KSO = new KokToolStrip(this, Panel, timer1, Medewerker);
 
             Controls.Add(KSO.maakToolStrip());
             Controls.Add(Panel);

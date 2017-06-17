@@ -42,5 +42,10 @@ namespace UI
         {
             new Barman(new Medewerker(1, "Maarten", MedewerkerType.Bar, "0100".ToCharArray())).Show();
         }
+
+        private void KeukenButton_Click(object sender, EventArgs e)
+        {
+            new Kok(new Medewerker(1, "Maarten", MedewerkerType.Keuken, "0100".ToCharArray())).Show();
+        }
     }
 }
