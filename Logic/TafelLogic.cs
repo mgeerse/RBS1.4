@@ -13,44 +13,43 @@ namespace Logic
         RekeningDAO RekeningDAO = new RekeningDAO();
         BestellingDAO BestellingDAO = new BestellingDAO();
 
-        #region wtf bram
-
-        //public bool GetTafel(int nummer)
-        //{
-        //    TafelDAO tafel = new TafelDAO();
-
-        //    try
-        //    {
-        //        tafel.Update(nummer);
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        return false;
-        //    }
-        //    return true;
-        //}
-
-        //public bool TafelAfgerekend(int nummer)
-        //{
-        //    TafelDAO tafel = new TafelDAO();
-        //    int Nummer = 20;
-        //    try
-        //    {
-        //        tafel.Update(Nummer);
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        return true;
-        //    }
-        //    return false;
-        //}
-        #endregion
-
         public Tafel GetTafel(int Id)
         {
             return TafelDAO.GetForId(Id);
         }
 
+        public List<Tafel> BeginKleur()
+        {
+            List<Tafel> Tafel = new List<Tafel>();
+            Tafel = TafelDAO.GetAll();
+            return Tafel;
+        }
+
+        public bool TafelBezet(int nummer)
+        {
+            try
+            {
+                TafelDAO.UpdateOmhoog(nummer);
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
+        public bool TafelVrijgeven(int nummer)
+        {
+            try
+            {
+                TafelDAO.UpdateOmLaag(nummer);
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
         public bool TafelAfgerekend(int nummer)
         {
             //TODO Tafel echt afrekenen
