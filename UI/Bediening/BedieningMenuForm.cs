@@ -41,8 +41,7 @@ namespace UI
                 ConfirmedVerzondenForm ConfirmedVerzondenForm = new ConfirmedVerzondenForm(parent);
                 ConfirmedVerzondenForm.ShowDialog();
             }
-
-            this.Close();
+            
         }
     }
 }

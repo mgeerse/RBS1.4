@@ -80,7 +80,7 @@ namespace UI
                 form1.Show();
             }
 
-            this.Close();
+            
         }
 
         private void buttonBestellingToevoegen_Click(object sender, EventArgs e)
@@ -88,7 +88,7 @@ namespace UI
             BedieningMenuForm form = new BedieningMenuForm(tafel, parent);
             form.ShowDialog();
 
-            this.Close();
+            
         }
     }
 }
