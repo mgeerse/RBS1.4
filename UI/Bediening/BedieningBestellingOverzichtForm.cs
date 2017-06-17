@@ -69,7 +69,7 @@ namespace UI
                 //parent.Controls["ContentPanel"].Controls.Clear();
                 //parent.Controls["ContentPanel"].Controls.Add(form1);
                 //form1.Show();
-                parent.ShowForm(new AfrekenenForm(parent));
+                parent.ShowForm(new AfrekenenForm(parent, tafel));
             }
 
         }
