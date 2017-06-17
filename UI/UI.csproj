@@ -152,7 +152,7 @@
     <Compile Include="Bediening\TipForm.Designer.cs">
       <DependentUpon>TipForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="BestelControlProperties.cs" />
+    <Compile Include="Control Properties\BestelControlProperties.cs" />
     <Compile Include="Kok\KokOrderScherm.cs" />
     <Compile Include="Kok\Kok.cs">
       <SubType>Form</SubType>
@@ -174,7 +174,7 @@
     <Compile Include="RekeningUserControl.Designer.cs">
       <DependentUpon>RekeningUserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="ToolStripProperties.cs" />
+    <Compile Include="Control Properties\ToolStripProperties.cs" />
     <Compile Include="TotaalRekeningUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
