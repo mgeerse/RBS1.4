@@ -11,12 +11,12 @@ using Model;
 
 namespace UI
 {
-    public partial class Barman : Form
+    public partial class Kok : Form
     {
         BarmanOrderScherm OP = new BarmanOrderScherm();
         Panel Panel = new Panel();
 
-        public Barman(Medewerker Medewerker)
+        public Kok(Medewerker Medewerker)
         {
             InitializeComponent();
 
@@ -25,9 +25,9 @@ namespace UI
             Panel.BackColor = Color.LightSteelBlue;
 
             Panel = OP.MaakControls(Panel);
-            BarToolStrip BOS = new BarToolStrip(this, Panel, timer1, Medewerker);
+            BarToolStrip KSO = new BarToolStrip(new Barman(Medewerker), Panel, timer1, Medewerker);
 
-            Controls.Add(BOS.maakToolStrip());
+            Controls.Add(KSO.maakToolStrip());
             Controls.Add(Panel);
 
             timer1.Interval = 10000;

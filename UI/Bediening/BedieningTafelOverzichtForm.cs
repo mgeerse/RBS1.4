@@ -71,6 +71,8 @@ namespace UI
 
         }
 
+        #region Tafel buttons
+
         private void btn_Tafel1_Click(object sender, EventArgs e)
         {
             ShowTafelBestellingOverzicht(1);
@@ -120,6 +122,8 @@ namespace UI
         {
             ShowTafelBestellingOverzicht(10);
         }
+
+        #endregion
 
         void btn_Loguit_Click(object sender, EventArgs e) { }
 
