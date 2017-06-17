@@ -59,15 +59,16 @@
     <Compile Include="Algemene Popups\ErrAlUitgelogdForm.designer.cs">
       <DependentUpon>ErrAlUitgelogdForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Barman\BarToolStrip.cs" />
-    <Compile Include="Barman\Barman.cs">
+    <Compile Include="Control Properties\PanelProperties.cs" />
+    <Compile Include="Orderbehandeling\Barman\BarToolStrip.cs" />
+    <Compile Include="Orderbehandeling\Barman\Barman.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Barman\Barman.Designer.cs">
+    <Compile Include="Orderbehandeling\Barman\Barman.Designer.cs">
       <DependentUpon>Barman.cs</DependentUpon>
     </Compile>
     <Compile Include="App.cs" />
-    <Compile Include="Barman\BarmanOrderScherm.cs" />
+    <Compile Include="Orderbehandeling\Barman\BarmanOrderScherm.cs" />
     <Compile Include="Bediening\AfrekenenForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,19 +154,25 @@
       <DependentUpon>TipForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Control Properties\BestelControlProperties.cs" />
-    <Compile Include="Kok\KokOrderScherm.cs" />
-    <Compile Include="Kok\Kok.cs">
+    <Compile Include="Orderbehandeling\Kok\KokOrderScherm.cs" />
+    <Compile Include="Orderbehandeling\Kok\Kok.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Kok\Kok.Designer.cs">
+    <Compile Include="Orderbehandeling\Kok\Kok.Designer.cs">
       <DependentUpon>Kok.cs</DependentUpon>
     </Compile>
-    <Compile Include="Kok\KokToolStrip.cs" />
+    <Compile Include="Orderbehandeling\Kok\KokToolStrip.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Orderbehandeling\Login\OrderLoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Orderbehandeling\Login\OrderLoginForm.Designer.cs">
+      <DependentUpon>OrderLoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RekeningUserControl.cs">
@@ -187,7 +194,7 @@
     <EmbeddedResource Include="Algemene Popups\ErrAlUitgelogdForm.resx">
       <DependentUpon>ErrAlUitgelogdForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Barman\Barman.resx">
+    <EmbeddedResource Include="Orderbehandeling\Barman\Barman.resx">
       <DependentUpon>Barman.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Bediening\AfrekenenForm.resx">
@@ -232,14 +239,17 @@
     <EmbeddedResource Include="Bediening\TipForm.resx">
       <DependentUpon>TipForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Kok\Kok.nl.resx">
+    <EmbeddedResource Include="Orderbehandeling\Kok\Kok.nl.resx">
       <DependentUpon>Kok.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Kok\Kok.resx">
+    <EmbeddedResource Include="Orderbehandeling\Kok\Kok.resx">
       <DependentUpon>Kok.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Orderbehandeling\Login\OrderLoginForm.resx">
+      <DependentUpon>OrderLoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

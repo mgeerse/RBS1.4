@@ -5,23 +5,19 @@ using Model;
 
 namespace UI
 {
-    public partial class Kok : Form
+    public partial class Barman : Form
     {
-        KokOrderScherm OP = new KokOrderScherm();
-        Panel Panel = new Panel();
+        BarmanOrderScherm OP = new BarmanOrderScherm();
+        Panel Panel = new PanelProperties.StandaardPanel();
 
-        public Kok(Medewerker Medewerker)
+        public Barman(Medewerker Medewerker, MainForm MainForm)
         {
             InitializeComponent();
 
-            Panel.Size = new Size(1160, 695);
-            Panel.Location = new Point(0, 0);
-            Panel.BackColor = Color.LightSteelBlue;
-
             Panel = OP.MaakControls(Panel);
-            KokToolStrip KSO = new KokToolStrip(this, Panel, timer1, Medewerker);
+            BarToolStrip BOS = new BarToolStrip(this, Panel, timer1, Medewerker, MainForm);
 
-            Controls.Add(KSO.maakToolStrip());
+            Controls.Add(BOS.maakToolStrip());
             Controls.Add(Panel);
 
             timer1.Interval = 10000;
