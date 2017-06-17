@@ -15,23 +15,38 @@ namespace UI
     public partial class TotaalRekeningUserControl : UserControl
     {
         Rekening rekening;
+        decimal fooi;
 
-        RekeningUserControl BerekeningPrijs;
-
-        public TotaalRekeningUserControl(Bestelling bestelling, RekeningUserControl BerekeningPrijs)
+        public TotaalRekeningUserControl(Bestelling bestelling, decimal fooi = 0M)
         {
             InitializeComponent();
-            
-            this.BerekeningPrijs = BerekeningPrijs;
-
+            this.fooi = fooi;
             rekening = new BerekenRekening().Berekenen(bestelling);
+
+            GetLabels();
         }
 
         public void GetLabels()
         {
+            decimal TotaalIncl = rekening.TotaalExclusief / 1.21M;
+            
+            LabelPrijsInclBTW.Text = rekening.TotaalExclusief.ToString();
+            rekening.BtwBedrag = rekening.TotaalExclusief - TotaalIncl;
+            rekening.BtwBedrag = decimal.Round(rekening.BtwBedrag, 2);
             LabelBTW.Text = rekening.BtwBedrag.ToString();
-            LabelPrijsExclBTW.Text = rekening.TotaalExclusief.ToString();
-            LabelPrijsInclBTW.Text = rekening.TotaalExclusief.ToString() + rekening.BtwBedrag.ToString();
+            TotaalIncl = decimal.Round(TotaalIncl, 2);
+
+            LabelPrijsExclBTW.Text = TotaalIncl.ToString();
+
+            LabelTip.Text = fooi.ToString();
+
+            LabelTotaalprijs.Text = (TotaalIncl + fooi).ToString();
+        }
+
+        public void VoegTipToe(decimal TipToevoegen)
+        {
+            fooi += TipToevoegen;
+            GetLabels();
         }
     }
 }

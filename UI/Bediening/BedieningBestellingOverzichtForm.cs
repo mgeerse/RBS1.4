@@ -24,7 +24,6 @@ namespace UI
         {
             this.tafel = new TafelLogic().GetTafel(Tafelnummer);
             this.parent = parent;
-            form1 = new AfrekenenForm(parent);
             InitializeComponent();
         }
 
@@ -38,18 +37,7 @@ namespace UI
         {
             List<Bestelitem> bestelitems = new BestellingOverzicht().GetNietGeredeBestelitems(tafel.Id);
             BestellingenPanel.RowCount = 0;
-
-            //#region Testdata: Verwijder dit wanneer we met de database werken
-
-            //DateTime minuten = DateTime.Now.AddMinutes(-25);
-            //DateTime uur = DateTime.Now.AddHours(-2);
-            //bestelitems = new List<Bestelitem>()
-            //{
-            //    new Bestelitem(new GetBestelling().GetForId(8), new GetMenuitem().GetForId(1), 1, "Aap", Status.Bezig, minuten),
-            //    new Bestelitem(new GetBestelling().GetForId(8), new GetMenuitem().GetForId(2), 3, "Aap", Status.Bezig, uur),
-
-            //};
-            //#endregion
+            
 
             BestellingenPanel.RowStyles.Add(new RowStyle());
 
@@ -73,6 +61,8 @@ namespace UI
             form.StartPosition = FormStartPosition.CenterParent;
             if (form.ShowDialog() == DialogResult.Yes)
             {
+
+                form1 = new AfrekenenForm(parent, tafel);
                 form1.TopLevel = false;
                 form1.FormBorderStyle = FormBorderStyle.None;
                 parent.Controls["ContentPanel"].Controls.Clear();
