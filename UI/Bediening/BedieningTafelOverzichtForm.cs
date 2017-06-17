@@ -73,62 +73,52 @@ namespace UI
 
         private void btn_Tafel1_Click(object sender, EventArgs e)
         {
-            BedieningBestellingOverzichtForm tafel1 = new BedieningBestellingOverzichtForm(parent, 1);
-            tafel1.Show();
+            ShowTafelBestellingOverzicht(1);
         }
 
         private void btn_Tafel2_Click(object sender, EventArgs e)
         {
-            BedieningBestellingOverzichtForm tafel2 = new BedieningBestellingOverzichtForm(parent, 2);
-            tafel2.Show();
+            ShowTafelBestellingOverzicht(2);
         }
 
         private void btn_Tafel3_Click(object sender, EventArgs e)
         {
-            BedieningBestellingOverzichtForm tafel3 = new BedieningBestellingOverzichtForm(parent, 3);
-            tafel3.Show();
+            ShowTafelBestellingOverzicht(3);
         }
 
         private void btn_Tafel4_Click(object sender, EventArgs e)
         {
-            BedieningBestellingOverzichtForm tafel4 = new BedieningBestellingOverzichtForm(parent, 4);
-            tafel4.Show();
+            ShowTafelBestellingOverzicht(4);
         }
 
         private void btn_Tafel5_Click(object sender, EventArgs e)
         {
-            BedieningBestellingOverzichtForm tafel5 = new BedieningBestellingOverzichtForm(parent, 5);
-            tafel5.Show();
+            ShowTafelBestellingOverzicht(5);
         }
 
         private void btn_Tafel6_Click(object sender, EventArgs e)
         {
-            BedieningBestellingOverzichtForm tafel6 = new BedieningBestellingOverzichtForm(parent, 6);
-            tafel6.Show();
+            ShowTafelBestellingOverzicht(6);
         }
 
         private void btn_Tafel7_Click(object sender, EventArgs e)
         {
-            BedieningBestellingOverzichtForm tafel7 = new BedieningBestellingOverzichtForm(parent, 7);
-            tafel7.Show();
+            ShowTafelBestellingOverzicht(7);
         }
 
         private void btn_Tafel8_Click(object sender, EventArgs e)
         {
-            BedieningBestellingOverzichtForm tafel8 = new BedieningBestellingOverzichtForm(parent, 8);
-            tafel8.Show();
+            ShowTafelBestellingOverzicht(8);
         }
 
         private void btn_Tafel9_Click(object sender, EventArgs e)
         {
-            BedieningBestellingOverzichtForm tafel9 = new BedieningBestellingOverzichtForm(parent, 9);
-            tafel9.Show();
+            ShowTafelBestellingOverzicht(9);
         }
 
         private void btn_Tafel10_Click(object sender, EventArgs e)
         {
-            BedieningBestellingOverzichtForm tafel10 = new BedieningBestellingOverzichtForm(parent, 10);
-            tafel10.Show();
+            ShowTafelBestellingOverzicht(10);
         }
 
         void btn_Loguit_Click(object sender, EventArgs e) { }
@@ -137,6 +127,7 @@ namespace UI
         {
             BedieningBestellingOverzichtForm tafel = new BedieningBestellingOverzichtForm(parent, nummer);
             tafel.TopLevel = false;
+            tafel.FormBorderStyle = FormBorderStyle.None;
             parent.Controls["ContentPanel"].Controls.Clear();
             parent.Controls["ContentPanel"].Controls.Add(tafel);
             tafel.Show();

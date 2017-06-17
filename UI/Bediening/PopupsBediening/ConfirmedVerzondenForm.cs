@@ -35,7 +35,7 @@ namespace UI
                 form1.FormBorderStyle = FormBorderStyle.None;
                 form1.Show();
             }
-            this.Close();
+            Close();
         }
     }
 }

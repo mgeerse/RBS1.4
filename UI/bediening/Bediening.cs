@@ -19,7 +19,7 @@ namespace UI
 
         private void btn_Hoofdmenu_Click(object sender, EventArgs e)
         {
-            this.Close();
+
         }
 
         private void tabPage1_Click(object sender, EventArgs e)

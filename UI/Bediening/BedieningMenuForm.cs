@@ -42,7 +42,7 @@ namespace UI
                 ConfirmedVerzondenForm.ShowDialog();
             }
 
-            this.Close();
+
         }
     }
 }
