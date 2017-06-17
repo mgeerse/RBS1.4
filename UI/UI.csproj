@@ -59,7 +59,15 @@
     <Compile Include="Algemene Popups\ErrAlUitgelogdForm.designer.cs">
       <DependentUpon>ErrAlUitgelogdForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Barman\ToolStripOnder.cs" />
+    <Compile Include="Barman\BarToolStrip.cs" />
+    <Compile Include="Barman\Barman.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Barman\Barman.Designer.cs">
+      <DependentUpon>Barman.cs</DependentUpon>
+    </Compile>
+    <Compile Include="App.cs" />
+    <Compile Include="Barman\BarmanOrderScherm.cs" />
     <Compile Include="Bediening\AfrekenenForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,23 +86,29 @@
     <Compile Include="Bediening\BedieningBestellingOverzichtForm.Designer.cs">
       <DependentUpon>BedieningBestellingOverzichtForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Bediening\BedieningLoginForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Bediening\BedieningLoginForm.Designer.cs">
-      <DependentUpon>BedieningLoginForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Bediening\BedieningForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Bediening\BedieningForm.Designer.cs">
       <DependentUpon>BedieningForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Bediening\BedieningLoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bediening\BedieningLoginForm.Designer.cs">
+      <DependentUpon>BedieningLoginForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Bediening\BedieningMenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Bediening\BedieningMenuForm.Designer.cs">
       <DependentUpon>BedieningMenuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bediening\BedieningTafelOverzichtForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bediening\BedieningTafelOverzichtForm.Designer.cs">
+      <DependentUpon>BedieningTafelOverzichtForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Bediening\HelperForms\BestellingUserControl.cs">
       <SubType>UserControl</SubType>
@@ -107,6 +121,18 @@
     </Compile>
     <Compile Include="Bediening\PopupsBediening\ConfirmAfrekenenForm.Designer.cs">
       <DependentUpon>ConfirmAfrekenenForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bediening\PopupsBediening\ConfirmBetaalmethodeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bediening\PopupsBediening\ConfirmBetaalmethodeForm.Designer.cs">
+      <DependentUpon>ConfirmBetaalmethodeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bediening\PopupsBediening\ConfirmCashBetaaldForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bediening\PopupsBediening\ConfirmCashBetaaldForm.Designer.cs">
+      <DependentUpon>ConfirmCashBetaaldForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Barman\Barman.cs">
       <SubType>Form</SubType>
@@ -133,6 +159,21 @@
     <Compile Include="Bediening\PopupsBediening\ConfirmVerzendenForm.Designer.cs">
       <DependentUpon>ConfirmVerzendenForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Bediening\TipForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bediening\TipForm.Designer.cs">
+      <DependentUpon>TipForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control Properties\BestelControlProperties.cs" />
+    <Compile Include="Kok\KokOrderScherm.cs" />
+    <Compile Include="Kok\Kok.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kok\Kok.Designer.cs">
+      <DependentUpon>Kok.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kok\KokToolStrip.cs" />
     <Compile Include="Barman\BarmanOrderScherm.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -140,12 +181,14 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Bediening\BedieningTafelOverzichtForm.cs">
-      <SubType>Form</SubType>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RekeningUserControl.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Bediening\BedieningTafelOverzichtForm.Designer.cs">
-      <DependentUpon>BedieningTafelOverzichtForm.cs</DependentUpon>
+    <Compile Include="RekeningUserControl.Designer.cs">
+      <DependentUpon>RekeningUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Control Properties\ToolStripProperties.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RBS1617S_DB04DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -181,11 +224,11 @@
     <EmbeddedResource Include="Bediening\BedieningBestellingOverzichtForm.resx">
       <DependentUpon>BedieningBestellingOverzichtForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Bediening\BedieningLoginForm.resx">
-      <DependentUpon>BedieningLoginForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Bediening\BedieningForm.resx">
       <DependentUpon>BedieningForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bediening\BedieningLoginForm.resx">
+      <DependentUpon>BedieningLoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Bediening\BedieningMenuForm.resx">
       <DependentUpon>BedieningMenuForm.cs</DependentUpon>
@@ -198,6 +241,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Bediening\PopupsBediening\ConfirmAfrekenenForm.resx">
       <DependentUpon>ConfirmAfrekenenForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bediening\PopupsBediening\ConfirmBetaalmethodeForm.resx">
+      <DependentUpon>ConfirmBetaalmethodeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bediening\PopupsBediening\ConfirmCashBetaaldForm.resx">
+      <DependentUpon>ConfirmCashBetaaldForm.cs</DependentUpon>
     </EmbeddedResource>
     <Compile Include="RekeningUserControl.cs">
       <SubType>UserControl</SubType>
@@ -213,6 +262,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Bediening\PopupsBediening\ConfirmVerzendenForm.resx">
       <DependentUpon>ConfirmVerzendenForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bediening\TipForm.resx">
+      <DependentUpon>TipForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kok\Kok.nl.resx">
+      <DependentUpon>Kok.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -281,8 +336,14 @@
     </None>
     <None Include="Resources\3d6cfa225d1.png" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
+    <Folder Include="Administratie\HelperForms\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Bestelitem.sql" />
+    <Content Include="Bestelling.sql" />
+    <Content Include="Rekening %281%29.sql" />
+    <Content Include="Rekening.sql" />
     <Content Include="Resources\chapoo_logo.png" />
     <Content Include="Resources\chrome_2017-06-06_13-52-20.png" />
   </ItemGroup>
