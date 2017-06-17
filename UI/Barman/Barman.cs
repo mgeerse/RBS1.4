@@ -25,9 +25,9 @@ namespace UI
             Panel.BackColor = Color.LightSteelBlue;
 
             Panel = OP.MaakControls(Panel);
-            ToolStripOnder TSO = new ToolStripOnder(this, Panel, timer1);
+            BarToolStrip BOS = new BarToolStrip(this, Panel, timer1, Medewerker);
 
-            Controls.Add(TSO.maakToolStrip(Medewerker));
+            Controls.Add(BOS.maakToolStrip());
             Controls.Add(Panel);
 
             timer1.Interval = 10000;
