@@ -91,5 +91,11 @@ namespace UI
 
             field.VoegTipToe(fooi);
         }
+
+        private void TerugButton_Click(object sender, EventArgs e)
+        {
+            // Faal: BedieningBestellingOverzichtForm form1 = new BedieningBestellingOverzichtForm(Tafelnummer, parent);
+
+        }
     }
 }

@@ -18,6 +18,8 @@ namespace UI
         {
             this.parent = parent;
             InitializeComponent();
+
+            
         }
 
         private void OKButton_Click(object sender, EventArgs e)
@@ -35,6 +37,8 @@ namespace UI
             //    form1.Show();
             //}
             //Close();
+
+            
         }
     }
 }

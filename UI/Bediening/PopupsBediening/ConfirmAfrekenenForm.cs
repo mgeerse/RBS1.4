@@ -18,6 +18,8 @@ namespace UI
         {
             this.parent = parent;
             InitializeComponent();
+
+            //this.Close();
         }
 
         private void AfrekenenButton_Click(object sender, EventArgs e)
@@ -31,6 +33,16 @@ namespace UI
         {
             DialogResult = DialogResult.No;
             Close();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ConfirmAfrekenenForm_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }
