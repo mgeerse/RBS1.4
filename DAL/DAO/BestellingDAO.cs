@@ -76,21 +76,21 @@ namespace DAL
 
             StringBuilder sb = new StringBuilder();
             sb.Append("UPDATE [dbo].[Bestelling] ");
-            sb.Append("SET [Opmerking] = @Opmerking, [Medewerker] = @Medewerker, [Tafelnummer] = @TafelNummer, [Rekening] = @Rekening ");
+            sb.Append("SET [Opmerking] = @Opmerking, [Medewerker] = @Medewerker, [Tafel] = @TafelNummer, [Rekening] = @Rekening ");
             sb.Append("WHERE [BestellingId] = @BestellingId");
 
             SqlCommand cmd = new SqlCommand(sb.ToString(), conn);
 
             cmd.Parameters.Add("@BestellingId", System.Data.SqlDbType.Int).Value = Object.Id;
-            cmd.Parameters.Add("@Opmerking", System.Data.SqlDbType.NVarChar).Value = Object.Opmerking;
+            cmd.Parameters.Add("@Opmerking", System.Data.SqlDbType.NVarChar, 2048).Value = Object.Opmerking;
             cmd.Parameters.Add("@Medewerker", System.Data.SqlDbType.Int).Value = Object.Medewerker.Id;
             cmd.Parameters.Add("@TafelNummer", System.Data.SqlDbType.Int).Value = Object.Tafel.Id;
             cmd.Parameters.Add("@Rekening", System.Data.SqlDbType.Int).Value = Object.Rekening.Id;
 
             try
             {
-                cmd.Prepare();
                 conn.Open();
+                cmd.Prepare();
                 cmd.ExecuteNonQuery();
 
                 conn.Close();
@@ -98,7 +98,7 @@ namespace DAL
                 cmd.Dispose();
                 return true;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 return false;
             }
@@ -110,6 +110,33 @@ namespace DAL
 
             conn.Close();
             return false;
+        }
+
+        public Bestelling GetLaatsteForTafel(int tafelnummer)
+        {
+            conn.Open();
+            Bestelling result = null;
+            string query = "SELECT BestellingId, Opmerking, Medewerker, Tafel, Rekening" +
+                " FROM Bestelling" +
+                " WHERE Tafel = " + tafelnummer +
+                " ORDER BY BestellingId DESC";
+
+            SqlCommand command = new SqlCommand(query, conn);
+            SqlDataReader reader = command.ExecuteReader();
+
+            if (reader.Read())
+            {
+                int BestellingId = reader.GetInt32(0);
+                string Opmerking = reader.IsDBNull(1) ? "" : reader.GetString(1);
+                int Medewerker = reader.GetInt32(2);
+                int Tafel = reader.GetInt32(3);
+                int Rekening = reader.IsDBNull(4) ? 0 : reader.GetInt32(4);
+                result = new Bestelling(BestellingId, Opmerking, MedewerkerDAO.GetForId(Medewerker), TafelDAO.GetForId(Tafel), RekeningDAO.GetForId(Rekening));
+            }
+
+            conn.Close();
+            return result;
+
         }
 
     }

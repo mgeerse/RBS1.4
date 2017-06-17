@@ -33,9 +33,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.LabelPrijsExclBTW = new System.Windows.Forms.Label();
-            this.LabelBTW = new System.Windows.Forms.Label();
             this.LabelPrijsInclBTW = new System.Windows.Forms.Label();
+            this.LabelBTW = new System.Windows.Forms.Label();
+            this.LabelPrijsExclBTW = new System.Windows.Forms.Label();
             this.LabelTip = new System.Windows.Forms.Label();
             this.LabelTotaalprijs = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -46,9 +46,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label1.Location = new System.Drawing.Point(16, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(112, 20);
+            this.label1.Size = new System.Drawing.Size(108, 20);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Prijs excl. BTW";
+            this.label1.Text = "Prijs incl. BTW";
             // 
             // label2
             // 
@@ -66,9 +66,9 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label3.Location = new System.Drawing.Point(16, 70);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(108, 20);
+            this.label3.Size = new System.Drawing.Size(112, 20);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Prijs incl. BTW";
+            this.label3.Text = "Prijs excl. BTW";
             // 
             // label4
             // 
@@ -90,15 +90,15 @@
             this.label5.TabIndex = 4;
             this.label5.Text = "Totaalprijs";
             // 
-            // LabelPrijsExclBTW
+            // LabelPrijsInclBTW
             // 
-            this.LabelPrijsExclBTW.AutoSize = true;
-            this.LabelPrijsExclBTW.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelPrijsExclBTW.Location = new System.Drawing.Point(377, 14);
-            this.LabelPrijsExclBTW.Name = "LabelPrijsExclBTW";
-            this.LabelPrijsExclBTW.Size = new System.Drawing.Size(18, 20);
-            this.LabelPrijsExclBTW.TabIndex = 5;
-            this.LabelPrijsExclBTW.Text = "#";
+            this.LabelPrijsInclBTW.AutoSize = true;
+            this.LabelPrijsInclBTW.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelPrijsInclBTW.Location = new System.Drawing.Point(377, 14);
+            this.LabelPrijsInclBTW.Name = "LabelPrijsInclBTW";
+            this.LabelPrijsInclBTW.Size = new System.Drawing.Size(18, 20);
+            this.LabelPrijsInclBTW.TabIndex = 5;
+            this.LabelPrijsInclBTW.Text = "#";
             // 
             // LabelBTW
             // 
@@ -110,15 +110,15 @@
             this.LabelBTW.TabIndex = 6;
             this.LabelBTW.Text = "#";
             // 
-            // LabelPrijsInclBTW
+            // LabelPrijsExclBTW
             // 
-            this.LabelPrijsInclBTW.AutoSize = true;
-            this.LabelPrijsInclBTW.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.LabelPrijsInclBTW.Location = new System.Drawing.Point(377, 70);
-            this.LabelPrijsInclBTW.Name = "LabelPrijsInclBTW";
-            this.LabelPrijsInclBTW.Size = new System.Drawing.Size(18, 20);
-            this.LabelPrijsInclBTW.TabIndex = 7;
-            this.LabelPrijsInclBTW.Text = "#";
+            this.LabelPrijsExclBTW.AutoSize = true;
+            this.LabelPrijsExclBTW.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.LabelPrijsExclBTW.Location = new System.Drawing.Point(377, 70);
+            this.LabelPrijsExclBTW.Name = "LabelPrijsExclBTW";
+            this.LabelPrijsExclBTW.Size = new System.Drawing.Size(18, 20);
+            this.LabelPrijsExclBTW.TabIndex = 7;
+            this.LabelPrijsExclBTW.Text = "#";
             // 
             // LabelTip
             // 
@@ -146,16 +146,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.LabelTotaalprijs);
             this.Controls.Add(this.LabelTip);
-            this.Controls.Add(this.LabelPrijsInclBTW);
-            this.Controls.Add(this.LabelBTW);
             this.Controls.Add(this.LabelPrijsExclBTW);
+            this.Controls.Add(this.LabelBTW);
+            this.Controls.Add(this.LabelPrijsInclBTW);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "TotaalRekeningUserControl";
-            this.Size = new System.Drawing.Size(447, 161);
+            this.Size = new System.Drawing.Size(447, 158);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -168,9 +168,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label LabelPrijsExclBTW;
-        private System.Windows.Forms.Label LabelBTW;
         private System.Windows.Forms.Label LabelPrijsInclBTW;
+        private System.Windows.Forms.Label LabelBTW;
+        private System.Windows.Forms.Label LabelPrijsExclBTW;
         private System.Windows.Forms.Label LabelTip;
         private System.Windows.Forms.Label LabelTotaalprijs;
     }

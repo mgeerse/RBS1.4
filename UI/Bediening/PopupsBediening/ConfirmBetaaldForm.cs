@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace UI
 {
-    public partial class ConfirmCashBetaaldForm : Form
+    public partial class ConfirmBetaaldForm : Form
     {
         BedieningForm parent;
 
-        public ConfirmCashBetaaldForm(BedieningForm parent)
+        public ConfirmBetaaldForm(BedieningForm parent)
         {
             this.parent = parent;
 
@@ -23,10 +23,12 @@ namespace UI
 
         private void OKButton_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.OK;
-
-            //BedieningTafelOverzichtForm form = new BedieningTafelOverzichtForm(parent);
-            //form.StartPosition = FormStartPosition.CenterParent;
+            BedieningTafelOverzichtForm form = new BedieningTafelOverzichtForm(parent);
+            form.TopLevel = false;
+            form.FormBorderStyle = FormBorderStyle.None;
+            parent.Controls["ContentPanel"].Controls.Clear();
+            parent.Controls["ContentPanel"].Controls.Add(form);
+            form.Show();
         }
     }
 }
