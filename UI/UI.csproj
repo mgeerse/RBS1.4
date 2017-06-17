@@ -47,12 +47,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Administratie.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Administratie.Designer.cs">
-      <DependentUpon>Administratie.cs</DependentUpon>
-    </Compile>
     <Compile Include="Algemene Popups\ConfirmLogUitForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,6 +59,7 @@
     <Compile Include="Algemene Popups\ErrAlUitgelogdForm.designer.cs">
       <DependentUpon>ErrAlUitgelogdForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Barman\ToolStripOnder.cs" />
     <Compile Include="Bediening\AfrekenenForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,10 +120,10 @@
     <Compile Include="Bediening\PopupsBediening\ConfirmCashBetaaldForm.Designer.cs">
       <DependentUpon>ConfirmCashBetaaldForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Barman.cs">
+    <Compile Include="Barman\Barman.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Barman.Designer.cs">
+    <Compile Include="Barman\Barman.Designer.cs">
       <DependentUpon>Barman.cs</DependentUpon>
     </Compile>
     <Compile Include="App.cs" />
@@ -144,10 +139,10 @@
     <Compile Include="Bediening\PopupsBediening\ConfirmVerzendenForm.Designer.cs">
       <DependentUpon>ConfirmVerzendenForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="OrderPanel.cs" />
     <Compile Include="Bediening\TipForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Barman\BarmanOrderScherm.cs" />
     <Compile Include="Bediening\TipForm.Designer.cs">
       <DependentUpon>TipForm.cs</DependentUpon>
     </Compile>
@@ -170,14 +165,14 @@
     <Compile Include="TotaalRekeningUserControl.Designer.cs">
       <DependentUpon>TotaalRekeningUserControl.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Administratie.resx">
-      <DependentUpon>Administratie.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Algemene Popups\ConfirmLogUitForm.resx">
       <DependentUpon>ConfirmLogUitForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Algemene Popups\ErrAlUitgelogdForm.resx">
       <DependentUpon>ErrAlUitgelogdForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Barman\Barman.resx">
+      <DependentUpon>Barman.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Bediening\AfrekenenForm.resx">
       <DependentUpon>AfrekenenForm.cs</DependentUpon>
@@ -218,10 +213,6 @@
     <Compile Include="RekeningUserControl.Designer.cs">
       <DependentUpon>RekeningUserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="ToolStripOnder.cs" />
-    <EmbeddedResource Include="Barman.resx">
-      <DependentUpon>Barman.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Bediening\PopupsBediening\ConfirmedVerzondenForm.resx">
       <DependentUpon>ConfirmedVerzondenForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -277,5 +268,9 @@
     <None Include="Resources\3d6cfa225d1.png" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Content Include="Resources\chapoo_logo.png" />
+    <Content Include="Resources\chrome_2017-06-06_13-52-20.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

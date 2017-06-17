@@ -1,67 +1,188 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DAL.BestelitemDAO">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <AssociationLine Name="BestellingDAO" Type="DAL.BestellingDAO" FixedFromPoint="true">
+      <Path>
+        <Point X="7" Y="1.438" />
+        <Point X="5.75" Y="1.438" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="conn" Type="System.Data.SqlClient.SqlConnection" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="7.75" Y="2.565" />
+        <Point X="7.75" Y="6.625" />
+        <Point X="2" Y="6.625" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAABAAAAAAAAAAAAAAABUAAEEAAgAAAAAAAIA=</HashCode>
+      <FileName>DAO\BestelitemDAO.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="BestellingDAO" />
+      <Field Name="MenuitemDAO" />
+      <Field Name="conn" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DAL.BestellingDAO">
+    <Position X="4.25" Y="0.5" Width="1.5" />
+    <AssociationLine Name="conn" Type="System.Data.SqlClient.SqlConnection" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="5.219" Y="3.142" />
+        <Point X="5.219" Y="6.625" />
+        <Point X="2" Y="6.625" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="MedewerkerDAO" Type="DAL.MedewerkerDAO" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="4.25" Y="2.437" />
+        <Point X="3.25" Y="2.437" />
+        <Point X="3.25" Y="3.75" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.294" Y="0.062" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="RekeningDAO" Type="DAL.RekeningDAO" FixedFromPoint="true">
+      <Path>
+        <Point X="4.25" Y="1.437" />
+        <Point X="3" Y="1.437" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="TafelDAO" Type="DAL.TafelDAO" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="5.75" Y="2.437" />
+        <Point X="6.438" Y="2.437" />
+        <Point X="6.438" Y="3.75" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AEQAAAIAAAAAAgABIAAAAAAAABUAAFAEAgAAAAAAAAA=</HashCode>
+      <FileName>DAO\BestellingDAO.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="conn" />
+      <Field Name="MedewerkerDAO" />
+      <Field Name="RekeningDAO" />
+      <Field Name="TafelDAO" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DAL.CategorieDAO">
+    <Position X="12.5" Y="0.5" Width="1.5" />
+    <AssociationLine Name="conn" Type="System.Data.SqlClient.SqlConnection" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="13.25" Y="2.373" />
+        <Point X="13.25" Y="6.625" />
+        <Point X="2" Y="6.625" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAQAAAAAAAAAAAAAAABUAAEAAAgAAAAAAAAA=</HashCode>
+      <FileName>DAO\CategorieDAO.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="conn" />
+      <Field Name="MenukaartDAO" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DAL.MedewerkerDAO">
+    <Position X="2.75" Y="3.75" Width="1.5" />
+    <AssociationLine Name="conn" Type="System.Data.SqlClient.SqlConnection" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="3.5" Y="5.815" />
+        <Point X="3.5" Y="6.625" />
+        <Point X="2" Y="6.625" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAQAAAEAAAAAAAAAAAAAAAAAABUAAEAAAgAAAAAAAAA=</HashCode>
+      <FileName>DAO\MedewerkerDAO.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="conn" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DAL.MenuitemDAO">
+    <Position X="9.75" Y="0.5" Width="1.5" />
+    <AssociationLine Name="conn" Type="System.Data.SqlClient.SqlConnection" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="10.5" Y="2.373" />
+        <Point X="10.5" Y="6.625" />
+        <Point X="2" Y="6.625" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAEBUAAEAAAgAAAAAAAAA=</HashCode>
+      <FileName>DAO\MenuitemDAO.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="CategorieDAO" />
+      <Field Name="conn" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DAL.MenukaartDAO">
+    <Position X="15.25" Y="0.5" Width="1.5" />
+    <AssociationLine Name="conn" Type="System.Data.SqlClient.SqlConnection" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="16" Y="2.373" />
+        <Point X="16" Y="6.625" />
+        <Point X="2" Y="6.625" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAABUAAEAAAgAAAAAAAAA=</HashCode>
+      <FileName>DAO\MenukaartDAO.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="conn" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DAL.RekeningDAO">
+    <Position X="1.5" Y="0.5" Width="1.5" />
+    <AssociationLine Name="conn" Type="System.Data.SqlClient.SqlConnection" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="2.25" Y="2.373" />
+        <Point X="2.25" Y="6.625" />
+        <Point X="2" Y="6.625" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAABUAAEAAAgAAAAAAAAA=</HashCode>
+      <FileName>DAO\RekeningDAO.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="conn" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DAL.TafelDAO">
+    <Position X="5.5" Y="3.75" Width="1.5" />
+    <AssociationLine Name="conn" Type="System.Data.SqlClient.SqlConnection" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="6.25" Y="5.623" />
+        <Point X="6.25" Y="6.625" />
+        <Point X="2" Y="6.625" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAABUAAEAAAgAAAAAAAAA=</HashCode>
+      <FileName>DAO\TafelDAO.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="conn" />
+    </ShowAsAssociation>
+  </Class>
   <Class Name="DAL.DbConnection">
-    <Position X="3" Y="0.5" Width="1.75" />
+    <Position X="0.5" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>DbConnection.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="DAL.DAO.BestelitemDAO">
-    <Position X="0.5" Y="2" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAABUAAEAAAgAAAAAAAAA=</HashCode>
-      <FileName>DAO\BestelitemDAO.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="DAL.DAO.BestellingDAO">
-    <Position X="4" Y="2" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAABUAAEAAAgAAAAAAAAA=</HashCode>
-      <FileName>DAO\BestellingDAO.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="DAL.DAO.BezoekDAO">
-    <Position X="2.25" Y="2" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAABUAAEAAAgAAAAAAAAA=</HashCode>
-      <FileName>DAO\BezoekDAO.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="DAL.DAO.CategorieDAO">
-    <Position X="2.25" Y="4.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAABUAAEAAAgAAAAAAAAA=</HashCode>
-      <FileName>DAO\CategorieDAO.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="DAL.DAO.MedewerkerDAO">
-    <Position X="5.75" Y="4.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAABUAAEAAAgAAAAAAAAA=</HashCode>
-      <FileName>DAO\MedewerkerDAO.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="DAL.DAO.MenuitemDAO">
-    <Position X="0.5" Y="4.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAABUAAEAAAgAAAAAAAAA=</HashCode>
-      <FileName>DAO\MenuitemDAO.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="DAL.DAO.RekeningDAO">
-    <Position X="4" Y="4.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAABUAAEAAAgAAAAAAAAA=</HashCode>
-      <FileName>DAO\RekeningDAO.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="DAL.DAO.TafelDAO">
-    <Position X="5.75" Y="2" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAABUAAEAAAgAAAAAAAAA=</HashCode>
-      <FileName>DAO\TafelDAO.cs</FileName>
-    </TypeIdentifier>
+  <Class Name="System.Data.SqlClient.SqlConnection" Collapsed="true">
+    <Position X="0.5" Y="6" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

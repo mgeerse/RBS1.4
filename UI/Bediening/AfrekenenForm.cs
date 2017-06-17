@@ -44,7 +44,7 @@ namespace UI
                 TipForm TipForm = new TipForm(parent);
                 TipForm.ShowDialog();
             }
-            
+
         }
 
         private void ButtonOpmerkingen_Click(object sender, EventArgs e)

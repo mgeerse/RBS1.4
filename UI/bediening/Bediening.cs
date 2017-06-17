@@ -16,5 +16,15 @@ namespace UI
         {
             InitializeComponent();
         }
+
+        private void btn_Hoofdmenu_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+            MenuItem item = new MenuItem();
+        }
     }
 }

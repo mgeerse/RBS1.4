@@ -46,7 +46,6 @@
     <Compile Include="Bestellingen.cs" />
     <Compile Include="GetMenuitem.cs" />
     <Compile Include="GetBestelling.cs" />
-    <Compile Include="InitializeData.cs" />
     <Compile Include="LoginHandler.cs" />
     <Compile Include="MenuLijst.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -62,6 +61,9 @@
       <Project>{bfab5ca8-25a4-4197-b533-02f5a4502e81}</Project>
       <Name>Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
