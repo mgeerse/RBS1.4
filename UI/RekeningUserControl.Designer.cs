@@ -37,7 +37,7 @@
             // 
             this.LabelGerecht.AutoSize = true;
             this.LabelGerecht.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.LabelGerecht.Location = new System.Drawing.Point(12, 44);
+            this.LabelGerecht.Location = new System.Drawing.Point(12, 9);
             this.LabelGerecht.Name = "LabelGerecht";
             this.LabelGerecht.Size = new System.Drawing.Size(20, 20);
             this.LabelGerecht.TabIndex = 2;
@@ -47,7 +47,7 @@
             // 
             this.LabelPrijs.AutoSize = true;
             this.LabelPrijs.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.LabelPrijs.Location = new System.Drawing.Point(374, 44);
+            this.LabelPrijs.Location = new System.Drawing.Point(418, 9);
             this.LabelPrijs.Name = "LabelPrijs";
             this.LabelPrijs.Size = new System.Drawing.Size(18, 20);
             this.LabelPrijs.TabIndex = 3;
@@ -57,7 +57,7 @@
             // 
             this.LabelAantal.AutoSize = true;
             this.LabelAantal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.LabelAantal.Location = new System.Drawing.Point(246, 44);
+            this.LabelAantal.Location = new System.Drawing.Point(297, 9);
             this.LabelAantal.Name = "LabelAantal";
             this.LabelAantal.Size = new System.Drawing.Size(18, 20);
             this.LabelAantal.TabIndex = 5;
@@ -71,7 +71,7 @@
             this.Controls.Add(this.LabelPrijs);
             this.Controls.Add(this.LabelGerecht);
             this.Name = "RekeningUserControl";
-            this.Size = new System.Drawing.Size(445, 150);
+            this.Size = new System.Drawing.Size(465, 37);
             this.ResumeLayout(false);
             this.PerformLayout();
 

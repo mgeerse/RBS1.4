@@ -123,17 +123,11 @@
     <Compile Include="Bediening\PopupsBediening\ConfirmAfrekenenForm.Designer.cs">
       <DependentUpon>ConfirmAfrekenenForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Bediening\PopupsBediening\ConfirmBetaalmethodeForm.cs">
+    <Compile Include="Bediening\PopupsBediening\ConfirmBetaaldForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Bediening\PopupsBediening\ConfirmBetaalmethodeForm.Designer.cs">
-      <DependentUpon>ConfirmBetaalmethodeForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Bediening\PopupsBediening\ConfirmCashBetaaldForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Bediening\PopupsBediening\ConfirmCashBetaaldForm.Designer.cs">
-      <DependentUpon>ConfirmCashBetaaldForm.cs</DependentUpon>
+    <Compile Include="Bediening\PopupsBediening\ConfirmBetaaldForm.Designer.cs">
+      <DependentUpon>ConfirmBetaaldForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Bediening\PopupsBediening\ConfirmedVerzondenForm.cs">
       <SubType>Form</SubType>
@@ -146,12 +140,6 @@
     </Compile>
     <Compile Include="Bediening\PopupsBediening\ConfirmVerzendenForm.Designer.cs">
       <DependentUpon>ConfirmVerzendenForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Bediening\TipForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Bediening\TipForm.Designer.cs">
-      <DependentUpon>TipForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Control Properties\BestelControlProperties.cs" />
     <Compile Include="Orderbehandeling\Kok\KokOrderScherm.cs" />
@@ -182,6 +170,16 @@
       <DependentUpon>RekeningUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Control Properties\ToolStripProperties.cs" />
+    <Compile Include="RBS1617S_DB04DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RBS1617S_DB04DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RBS1617S_DB04DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RBS1617S_DB04DataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="TotaalRekeningUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -224,11 +222,8 @@
     <EmbeddedResource Include="Bediening\PopupsBediening\ConfirmAfrekenenForm.resx">
       <DependentUpon>ConfirmAfrekenenForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Bediening\PopupsBediening\ConfirmBetaalmethodeForm.resx">
-      <DependentUpon>ConfirmBetaalmethodeForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Bediening\PopupsBediening\ConfirmCashBetaaldForm.resx">
-      <DependentUpon>ConfirmCashBetaaldForm.cs</DependentUpon>
+    <EmbeddedResource Include="Bediening\PopupsBediening\ConfirmBetaaldForm.resx">
+      <DependentUpon>ConfirmBetaaldForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Bediening\PopupsBediening\ConfirmedVerzondenForm.resx">
       <DependentUpon>ConfirmedVerzondenForm.cs</DependentUpon>
@@ -291,16 +286,34 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="RBS1617S_DB04DataSet.xsc">
+      <DependentUpon>RBS1617S_DB04DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="RBS1617S_DB04DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>RBS1617S_DB04DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RBS1617S_DB04DataSet.xss">
+      <DependentUpon>RBS1617S_DB04DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="RBS1617S_DB04DataSet1.xsc">
+      <DependentUpon>RBS1617S_DB04DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="RBS1617S_DB04DataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>RBS1617S_DB04DataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RBS1617S_DB04DataSet1.xss">
+      <DependentUpon>RBS1617S_DB04DataSet1.xsd</DependentUpon>
+    </None>
     <None Include="Resources\3d6cfa225d1.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Administratie\HelperForms\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Bestelitem.sql" />
-    <Content Include="Bestelling.sql" />
-    <Content Include="Rekening %281%29.sql" />
-    <Content Include="Rekening.sql" />
     <Content Include="Resources\chapoo_logo.png" />
     <Content Include="Resources\chrome_2017-06-06_13-52-20.png" />
   </ItemGroup>

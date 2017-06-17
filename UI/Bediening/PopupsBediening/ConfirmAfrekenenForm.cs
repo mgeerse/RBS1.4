@@ -24,6 +24,7 @@ namespace UI
         {
             DialogResult = DialogResult.Yes;
             Close();
+
         }
 
         private void CancelAfrekenenButton_Click(object sender, EventArgs e)

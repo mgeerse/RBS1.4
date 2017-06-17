@@ -65,5 +65,14 @@ namespace UI
                 IngelogdeMedewerkerToolStripLabel.Text = "Ingelogd als: " + IngelogdeMedewerker.Naam;
             }
         }
+
+        public void ShowForm(Form form)
+        {
+            form.TopLevel = false;
+            form.FormBorderStyle = FormBorderStyle.None;
+            Controls["ContentPanel"].Controls.Clear();
+            Controls["ContentPanel"].Controls.Add(form);
+            form.Show();
+        }
     }
 }
