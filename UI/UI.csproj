@@ -231,9 +231,6 @@
     <EmbeddedResource Include="Bediening\PopupsBediening\ConfirmVerzendenForm.resx">
       <DependentUpon>ConfirmVerzendenForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Bediening\TipForm.resx">
-      <DependentUpon>TipForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Orderbehandeling\Kok\Kok.nl.resx">
       <DependentUpon>Kok.cs</DependentUpon>
     </EmbeddedResource>
