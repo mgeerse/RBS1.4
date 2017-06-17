@@ -19,7 +19,6 @@
         public Tafel(bool isBezet)
         {
             this.IsBezet = IsBezet;
-            
         }
     }
 }
