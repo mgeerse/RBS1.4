@@ -15,19 +15,29 @@ namespace DAL
 
         public List<Menuitem> GetAll()
         {
+            List<Menuitem> result = new List<Menuitem>();
             conn.Open();
 
-            string SQL = "SELECT Naam" +
-                         "FROM dbo.Menuitem" +
-                         "WHERE Categorie <= 3";
+            string query = "SELECT MenuitemId, Naam, Prijs, Voorraad, Categorie" +
+                         " FROM Menuitem";
 
-            SqlCommand command = new SqlCommand(SQL, conn);
-            command.Prepare();
-            SqlDataReader Reader = command.ExecuteReader();
+            SqlCommand command = new SqlCommand(query, conn);
+            SqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                int MenuitemId = reader.GetInt32(0);
+                string Naam = reader.GetString(1);
+                decimal Prijs = reader.GetDecimal(2);
+                int Voorraad = reader.GetInt32(3);
+                Categorie Categorie = CategorieDAO.GetForId(reader.GetInt32(4));
+
+                result.Add(new Menuitem(MenuitemId, Naam, Prijs, Categorie, Voorraad));
+            }
 
             conn.Close();
 
-            return null;
+            return result;
         }
 
         public Menuitem GetForId(int Id)
@@ -59,7 +69,7 @@ namespace DAL
 
             conn.Open();
 
-            string query = "SELECT MenuitemId, Naam, Prijs, Voorraad, Categorie" +
+            string query = "SELECT MenuitemId, Menuitem.Naam, Prijs, Voorraad, Categorie" +
                 " FROM Menuitem" +
                 " JOIN Categorie ON Menuitem.Categorie = Categorie.CategorieId" +
                 " JOIN Menukaart ON Categorie.Menukaart = Menukaart.MenukaartId" +
@@ -74,6 +84,7 @@ namespace DAL
                 decimal Prijs = reader.GetDecimal(2);
                 int Voorraad = reader.GetInt32(3);
                 Categorie Categorie = CategorieDAO.GetForId(reader.GetInt32(4));
+                result.Add(new Menuitem(MenuitemId, Naam, Prijs, Categorie, Voorraad));
             }
             conn.Close();
 

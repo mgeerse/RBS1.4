@@ -12,10 +12,12 @@ namespace Logic
     {
         BestelitemDAO bestelitemDAO = new BestelitemDAO();
 
+
         public List<Bestelitem> GetBestelitems()
         {
             return bestelitemDAO.GetAll();
         }
+
 
         public List<Bestelitem> GetGeredeBestelitems()
         {
@@ -33,6 +35,7 @@ namespace Logic
             return geredeBestelitems;
         }
 
+
         public List<Bestelitem> GetGeredeBestelitems(int Tafelnummer)
         {
             List<Bestelitem> bestelitems = GetGeredeBestelitems();
@@ -49,6 +52,7 @@ namespace Logic
             return bestelitemsVoorTafel;
         }
 
+
         public List<Bestelitem> GetNietGeredeBestelitems()
         {
             List<Bestelitem> bestelitems = GetBestelitems();
@@ -63,7 +67,9 @@ namespace Logic
             }
 
             return nietGeredeBestelItems;
+
         }
+
 
         public List<Bestelitem> GetNietGeredeBestelitems(int Tafelnummer)
         {
@@ -79,6 +85,27 @@ namespace Logic
             }
 
             return bestelitemsVoorTafel;
+        }
+
+        
+        public void VoegItemsToe(List<Bestelitem> items)
+        {
+            foreach (Bestelitem item in items)
+            {
+                bestelitemDAO.Create(item);
+            }
+        }
+
+
+        public void MeldBediend(Bestelitem Bestelitem)
+        {
+            Bestelitem.Status = Status.Klaar;
+            bestelitemDAO.Update(Bestelitem);
+        }
+
+        public void Verwijder(Bestelitem Bestelitem)
+        {
+            bestelitemDAO.Delete(Bestelitem);
         }
     }
 }

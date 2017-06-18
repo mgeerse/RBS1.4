@@ -36,17 +36,20 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 31);
+            this.label1.Location = new System.Drawing.Point(9, 25);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(231, 17);
+            this.label1.Size = new System.Drawing.Size(176, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Weet u zeker dat  u wilt afrekenen?";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // AfrekenenButton
             // 
-            this.AfrekenenButton.Location = new System.Drawing.Point(12, 71);
+            this.AfrekenenButton.Location = new System.Drawing.Point(9, 58);
+            this.AfrekenenButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.AfrekenenButton.Name = "AfrekenenButton";
-            this.AfrekenenButton.Size = new System.Drawing.Size(97, 40);
+            this.AfrekenenButton.Size = new System.Drawing.Size(73, 32);
             this.AfrekenenButton.TabIndex = 1;
             this.AfrekenenButton.Text = "Ja";
             this.AfrekenenButton.UseVisualStyleBackColor = true;
@@ -54,9 +57,10 @@
             // 
             // CancelAfrekenenButton
             // 
-            this.CancelAfrekenenButton.Location = new System.Drawing.Point(146, 71);
+            this.CancelAfrekenenButton.Location = new System.Drawing.Point(110, 58);
+            this.CancelAfrekenenButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.CancelAfrekenenButton.Name = "CancelAfrekenenButton";
-            this.CancelAfrekenenButton.Size = new System.Drawing.Size(97, 40);
+            this.CancelAfrekenenButton.Size = new System.Drawing.Size(73, 32);
             this.CancelAfrekenenButton.TabIndex = 2;
             this.CancelAfrekenenButton.Text = "Nee";
             this.CancelAfrekenenButton.UseVisualStyleBackColor = true;
@@ -64,14 +68,16 @@
             // 
             // ConfirmAfrekenenForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(255, 123);
+            this.ClientSize = new System.Drawing.Size(191, 100);
             this.Controls.Add(this.CancelAfrekenenButton);
             this.Controls.Add(this.AfrekenenButton);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ConfirmAfrekenenForm";
             this.Text = "ConfirmAfrekenenForm";
+            this.Load += new System.EventHandler(this.ConfirmAfrekenenForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -45,7 +45,7 @@ namespace UI
 
             foreach (Bestelitem item in bestelitems)
             {
-                BestellingUserControl form = new BestellingUserControl(item);
+                BestellingUserControl form = new BestellingUserControl(item, this);
                 BestellingenPanel.RowCount = BestellingenPanel.RowCount + 1;
                 BestellingenPanel.Controls.Add(form, 0, BestellingenPanel.RowCount - 1);
             }

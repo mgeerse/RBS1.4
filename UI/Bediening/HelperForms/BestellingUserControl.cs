@@ -8,15 +8,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Model;
+using Logic;
 
 namespace UI
 {
     public partial class BestellingUserControl : UserControl
     {
         Bestelitem item;
+        BedieningBestellingOverzichtForm parent;
 
-        public BestellingUserControl(Bestelitem item)
+
+        public BestellingUserControl(Bestelitem item, BedieningBestellingOverzichtForm parent)
         {
+            this.parent = parent;
             InitializeComponent();
             this.item = item;
             BorderStyle = BorderStyle.Fixed3D;
@@ -58,14 +62,14 @@ namespace UI
                     WachtMinuten += 60;
                 }
                 LabelTijdIngevoerd.ForeColor = Color.Red;
-                resultaat += WachtUur + " Uur ";
+                resultaat += WachtUur + " uur ";
             }
-            if (WachtMinuten > 1 || WachtUur > 1)
+            if (WachtMinuten >= 0)
             {
-                resultaat += WachtMinuten + " Minuten";
+                resultaat += WachtMinuten + " minuten";
             }
 
-            LabelTijdIngevoerd.Text = resultaat;
+            LabelTijdIngevoerd.Text = resultaat + " geleden";
         }
 
         private void LabelTijdIngevoerd_Click(object sender, EventArgs e)
@@ -75,8 +79,19 @@ namespace UI
 
         private void BestellingUserControl_Load(object sender, EventArgs e)
         {
-
             Dock = DockStyle.Fill;
+        }
+
+        private void BezorgdMeldenButton_Click(object sender, EventArgs e)
+        {
+            new BestellingOverzicht().MeldBediend(item);
+            parent.UpdateBestellingOverzicht();
+        }
+
+        private void VerwijderenButton_Click(object sender, EventArgs e)
+        {
+            new BestellingOverzicht().Verwijder(item);
+            parent.UpdateBestellingOverzicht();
         }
     }
 }

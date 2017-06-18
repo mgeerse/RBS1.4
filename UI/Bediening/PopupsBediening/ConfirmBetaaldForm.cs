@@ -29,6 +29,8 @@ namespace UI
             parent.Controls["ContentPanel"].Controls.Clear();
             parent.Controls["ContentPanel"].Controls.Add(form);
             form.Show();
+
+            this.Close();
         }
     }
 }
