@@ -13,11 +13,12 @@ namespace UI
 {
     public partial class BedieningForm : Form
     {
-        private Medewerker IngelogdeMedewerker = null;
+        public Medewerker IngelogdeMedewerker { get; private set; }
 
         public BedieningForm()
         {
             InitializeComponent();
+            IngelogdeMedewerker = null;
         }
 
         private void BedieningForm_Load(object sender, EventArgs e)

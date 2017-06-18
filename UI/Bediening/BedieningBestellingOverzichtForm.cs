@@ -17,13 +17,19 @@ namespace UI
         //Meenemen om ContentPanel aan te roepen
         BedieningForm parent;
         Tafel tafel;
+        BestellingOverzicht BestellingOverzicht = new BestellingOverzicht();
 
 
         public BedieningBestellingOverzichtForm(BedieningForm parent, int Tafelnummer)
         {
-            this.tafel = new TafelLogic().GetTafel(Tafelnummer);
             this.parent = parent;
 
+            this.tafel = new TafelLogic().GetTafel(Tafelnummer);
+            if (!tafel.IsBezet)
+            {
+                // TODO Maak nieuwe rekening voor tafel aan
+                BestellingOverzicht.VoegBestellingToe(parent.IngelogdeMedewerker, tafel);
+            }
 
             InitializeComponent();
         }

@@ -66,6 +66,10 @@ namespace DAL
         public bool Create(Bestelling Object)
         {
             conn.Open();
+            string query = "INSERT INTO Bestelling(Medewerker, Tafel)" +
+                " VALUES(" + Object.Medewerker.Id + ", " + Object.Tafel.Id + ")";
+
+            new SqlCommand(query, conn).ExecuteNonQuery();
 
             conn.Close();
             return false;

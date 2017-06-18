@@ -4,17 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Model;
+using DAL;
 
 namespace Logic
 {
     public class BestellingLogica
     {
-        DAL.BestelitemDAO BestelitemDAO;
-        public BestellingLogica() { }
+        BestelitemDAO BestelitemDAO = new BestelitemDAO();
 
         public List<Bestelitem> GetBarOrdersForStatus(int Status)
         {
-            BestelitemDAO = new DAL.BestelitemDAO();
             List<Bestelitem> BestelItems = new List<Bestelitem>();
             BestelItems = BestelitemDAO.GetBarBestellingenForStatus(Status);
 
@@ -23,7 +22,6 @@ namespace Logic
 
         public List<Bestelitem> GetKokOrdersForStatus(int Status)
         {
-            BestelitemDAO = new DAL.BestelitemDAO();
             List<Bestelitem> BestelItems = new List<Bestelitem>();
             BestelItems = BestelitemDAO.GetKokBestellingenForStatus(Status);
 
@@ -32,9 +30,6 @@ namespace Logic
 
         public bool BestellingGereed(List<Bestelitem> Object, int Id)
         {
-            //DAO update/gereed.
-            //Huidige status wordt meegegeven voor extra zekerheid binnen het systeem. 
-            BestelitemDAO = new DAL.BestelitemDAO();
 
             try
             {
@@ -42,7 +37,6 @@ namespace Logic
                 {
                     if (item.Bestelling.Id == Id)
                     {
-
                         BestelitemDAO.orderGereed(item);
                     }
                 }

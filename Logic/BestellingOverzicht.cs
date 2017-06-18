@@ -11,7 +11,7 @@ namespace Logic
     public class BestellingOverzicht
     {
         BestelitemDAO bestelitemDAO = new BestelitemDAO();
-
+        BestellingDAO BestellingDAO = new BestellingDAO();
 
         public List<Bestelitem> GetBestelitems()
         {
@@ -106,6 +106,12 @@ namespace Logic
         public void Verwijder(Bestelitem Bestelitem)
         {
             bestelitemDAO.Delete(Bestelitem);
+        }
+
+        public Bestelling VoegBestellingToe(Medewerker Medewerker, Tafel Tafel)
+        {
+            BestellingDAO.Create(new Bestelling(0, "", Medewerker, Tafel, null));
+            return BestellingDAO.GetLaatsteForTafel(Tafel.Id);
         }
     }
 }

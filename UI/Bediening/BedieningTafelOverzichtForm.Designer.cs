@@ -69,7 +69,6 @@
             this.btn_BarVoorraad.TabIndex = 1;
             this.btn_BarVoorraad.Text = "BarVoorraad";
             this.btn_BarVoorraad.UseVisualStyleBackColor = true;
-            this.btn_BarVoorraad.Click += new System.EventHandler(this.btn_BarVoorraad_Click);
             // 
             // Btn_Tafel1
             // 
@@ -261,7 +260,7 @@
             this.btn_Loguit.UseVisualStyleBackColor = true;
             this.btn_Loguit.Click += new System.EventHandler(this.btn_Loguit_Click);
             // 
-            // TafelOverzicht
+            // BedieningTafelOverzichtForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -270,7 +269,7 @@
             this.Controls.Add(this.btn_Loguit);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.flowLayoutPanel1);
-            this.Name = "TafelOverzicht";
+            this.Name = "BedieningTafelOverzichtForm";
             this.Text = "Chapoo Bestelsysteem";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
