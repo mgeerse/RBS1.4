@@ -10,7 +10,11 @@ namespace Logic
 {
     public class MenuLijst
     {
-        MenuitemDAO Menuitem;
+        MenuitemDAO MenuitemDAO = new MenuitemDAO();
 
+        public List<Menuitem> GetMenukaart(int menukaart)
+        {
+            return MenuitemDAO.GetForMenukaart(menukaart);
+        }
     }
 }

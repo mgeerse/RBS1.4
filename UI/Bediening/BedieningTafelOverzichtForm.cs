@@ -250,12 +250,15 @@ namespace UI
             }
         }
 
+        #endregion
+
         void btn_Loguit_Click(object sender, EventArgs e) { }
 
         public void ShowTafelBestellingOverzicht(int nummer)
         {
             BedieningBestellingOverzichtForm tafel = new BedieningBestellingOverzichtForm(parent, nummer);
             tafel.TopLevel = false;
+            tafel.FormBorderStyle = FormBorderStyle.None;
             parent.Controls["ContentPanel"].Controls.Clear();
             parent.Controls["ContentPanel"].Controls.Add(tafel);
             tafel.Show();

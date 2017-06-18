@@ -12,7 +12,7 @@ namespace Logic
     {
         RekeningDAO RekeningDAO = new RekeningDAO();
         BestelitemDAO BestelitemDAO = new BestelitemDAO();
-
+        BestellingDAO BestellingDAO = new BestellingDAO();
 
         public Rekening Berekenen(Bestelling Bestelling)
         {
@@ -41,6 +41,27 @@ namespace Logic
         public List<Bestelitem> GetForBestelling(int BestellingId)
         {
             return BestelitemDAO.GetForBestellingId(BestellingId);
+        }
+
+        public Bestelling GetLaatsteForTafel(int tafelnummer)
+        {
+            return BestellingDAO.GetLaatsteForTafel(tafelnummer);
+        }
+
+        public void GetOpmerkingVanUI(Bestelling bestelling)
+        {
+            BestellingDAO.Update(bestelling);
+        }
+
+        public Rekening CreateRekening()
+        {
+            RekeningDAO.Create();
+            return RekeningDAO.GetMax();
+        }
+
+        public void UpdateRekening(Rekening rekening)
+        {
+            RekeningDAO.Update(rekening);
         }
     }
 }

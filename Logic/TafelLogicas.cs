@@ -20,7 +20,7 @@ public class tafelLogica
             {
                 tafel.Update(nummer);
             }
-            catch (Exception e)
+            catch
             {
                 return false;
             }

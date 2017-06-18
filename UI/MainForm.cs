@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Model;
 
@@ -40,7 +33,14 @@ namespace UI
 
         private void BarButton_Click(object sender, EventArgs e)
         {
-            new Barman(new Medewerker(1, "Maarten", MedewerkerType.Bar, "0100".ToCharArray())).Show();
+            new OrderLoginForm("Bar", this).Show();
+            Hide();
+        }
+
+        private void KeukenButton_Click(object sender, EventArgs e)
+        {
+            new OrderLoginForm("Keuken", this).Show();
+            Hide();
         }
     }
 }
