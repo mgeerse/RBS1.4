@@ -247,7 +247,7 @@ namespace UI
                         }
                         else
                         {
-                            RichTextBox.Text = "Er zijn is geen opmerkingen voor deze bestelling.";
+                            RichTextBox.Text = "Er zijn geen opmerkingen voor deze bestelling.";
                         }
                          
                         #endregion
