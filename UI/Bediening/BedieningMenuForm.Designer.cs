@@ -135,6 +135,7 @@
             this.ToegevoegdeItemsGridView.Name = "ToegevoegdeItemsGridView";
             this.ToegevoegdeItemsGridView.ReadOnly = true;
             this.ToegevoegdeItemsGridView.RowHeadersVisible = false;
+            this.ToegevoegdeItemsGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.ToegevoegdeItemsGridView.Size = new System.Drawing.Size(500, 223);
             this.ToegevoegdeItemsGridView.TabIndex = 3;
             // 

@@ -84,6 +84,25 @@ namespace UI
                 tables[i].ClearSelection();
             }
 
+            ToegevoegdeItemsGridView.CellMouseDoubleClick += (s, a) =>
+            {
+
+                /// index = hoeveelste rij
+                int index = a.RowIndex;
+
+                if (pendingBestelitems[index].Aantal == 1)
+                {
+                    pendingBestelitems.RemoveAt(index);
+                }
+                else
+                {
+                    pendingBestelitems[index].Aantal -= 1;
+                }
+
+                UpdatePendingBestelitems();
+                return;
+            };
+
             tabLunch.Controls.Add(tables[0]);
             tabDiner.Controls.Add(tables[1]);
             tabDrank.Controls.Add(tables[2]);
@@ -137,16 +156,17 @@ namespace UI
 
                 UpdatePendingBestelitems();
             };
+
+            InitPendingBestelitems();
+
         }
 
         private void InitPendingBestelitems()
         {
-            ToegevoegdeItemsGridView.DefaultCellStyle.Padding = new Padding(Padding.Left, 5, Padding.Right, 5);
-            ToegevoegdeItemsGridView.ColumnHeadersHeight += 10;
             ToegevoegdeItemsGridView.DefaultCellStyle.Font = new Font(FontFamily.GenericSansSerif, 12);
-
-
-            UpdatePendingBestelitems();
+            ToegevoegdeItemsGridView.DefaultCellStyle.Padding = new Padding(Padding.Left, 5, Padding.Right, 5);
+            ToegevoegdeItemsGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            ToegevoegdeItemsGridView.ColumnHeadersHeight += 10;
         }
 
 
@@ -176,5 +196,6 @@ namespace UI
 
         }
         #endregion
+
     }
 }
