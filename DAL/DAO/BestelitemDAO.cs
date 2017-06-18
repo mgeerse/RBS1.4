@@ -237,6 +237,12 @@ namespace DAL
         {
             conn.Open();
 
+            string query = "INSERT INTO Bestelitem(Bestelling, Menuitem, Aantal, Opmerking, Status, Tijdingevoerd)" +
+                " VALUES(" + Object.Bestelling.Id + ", " + Object.Menuitem.Id + ", " + Object.Aantal + ", '" + Object.Opmerking + "', " + (int)Object.Status + ", CURRENT_TIMESTAMP)";
+
+            new SqlCommand(query, conn).ExecuteNonQuery();
+
+
             conn.Close();
             return false;
         }
@@ -244,6 +250,11 @@ namespace DAL
         public bool Update(Bestelitem Object)
         {
             conn.Open();
+            string query = "UPDATE Bestelitem" +
+                " SET Aantal = " + Object.Aantal + ", Opmerking = '" + Object.Opmerking + "', Status = " + (int)Object.Status + 
+                " WHERE Bestelling = " + Object.Bestelling.Id + " AND Menuitem = " + Object.Menuitem.Id;
+
+            new SqlCommand(query, conn).ExecuteNonQuery();
 
             conn.Close();
             return false;
@@ -252,6 +263,10 @@ namespace DAL
         public bool Delete(Bestelitem Object)
         {
             conn.Open();
+            string query = "DELETE FROM Bestelitem" +
+                " WHERE Bestelling = " + Object.Bestelling.Id + " AND Menuitem = " + Object.Menuitem.Id + " AND Aantal = " + Object.Aantal;
+
+            new SqlCommand(query, conn).ExecuteNonQuery();
 
             conn.Close();
             return false;

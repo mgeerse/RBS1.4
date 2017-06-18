@@ -41,12 +41,16 @@ namespace UI
 
         private void VerzendenButton_Click(object sender, EventArgs e)
         {
+
+
+
             ConfirmVerzendenForm form = new ConfirmVerzendenForm(parent);
             form.StartPosition = FormStartPosition.CenterParent;
             DialogResult result = form.ShowDialog();
 
             if (result == DialogResult.Yes)
             {
+                new BestellingOverzicht().VoegItemsToe(pendingBestelitems);
                 ConfirmedVerzondenForm ConfirmedVerzondenForm = new ConfirmedVerzondenForm(parent);
                 ConfirmedVerzondenForm.StartPosition = FormStartPosition.CenterParent;
                 ConfirmedVerzondenForm.ShowDialog();
@@ -138,7 +142,16 @@ namespace UI
             // Event handler voor dubbelklikken op een rij
             Table.CellMouseDoubleClick += (sender, args) =>
             {
-                int gekozenMenuitem = int.Parse(Table.SelectedRows[0].Cells[0].Value.ToString());
+                int gekozenMenuitem;
+
+                try
+                {
+                    gekozenMenuitem = int.Parse(Table.SelectedRows[0].Cells[0].Value.ToString());
+                }
+                catch
+                {
+                    return;
+                }
                 Menuitem menuitem = allMenuitems.Single(i => i.Id == gekozenMenuitem);
 
                 /// LINQ om te bepalen of een item in de lijst van pending staat
