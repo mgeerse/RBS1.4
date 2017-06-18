@@ -115,7 +115,6 @@ namespace UI
         private void TSB1_Click(object sender, EventArgs e)
         {
             Barman.Close();
-            MainForm.Show();
         }
     }
 }

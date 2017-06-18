@@ -114,7 +114,6 @@ namespace UI
         private void TSB1_Click(object sender, EventArgs e)
         {
             Kok.Close();
-            MainForm.Show();
         }
     }
 }
