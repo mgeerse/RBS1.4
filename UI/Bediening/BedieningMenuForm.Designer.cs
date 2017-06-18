@@ -34,15 +34,12 @@
             this.tabDrank = new System.Windows.Forms.TabPage();
             this.tabNonAlcohol = new System.Windows.Forms.TabPage();
             this.VerzendenButton = new System.Windows.Forms.Button();
-            this.LunchLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.DinerLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.DrankLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.NonAlcoholLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.ToegevoegdeItemsGridView = new System.Windows.Forms.DataGridView();
+            this.Menuitem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Aantal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
-            this.tabLunch.SuspendLayout();
-            this.tabDiner.SuspendLayout();
-            this.tabDrank.SuspendLayout();
-            this.tabNonAlcohol.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ToegevoegdeItemsGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -62,7 +59,6 @@
             // 
             // tabLunch
             // 
-            this.tabLunch.Controls.Add(this.LunchLayoutPanel);
             this.tabLunch.Location = new System.Drawing.Point(4, 52);
             this.tabLunch.Margin = new System.Windows.Forms.Padding(2);
             this.tabLunch.Name = "tabLunch";
@@ -74,7 +70,6 @@
             // 
             // tabDiner
             // 
-            this.tabDiner.Controls.Add(this.DinerLayoutPanel);
             this.tabDiner.Location = new System.Drawing.Point(4, 52);
             this.tabDiner.Margin = new System.Windows.Forms.Padding(2);
             this.tabDiner.Name = "tabDiner";
@@ -86,7 +81,6 @@
             // 
             // tabDrank
             // 
-            this.tabDrank.Controls.Add(this.DrankLayoutPanel);
             this.tabDrank.Location = new System.Drawing.Point(4, 52);
             this.tabDrank.Margin = new System.Windows.Forms.Padding(2);
             this.tabDrank.Name = "tabDrank";
@@ -99,7 +93,6 @@
             // 
             // tabNonAlcohol
             // 
-            this.tabNonAlcohol.Controls.Add(this.NonAlcoholLayoutPanel);
             this.tabNonAlcohol.Location = new System.Drawing.Point(4, 52);
             this.tabNonAlcohol.Margin = new System.Windows.Forms.Padding(2);
             this.tabNonAlcohol.Name = "tabNonAlcohol";
@@ -120,75 +113,53 @@
             this.VerzendenButton.UseVisualStyleBackColor = true;
             this.VerzendenButton.Click += new System.EventHandler(this.VerzendenButton_Click);
             // 
-            // LunchLayoutPanel
+            // label1
             // 
-            this.LunchLayoutPanel.ColumnCount = 5;
-            this.LunchLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.LunchLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.LunchLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.LunchLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.LunchLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.LunchLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LunchLayoutPanel.Location = new System.Drawing.Point(2, 2);
-            this.LunchLayoutPanel.Name = "LunchLayoutPanel";
-            this.LunchLayoutPanel.RowCount = 1;
-            this.LunchLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.LunchLayoutPanel.Size = new System.Drawing.Size(496, 328);
-            this.LunchLayoutPanel.TabIndex = 0;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(75, 415);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(377, 26);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "De volgende items worden ingevoerd:";
             // 
-            // DinerLayoutPanel
+            // ToegevoegdeItemsGridView
             // 
-            this.DinerLayoutPanel.ColumnCount = 5;
-            this.DinerLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.DinerLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.DinerLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.DinerLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.DinerLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.DinerLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DinerLayoutPanel.Location = new System.Drawing.Point(2, 2);
-            this.DinerLayoutPanel.Name = "DinerLayoutPanel";
-            this.DinerLayoutPanel.RowCount = 1;
-            this.DinerLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.DinerLayoutPanel.Size = new System.Drawing.Size(496, 328);
-            this.DinerLayoutPanel.TabIndex = 0;
+            this.ToegevoegdeItemsGridView.AllowUserToAddRows = false;
+            this.ToegevoegdeItemsGridView.AllowUserToDeleteRows = false;
+            this.ToegevoegdeItemsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ToegevoegdeItemsGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Menuitem,
+            this.Aantal});
+            this.ToegevoegdeItemsGridView.Location = new System.Drawing.Point(14, 444);
+            this.ToegevoegdeItemsGridView.Name = "ToegevoegdeItemsGridView";
+            this.ToegevoegdeItemsGridView.ReadOnly = true;
+            this.ToegevoegdeItemsGridView.RowHeadersVisible = false;
+            this.ToegevoegdeItemsGridView.Size = new System.Drawing.Size(500, 223);
+            this.ToegevoegdeItemsGridView.TabIndex = 3;
             // 
-            // DrankLayoutPanel
+            // Menuitem
             // 
-            this.DrankLayoutPanel.ColumnCount = 5;
-            this.DrankLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.DrankLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.DrankLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.DrankLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.DrankLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.DrankLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DrankLayoutPanel.Location = new System.Drawing.Point(2, 2);
-            this.DrankLayoutPanel.Name = "DrankLayoutPanel";
-            this.DrankLayoutPanel.RowCount = 1;
-            this.DrankLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.DrankLayoutPanel.Size = new System.Drawing.Size(496, 328);
-            this.DrankLayoutPanel.TabIndex = 0;
+            this.Menuitem.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Menuitem.HeaderText = "Menuitem";
+            this.Menuitem.Name = "Menuitem";
+            this.Menuitem.ReadOnly = true;
             // 
-            // NonAlcoholLayoutPanel
+            // Aantal
             // 
-            this.NonAlcoholLayoutPanel.ColumnCount = 5;
-            this.NonAlcoholLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.NonAlcoholLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.NonAlcoholLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.NonAlcoholLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.NonAlcoholLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.NonAlcoholLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.NonAlcoholLayoutPanel.Location = new System.Drawing.Point(2, 2);
-            this.NonAlcoholLayoutPanel.Name = "NonAlcoholLayoutPanel";
-            this.NonAlcoholLayoutPanel.RowCount = 1;
-            this.NonAlcoholLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.NonAlcoholLayoutPanel.Size = new System.Drawing.Size(496, 328);
-            this.NonAlcoholLayoutPanel.TabIndex = 0;
+            this.Aantal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Aantal.HeaderText = "Aantal";
+            this.Aantal.Name = "Aantal";
+            this.Aantal.ReadOnly = true;
+            this.Aantal.Width = 62;
             // 
             // BedieningMenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(526, 849);
+            this.Controls.Add(this.ToegevoegdeItemsGridView);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.VerzendenButton);
             this.Controls.Add(this.tabControl1);
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -196,11 +167,9 @@
             this.Text = "BedieningMenuForm";
             this.Load += new System.EventHandler(this.BedieningMenuForm_Load);
             this.tabControl1.ResumeLayout(false);
-            this.tabLunch.ResumeLayout(false);
-            this.tabDiner.ResumeLayout(false);
-            this.tabDrank.ResumeLayout(false);
-            this.tabNonAlcohol.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ToegevoegdeItemsGridView)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -212,9 +181,9 @@
         private System.Windows.Forms.TabPage tabDrank;
         private System.Windows.Forms.TabPage tabNonAlcohol;
         private System.Windows.Forms.Button VerzendenButton;
-        private System.Windows.Forms.TableLayoutPanel LunchLayoutPanel;
-        private System.Windows.Forms.TableLayoutPanel DinerLayoutPanel;
-        private System.Windows.Forms.TableLayoutPanel DrankLayoutPanel;
-        private System.Windows.Forms.TableLayoutPanel NonAlcoholLayoutPanel;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView ToegevoegdeItemsGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Menuitem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Aantal;
     }
 }
