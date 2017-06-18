@@ -88,9 +88,12 @@
             // 
             this.LoginCodeTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.LoginCodeTextBox.Location = new System.Drawing.Point(497, 66);
+            this.LoginCodeTextBox.MaxLength = 4;
             this.LoginCodeTextBox.Name = "LoginCodeTextBox";
             this.LoginCodeTextBox.Size = new System.Drawing.Size(130, 20);
             this.LoginCodeTextBox.TabIndex = 1;
+            this.LoginCodeTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.LoginCodeTextBox.UseSystemPasswordChar = true;
             // 
             // OrderLoginForm
             // 

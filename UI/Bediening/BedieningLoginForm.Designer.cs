@@ -43,10 +43,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.BackgroundImage = global::UI.Properties.Resources.chrome_2017_06_06_13_52_20;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(13, 13);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Location = new System.Drawing.Point(10, 11);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(670, 225);
+            this.pictureBox1.Size = new System.Drawing.Size(502, 183);
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
@@ -58,30 +57,27 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.LoginButton);
             this.panel1.Controls.Add(this.LoginCodeTextBox);
-            this.panel1.Location = new System.Drawing.Point(13, 246);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Location = new System.Drawing.Point(10, 200);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(670, 155);
+            this.panel1.Size = new System.Drawing.Size(502, 126);
             this.panel1.TabIndex = 5;
             // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(304, 17);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(228, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 17);
+            this.label1.Size = new System.Drawing.Size(49, 13);
             this.label1.TabIndex = 3;
             this.label1.Text = "Welkom!";
             // 
             // LoginButton
             // 
             this.LoginButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.LoginButton.Location = new System.Drawing.Point(269, 78);
-            this.LoginButton.Margin = new System.Windows.Forms.Padding(4);
+            this.LoginButton.Location = new System.Drawing.Point(202, 63);
             this.LoginButton.Name = "LoginButton";
-            this.LoginButton.Size = new System.Drawing.Size(132, 42);
+            this.LoginButton.Size = new System.Drawing.Size(99, 34);
             this.LoginButton.TabIndex = 2;
             this.LoginButton.Text = "Log in";
             this.LoginButton.UseVisualStyleBackColor = true;
@@ -90,20 +86,20 @@
             // LoginCodeTextBox
             // 
             this.LoginCodeTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.LoginCodeTextBox.Location = new System.Drawing.Point(269, 48);
-            this.LoginCodeTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.LoginCodeTextBox.Location = new System.Drawing.Point(202, 39);
             this.LoginCodeTextBox.Name = "LoginCodeTextBox";
-            this.LoginCodeTextBox.Size = new System.Drawing.Size(132, 22);
+            this.LoginCodeTextBox.Size = new System.Drawing.Size(100, 20);
             this.LoginCodeTextBox.TabIndex = 1;
+            this.LoginCodeTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.LoginCodeTextBox.UseSystemPasswordChar = true;
             // 
             // BedieningLoginForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(702, 1045);
+            this.ClientSize = new System.Drawing.Size(526, 849);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "BedieningLoginForm";
             this.Text = "BedieningLoginForm";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
