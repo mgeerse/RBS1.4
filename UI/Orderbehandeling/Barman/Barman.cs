@@ -9,11 +9,11 @@ namespace UI
     {
         BarmanOrderScherm OP = new BarmanOrderScherm();
         Panel Panel = new PanelProperties.StandaardPanel();
-
+        MainForm MainForm;
         public Barman(Medewerker Medewerker, MainForm MainForm)
         {
             InitializeComponent();
-
+            this.MainForm = MainForm;
             Panel = OP.MaakControls(Panel);
             BarToolStrip BOS = new BarToolStrip(this, Panel, timer1, Medewerker, MainForm);
 
@@ -22,6 +22,13 @@ namespace UI
 
             timer1.Interval = 10000;
             timer1.Start();
+
+            this.FormClosed += Barman_FormClosed;
+        }
+
+        private void Barman_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            MainForm.Close();
         }
 
         private void Barman_Load(object sender, EventArgs e)

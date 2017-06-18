@@ -9,11 +9,11 @@ namespace UI
     {
         KokOrderScherm OP = new KokOrderScherm();
         Panel Panel = new PanelProperties.StandaardPanel();
-
+        MainForm MainForm;
         public Kok(Medewerker Medewerker, MainForm MainForm)
         {
             InitializeComponent();
-
+            this.MainForm = MainForm;
             Panel = OP.MaakControls(Panel);
             KokToolStrip KSO = new KokToolStrip(this, Panel, timer1, Medewerker, MainForm);
 
@@ -22,6 +22,13 @@ namespace UI
 
             timer1.Interval = 10000;
             timer1.Start();
+
+            this.FormClosed += Kok_FormClosed;
+        }
+
+        private void Kok_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            MainForm.Close();
         }
 
         private void Barman_Load(object sender, EventArgs e)

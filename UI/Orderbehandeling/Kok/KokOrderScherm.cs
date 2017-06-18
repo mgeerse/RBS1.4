@@ -441,7 +441,7 @@ namespace UI
                 TabPage.BackColor = System.Drawing.Color.LightSlateGray;
 
                 Label.Parent = TabPage;
-                Label.Text = "Er zijn op dit moment geen bestellingen in de geschiedenis.";
+                Label.Text = "Er staan op dit moment geen bestellingen in de geschiedenis.";
                 Label.ForeColor = System.Drawing.Color.Red;
                 Label.Font = new System.Drawing.Font("Trebuchet MS", 22, System.Drawing.FontStyle.Bold);
                 Label.Location = new System.Drawing.Point(12, 12);
