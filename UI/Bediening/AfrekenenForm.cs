@@ -46,7 +46,7 @@ namespace UI
 
         private void BetalenButton_Click(object sender, EventArgs e)
         {
-            ConfirmBetaaldForm form = new ConfirmBetaaldForm(parent);
+            ConfirmBetaaldForm form = new ConfirmBetaaldForm(parent, tafel);
             form.StartPosition = FormStartPosition.CenterParent;
             DialogResult result = form.ShowDialog();
 

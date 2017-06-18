@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Model;
@@ -27,6 +28,14 @@ namespace UI
 
             this.parent = parent;
             TafelLogic = new TafelLogic();
+            
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            btn_Bezet.Enabled = false;
+            button1.Enabled = false;
+            
             List<Tafel> tafels = TafelLogic.BeginKleur();
 
             if (tafels[0].IsBezet == true)
@@ -69,15 +78,6 @@ namespace UI
             {
                 btn_Tafel10.BackColor = Color.Red;
             }
-            
-        }
-
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-            btn_Bezet.Enabled = false;
-            button1.Enabled = false;
-
-
         }
 
 
@@ -150,7 +150,6 @@ namespace UI
 
         private void btn_Tafel5_Click(object sender, EventArgs e)
         {
-            btn_Tafel5.BackColor = Color.Red;
             int nummer = 5;
             BedieningBestellingOverzichtForm tafel = new BedieningBestellingOverzichtForm(parent, nummer);
 
@@ -168,7 +167,6 @@ namespace UI
 
         private void btn_Tafel6_Click(object sender, EventArgs e)
         {
-            btn_Tafel6.BackColor = Color.Red;
             int nummer = 6;
             BedieningBestellingOverzichtForm tafel = new BedieningBestellingOverzichtForm(parent, nummer);
 
@@ -237,7 +235,6 @@ namespace UI
 
         private void btn_Tafel10_Click(object sender, EventArgs e)
         {
-            btn_Tafel10.BackColor = Color.Red;
             int nummer = 10;
             BedieningBestellingOverzichtForm tafel = new BedieningBestellingOverzichtForm(parent, nummer);
 

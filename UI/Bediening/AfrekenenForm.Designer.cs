@@ -43,7 +43,7 @@
             // 
             // ButtonOpmerkingen
             // 
-            this.ButtonOpmerkingen.Location = new System.Drawing.Point(50, 767);
+            this.ButtonOpmerkingen.Location = new System.Drawing.Point(69, 747);
             this.ButtonOpmerkingen.Margin = new System.Windows.Forms.Padding(2);
             this.ButtonOpmerkingen.Name = "ButtonOpmerkingen";
             this.ButtonOpmerkingen.Size = new System.Drawing.Size(152, 77);
@@ -54,7 +54,7 @@
             // 
             // BetalenButton
             // 
-            this.BetalenButton.Location = new System.Drawing.Point(319, 767);
+            this.BetalenButton.Location = new System.Drawing.Point(338, 747);
             this.BetalenButton.Margin = new System.Windows.Forms.Padding(2);
             this.BetalenButton.Name = "BetalenButton";
             this.BetalenButton.Size = new System.Drawing.Size(152, 77);
@@ -65,7 +65,7 @@
             // 
             // textBoxOpmerkingen
             // 
-            this.textBoxOpmerkingen.Location = new System.Drawing.Point(17, 687);
+            this.textBoxOpmerkingen.Location = new System.Drawing.Point(36, 667);
             this.textBoxOpmerkingen.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxOpmerkingen.Multiline = true;
             this.textBoxOpmerkingen.Name = "textBoxOpmerkingen";
@@ -123,7 +123,7 @@
             // 
             // TipToevoegenButton
             // 
-            this.TipToevoegenButton.Location = new System.Drawing.Point(319, 717);
+            this.TipToevoegenButton.Location = new System.Drawing.Point(338, 697);
             this.TipToevoegenButton.Name = "TipToevoegenButton";
             this.TipToevoegenButton.Size = new System.Drawing.Size(152, 40);
             this.TipToevoegenButton.TabIndex = 8;
@@ -133,7 +133,7 @@
             // 
             // textBoxTip
             // 
-            this.textBoxTip.Location = new System.Drawing.Point(319, 687);
+            this.textBoxTip.Location = new System.Drawing.Point(338, 667);
             this.textBoxTip.Name = "textBoxTip";
             this.textBoxTip.Size = new System.Drawing.Size(152, 20);
             this.textBoxTip.TabIndex = 9;

@@ -18,6 +18,7 @@ namespace UI
         BedieningForm parent;
         Tafel tafel;
         BestellingOverzicht BestellingOverzicht = new BestellingOverzicht();
+        BerekenRekening BerekenRekening = new BerekenRekening();
 
 
         public BedieningBestellingOverzichtForm(BedieningForm parent, int Tafelnummer)
@@ -28,7 +29,8 @@ namespace UI
             if (!tafel.IsBezet)
             {
                 // TODO Maak nieuwe rekening voor tafel aan
-                BestellingOverzicht.VoegBestellingToe(parent.IngelogdeMedewerker, tafel);
+               
+                BestellingOverzicht.VoegBestellingToe(parent.IngelogdeMedewerker, BerekenRekening.CreateRekening(), tafel);
             }
 
             InitializeComponent();

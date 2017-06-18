@@ -52,7 +52,7 @@ namespace DAL
 
                 Medewerker Medewerker = MedewerkerDAO.GetForId(reader.GetInt32(1));
                 Tafel Tafel = TafelDAO.GetForId(reader.GetInt32(2));
-                Rekening Rekening = RekeningDAO.GetForId(reader.GetInt32(3));
+                Rekening Rekening = reader.IsDBNull(3) ? null : RekeningDAO.GetForId(reader.GetInt32(3));
                 Bestelling = new Bestelling(Id, opmerking, Medewerker, Tafel, Rekening);
             }
 

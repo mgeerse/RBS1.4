@@ -43,11 +43,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.btn_Bezet = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.IngelogdeMedewerkerToolStripLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.btn_Loguit = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
-            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_KeukenVoorraad
@@ -234,49 +230,18 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(468, 772);
             this.flowLayoutPanel1.TabIndex = 15;
             // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.IngelogdeMedewerkerToolStripLabel});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 827);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(527, 22);
-            this.statusStrip1.TabIndex = 16;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // IngelogdeMedewerkerToolStripLabel
-            // 
-            this.IngelogdeMedewerkerToolStripLabel.Name = "IngelogdeMedewerkerToolStripLabel";
-            this.IngelogdeMedewerkerToolStripLabel.Size = new System.Drawing.Size(149, 17);
-            this.IngelogdeMedewerkerToolStripLabel.Text = "Ingelogd als: Niet Ingelogd";
-            // 
-            // btn_Loguit
-            // 
-            this.btn_Loguit.Location = new System.Drawing.Point(440, 827);
-            this.btn_Loguit.Name = "btn_Loguit";
-            this.btn_Loguit.Size = new System.Drawing.Size(75, 23);
-            this.btn_Loguit.TabIndex = 17;
-            this.btn_Loguit.Text = "Uitloggen";
-            this.btn_Loguit.UseVisualStyleBackColor = true;
-            this.btn_Loguit.Click += new System.EventHandler(this.btn_Loguit_Click);
-            // 
             // BedieningTafelOverzichtForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(527, 849);
-            this.Controls.Add(this.btn_Loguit);
-            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "BedieningTafelOverzichtForm";
             this.Text = "Chapoo Bestelsysteem";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -297,9 +262,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btn_Bezet;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.Button btn_Loguit;
-        private System.Windows.Forms.ToolStripStatusLabel IngelogdeMedewerkerToolStripLabel;
     }
 }
 

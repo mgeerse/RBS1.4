@@ -34,7 +34,7 @@ namespace Logic
 
             return geredeBestelitems;
         }
-
+        
 
         public List<Bestelitem> GetGeredeBestelitems(int Tafelnummer)
         {
@@ -108,9 +108,9 @@ namespace Logic
             bestelitemDAO.Delete(Bestelitem);
         }
 
-        public Bestelling VoegBestellingToe(Medewerker Medewerker, Tafel Tafel)
+        public Bestelling VoegBestellingToe(Medewerker Medewerker, Rekening Rekening, Tafel Tafel)
         {
-            BestellingDAO.Create(new Bestelling(0, "", Medewerker, Tafel, null));
+            BestellingDAO.Create(new Bestelling(0, "", Medewerker, Tafel, Rekening));
             return BestellingDAO.GetLaatsteForTafel(Tafel.Id);
         }
     }
