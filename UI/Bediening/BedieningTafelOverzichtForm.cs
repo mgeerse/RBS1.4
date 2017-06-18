@@ -249,8 +249,7 @@ namespace UI
                 btn_Tafel10.BackColor = Color.Lime;
             }
         }
-
-        #endregion
+        
 
         void btn_Loguit_Click(object sender, EventArgs e) { }
 
