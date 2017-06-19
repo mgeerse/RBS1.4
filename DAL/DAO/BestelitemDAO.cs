@@ -132,6 +132,8 @@ namespace DAL
         {
             List<Bestelitem> result = new List<Bestelitem>();
 
+            conn = DbConnection.GetSqlConnection();
+
             conn.Open();
 
             string query = "SELECT Bestelling, Menuitem, Aantal, Opmerking, Status, TijdIngevoerd" +

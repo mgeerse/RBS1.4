@@ -65,16 +65,13 @@ namespace UI
             {
                 foreach (var BestelList in AllNewOrders)
                 {
-                    if (BestelList.Bestelling.Id != EersteBestelId)
-                    {
-                        break;
-                    }
-                    else if (BestelList.Bestelling.Id == EersteBestelId)
+                    if (BestelList.Bestelling.Id != LaatsGebruikteId && BestelList.Bestelling.Id == EersteBestelId)
                     {
                         #region Controls aanmaken en de parent geven.
                         Button = new BestelControlsProperties.GereedButton();
                         Label1 = new BestelControlsProperties.InfoLabelDatum(BestelList.Tijdingevoerd);
                         DateTime TijdVerschil = (DateTime.Now - BestelList.Tijdingevoerd.TimeOfDay);
+                        Button = new BestelControlsProperties.GereedButton();
                         Label2 = new BestelControlsProperties.InfoLabelVerschil(BestelList.Tijdingevoerd);
                         Label3 = new BestelControlsProperties.InfoLabelMedewerker("Bestelling opgenomen door: " + BestelList.Bestelling.Medewerker.Naam);
                         TabPage = new BestelControlsProperties.OrderTabPage("Eerstvolgende bestelling: Tafel#" + BestelList.Bestelling.Tafel.Id + " | Besteld om " + BestelList.Tijdingevoerd.ToString("HH:mm"));
@@ -93,7 +90,7 @@ namespace UI
                         #endregion
                         //De gebruikte indexes mag gelijk op 1 komen te staan (we zijn 1 keer door de List heen gelopen):
                         GebruikteIndexes++;
-                         
+
                         //De BestelId gelijk vastzetten:
                         EersteBestelId = BestelList.Bestelling.Id;
                         LaatsGebruikteId = BestelList.Bestelling.Id;
@@ -160,6 +157,7 @@ namespace UI
                     };
                 }
             }
+        
             else if (AllNewOrders.Count == 0)
             {
                 Label Label = new BestelControlsProperties.NoOrderLabel("Er zijn geen bestellingen.");

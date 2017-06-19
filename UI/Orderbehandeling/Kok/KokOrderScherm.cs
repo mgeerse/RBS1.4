@@ -37,20 +37,9 @@ namespace UI
 
         public Control MaakLinkerControl(Panel Panel)
         {
-            #region TabControl aanmaken:
             TabControl TabControl = new BestelControlsProperties.LinkerTabControl();
-            #endregion
+            TreeView TreeView;
 
-            #region Eerst de TabControl en TabPage aanmaken:
-            TabPage TabPage;
-            TreeView TreeView = new BestelControlsProperties.TreeViewBestelling("Gerecht:");
-            RichTextBox RichTextBox = new BestelControlsProperties.OpmerkingTextBox();
-            Button Button = new BestelControlsProperties.GereedButton();
-            Label Label1;
-            Label Label2;
-            Label Label3;
-            GroupBox GroupBox = new BestelControlsProperties.GroupBoxInformation("Extra informatie: ");
-            #endregion
 
             foreach (var item in AllNewOrders.Take(1))
             {
@@ -64,20 +53,25 @@ namespace UI
             {
                 foreach (var BestelList in AllNewOrders)
                 {
+                    TreeView = new BestelControlsProperties.TreeViewBestelling("Drankje:");
+                    GroupBox GroupBox = new BestelControlsProperties.GroupBoxInformation("Extra Informatie: ");
+                    RichTextBox RichTextBox = new BestelControlsProperties.OpmerkingTextBox();
+
                     if (BestelList.Bestelling.Id != EersteBestelId)
                     {
                         break;
                     }
-                    else if (BestelList.Bestelling.Id == EersteBestelId)
+                    else if (BestelList.Bestelling.Id != EersteBestelId)
                     {
                         #region Controls aanmaken en de parent geven.
-                        Button = new BestelControlsProperties.GereedButton();
-                        Label1 = new BestelControlsProperties.InfoLabelDatum(BestelList.Tijdingevoerd);
+                        Button Button = new BestelControlsProperties.GereedButton();
+                        Label Label1 = new BestelControlsProperties.InfoLabelDatum(BestelList.Tijdingevoerd);
                         DateTime TijdVerschil = (DateTime.Now - BestelList.Tijdingevoerd.TimeOfDay);
-                        Label2 = new BestelControlsProperties.InfoLabelVerschil(BestelList.Tijdingevoerd);
-                        Label3 = new BestelControlsProperties.InfoLabelMedewerker("Bestelling opgenomen door: " + BestelList.Bestelling.Medewerker.Naam);
-                        TabPage = new BestelControlsProperties.OrderTabPage("Eerstvolgende bestelling: Tafel#" + BestelList.Bestelling.Tafel.Id + " | Besteld om " + BestelList.Tijdingevoerd.ToString("HH:mm"));
-
+                        Label Label2 = new BestelControlsProperties.InfoLabelVerschil(BestelList.Tijdingevoerd);
+                        Label Label3 = new BestelControlsProperties.InfoLabelMedewerker("Bestelling opgenomen door: " + BestelList.Bestelling.Medewerker.Naam);
+                        TabPage TabPage = new BestelControlsProperties.OrderTabPage("Eerstvolgende bestelling: Tafel#" + BestelList.Bestelling.Tafel.Id + " | Besteld om " + BestelList.Tijdingevoerd.ToString("HH:mm"));
+                        
+                        
 
                         TabPage.Controls.Add(GroupBox);
                         TabPage.Controls.Add(TreeView);
@@ -92,7 +86,7 @@ namespace UI
                         #endregion
                         //De gebruikte indexes mag gelijk op 1 komen te staan (we zijn 1 keer door de List heen gelopen):
                         GebruikteIndexes++;
-                         
+
                         //De BestelId gelijk vastzetten:
                         EersteBestelId = BestelList.Bestelling.Id;
                         LaatsGebruikteId = BestelList.Bestelling.Id;
@@ -127,7 +121,7 @@ namespace UI
                         GebruikteIndexes++;
                         BestelItems.Add(BestelList);
 
-                        #region Items toevoegen aan de treeview, en de opmerkingen hiervan meenemen:
+                        //Items toevoegen aan de treeview, en de opmerkingen hiervan meenemen:
 
                         TreeView.Nodes[0].Text = "Gerechten:";
 
@@ -144,30 +138,23 @@ namespace UI
                             RichTextBox.Text = "Opmerkingen: ";
                             RichTextBox.Text += "\n- " + BestelList.Menuitem.Naam + ": " + BestelList.Bestelling.Opmerking + "\n";
                         }
-
-                        #endregion
                         BestelItems.Add(BestelList);
                     }
 
-                    #region Properties voor de controls:
                     GroupBox.Update();
-                    #endregion
-
-                    Button.Click += delegate (object sender, EventArgs e)
-                    {
-                        Button_Click(sender, e, BestelItems, BestelList.Bestelling.Id);
-                    };
                 }
             }
             else if (AllNewOrders.Count == 0)
             {
+                TabPage TabPage = new BestelControlsProperties.OrderTabPage("Geen Orders!");
+
                 Label Label = new BestelControlsProperties.NoOrderLabel("Er zijn geen bestellingen.");
-                TabPage = new BestelControlsProperties.OrderTabPage("Geen orders!");
-                Label.Parent = TabPage;
+                TabPage.Controls.Add(Label);
 
                 //De tabpage aan de tabcontrol toevoegen
                 TabControl.Controls.Add(TabPage);
             }
+
             Panel.Controls.Add(TabControl);
             return Panel;
         }
@@ -183,7 +170,7 @@ namespace UI
             TabPage TabPage;
             TreeView TreeView = new BestelControlsProperties.TreeViewBestelling("Gerecht: ");
             RichTextBox RichTextBox = new BestelControlsProperties.OpmerkingTextBox();
-            Button Button = new BestelControlsProperties.GereedButton();
+            Button Button;
             Label Label1;
             Label Label2;
             Label Label3;
@@ -248,7 +235,7 @@ namespace UI
                         {
                             RichTextBox.Text = "Er zijn is geen opmerkingen voor deze bestelling.";
                         }
-                         
+
                         #endregion
 
                     }
@@ -276,11 +263,6 @@ namespace UI
                         BestelItems.Add(BestelList);
                         #endregion
                     }
-
-                    Button.Click += delegate (object sender, EventArgs e)
-                    {
-                        Button_Click(sender, e, BestelItems, BestelList.Bestelling.Id);
-                    };
 
                     GroupBox.Update();
                 }
@@ -328,20 +310,16 @@ namespace UI
             TabControl TabControl = new BestelControlsProperties.LinkerTabControl();
             #endregion
 
-            #region Eerst de TabControl en TabPage aanmaken:
-            TabPage TabPage;
-            TreeView TreeView = new BestelControlsProperties.TreeViewBestelling("Gerecht:");
-            RichTextBox RichTextBox = new BestelControlsProperties.OpmerkingTextBox();
-            Label Label1;
-            Label Label2;
-            GroupBox GroupBox = new BestelControlsProperties.GroupBoxInformation("Extra informatie: ");
-            #endregion
-
-            
             if (AllOldOrders.Count != 0)
             {
                 foreach (var BestelList in AllOldOrders)
                 {
+                    #region Eerst de TabControl en TabPage aanmaken:
+                    TabPage TabPage;
+                    TreeView TreeView = new BestelControlsProperties.TreeViewBestelling("Gerecht:");
+                    RichTextBox RichTextBox = new BestelControlsProperties.OpmerkingTextBox();
+                    #endregion
+
                     //Eerst er voor zorgen dat alleen de bestellingen die we niet hebben gehad gedetecteerd worden
                     if (BestelList.Bestelling.Id != LaatsGebruikteId)
                     {
@@ -352,10 +330,10 @@ namespace UI
 
                         #region Controls aanmaken:
                         TreeView = new BestelControlsProperties.TreeViewBestelling("Drankje:");
-                        Label1 = new BestelControlsProperties.InfoLabelDatum(BestelList.Tijdingevoerd);
-                        Label2 = new BestelControlsProperties.InfoLabelMedewerkerGeschiedenis("Bestelling opgenomen door: " + BestelList.Bestelling.Medewerker.Naam);
+                        Label Label1 = new BestelControlsProperties.InfoLabelDatum(BestelList.Tijdingevoerd);
+                        Label Label2 = new BestelControlsProperties.InfoLabelMedewerkerGeschiedenis("Bestelling opgenomen door: " + BestelList.Bestelling.Medewerker.Naam);
                         RichTextBox = new BestelControlsProperties.OpmerkingTextBoxGeschiedenis();
-                        GroupBox = new BestelControlsProperties.GroupBoxInformation("Extra informatie: ");
+                        GroupBox GroupBox = new BestelControlsProperties.GroupBoxInformation("Extra informatie: ");
                         TabPage = new BestelControlsProperties.OrderTabPage("Tafel#" + BestelList.Bestelling.Tafel.Id + " | Besteld om " + BestelList.Tijdingevoerd.ToString("HH:mm"));
 
                         //Controls direct toevoegen aan TabPage
@@ -435,19 +413,10 @@ namespace UI
             {
                 #region controls en properties:
 
-                Label Label = new Label();
-                TabPage = new TabPage();
+                Label Label = new BestelControlsProperties.NoOrderLabel("Er staan op dit moment geen bestellingen in de geschiedenis.");
+                TabPage TabPage = new BestelControlsProperties.OrderTabPage("Geen Bestellingen");
 
-                TabPage.BackColor = System.Drawing.Color.LightSlateGray;
-
-                Label.Parent = TabPage;
-                Label.Text = "Er staan op dit moment geen bestellingen in de geschiedenis.";
-                Label.ForeColor = System.Drawing.Color.Red;
-                Label.Font = new System.Drawing.Font("Trebuchet MS", 22, System.Drawing.FontStyle.Bold);
-                Label.Location = new System.Drawing.Point(12, 12);
-                Label.Size = new System.Drawing.Size(500, 695);
                 TabPage.Controls.Add(Label);
-                TabPage.Text = "Geen bestellingen.";
 
                 #endregion
 
@@ -463,7 +432,6 @@ namespace UI
 
         private void Button_Click(object sender, EventArgs e, List<Bestelitem> BestelItems, int Id)
         {
-            
 
             DialogResult DialogResult = MessageBox.Show("Weet u zeker dat de bestelling gereed is?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (DialogResult == DialogResult.Yes)
@@ -472,7 +440,7 @@ namespace UI
                 {
                     Bestelling.BestellingGereed(BestelItems, Id);
                 }
-                catch(Exception x)
+                catch (Exception x)
                 {
                     MessageBox.Show("Er is iets misgegaan met het gereed maken van de bestelling! Excuses.", x.ToString());
                 }

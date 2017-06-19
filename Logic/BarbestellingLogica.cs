@@ -30,7 +30,6 @@ namespace Logic
 
         public bool BestellingGereed(List<Bestelitem> Object, int Id)
         {
-
             try
             {
                 foreach (var item in Object)
