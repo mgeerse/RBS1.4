@@ -23,7 +23,7 @@ namespace UI
             timer1.Interval = 10000;
             timer1.Start();
 
-            this.FormClosed += Kok_FormClosed;
+            FormClosed += Kok_FormClosed;
         }
 
         private void Kok_FormClosed(object sender, FormClosedEventArgs e)
