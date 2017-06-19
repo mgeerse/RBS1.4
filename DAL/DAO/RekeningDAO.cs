@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using Model;
+using System.Globalization;
 
 namespace DAL
 {
@@ -54,7 +55,7 @@ namespace DAL
         {
             conn.Open();
             string query = "UPDATE Rekening" +
-                " SET PrijsExclusief = " + Object.TotaalExclusief + ", BtwBedrag = " + Object.BtwBedrag +
+                " SET PrijsExclusief = " + Object.TotaalExclusief.ToString("0.00", CultureInfo.InvariantCulture) + ", BtwBedrag = " + Object.BtwBedrag.ToString("0.00", CultureInfo.InvariantCulture) +
                 " WHERE RekeningId = " + Object.Id;
 
             SqlCommand command = new SqlCommand(query, conn);

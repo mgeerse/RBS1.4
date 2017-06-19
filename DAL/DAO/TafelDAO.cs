@@ -41,7 +41,8 @@ namespace DAL
             conn.Open();
 
             string query = "SELECT TafelId, IsBezet" +
-                " FROM Tafel";
+                " FROM Tafel" +
+                " WHERE TafelId = " + Id;
 
             SqlCommand command = new SqlCommand(query, conn);
             SqlDataReader reader = command.ExecuteReader();
