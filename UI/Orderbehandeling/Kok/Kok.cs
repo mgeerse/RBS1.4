@@ -28,7 +28,7 @@ namespace UI
 
         private void Kok_FormClosed(object sender, FormClosedEventArgs e)
         {
-            MainForm.Close();
+            MainForm.Show();
         }
 
         private void Barman_Load(object sender, EventArgs e)
